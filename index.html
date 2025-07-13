@@ -740,6 +740,71 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--secondary-color);
         }
+
+
+
+        .trek-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+}
+
+.btn-book-now {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+}
+
+.btn-book-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    color: white;
+}
+
+.btn-book-now i {
+    font-size: 1.1rem;
+}
+
+/* Make buttons responsive */
+@media (max-width: 768px) {
+    .trek-buttons {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .btn-read-more,
+    .btn-book-now {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+/* Pulse animation for Book Now buttons */
+@keyframes bookNowPulse {
+    0% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.6);
+    }
+    100% {
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+}
+
+.btn-book-now:hover {
+    animation: bookNowPulse 1.5s infinite;
+}
     </style>
 </head>
 <body>
@@ -752,7 +817,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#home">
-                <i class="bi bi-mountain"></i> HENJODI STORES
+                <i class="bi bi-mountain"></i> KUDREMUKH TREKS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
@@ -830,67 +895,86 @@
     </section>
 
     <!-- Popular Treks Section -->
-    <section id="treks" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Popular Treks</h2>
-            <div class="row">
-                <!-- Kudremukh Trek -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="trek-card">
-                        <div class="trek-img" style="background-image: url('image/kmlogo.avif')"></div>
-
-                        <div class="trek-info">
-                            <h3 class="trek-title">Kudremukh Peak Trek</h3>
-                            <ul class="trek-details">
-                                <li><i class="bi bi-geo-alt"></i> Kudremukh National Park</li>
-                                <li><i class="bi bi-clock"></i>1 or 2 Days</li>
-                                <li><i class="bi bi-speedometer2"></i> Moderate to Difficult</li>
-                                <li><i class="bi bi-rulers"></i> 18–20 km</li>
-                                <li><i class="bi bi-mountain"></i> 1,894 meters altitude</li>
-                            </ul>
+    <!-- Popular Treks Section -->
+<section id="treks" class="section">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Popular Treks</h2>
+        <div class="row">
+            <!-- Kudremukh Trek -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="trek-card">
+                    <div class="trek-img" style="background-image: url('image/kmlogo.avif')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Kudremukh Peak Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i> Kudremukh National Park</li>
+                            <li><i class="bi bi-clock"></i>1 or 2 Days</li>
+                            <li><i class="bi bi-speedometer2"></i> Moderate to Difficult</li>
+                            <li><i class="bi bi-rulers"></i> 18–20 km</li>
+                            <li><i class="bi bi-mountain"></i> 1,894 meters altitude</li>
+                        </ul>
+                        <div class="trek-buttons">
                             <a href="kudremukh.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Kudremukh Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Netravati Trek -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="trek-card">
-                        <div class="trek-img" style="background-image: url('image/nplogo.jpg')"></div>
-                        <div class="trek-info">
-                            <h3 class="trek-title">Netravati Peak Trek</h3>
-                            <ul class="trek-details">
-                                <li><i class="bi bi-geo-alt"></i> Netravati Wildlife Sanctuary</li>
-                                <li><i class="bi bi-clock"></i> 5-6 hours (round trip)</li>
-                                <li><i class="bi bi-speedometer2"></i>Moderate</li>
-                                <li><i class="bi bi-rulers"></i>14-16 km (both ways)</li>
-                                <li><i class="bi bi-mountain"></i>	~1,520 meters (4,987 feet)</li>
-                            </ul>
+            <!-- Netravati Trek -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="trek-card">
+                    <div class="trek-img" style="background-image: url('image/nplogo.jpg')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Netravati Peak Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i> Netravati Wildlife Sanctuary</li>
+                            <li><i class="bi bi-clock"></i> 5-6 hours (round trip)</li>
+                            <li><i class="bi bi-speedometer2"></i>Moderate</li>
+                            <li><i class="bi bi-rulers"></i>14-16 km (both ways)</li>
+                            <li><i class="bi bi-mountain"></i>~1,520 meters (4,987 feet)</li>
+                        </ul>
+                        <div class="trek-buttons">
                             <a href="netravati.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <!-- Mullayyana Giri Trek -->
-                <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="trek-card">
-                        <div class="trek-img" style="background-image: url('image/kklogo.jpeg')"></div>
-                        <div class="trek-info">
-                            <h3 class="trek-title">Kuranjal Peak</h3>
-                            <ul class="trek-details">
-                                <li><i class="bi bi-geo-alt"></i>Near Samse, inside Kudremukha Reserve Forest</li>
-                                <li><i class="bi bi-clock"></i>Full-day trek</li>
-                                <li><i class="bi bi-speedometer2"></i> Easy to Moderate</li>
-                                <li><i class="bi bi-rulers"></i> 6–7 km (one way) trek distance</li>
-                                <li><i class="bi bi-mountain"></i> 1,894 meters</li>
-                            </ul>
+            <!-- Kuranjal Peak Trek -->
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="trek-card">
+                    <div class="trek-img" style="background-image: url('image/kklogo.jpeg')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Kuranjal Peak</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i>Near Samse, inside Kudremukha Reserve Forest</li>
+                            <li><i class="bi bi-clock"></i>Full-day trek</li>
+                            <li><i class="bi bi-speedometer2"></i> Easy to Moderate</li>
+                            <li><i class="bi bi-rulers"></i> 6–7 km (one way) trek distance</li>
+                            <li><i class="bi bi-mountain"></i> 1,894 meters</li>
+                        </ul>
+                        <div class="trek-buttons">
                             <a href="kuranjal.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Kuranjal Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Why Choose Us Section -->
     <section id="why-choose" class="section why-choose-section">
@@ -931,7 +1015,7 @@
             <div class="row">
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1551698618-1dfe5d97d256?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="offer-img" style="background-image: url('video/Guided Treks.jpg')"></div>
                         <div class="offer-info">
                             <h3 class="offer-title">Guided Treks</h3>
                             <p class="offer-description">Professional guided treks to various peaks and destinations in the Western Ghats.</p>
@@ -940,7 +1024,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
                     <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1504851149312-7a075b496cc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="offer-img" style="background-image: url('image/all-inclusive2ndoption.webp')"></div>
                         <div class="offer-info">
                             <h3 class="offer-title">All-Inclusive Package</h3>
                             <p class="offer-description">One price covers permits, jeep rides and food you need for a smooth trek.</p>
@@ -949,10 +1033,10 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')"></div>
+                        <div class="offer-img" style="background-image: url('video/food-location-logo.jpg')"></div>
                         <div class="offer-info">
                             <h3 class="offer-title">Local Cuisine</h3>
-                            <p class="offer-description">Authentic Malenadu cuisine and traditional dishes prepared by local families.</p>
+                            <p class="offer-description">Authentic Malenadu cuisine and traditional dishes prepared by local families.(LIMITED FOR 400 PEOPLES)</p>
                         </div>
                     </div>
                 </div>
@@ -965,7 +1049,7 @@
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
                     <div class="store-image-container">
-                        <img src="image/Screenshot 2025-07-11 035902.png" alt="Store Front" class="store-image">
+                        <img src="image/Screenshot 2025-07-11 040805.png" alt="Store Front" class="store-image">
                         <div class="store-image-overlay">
                             <h5>Store Front</h5>
                             <p>Welcome to our adventure hub</p>
@@ -976,17 +1060,15 @@
                     <div class="store-image-container">
                         <img src="image/Screenshot 2025-07-11 040927.png" alt="Equipment Display" class="store-image">
                         <div class="store-image-overlay">
-                            <h5>Equipment Display</h5>
-                            <p>Quality gear for your adventures</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
                     <div class="store-image-container">
-                        <img src="image/Screenshot 2025-07-11 040805.png" alt="Local Products" class="store-image">
+                        <img src="image/Screenshot 2025-07-11 035902.png" alt="Local Products" class="store-image">
                         <div class="store-image-overlay">
                             <h5>Local Products</h5>
-                            <p>Authentic Malenadu specialties</p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -1058,11 +1140,11 @@
                         <h3 class="footer-title">Henjodi Stores</h3>
                         <div class="footer-info">
                             <i class="bi bi-geo-alt"></i>
-                            Malenadu Region, Karnataka, India
+                            Balagal, Bus Stop, SH 66, Kalasa, Karnataka 577124
                         </div>
                         <div class="footer-info">
                             <i class="bi bi-telephone"></i>
-                            +91 98765 43210
+                            +91 80731 78851
                         </div>
                         <div class="footer-info">
                             <i class="bi bi-envelope"></i>
