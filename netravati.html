@@ -1089,6 +1089,132 @@ body::before {
   }
 }
 
+/* Booking UI */
+.booking-card {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 2rem;
+}
+
+@media (max-width: 992px) {
+  .booking-card { grid-template-columns: 1fr; }
+}
+
+.price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(216, 27, 96, 0.12);
+  color: var(--accent-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.booking-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 576px) {
+  .booking-form .form-row { grid-template-columns: 1fr; }
+}
+
+.booking-form label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(0,0,0,0.1);
+  outline: none;
+  background: rgba(255,255,255,0.9);
+}
+
+.booking-form .helper {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.booking-form .submit-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.badge-soft {
+  background: rgba(15, 23, 42, 0.06);
+  color: var(--neutral-700);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.package-card {
+  background: var(--bg-glass);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.package-price {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-color);
+}
+
+.package-features {
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+.package-features li { display: flex; gap: .5rem; align-items: center; margin: .4rem 0; }
+.package-features li i { color: var(--accent-color); }
+
+.mobile-sticky-cta {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(15, 23, 42, 0.9);
+  backdrop-filter: blur(10px);
+  padding: .75rem 1rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1100;
+}
+
+.mobile-sticky-cta .cta-btn {
+  background: var(--accent-color);
+  color: #fff;
+  border-radius: 999px;
+  padding: .6rem 1.2rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .mobile-sticky-cta { display: flex; }
+}
 
     </style>
 </head>
@@ -1114,10 +1240,10 @@ body::before {
             <a href="index.html" class="nav-brand">KUDREMUKH TREKS</a>
             <ul class="nav-menu">
                 <li><a href="#overview" class="nav-link">Overview</a></li>
-                <li><a href="#highlights" class="nav-link">Highlights</a></li>
+                <li><a href="#packages" class="nav-link">Packages</a></li>
                 <li><a href="#permits" class="nav-link">Permits</a></li>
                 <li><a href="#reach" class="nav-link">How to Reach</a></li>
-                <li><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="nav-cta" target="_blank">Book Now</a></li>
+                <li><a href="#book" class="nav-cta">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -1129,7 +1255,7 @@ body::before {
             <h1 class="hero-title">⛰️ Netravati Peak Trek</h1>
             <p class="hero-subtitle">Discover the scenic beauty of Kudremukh National Park with our comprehensive guide</p>
             <div class="hero-actions">
-                <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-primary"><i class="bi bi-whatsapp"></i> Book Your Trek</a>
+                <a href="#book" class="btn-primary"><i class="bi bi-calendar2-check"></i> Book Your Trek</a>
                 <a href="#overview" class="btn-secondary">Explore Details</a>
             </div>
         </div>
@@ -1138,6 +1264,88 @@ body::before {
     <!-- Main Content -->
     <main class="main-content">
         <div class="container">
+            <!-- Booking Card -->
+            <div id="book" class="content-card booking-card">
+                <div>
+                    <div class="card-header">
+                        <span class="card-icon"><i class="bi bi-calendar-check"></i></span>
+                        <div>
+                            <h2 class="card-title">Book Netravati Peak Trek</h2>
+                            <p class="card-subtitle">Fast confirmation over WhatsApp</p>
+                        </div>
+                    </div>
+                    <div class="price-badge"><i class="bi bi-currency-rupee"></i> Starting ₹1,499 per person</div>
+                    <p class="card-content">Permit assistance, certified local guide, optional jeep transfers, meals and homestay on request. Flexible for groups and solo travellers.</p>
+                    <ul class="feature-list" style="margin-top:1rem">
+                        <li>Instant WhatsApp reply within 5 minutes (6 AM – 9 PM)</li>
+                        <li>Free reschedule up to 48 hours before trek day</li>
+                        <li>No hidden charges; pay directly at start point</li>
+                    </ul>
+                </div>
+                <div>
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div>
+                                <label for="date">Preferred Date</label>
+                                <input type="date" id="date" name="date" required>
+                                <div class="helper">Trek allowed 6 AM – 6 PM only</div>
+                            </div>
+                            <div>
+                                <label for="groupSize">Group Size</label>
+                                <select id="groupSize" name="groupSize" required>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10+">10+</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="pickup">Pickup / Meeting Point</label>
+                                <select id="pickup" name="pickup" required>
+                                    <option value="Samse (Forest Checkpost)">Samse (Forest Checkpost)</option>
+                                    <option value="Kalasa Town">Kalasa Town</option>
+                                    <option value="Homestay near Samse">Homestay near Samse</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="package">Package</label>
+                                <select id="package" name="package" required>
+                                    <option value="Permit + Guide">Permit + Guide</option>
+                                    <option value="Permit + Guide + Jeep">Permit + Guide + Jeep</option>
+                                    <option value="All Inclusive (Food + Homestay)">All Inclusive (Food + Homestay)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div>
+                                <label for="name">Your Name</label>
+                                <input type="text" id="name" name="name" placeholder="Full Name" required>
+                            </div>
+                            <div>
+                                <label for="phone">WhatsApp Number</label>
+                                <input type="tel" id="phone" name="phone" placeholder="e.g. 98765 43210" required>
+                            </div>
+                        </div>
+                        <div style="margin-top:1rem">
+                            <label for="notes">Notes (optional)</label>
+                            <textarea id="notes" name="notes" rows="3" placeholder="Any special requests (meals, timing, stay)..."></textarea>
+                        </div>
+                        <div class="submit-row">
+                            <button type="submit" class="btn-primary"><i class="bi bi-whatsapp"></i> Send Enquiry on WhatsApp</button>
+                            <span class="badge-soft"><i class="bi bi-shield-check"></i> Secure & swift reply</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
             <!-- Quick Stats -->
             <div class="stats-grid" id="overview">
                 <div class="stat-card">
@@ -1163,6 +1371,49 @@ body::before {
                 <div class="stat-card">
                     <span class="stat-value">Sep–Feb</span>
                     <span class="stat-label">Best Season</span>
+                </div>
+            </div>
+
+            <!-- Packages & Pricing -->
+            <div id="packages" class="content-card">
+                <div class="card-header">
+                    <span class="card-icon"><i class="bi bi-box-seam"></i></span>
+                    <div>
+                        <h2 class="card-title">Packages & Pricing</h2>
+                        <p class="card-subtitle">Choose what fits your plan</p>
+                    </div>
+                </div>
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-price">₹1,499 <small class="text-muted" style="font-weight:600">per person</small></div>
+                        <h3 style="margin:.5rem 0 1rem; font-family: var(--font-secondary); font-weight:700">Permit + Guide</h3>
+                        <ul class="package-features">
+                            <li><i class="bi bi-check-circle"></i> Forest entry permit</li>
+                            <li><i class="bi bi-check-circle"></i> Certified local guide</li>
+                            <li><i class="bi bi-check-circle"></i> Trek support hotline</li>
+                        </ul>
+                        <a href="#book" class="btn-primary" style="padding:.6rem 1.2rem">Book</a>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-price">₹1,999 <small class="text-muted" style="font-weight:600">per person</small></div>
+                        <h3 style="margin:.5rem 0 1rem; font-family: var(--font-secondary); font-weight:700">Permit + Guide + Jeep</h3>
+                        <ul class="package-features">
+                            <li><i class="bi bi-check-circle"></i> Everything in basic</li>
+                            <li><i class="bi bi-check-circle"></i> Jeep to/from trailhead</li>
+                            <li><i class="bi bi-check-circle"></i> Slot coordination</li>
+                        </ul>
+                        <a href="#book" class="btn-primary" style="padding:.6rem 1.2rem">Book</a>
+                    </div>
+                    <div class="package-card">
+                        <div class="package-price">₹3,499 <small class="text-muted" style="font-weight:600">per person</small></div>
+                        <h3 style="margin:.5rem 0 1rem; font-family: var(--font-secondary); font-weight:700">All Inclusive</h3>
+                        <ul class="package-features">
+                            <li><i class="bi bi-check-circle"></i> Permit + guide + jeep</li>
+                            <li><i class="bi bi-check-circle"></i> Breakfast + packed lunch</li>
+                            <li><i class="bi bi-check-circle"></i> Homestay (optional add-on)</li>
+                        </ul>
+                        <a href="#book" class="btn-primary" style="padding:.6rem 1.2rem">Book</a>
+                    </div>
                 </div>
             </div>
 
@@ -1301,41 +1552,14 @@ body::before {
         </ul>
     </div>
 </div>
-
-            <!-- Testimonials -->
-            <div class="content-card">
-                <div class="card-header">
-                    <span class="card-icon"><i class="bi bi-quote"></i></span>
-                    <div>
-                        <h2 class="card-title">Trekker Insights</h2>
-                        <p class="card-subtitle">What others say</p>
-                    </div>
-                </div>
-                <div class="testimonials">
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"6 + 6 km trek from Samse to peak. ₹2,000 jeep, ₹1,000 guide, ₹500 entry fee… takes about 5 hrs with leisure."</div>
-                        <div class="testimonial-author">
-                            <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <h4>Experienced Trekker</h4>
-                                <p>4/5 Stars</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="testimonial-text">"Took 7 km one-way max… beginner-friendly, but steep climb at the end. Amazing views make it worth it!"</div>
-                        <div class="testimonial-author">
-                            <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
-                            <div class="testimonial-info">
-                                <h4>Beginner Trekker</h4>
-                                <p>5/5 Stars</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </main>
+
+    <!-- Mobile sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <span style="color:#fff; font-weight:700">Netravati Trek</span>
+        <a href="#book" class="cta-btn"><i class="bi bi-calendar2-check"></i> Book</a>
+    </div>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1351,7 +1575,7 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     <h3>Quick Links</h3>
                     <ul class="footer-links">
                         <li><a href="#overview">Trek Overview</a></li>
-                        <li><a href="#highlights">Highlights</a></li>
+                        <li><a href="#packages">Packages</a></li>
                         <li><a href="#permits">Permits & Rules</a></li>
                         <li><a href="#reach">How to Reach</a></li>
                     </ul>
@@ -1367,7 +1591,7 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
             </div>
         </div>
         <div style="text-align:center; margin-top: 2rem;">
-    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." target="_blank" class="btn-primary">
+    <a href="#book" class="btn-primary">
         <i class="bi bi-whatsapp"></i> Book Netravati Trek Now
     </a>
 </div>
@@ -1484,6 +1708,42 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     });
                 });
             });
+
+            // Booking form -> WhatsApp
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                const dateInput = document.getElementById('date');
+                const today = new Date().toISOString().split('T')[0];
+                dateInput.min = today;
+
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const form = new FormData(bookingForm);
+                    const payload = {
+                        date: form.get('date'),
+                        groupSize: form.get('groupSize'),
+                        pickup: form.get('pickup'),
+                        package: form.get('package'),
+                        name: form.get('name'),
+                        phone: form.get('phone'),
+                        notes: form.get('notes') || '-'
+                    };
+
+                    const message = `Hello! I'd like to book the Netravati Peak Trek.%0A%0A` +
+                        `Name: ${encodeURIComponent(payload.name)}%0A` +
+                        `WhatsApp: ${encodeURIComponent(payload.phone)}%0A` +
+                        `Preferred Date: ${encodeURIComponent(payload.date)}%0A` +
+                        `Group Size: ${encodeURIComponent(payload.groupSize)}%0A` +
+                        `Pickup: ${encodeURIComponent(payload.pickup)}%0A` +
+                        `Package: ${encodeURIComponent(payload.package)}%0A` +
+                        `Notes: ${encodeURIComponent(payload.notes)}%0A%0A` +
+                        `Please confirm availability and total cost.`;
+
+                    const phone = '918073178851';
+                    const waUrl = `https://wa.me/${phone}?text=${message}`;
+                    window.open(waUrl, '_blank');
+                });
+            }
         });
     </script>
 </body>
