@@ -1089,6 +1089,55 @@ body::before {
   }
 }
 
+/* === BOOKING SECTION =============================== */
+.booking-section {
+    background: var(--bg-glass);
+    backdrop-filter: blur(var(--blur-xl)) saturate(180%);
+    padding: 4rem 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-3xl);
+    max-width: 900px;
+    margin: 4rem auto;
+    box-shadow: var(--shadow-2xl);
+    text-align: center;
+}
+.booking-section h2 {
+    font-family: var(--font-secondary);
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+.booking-section p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+.booking-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem 1.5rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+.booking-form input,
+.booking-form select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--neutral-300);
+    background: var(--neutral-100);
+    font-family: var(--font-primary);
+}
+.booking-form input:focus,
+.booking-form select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(216, 27, 96, 0.25);
+}
+.booking-form .full {
+    grid-column: 1 / -1;
+}
+/* ==================================================== */
+
 
     </style>
 </head>
@@ -1117,6 +1166,7 @@ body::before {
                 <li><a href="#highlights" class="nav-link">Highlights</a></li>
                 <li><a href="#permits" class="nav-link">Permits</a></li>
                 <li><a href="#reach" class="nav-link">How to Reach</a></li>
+                <li><a href="#booking" class="nav-link">Booking</a></li>
                 <li><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="nav-cta" target="_blank">Book Now</a></li>
             </ul>
         </div>
@@ -1337,6 +1387,21 @@ body::before {
         </div>
     </main>
 
+    <!-- Booking Section -->
+    <section id="booking" class="booking-section">
+        <div class="container">
+            <h2 class="card-title">Book Your Netravati Trek</h2>
+            <p>Fill in the details below and confirm instantly on WhatsApp.</p>
+            <form id="bookingForm" class="booking-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="tel" name="phone" placeholder="Phone Number" required>
+                <input type="date" name="date" required>
+                <input type="number" name="trekkers" placeholder="No. of Trekkers" min="1" value="1" required>
+                <button type="submit" class="btn-primary full"><i class="bi bi-whatsapp"></i> Confirm on WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -1484,6 +1549,20 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     });
                 });
             });
+
+            // Booking form redirect to WhatsApp
+            const bookingForm = document.getElementById('bookingForm');
+            if (bookingForm) {
+                bookingForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = bookingForm.querySelector('[name="name"]').value.trim();
+                    const phone = bookingForm.querySelector('[name="phone"]').value.trim();
+                    const date = bookingForm.querySelector('[name="date"]').value;
+                    const trekkers = bookingForm.querySelector('[name="trekkers"]').value;
+                    const msg = encodeURIComponent(`Hello! I'm ${name} (${phone}) and would like to book the Netravati Trek on ${date} for ${trekkers} trekker(s).`);
+                    window.open(`https://wa.me/918073178851?text=${msg}`, '_blank');
+                });
+            }
         });
     </script>
 </body>
