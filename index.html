@@ -3,54 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malenadu Treks & Store - Discover Hidden Treks of Western Ghats</title>
+    <title>Netravati Peak Trek - Book Your Adventure | Henjodi Stores</title>
     
     <!-- SEO Meta Tags -->
-   <!-- ✅ Main SEO Meta Tags -->
-<meta name="description" content="Henjodi Stores in Chikkamagaluru offers guided treks to Kudremukh, Netravati, and Kuranjal Peaks across the lush Malenadu mountains of the Western Ghats in Karnataka.">
-<meta name="keywords" content="Henjodi Store, Malenadu Treks, Kudremukh Peak, Netravati Peak, Kuranjal Trek, Chikkamagaluru Tourism, Western Ghats, Trekking Karnataka, Eco Tourism Malenadu">
-<meta name="author" content="Henjodi Stores">
-
-<!-- ✅ Open Graph (Facebook & Social Media) -->
-<meta property="og:title" content="Henjodi Stores - Kudremukh & Malenadu Treks">
-<meta property="og:description" content="Join Henjodi Store for guided treks to Kudremukh, Kuranjal, and Netravati in the Western Ghats of Chikkamagaluru. Book permits, food & local guides.">
-<meta property="og:image" content="https://static.vecteezy.com/system/resources/previews/006/409/443/non_2x/adventure-tour-on-the-theme-of-climbing-trekking-hiking-walking-or-vacation-with-forest-and-mountain-views-in-flat-nature-background-poster-illustration-vector.jpg">
-<meta property="og:url" content="https://www.malenadutreks.com">
-<meta property="og:type" content="website">
-
-<!-- ✅ Twitter Card Tags -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Henjodi Stores - Chikkamagaluru's Best Trek Partner">
-<meta name="twitter:description" content="Explore Kudremukh, Netravati, and Kuranjal with Henjodi Store. Get guide, food, permits & local support.">
-<meta name="twitter:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-
+    <meta name="description" content="Book your Netravati Peak Trek adventure in Kudremukh National Park. Complete trekking packages with permits, guides, and support from Henjodi Stores.">
+    <meta name="keywords" content="Netravati Peak Trek, Book Trek, Kudremukh National Park, Trekking Packages, Henjodi Stores, Karnataka Treks">
+    <meta name="author" content="Henjodi Stores">
+    
     <!-- Bootstrap CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-    <!-- AOS Animation Library -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Custom CSS -->
     <style>
-        /* Advanced CSS Styles */
         :root {
-            --primary-color: #1a5f1a;
-            --secondary-color: #2d8f2d;
+            --primary-color: #1a5f7a;
+            --secondary-color: #2d7a9a;
             --accent-color: #ff6b35;
-            --gold-color: #d4af37;
-            --dark-bg: #0a0a0a;
-            --light-bg: #f8f9fa;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --gradient-primary: linear-gradient(135deg, #1a5f1a 0%, #2d8f2d 100%);
-            --gradient-secondary: linear-gradient(135deg, #ff6b35 0%, #f39c12 100%);
-            --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.1);
-            --shadow-strong: 0 20px 60px rgba(0, 0, 0, 0.2);
-            --border-radius: 15px;
+            --accent-light: #ff8a65;
+            --success-color: #4caf50;
+            --warning-color: #ff9800;
+            --danger-color: #f44336;
+            --dark-color: #1e3a5f;
+            --light-color: #f8f9fa;
+            --text-primary: #2c3e50;
+            --text-secondary: #5a6c7d;
+            --text-muted: #7f8c8d;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f9fa;
+            --bg-dark: #1e3a5f;
+            --border-color: #e9ecef;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.15);
+            --shadow-lg: 0 8px 25px rgba(0,0,0,0.15);
+            --shadow-xl: 0 15px 35px rgba(0,0,0,0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition: all 0.3s ease;
         }
 
         * {
@@ -60,530 +53,254 @@
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
         }
 
-        /* Loading Screen */
-        .loading-overlay {
-            position: fixed;
+        /* Header */
+        .header {
+            background: var(--bg-primary);
+            box-shadow: var(--shadow-md);
+            position: sticky;
             top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: var(--gradient-dark);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 9999;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .loading-spinner {
-            width: 80px;
-            height: 80px;
-            border: 3px solid rgba(255, 255, 255, 0.1);
-            border-top: 3px solid var(--accent-color);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        /* Navigation */
-        .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            padding: 1rem 0;
-        }
-
-        .navbar.scrolled {
-            background: rgba(0, 0, 0, 0.95);
-            padding: 0.5rem 0;
-            box-shadow: var(--shadow-soft);
+            z-index: 1000;
         }
 
         .navbar-brand {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 1.8rem;
-            color: var(--text-light) !important;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            color: var(--primary-color) !important;
         }
 
-        .navbar-brand:hover {
-            color: var(--accent-color) !important;
-            transform: scale(1.05);
-        }
-
-        .navbar-nav .nav-link {
-            color: var(--text-light) !important;
+        .nav-link {
+            color: var(--text-primary) !important;
             font-weight: 500;
-            margin: 0 1rem;
-            position: relative;
-            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+            transition: var(--transition);
         }
 
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
+        .nav-link:hover {
             color: var(--accent-color) !important;
         }
 
-        .navbar-nav .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            width: 0;
-            height: 2px;
+        .btn-book-now {
             background: var(--accent-color);
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            transition: var(--transition);
         }
 
-        .navbar-nav .nav-link:hover::after,
-        .navbar-nav .nav-link.active::after {
-            width: 100%;
+        .btn-book-now:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         /* Hero Section */
         .hero-section {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), 
-                        url('https://www.captureatrip.com/_next/image?url=https%3A%2F%2Fcaptureatrip-cms-storage.s3.ap-south-1.amazonaws.com%2FTrekking_Places_in_Chennai_47570b8a49.avif&w=3840&q=50&dpl=dpl_5FYGENL7rEgvuGwD6mjyvFxuz7ag');
+            background: linear-gradient(rgba(30, 58, 95, 0.8), rgba(30, 58, 95, 0.8)), 
+                        url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
-        }
-
-        .hero-content {
+            color: white;
+            padding: 6rem 0;
             text-align: center;
-            color: var(--text-light);
-            z-index: 2;
-            position: relative;
         }
 
         .hero-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out;
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
         }
 
         .hero-subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2.5rem;
-            font-weight: 300;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
-            animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gradient-secondary);
+        .hero-badge {
+            display: inline-block;
+            background: var(--accent-color);
             color: white;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-soft);
-            animation: fadeInUp 1s ease-out 0.4s both;
+            margin-bottom: 1rem;
         }
 
-        .btn-whatsapp:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-strong);
-            color: white;
+        /* Main Content */
+        .main-content {
+            background: var(--bg-secondary);
+            padding: 4rem 0;
         }
 
-        .pulse {
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Sections */
-        .section {
-            padding: 100px 0;
-            position: relative;
-        }
-
-        .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background: var(--gradient-secondary);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-section {
-            background: var(--light-bg);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .about-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23ffffff"><polygon points="0,0 1000,0 1000,100 0,80"/></svg>');
-            background-size: cover;
-            background-position: bottom;
-            opacity: 0.1;
-        }
-
-        .about-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-            max-width: 800px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Trek Overview Cards */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .overview-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
             text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
 
-        .about-content p {
-            margin-bottom: 1.5rem;
+        .overview-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-color);
         }
 
-        .owner-photo-container {
-            text-align: center;
-            position: relative;
-        }
-
-        .owner-photo {
-            width: 200px;
-            height: 200px;
+        .overview-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
             border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--accent-color);
-            box-shadow: var(--shadow-strong);
-            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
         }
 
-        .owner-photo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.3);
-        }
-
-        .owner-info {
-            margin-top: 1.5rem;
-        }
-
-        .owner-name {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: var(--text-dark);
+        .overview-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
             margin-bottom: 0.5rem;
         }
 
-        .owner-title {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
+        .overview-label {
+            color: var(--text-secondary);
             font-weight: 500;
         }
 
-        /* Trek Cards */
-        .trek-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
+        /* Content Cards */
+        .content-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
             margin-bottom: 2rem;
-            position: relative;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
         }
 
-        .trek-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-strong);
+        .content-card:hover {
+            box-shadow: var(--shadow-xl);
         }
 
-        .trek-img {
-            height: 250px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .trek-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .trek-card:hover .trek-img::after {
-            opacity: 1;
-        }
-
-        .trek-info {
-            padding: 2rem;
-        }
-
-        .trek-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--text-dark);
-        }
-
-        .trek-details {
-            list-style: none;
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
             margin-bottom: 1.5rem;
         }
 
-        .trek-details li {
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: var(--radius-md);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .trek-details i {
-            color: var(--accent-color);
-            font-size: 1.1rem;
-        }
-
-        .btn-read-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--gradient-primary);
+            justify-content: center;
             color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-size: 1.25rem;
         }
 
-        .btn-read-more:hover {
-            transform: translateX(5px);
-            color: white;
-        }
-
-        /* Why Choose Us */
-        .why-choose-section {
-            background: var(--gradient-dark);
-            color: var(--text-light);
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .feature-title {
-            font-family: 'Playfair Display', serif;
+        .card-title {
+            font-family: 'Poppins', sans-serif;
             font-size: 1.5rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
         }
 
-        .feature-description {
-            font-size: 1rem;
-            line-height: 1.6;
-            opacity: 0.9;
+        .card-subtitle {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin: 0;
         }
 
-        /* Store Section */
-        .what-we-offer-section {
-            background: var(--light-bg);
+        /* Feature Lists */
+        .feature-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .offer-card {
-            background: white;
-            border-radius: var(--border-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-soft);
-            transition: all 0.3s ease;
-            margin-bottom: 2rem;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-strong);
-        }
-
-        .offer-img {
-            height: 200px;
-            background-size: cover;
-            background-position: center;
-            position: relative;
-        }
-
-        .offer-info {
-            padding: 1.5rem;
-        }
-
-        .offer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
-        }
-
-        .offer-description {
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .store-gallery-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
-        }
-
-        .store-image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: var(--border-radius);
-            margin-bottom: 2rem;
-        }
-
-        .store-image {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .store-image-container:hover .store-image {
-            transform: scale(1.1);
-        }
-
-        .store-image-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        .feature-list li {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 1.5rem;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            width: 24px;
+            height: 24px;
+            background: var(--success-color);
             color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .store-image-container:hover .store-image-overlay {
-            opacity: 1;
-        }
-
-        .store-image-overlay h5 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
         }
 
         /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
         .gallery-item {
-            height: 300px;
-            background-size: cover;
-            background-position: center;
-            border-radius: var(--border-radius);
             position: relative;
+            border-radius: var(--radius-md);
             overflow: hidden;
-            margin-bottom: 2rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
+            aspect-ratio: 16/10;
+            transition: var(--transition);
         }
 
         .gallery-item:hover {
-            transform: scale(1.02);
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .gallery-overlay {
@@ -591,106 +308,259 @@
             bottom: 0;
             left: 0;
             right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
             color: white;
-            padding: 1.5rem;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.2rem;
-            font-weight: 600;
+            padding: 1rem;
             transform: translateY(100%);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
         }
 
         .gallery-item:hover .gallery-overlay {
             transform: translateY(0);
         }
 
-        /* CTA Section */
-        .cta-section {
-            background: var(--gradient-primary);
-            color: var(--text-light);
+        /* Booking Section */
+        .booking-section {
+            background: var(--bg-primary);
+            border-radius: var(--radius-xl);
+            padding: 3rem;
+            margin: 3rem 0;
+            box-shadow: var(--shadow-lg);
             text-align: center;
         }
 
-        .cta-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
+        .booking-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .booking-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .package-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .package-card {
+            background: var(--bg-secondary);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .package-card:hover {
+            border-color: var(--accent-color);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .package-card.featured {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            color: white;
+        }
+
+        .package-card.featured .package-price,
+        .package-card.featured .package-features li::before {
+            color: white;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
-        .cta-subtitle {
-            font-size: 1.2rem;
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            padding: 0;
             margin-bottom: 2rem;
-            opacity: 0.9;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .package-features li::before {
+            content: '✓';
+            margin-right: 0.5rem;
+            color: var(--success-color);
+        }
+
+        .btn-package {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .btn-package.primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-package.primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-package.secondary {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .btn-package.secondary:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+        }
+
+        .map-container {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--bg-primary);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .testimonial-info p {
+            color: var(--text-muted);
+            margin: 0;
+            font-size: 0.9rem;
         }
 
         /* Footer */
         .footer {
-            background: var(--gradient-dark);
-            color: var(--text-light);
+            background: var(--bg-dark);
+            color: white;
             padding: 3rem 0 1rem;
         }
 
         .footer-content {
-            text-align: center;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
             margin-bottom: 2rem;
         }
 
-        .footer-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--accent-color);
-        }
-
-        .footer-info {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.5rem;
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            font-size: 1.1rem;
         }
 
-        .footer-info i {
-            color: var(--accent-color);
-            font-size: 1.2rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--text-light);
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            line-height: 1.6;
+            transition: var(--transition);
         }
 
-        .social-links a:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-            color: white;
+        .footer-section a:hover {
+            color: var(--accent-color);
         }
 
-        .copyright {
-            text-align: center;
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0.7;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
         }
 
         /* Responsive Design */
@@ -699,666 +569,519 @@
                 font-size: 2.5rem;
             }
             
-            .hero-subtitle {
-                font-size: 1.1rem;
+            .overview-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             }
             
-            .section-title {
-                font-size: 2.2rem;
+            .package-cards {
+                grid-template-columns: 1fr;
             }
             
-            .navbar-nav .nav-link {
-                margin: 0 0.5rem;
+            .content-card {
+                padding: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
             }
             
-            .feature-item,
-            .offer-card,
-            .trek-card {
-                margin-bottom: 1.5rem;
+            .overview-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-card {
+                padding: 1rem;
             }
         }
 
-        /* Smooth Scrolling */
-        html {
-            scroll-behavior: smooth;
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-
-        ::-webkit-scrollbar-thumb {
+        /* Scroll to Top */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
             background: var(--accent-color);
-            border-radius: 4px;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--secondary-color);
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
         }
 
-
-
-        .trek-buttons {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    margin-top: 1.5rem;
-}
-
-.btn-book-now {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--gradient-secondary);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 0.9rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-}
-
-.btn-book-now:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-    color: white;
-}
-
-.btn-book-now i {
-    font-size: 1.1rem;
-}
-
-/* Make buttons responsive */
-@media (max-width: 768px) {
-    .trek-buttons {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-    
-    .btn-read-more,
-    .btn-book-now {
-        text-align: center;
-        justify-content: center;
-    }
-}
-
-/* Pulse animation for Book Now buttons */
-@keyframes bookNowPulse {
-    0% {
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    }
-    50% {
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.6);
-    }
-    100% {
-        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-    }
-}
-
-.btn-book-now:hover {
-    animation: bookNowPulse 1.5s infinite;
-}
+        .scroll-to-top:hover {
+            background: var(--accent-light);
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div id="loading" class="loading-overlay">
-        <div class="loading-spinner"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#home">
-                <i class="bi bi-mountain"></i> KUDREMUKH TREKS
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#home">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#treks">Treks</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#store">Store</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#gallery">Gallery</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-mountain"></i> Henjodi Stores
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#overview">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#packages">Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Gallery</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-book-now" href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek with Henjodi Stores." target="_blank">
+                                <i class="bi bi-whatsapp"></i> Book Now
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section">
+    <section class="hero-section">
         <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="hero-content" data-aos="fade-up">
-                        <h1 class="hero-title">Welcome to Henjodi Stores  Your Malenadu Trek Partner</h1>
-                        <p class="hero-subtitle">Experience the pristine beauty of Karnataka's mountains with expert local guides</p>
-                        <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-whatsapp pulse">
-                            <i class="bi bi-whatsapp"></i>
-                            Book Your Adventure
+            <span class="hero-badge">Western Ghats Adventure</span>
+            <h1 class="hero-title">Netravati Peak Trek</h1>
+            <p class="hero-subtitle">Experience the breathtaking beauty of Kudremukh National Park with our expert-guided trekking packages</p>
+            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek with Henjodi Stores." class="btn btn-book-now btn-lg" target="_blank">
+                <i class="bi bi-whatsapp"></i> Book Your Adventure
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Trek Overview -->
+            <section id="overview" class="overview-grid">
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div class="overview-value">~1,520m</div>
+                    <div class="overview-label">Elevation</div>
+                </div>
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </div>
+                    <div class="overview-value">12-18 km</div>
+                    <div class="overview-label">Distance</div>
+                </div>
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <div class="overview-value">6-8 hrs</div>
+                    <div class="overview-label">Duration</div>
+                </div>
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+                    <div class="overview-value">Moderate</div>
+                    <div class="overview-label">Difficulty</div>
+                </div>
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <div class="overview-value">Sep-Feb</div>
+                    <div class="overview-label">Best Season</div>
+                </div>
+                <div class="overview-card fade-in">
+                    <div class="overview-icon">
+                        <i class="bi bi-currency-rupee"></i>
+                    </div>
+                    <div class="overview-value">₹500-600</div>
+                    <div class="overview-label">Permit Fee</div>
+                </div>
+            </section>
+
+            <!-- Trek Details -->
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="content-card fade-in">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="bi bi-info-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Trek Overview</h3>
+                                <p class="card-subtitle">Your adventure starts here</p>
+                            </div>
+                        </div>
+                        <ul class="feature-list">
+                            <li><strong>Starting Point:</strong> Samse village, ~14 km from Kalasa</li>
+                            <li><strong>Elevation:</strong> ~1,461–1,520 m</li>
+                            <li><strong>Trek Distance:</strong> ~7–9 km one-way</li>
+                            <li><strong>Duration:</strong> 4–5 hours ascent</li>
+                            <li><strong>Difficulty:</strong> Moderate; suitable for beginners</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="content-card fade-in">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="bi bi-tree"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title">Highlights & Wildlife</h3>
+                                <p class="card-subtitle">Nature's finest moments</p>
+                            </div>
+                        </div>
+                        <ul class="feature-list">
+                            <li>Dense forests, rocky ridges, and stream crossings</li>
+                            <li>Two-tier waterfalls ideal for scenic breaks</li>
+                            <li>Panoramic summit views of Kudremukh & Rani Jhari peaks</li>
+                            <li>Wildlife: Deer, monkeys, rich birdlife</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Permits & Rules -->
+            <div class="content-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Permits & Rules</h3>
+                        <p class="card-subtitle">Essential information for your trek</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>Forest Entry Permit:</strong> ₹500–600 per person</li>
+                            <li><strong>Guide Mandatory:</strong> 1 guide per 10 trekkers (~₹1,000)</li>
+                            <li><strong>Trek Timings:</strong> Entry from 6 AM; finish by 6 PM</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>🚫 Night trekking is strictly prohibited</strong></li>
+                            <li><strong>Carry ID proof</strong> for permit verification</li>
+                            <li><strong>Follow guide instructions</strong> at all times</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Reach -->
+            <div class="content-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">How to Reach</h3>
+                        <p class="card-subtitle">Getting to the trailhead</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>By Road:</strong> Bangalore → Hassan → Kalasa → Samse (~330 km)</li>
+                            <li><strong>From Samse:</strong> Hire jeep (~₹250–600 per person)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li><strong>Homestays:</strong> Available in Samse/Kalasa (~₹1,000–1,500)</li>
+                            <li><strong>Best Route:</strong> Via NH75 and SH57</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery -->
+            <div class="content-card fade-in" id="gallery">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-camera"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Photo Gallery</h3>
+                        <p class="card-subtitle">Capture the journey</p>
+                    </div>
+                </div>
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="image/npview.webp" alt="Netravati Peak View" class="gallery-image">
+                        <div class="gallery-overlay">Panoramic View from Netravati Peak</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/npviwe.jpg" alt="Netravati Trek Trail" class="gallery-image">
+                        <div class="gallery-overlay">Beautiful Trek Path to Netravati</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/npreverview.jpeg" alt="Netravati Peak Review" class="gallery-image">
+                        <div class="gallery-overlay">Scenic Overview of Netravati Trek</div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/nplogo.jpg" alt="Netravati Peak Logo" class="gallery-image">
+                        <div class="gallery-overlay">Official Netravati Trek Logo</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section fade-in">
+                <h3 class="card-title mb-3">
+                    <i class="bi bi-map"></i> Location & Directions
+                </h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4178.93891188271!2d75.32727937539394!3d13.13067088719953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb4b130daa2a33%3A0x10a8b5c0b4b5656d!2sNetravati%20peak%20view!5e1!3m2!1sen!2sin!4v1752253080452!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- Why Choose Us -->
+            <div class="content-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Why Choose Henjodi Stores?</h3>
+                        <p class="card-subtitle">We simplify your trek</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li>✅ Local expertise with years of trekking support experience</li>
+                            <li>✅ One-stop for permits, food, jeep rides, and guides</li>
+                            <li>✅ Affordable pricing and flexible package options</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="feature-list">
+                            <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
+                            <li>✅ Friendly, local support team available via WhatsApp</li>
+                            <li>✅ 24/7 assistance during your trek</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Packages -->
+            <section id="packages" class="booking-section fade-in">
+                <h2 class="booking-title">Choose Your Trek Package</h2>
+                <p class="booking-subtitle">Select the perfect package for your adventure</p>
+                
+                <div class="package-cards">
+                    <div class="package-card">
+                        <h3 class="package-name">Basic Package</h3>
+                        <div class="package-price">₹1,500</div>
+                        <ul class="package-features">
+                            <li>Forest entry permit</li>
+                            <li>Certified guide</li>
+                            <li>Basic first-aid kit</li>
+                            <li>Water bottle</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=Hello! I'm interested in the Basic Package for Netravati Peak Trek." class="btn btn-package secondary" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Book Basic Package
+                        </a>
+                    </div>
+                    
+                    <div class="package-card featured">
+                        <h3 class="package-name">Premium Package</h3>
+                        <div class="package-price">₹2,500</div>
+                        <ul class="package-features">
+                            <li>Forest entry permit</li>
+                            <li>Certified guide</li>
+                            <li>Jeep ride from Samse</li>
+                            <li>Lunch & snacks</li>
+                            <li>First-aid & safety gear</li>
+                            <li>Photography assistance</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=Hello! I'm interested in the Premium Package for Netravati Peak Trek." class="btn btn-package primary" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Book Premium Package
+                        </a>
+                    </div>
+                    
+                    <div class="package-card">
+                        <h3 class="package-name">Complete Package</h3>
+                        <div class="package-price">₹3,500</div>
+                        <ul class="package-features">
+                            <li>Forest entry permit</li>
+                            <li>Certified guide</li>
+                            <li>Jeep ride from Samse</li>
+                            <li>Lunch & snacks</li>
+                            <li>First-aid & safety gear</li>
+                            <li>Photography assistance</li>
+                            <li>Homestay accommodation</li>
+                            <li>Local sightseeing</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=Hello! I'm interested in the Complete Package for Netravati Peak Trek." class="btn btn-package secondary" target="_blank">
+                            <i class="bi bi-whatsapp"></i> Book Complete Package
                         </a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
+            </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <h2 class="section-title" data-aos="fade-up">About Henjodi Stores</h2>
-                                <!-- Owner Information -->
-            <div class="row justify-content-center mt-5">
-                <div class="col-lg-6">
-                    <div class="owner-photo-container" data-aos="fade-up" data-aos-delay="400">
-                        <img src="image/Screenshot 2025-07-11 012754.png" alt="Owner" class="owner-photo">
-                        <div class="owner-info">
-                            <h3 class="owner-name">Prasad</h3>
-                            <p class="owner-title">Owner & Adventure Guide</p>
+            <!-- Testimonials -->
+            <div class="content-card fade-in">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="bi bi-quote"></i>
+                    </div>
+                    <div>
+                        <h3 class="card-title">Trekker Insights</h3>
+                        <p class="card-subtitle">What others say</p>
+                    </div>
+                </div>
+                <div class="testimonials">
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">"6 + 6 km trek from Samse to peak. ₹2,000 jeep, ₹1,000 guide, ₹500 entry fee… takes about 5 hrs with leisure."</div>
+                        <div class="testimonial-author">
+                            <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Experienced Trekker</h4>
+                                <p>4/5 Stars</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-                    <div class="about-content" data-aos="fade-up" data-aos-delay="200">
-                        <p>Welcome to Henjodi Stores, your gateway to the magnificent Western Ghats of Karnataka. Based in the heart of Malenadu, we are passionate about sharing the hidden treasures of our region with fellow nature enthusiasts and adventure seekers.</p>
-                        <p>Our experienced local guides know every trail, every viewpoint, and every secret spot that makes the Western Ghats truly magical. From the misty peaks of Kudremukh to the pristine waters of Netravati, we offer carefully curated trekking experiences that showcase the raw beauty of our homeland.</p>
-                        <p>At Henjodi Stores, we believe in responsible tourism that preserves the natural beauty of our mountains while providing authentic experiences to our guests. Join us for an unforgettable journey through Karnataka's most spectacular landscapes.</p>
-                        <p>Plus, take home the true flavor of Malenadu with our coffee powder, tea blends, homemade snacks, and trekking essentials.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Popular Treks Section -->
-    <!-- Popular Treks Section -->
-<section id="treks" class="section">
-    <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Popular Treks</h2>
-        <div class="row">
-            <!-- Kudremukh Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="trek-card">
-                    <div class="trek-img" style="background-image: url('image/kmlogo.avif')"></div>
-                    <div class="trek-info">
-                        <h3 class="trek-title">Kudremukh Peak Trek</h3>
-                        <ul class="trek-details">
-                            <li><i class="bi bi-geo-alt"></i> Kudremukh National Park</li>
-                            <li><i class="bi bi-clock"></i>1 or 2 Days</li>
-                            <li><i class="bi bi-speedometer2"></i> Moderate to Difficult</li>
-                            <li><i class="bi bi-rulers"></i> 18–20 km</li>
-                            <li><i class="bi bi-mountain"></i> 1,894 meters altitude</li>
-                        </ul>
-                        <div class="trek-buttons">
-                            <a href="kudremukh.html" class="btn-read-more">View More</a>
-                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Kudremukh Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
-                                <i class="bi bi-whatsapp"></i>
-                                Book Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Netravati Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="trek-card">
-                    <div class="trek-img" style="background-image: url('image/nplogo.jpg')"></div>
-                    <div class="trek-info">
-                        <h3 class="trek-title">Netravati Peak Trek</h3>
-                        <ul class="trek-details">
-                            <li><i class="bi bi-geo-alt"></i> Netravati Wildlife Sanctuary</li>
-                            <li><i class="bi bi-clock"></i> 5-6 hours (round trip)</li>
-                            <li><i class="bi bi-speedometer2"></i>Moderate</li>
-                            <li><i class="bi bi-rulers"></i>14-16 km (both ways)</li>
-                            <li><i class="bi bi-mountain"></i>~1,520 meters (4,987 feet)</li>
-                        </ul>
-                        <div class="trek-buttons">
-                            <a href="netravati.html" class="btn-read-more">View More</a>
-                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
-                                <i class="bi bi-whatsapp"></i>
-                                Book Now
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Kuranjal Peak Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="trek-card">
-                    <div class="trek-img" style="background-image: url('image/kklogo.jpeg')"></div>
-                    <div class="trek-info">
-                        <h3 class="trek-title">Kuranjal Peak</h3>
-                        <ul class="trek-details">
-                            <li><i class="bi bi-geo-alt"></i>Near Samse, inside Kudremukha Reserve Forest</li>
-                            <li><i class="bi bi-clock"></i>Full-day trek</li>
-                            <li><i class="bi bi-speedometer2"></i> Easy to Moderate</li>
-                            <li><i class="bi bi-rulers"></i> 6–7 km (one way) trek distance</li>
-                            <li><i class="bi bi-mountain"></i> 1,894 meters</li>
-                        </ul>
-                        <div class="trek-buttons">
-                            <a href="kuranjal.html" class="btn-read-more">View More</a>
-                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Kuranjal Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
-                                <i class="bi bi-whatsapp"></i>
-                                Book Now
-                            </a>
+                    <div class="testimonial-card">
+                        <div class="testimonial-text">"Took 7 km one-way max… beginner-friendly, but steep climb at the end. Amazing views make it worth it!"</div>
+                        <div class="testimonial-author">
+                            <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
+                            <div class="testimonial-info">
+                                <h4>Beginner Trekker</h4>
+                                <p>5/5 Stars</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
-    <!-- Why Choose Us Section -->
-    <section id="why-choose" class="section why-choose-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Why Choose Malenadu Treks?</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="feature-item">
-                        <i class="bi bi-people feature-icon"></i>
-                        <h3 class="feature-title">Expert Local Guides</h3>
-                        <p class="feature-description">Our guides are born and raised in the Western Ghats, with deep knowledge of local trails, wildlife, and culture.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="feature-item">
-                        <i class="bi bi-shield-check feature-icon"></i>
-                        <h3 class="feature-title"> All-Inclusive Package</h3>
-                        <p class="feature-description">Includes trek permits, jeep charges, local food, and homestay—everything for a smooth and worry-free experience.
-
-</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="feature-item">
-                        <i class="bi bi-heart feature-icon"></i>
-                        <h3 class="feature-title"> Safety & Comfort Essentials</h3>
-                        <p class="feature-description">We provide raincoats, leech remover, first aid, and Malenadu coffee and tea to keep you safe, warm, and refreshed.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What We Offer Section -->
-    <section id="store" class="section what-we-offer-section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">What We Offer</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('video/Guided Treks.jpg')"></div>
-                        <div class="offer-info">
-                            <h3 class="offer-title">Guided Treks</h3>
-                            <p class="offer-description">Professional guided treks to various peaks and destinations in the Western Ghats.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('image/all-inclusive2ndoption.webp')"></div>
-                        <div class="offer-info">
-                            <h3 class="offer-title">All-Inclusive Package</h3>
-                            <p class="offer-description">One price covers permits, jeep rides and food you need for a smooth trek.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="offer-card">
-                        <div class="offer-img" style="background-image: url('video/food-location-logo.jpg')"></div>
-                        <div class="offer-info">
-                            <h3 class="offer-title">Local Cuisine</h3>
-                            <p class="offer-description">Authentic Malenadu cuisine and traditional dishes prepared by local families.(LIMITED FOR 400 PEOPLES)</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Store Gallery -->
-            <div class="row mt-5">
-                <div class="col-lg-12">
-                    <h3 class="store-gallery-title" data-aos="fade-up">Our Store Gallery</h3>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="store-image-container">
-                        <img src="image/Screenshot 2025-07-11 040805.png" alt="Store Front" class="store-image">
-                        <div class="store-image-overlay">
-                            <h5>Store Front</h5>
-                            <p>Welcome to our adventure hub</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="store-image-container">
-                        <img src="image/storeimg.jpg" alt="Equipment Display" class="store-image">
-                        <div class="store-image-overlay">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="store-image-container">
-                        <img src="image/Screenshot 2025-07-11 040927.png" alt="Local Products" class="store-image">
-                        <div class="store-image-overlay">
-                            <h5>Local Products</h5>
-                            <p></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="gallery" class="section">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Trek Gallery</h2>
-            <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                    <div class="gallery-item" style="background-image: url('image/kmview.webp')">
-                        <div class="gallery-overlay">Kudremukh Peak</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                    <div class="gallery-item" style="background-image: url('image/Nethravathi-Peak_Plan-The-Unplanned_2.jpg')">
-                        <div class="gallery-overlay">Netravati Views</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                    <div class="gallery-item" style="background-image: url('image/kk1.avif')">
-                        <div class="gallery-overlay">kuranjal </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
-                    <div class="gallery-item" style="background-image: url('image/kmtravelview.jpg')">
-                        <div class="gallery-overlay">Kudremukh Peak</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1000">
-                    <div class="gallery-item" style="background-image: url('image/kkview44.jpg')">
-                        <div class="gallery-overlay">kuranjal Forest</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1200">
-                    <div class="gallery-item" style="background-image: url('image/kmview2.jpeg')">
-                        <div class="gallery-overlay">kudremukh Top View</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="section cta-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8 text-center" data-aos="fade-up">
-                    <h2 class="cta-title">Ready for Your Next Adventure?</h2>
-                    <p class="cta-subtitle">Join us for an unforgettable journey through the Western Ghats</p>
-                    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-whatsapp">
-                        <i class="bi bi-whatsapp"></i>
-                        Contact Us Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
+    </main>
 
     <!-- Footer -->
-    <footer id="contact" class="footer">
+    <footer class="footer" id="contact">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer-content">
-                        <h3 class="footer-title">Henjodi Stores</h3>
-                        <div class="footer-info">
-                            <i class="bi bi-geo-alt"></i>
-                            Balagal, Bus Stop, SH 66, Kalasa, Karnataka 577124
-                        </div>
-                        <div class="footer-info">
-                            <i class="bi bi-telephone"></i>
-                            +91 80731 78851
-                        </div>
-                        <div class="footer-info">
-                            <i class="bi bi-envelope"></i>
-                            info@malenadutreks.com
-                        </div>
-                        <div class="social-links">
-                            <a href="#"><i class="bi bi-facebook"></i></a>
-                            <a href="#"><i class="bi bi-instagram"></i></a>
-                            <a href="#"><i class="bi bi-twitter"></i></a>
-                            <a href="#"><i class="bi bi-youtube"></i></a>
-                        </div>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Henjodi Stores</h3>
+                    <p>Henjodi Stores is a local business in Malenadu offering complete support for trekkers visiting peaks like Kudremukh, Netravati, and Kuranjal. We assist with trekking ticket bookings, arranging certified guides, jeep rides, food, and homestays.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#overview">Trek Overview</a></li>
+                        <li><a href="#packages">Trek Packages</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Henjodi Stores." target="_blank">WhatsApp: +91 80731 78851</a></p>
+                    <p>Email: info@henjodistores.com</p>
+                    <p>Location: Malenadu, Karnataka</p>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="copyright">
-                        <p>&copy; 2024 Henjodi Stores. All rights reserved. | Designed with ❤️ for Adventure Lovers</p>
-                    </div>
-                </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Henjodi Stores. All rights reserved.</p>
             </div>
+        </div>
+        
+        <!-- Final CTA -->
+        <div style="text-align:center; margin-top: 2rem;">
+            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek with Henjodi Stores." target="_blank" class="btn btn-book-now btn-lg">
+                <i class="bi bi-whatsapp"></i> Book Your Netravati Trek Now
+            </a>
         </div>
     </footer>
 
-    <!-- External JavaScript Files -->
+    <!-- Scroll to Top -->
+    <button class="scroll-to-top" aria-label="Scroll to top">
+        <i class="bi bi-arrow-up"></i>
+    </button>
+
+    <!-- Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
     <script>
-        // Advanced JavaScript for Enhanced Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS (Animate On Scroll)
-            AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
-                once: true,
-                offset: 100
-            });
-
-            // Loading Screen
-            const loadingScreen = document.getElementById('loading');
-            window.addEventListener('load', function() {
-                setTimeout(() => {
-                    loadingScreen.style.opacity = '0';
-                    loadingScreen.style.visibility = 'hidden';
-                }, 1000);
-            });
-
-            // Navbar Scroll Effect
-            const navbar = document.querySelector('.navbar');
-            let lastScrollTop = 0;
-            
+            // Scroll to Top
+            const scrollToTop = document.querySelector('.scroll-to-top');
             window.addEventListener('scroll', function() {
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                if (scrollTop > 100) {
-                    navbar.classList.add('scrolled');
+                if (window.scrollY > 300) {
+                    scrollToTop.classList.add('show');
                 } else {
-                    navbar.classList.remove('scrolled');
+                    scrollToTop.classList.remove('show');
                 }
-                
-                // Hide/Show navbar on scroll
-                if (scrollTop > lastScrollTop && scrollTop > 500) {
-                    navbar.style.transform = 'translateY(-100%)';
-                } else {
-                    navbar.style.transform = 'translateY(0)';
-                }
-                
-                lastScrollTop = scrollTop;
             });
 
-            // Active Navigation Links
-            const navLinks = document.querySelectorAll('.nav-link');
-            const sections = document.querySelectorAll('section');
-            
-            function updateActiveLink() {
-                const scrollPosition = window.scrollY + 100;
-                
-                sections.forEach(section => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-                    const sectionId = section.getAttribute('id');
-                    
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href') === `#${sectionId}`) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }
-            
-            window.addEventListener('scroll', updateActiveLink);
-
-            // Smooth Scrolling for Navigation Links
-            navLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    const targetSection = document.getElementById(targetId);
-                    
-                    if (targetSection) {
-                        const offsetTop = targetSection.offsetTop - 80;
-                        window.scrollTo({
-                            top: offsetTop,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
+            scrollToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Parallax Effect for Hero Section
-            const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                window.addEventListener('scroll', function() {
-                    const scrolled = window.pageYOffset;
-                    const rate = scrolled * -0.5;
-                    heroSection.style.transform = `translateY(${rate}px)`;
-                });
-            }
-
-            // Counter Animation for Stats (if any)
-            function animateCounters() {
-                const counters = document.querySelectorAll('[data-count]');
-                counters.forEach(counter => {
-                    const target = parseInt(counter.getAttribute('data-count'));
-                    const count = parseInt(counter.innerText);
-                    const increment = target / 100;
-                    
-                    if (count < target) {
-                        counter.innerText = Math.ceil(count + increment);
-                        setTimeout(() => animateCounters(), 20);
-                    } else {
-                        counter.innerText = target;
-                    }
-                });
-            }
-
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
-            const observer = new IntersectionObserver(function(entries) {
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
-                        
-                        // Trigger counter animation if element has data-count attribute
-                        if (entry.target.hasAttribute('data-count')) {
-                            animateCounters();
-                        }
+                        entry.target.classList.add('visible');
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            // Observe elements for animation
-            const animateElements = document.querySelectorAll('.trek-card, .feature-item, .offer-card, .gallery-item');
-            animateElements.forEach(element => {
+            document.querySelectorAll('.fade-in').forEach(element => {
                 observer.observe(element);
             });
 
-            // Image Lazy Loading
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            images.forEach(image => {
-                imageObserver.observe(image);
-            });
-
-            // Mobile Menu Close on Link Click
-            const mobileMenuLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const navbarToggler = document.querySelector('.navbar-toggler');
-            const navbarCollapse = document.querySelector('.navbar-collapse');
-
-            mobileMenuLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    if (window.innerWidth < 992) {
-                        navbarCollapse.classList.remove('show');
-                        navbarToggler.classList.add('collapsed');
-                        navbarToggler.setAttribute('aria-expanded', 'false');
-                    }
-                });
-            });
-
-            // Gallery Lightbox Effect (Simple Implementation)
-            const galleryItems = document.querySelectorAll('.gallery-item');
-            galleryItems.forEach(item => {
+            // Gallery Lightbox
+            document.querySelectorAll('.gallery-item').forEach(item => {
                 item.addEventListener('click', function() {
-                    const bgImage = this.style.backgroundImage;
-                    const imageUrl = bgImage.slice(5, -2); // Remove 'url("' and '")'
+                    const img = this.querySelector('.gallery-image');
+                    const caption = this.querySelector('.gallery-overlay').textContent;
                     
-                    // Create simple lightbox
                     const lightbox = document.createElement('div');
-                    lightbox.className = 'lightbox';
-                    lightbox.innerHTML = `
-                        <div class="lightbox-content">
-                            <img src="${imageUrl}" alt="Gallery Image">
-                            <span class="lightbox-close">&times;</span>
-                        </div>
-                    `;
-                    
-                    // Add lightbox styles
                     lightbox.style.cssText = `
                         position: fixed;
                         top: 0;
@@ -1367,116 +1090,65 @@
                         height: 100%;
                         background: rgba(0, 0, 0, 0.9);
                         display: flex;
-                        justify-content: center;
                         align-items: center;
-                        z-index: 10000;
-                        opacity: 0;
-                        transition: opacity 0.3s ease;
+                        justify-content: center;
+                        z-index: 1000;
+                        cursor: pointer;
                     `;
                     
-                    const lightboxContent = lightbox.querySelector('.lightbox-content');
-                    lightboxContent.style.cssText = `
-                        position: relative;
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.style.cssText = `
                         max-width: 90%;
                         max-height: 90%;
-                    `;
-                    
-                    const lightboxImage = lightbox.querySelector('img');
-                    lightboxImage.style.cssText = `
-                        width: 100%;
-                        height: 100%;
                         object-fit: contain;
                         border-radius: 10px;
+                        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
                     `;
                     
-                    const lightboxClose = lightbox.querySelector('.lightbox-close');
-                    lightboxClose.style.cssText = `
+                    const lightboxCaption = document.createElement('div');
+                    lightboxCaption.textContent = caption;
+                    lightboxCaption.style.cssText = `
                         position: absolute;
-                        top: -40px;
-                        right: 0;
+                        bottom: 50px;
+                        left: 50%;
+                        transform: translateX(-50%);
                         color: white;
-                        font-size: 2rem;
-                        font-weight: bold;
-                        cursor: pointer;
-                        transition: color 0.3s ease;
+                        font-family: 'Inter', sans-serif;
+                        font-size: 1.2rem;
+                        text-align: center;
+                        background: var(--accent-color);
+                        padding: 10px 20px;
+                        border-radius: 20px;
                     `;
                     
+                    lightbox.appendChild(lightboxImg);
+                    lightbox.appendChild(lightboxCaption);
                     document.body.appendChild(lightbox);
                     
-                    // Animate lightbox in
-                    setTimeout(() => {
-                        lightbox.style.opacity = '1';
-                    }, 10);
-                    
-                    // Close lightbox
-                    function closeLightbox() {
-                        lightbox.style.opacity = '0';
-                        setTimeout(() => {
-                            document.body.removeChild(lightbox);
-                        }, 300);
-                    }
-                    
-                    lightboxClose.addEventListener('click', closeLightbox);
-                    lightbox.addEventListener('click', function(e) {
-                        if (e.target === lightbox) {
-                            closeLightbox();
-                        }
+                    lightbox.addEventListener('click', function() {
+                        document.body.removeChild(lightbox);
                     });
                     
-                    // Close with Escape key
                     document.addEventListener('keydown', function(e) {
-                        if (e.key === 'Escape') {
-                            closeLightbox();
+                        if (e.key === 'Escape' && document.body.contains(lightbox)) {
+                            document.body.removeChild(lightbox);
                         }
                     });
                 });
             });
 
-            // Add hover effects to cards
-            const cards = document.querySelectorAll('.trek-card, .offer-card, .feature-item');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-10px) scale(1.02)';
-                });
-                
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
-                });
-            });
-
-            // Typing effect for hero title (optional enhancement)
-            const heroTitle = document.querySelector('.hero-title');
-            if (heroTitle) {
-                const text = heroTitle.textContent;
-                heroTitle.textContent = '';
-                heroTitle.style.borderRight = '2px solid #ff6b35';
-                
-                let i = 0;
-                function typeWriter() {
-                    if (i < text.length) {
-                        heroTitle.textContent += text.charAt(i);
-                        i++;
-                        setTimeout(typeWriter, 100);
-                    } else {
-                        setTimeout(() => {
-                            heroTitle.style.borderRight = 'none';
-                        }, 1000);
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
                     }
-                }
-                
-                // Start typing effect after a delay
-                setTimeout(typeWriter, 1500);
-            }
-
-            // Add floating animation to WhatsApp button
-            const whatsappBtns = document.querySelectorAll('.btn-whatsapp');
-            whatsappBtns.forEach(btn => {
-                btn.addEventListener('mouseenter', function() {
-                    this.style.transform = 'translateY(-5px) scale(1.05)';
-                });
-                
-                btn.addEventListener('mouseleave', function() {
-                    this.style.transform = 'translateY(0) scale(1)';
                 });
             });
         });
