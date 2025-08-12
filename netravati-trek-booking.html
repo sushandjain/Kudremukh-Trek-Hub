@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Netravati Peak Trek | Henjodi Stores</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book your Netravati Peak Trek adventure with Henjodi Stores. Complete trekking packages, permits, guides, and support for the ultimate Western Ghats experience.">
+    <meta name="keywords" content="Netravati Peak Trek Booking, Trek Packages, Kudremukh Trekking, Henjodi Stores, Karnataka Trekking">
+    <meta name="author" content="Henjodi Stores">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #1e40af;
+            --accent-color: #f59e0b;
+            --accent-light: #fbbf24;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --warning-color: #f59e0b;
+            --info-color: #3b82f6;
+            --dark-color: #0f172a;
+            --light-color: #f8fafc;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --font-primary: 'Inter', sans-serif;
+            --font-secondary: 'Poppins', sans-serif;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-full: 9999px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--gray-800);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-family: var(--font-secondary);
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .nav-link {
+            color: var(--gray-700);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        .main-content {
+            background: white;
+            margin-top: -3rem;
+            border-radius: 2rem 2rem 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Trek Info Cards */
+        .trek-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .info-icon {
+            width: 4rem;
+            height: 4rem;
+            background: linear-gradient(135deg, var(--accent-color), var(--accent-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .info-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .info-label {
+            color: var(--gray-600);
+            font-weight: 500;
+        }
+
+        /* Package Cards */
+        .packages-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            color: var(--gray-600);
+            font-size: 1.1rem;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--gray-200);
+            height: 100%;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-duration {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        .package-body {
+            padding: 2rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .package-features li:last-child {
+            border-bottom: none;
+        }
+
+        .feature-icon {
+            color: var(--success-color);
+            font-size: 1.1rem;
+        }
+
+        .package-cta {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Booking Form */
+        .booking-section {
+            background: var(--gray-50);
+            padding: 4rem 0;
+        }
+
+        .booking-form {
+            background: white;
+            border-radius: var(--radius-2xl);
+            padding: 3rem;
+            box-shadow: var(--shadow-xl);
+            border: 1px solid var(--gray-200);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--gray-700);
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-lg);
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+
+        .form-select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+            padding-right: 2.5rem;
+        }
+
+        /* Gallery */
+        .gallery-section {
+            padding: 4rem 0;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 1.5rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: var(--gray-50);
+            padding: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            height: 100%;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--gray-700);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            background: var(--accent-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .author-info p {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--gray-300);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--gray-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--gray-400);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25d366;
+            color: white;
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: var(--shadow-xl);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .booking-form {
+                padding: 2rem 1.5rem;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-mountain"></i> Henjodi Stores
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#overview">Overview</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#packages">Packages</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#booking">Book Now</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#gallery">Gallery</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title fade-in">Netravati Peak Trek</h1>
+            <p class="hero-subtitle fade-in">Experience the majestic beauty of Western Ghats with our expert-guided trekking adventure</p>
+            <a href="#booking" class="btn btn-warning btn-lg px-4 py-2 fw-bold">
+                <i class="bi bi-calendar-check"></i> Book Your Adventure
+            </a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Trek Information -->
+            <div class="trek-info" id="overview">
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-geo-alt"></i>
+                    </div>
+                    <div class="info-value">1,520m</div>
+                    <div class="info-label">Elevation</div>
+                </div>
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-arrow-left-right"></i>
+                    </div>
+                    <div class="info-value">12-18 km</div>
+                    <div class="info-label">Distance</div>
+                </div>
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-clock"></i>
+                    </div>
+                    <div class="info-value">6-8 hrs</div>
+                    <div class="info-label">Duration</div>
+                </div>
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-activity"></i>
+                    </div>
+                    <div class="info-value">Moderate</div>
+                    <div class="info-label">Difficulty</div>
+                </div>
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-currency-rupee"></i>
+                    </div>
+                    <div class="info-value">₹500-600</div>
+                    <div class="info-label">Permit Fee</div>
+                </div>
+                <div class="info-card slide-in-left">
+                    <div class="info-icon">
+                        <i class="bi bi-calendar-event"></i>
+                    </div>
+                    <div class="info-value">Sep-Feb</div>
+                    <div class="info-label">Best Season</div>
+                </div>
+            </div>
+
+            <!-- Trek Packages -->
+            <section class="packages-section" id="packages">
+                <div class="section-title">
+                    <h2>Choose Your Trek Package</h2>
+                    <p>Select the perfect package for your adventure level and preferences</p>
+                </div>
+                
+                <div class="row g-4">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Basic Trek</h3>
+                                <div class="package-price">₹1,500</div>
+                                <div class="package-duration">1 Day</div>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Forest Entry Permit</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Certified Guide</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Basic First Aid</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Trek Certificate</li>
+                                </ul>
+                                <button class="package-cta btn-primary" onclick="selectPackage('Basic Trek', 1500)">
+                                    Select Package
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Premium Trek</h3>
+                                <div class="package-price">₹2,500</div>
+                                <div class="package-duration">1 Day</div>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Everything in Basic</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Transportation (Samse)</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Packed Lunch</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Trekking Gear</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Photography Support</li>
+                                </ul>
+                                <button class="package-cta btn-primary" onclick="selectPackage('Premium Trek', 2500)">
+                                    Select Package
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6">
+                        <div class="package-card">
+                            <div class="package-header">
+                                <h3 class="package-name">Complete Package</h3>
+                                <div class="package-price">₹3,500</div>
+                                <div class="package-duration">2 Days</div>
+                            </div>
+                            <div class="package-body">
+                                <ul class="package-features">
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Everything in Premium</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Homestay Accommodation</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Local Cuisine</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Campfire & Stories</li>
+                                    <li><i class="bi bi-check-circle-fill feature-icon"></i> Return Transportation</li>
+                                </ul>
+                                <button class="package-cta btn-primary" onclick="selectPackage('Complete Package', 3500)">
+                                    Select Package
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Form -->
+            <section class="booking-section" id="booking">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>Book Your Trek</h2>
+                        <p>Fill in the details below to secure your spot on this amazing adventure</p>
+                    </div>
+                    
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <form class="booking-form" id="trekBookingForm">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Full Name *</label>
+                                            <input type="text" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Phone Number *</label>
+                                            <input type="tel" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Email Address</label>
+                                            <input type="email" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Number of Trekkers *</label>
+                                            <select class="form-control form-select" required>
+                                                <option value="">Select</option>
+                                                <option value="1">1 Person</option>
+                                                <option value="2">2 People</option>
+                                                <option value="3">3 People</option>
+                                                <option value="4">4 People</option>
+                                                <option value="5">5 People</option>
+                                                <option value="6+">6+ People</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Preferred Date *</label>
+                                            <input type="date" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Selected Package *</label>
+                                            <select class="form-control form-select" id="packageSelect" required>
+                                                <option value="">Select Package</option>
+                                                <option value="Basic Trek">Basic Trek - ₹1,500</option>
+                                                <option value="Premium Trek">Premium Trek - ₹2,500</option>
+                                                <option value="Complete Package">Complete Package - ₹3,500</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Special Requirements</label>
+                                    <textarea class="form-control" rows="3" placeholder="Any dietary restrictions, medical conditions, or special requests..."></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Emergency Contact</label>
+                                    <input type="tel" class="form-control" placeholder="Name and phone number of emergency contact">
+                                </div>
+                                
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-warning btn-lg px-5 py-3 fw-bold">
+                                        <i class="bi bi-send"></i> Book My Trek
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="gallery-section" id="gallery">
+                <div class="section-title">
+                    <h2>Trek Gallery</h2>
+                    <p>Get a glimpse of the breathtaking views and exciting trails</p>
+                </div>
+                
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Mountain View" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Panoramic Mountain Views</h4>
+                            <p>Breathtaking vistas from the summit</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trek Trail" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Scenic Trek Trails</h4>
+                            <p>Beautiful paths through dense forests</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Waterfall" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Waterfall Views</h4>
+                            <p>Refreshing breaks at scenic spots</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section class="testimonials-section">
+                <div class="container">
+                    <div class="section-title">
+                        <h2>What Trekkers Say</h2>
+                        <p>Real experiences from our adventure community</p>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-lg-4 col-md-6">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Amazing experience! The guides were professional and the views were absolutely breathtaking. Highly recommend!"
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">R</div>
+                                    <div class="author-info">
+                                        <h4>Rahul Sharma</h4>
+                                        <p>Bangalore</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "Perfect for beginners! The team took care of everything and made sure we had a safe and enjoyable trek."
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">P</div>
+                                    <div class="author-info">
+                                        <h4>Priya Patel</h4>
+                                        <p>Mumbai</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-4 col-md-6">
+                            <div class="testimonial-card">
+                                <div class="testimonial-text">
+                                    "The complete package was worth every penny. Homestay, food, and the trek itself were all excellent!"
+                                </div>
+                                <div class="testimonial-author">
+                                    <div class="author-avatar">A</div>
+                                    <div class="author-info">
+                                        <h4>Arjun Kumar</h4>
+                                        <p>Delhi</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About Henjodi Stores</h3>
+                    <p>Your trusted partner for trekking adventures in the Western Ghats. We provide complete trekking support including permits, guides, transportation, and accommodation.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="#overview">Trek Overview</a></p>
+                    <p><a href="#packages">Trek Packages</a></p>
+                    <p><a href="#booking">Book Now</a></p>
+                    <p><a href="#gallery">Photo Gallery</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="bi bi-telephone"></i> +91 80731 78851</p>
+                    <p><i class="bi bi-envelope"></i> info@henjodistores.com</p>
+                    <p><i class="bi bi-geo-alt"></i> Malenadu, Karnataka</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Henjodi Stores. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Netravati Peak Trek with Henjodi Stores." class="whatsapp-btn" target="_blank">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Package Selection
+        function selectPackage(packageName, price) {
+            document.getElementById('packageSelect').value = packageName;
+            document.getElementById('packageSelect').scrollIntoView({ behavior: 'smooth' });
+            
+            // Show success message
+            showNotification(`Selected: ${packageName} - ₹${price}`, 'success');
+        }
+
+        // Form Submission
+        document.getElementById('trekBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            
+            // Show success message
+            showNotification('Thank you! We will contact you soon to confirm your booking.', 'success');
+            
+            // Reset form
+            this.reset();
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Notification System
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
+            notification.style.cssText = `
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            `;
+            notification.innerHTML = `
+                <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+                ${message}
+                <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 5000);
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.info-card, .package-card, .testimonial-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
