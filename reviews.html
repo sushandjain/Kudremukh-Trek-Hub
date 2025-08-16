@@ -849,7 +849,7 @@
                 await reviewsRef.push({
                     ...reviewData,
                     timestamp: firebase.database.ServerValue.TIMESTAMP,
-                    approved: false // For moderation
+                    approved: true // Auto-approve reviews for immediate display
                 });
                 return true;
             } catch (error) {
@@ -867,7 +867,8 @@
                 const reviewsRef = database.ref('reviews');
                 reviewsRef.orderByChild('timestamp').on('value', (snapshot) => {
                     const data = snapshot.val();
-                    const firebaseReviews = data ? Object.values(data).filter(r => r.approved !== false) : [];
+                    // Show all reviews (remove approval filter for immediate display)
+                    const firebaseReviews = data ? Object.values(data) : [];
                     callback(firebaseReviews.reverse()); // Show newest first
                 });
             } catch (error) {
@@ -1052,20 +1053,22 @@
 
         // Load saved reviews from Firebase or localStorage
         function loadSavedReviews() {
-            // Always display default reviews first
-            loadReviews();
-            
             if (window.firebaseEnabled) {
+                // Set up real-time listener for Firebase
                 window.loadFromFirebase((firebaseReviews) => {
                     if (firebaseReviews.length > 0) {
-                        reviews = [...firebaseReviews, ...reviews];
+                        // Replace reviews array with Firebase data for real-time sync
+                        reviews = firebaseReviews;
                         loadReviews();
                     } else {
-                        // Try localStorage as backup
+                        // If no Firebase reviews, show defaults and check localStorage
+                        loadReviews();
                         loadFromLocalStorage();
                     }
                 });
             } else {
+                // Show default reviews first, then add localStorage
+                loadReviews();
                 loadFromLocalStorage();
             }
         }
@@ -1075,6 +1078,7 @@
                 const savedReviews = localStorage.getItem('kudremukhReviews');
                 if (savedReviews) {
                     const parsedReviews = JSON.parse(savedReviews);
+                    // Merge localStorage reviews with existing reviews
                     reviews = [...parsedReviews, ...reviews];
                     loadReviews();
                 }
@@ -1185,16 +1189,15 @@
                         date: new Date().toISOString().split('T')[0]
                     };
                     
-                    // Add to beginning of reviews array
-                    reviews.unshift(newReview);
-                    
                     // Save to Firebase if available, otherwise use localStorage
                     if (window.firebaseEnabled) {
                         const saved = await window.saveToFirebase(newReview);
                         if (saved) {
-                            console.log('Review saved to Firebase');
+                            console.log('Review saved to Firebase - will appear automatically via real-time sync');
+                            // Don't add to local array - Firebase listener will handle the update
                         } else {
-                            // Fallback to localStorage
+                            // Fallback to localStorage and local array
+                            reviews.unshift(newReview);
                             try {
                                 const existingReviews = JSON.parse(localStorage.getItem('kudremukhReviews') || '[]');
                                 existingReviews.unshift(newReview);
@@ -1202,9 +1205,11 @@
                             } catch (e) {
                                 console.log('Storage not available');
                             }
+                            loadReviews(); // Refresh display for localStorage fallback
                         }
                     } else {
                         // Use localStorage as fallback
+                        reviews.unshift(newReview);
                         try {
                             const existingReviews = JSON.parse(localStorage.getItem('kudremukhReviews') || '[]');
                             existingReviews.unshift(newReview);
@@ -1212,6 +1217,7 @@
                         } catch (e) {
                             console.log('Storage not available, keeping in memory only');
                         }
+                        loadReviews(); // Refresh display for localStorage
                     }
                     
                     // Hide loading and show success
@@ -1224,8 +1230,7 @@
                     document.getElementById('rating').value = '';
                     document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
                     
-                    // Refresh reviews display
-                    loadReviews();
+                    // Note: No need to call loadReviews() for Firebase - real-time listener handles updates
                     
                     // Hide success message after 5 seconds
                     setTimeout(() => {
