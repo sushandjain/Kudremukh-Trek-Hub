@@ -1,0 +1,18 @@
+# Netlify redirects file
+# Handle SPA routing and fallbacks
+
+# Main pages - no redirects needed for static files
+/index.html /index.html 200
+/reviews.html /reviews.html 200
+/kudremukh.html /kudremukh.html 200
+/kuranjal.html /kuranjal.html 200
+/netravati.html /netravati.html 200
+
+# Handle trailing slashes
+/reviews /reviews.html 200
+/kudremukh /kudremukh.html 200
+/kuranjal /kuranjal.html 200
+/netravati /netravati.html 200
+
+# 404 fallback to index
+/* /index.html 404
