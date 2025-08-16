@@ -805,6 +805,23 @@
 .btn-book-now:hover {
     animation: bookNowPulse 1.5s infinite;
 }
+.whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: #fff;
+            font-size: 2rem;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20b954;
+        }
     </style>
 </head>
 <body>
@@ -1114,7 +1131,59 @@
             </div>
         </div>
     </section>
-
+    <!-- ✅ FAQ Section -->
+    <section id="faq" class="section" style="background:#f8f9fa;">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+        <div class="accordion" id="faqAccordion">
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                Do I need prior trekking experience?
+              </button>
+            </h2>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">No, our treks are designed for beginners as well as experienced trekkers.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                What should I carry for the trek?
+              </button>
+            </h2>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Carry trekking shoes, raincoat, water bottle, and basic personal items.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                Is food included in the package?
+              </button>
+            </h2>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">Yes, our Standard and Premium packages include authentic Malenadu food.</div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                Is plastic carry allowed?
+              </button>
+            </h2>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body">No, plastic carry is strictly not allowed to protect the environment.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
+       class="whatsapp-float" target="_blank">
+       <i class="bi bi-whatsapp"></i>
+    </a>
     <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container">
@@ -1148,13 +1217,13 @@
                         </div>
                         <div class="footer-info">
                             <i class="bi bi-envelope"></i>
-                            info@malenadutreks.com
+                            Hjprasadjain@gmail.com
                         </div>
                         <div class="social-links">
-                            <a href="#"><i class="bi bi-facebook"></i></a>
-                            <a href="#"><i class="bi bi-instagram"></i></a>
-                            <a href="#"><i class="bi bi-twitter"></i></a>
-                            <a href="#"><i class="bi bi-youtube"></i></a>
+                            <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                            <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a>
+                            <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1474,7 +1543,7 @@
                 btn.addEventListener('mouseenter', function() {
                     this.style.transform = 'translateY(-5px) scale(1.05)';
                 });
-                
+
                 btn.addEventListener('mouseleave', function() {
                     this.style.transform = 'translateY(0) scale(1)';
                 });

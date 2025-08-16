@@ -27,10 +27,11 @@
     
     <style>
         :root {
-    --primary-color: #0a0e27;
-    --secondary-color: #1a1f3a;
-    --accent-color: #D81B60;
-    --accent-light: #EC407A;
+    --primary-color: #000000;
+    --secondary-color: #1a1a1a;
+    --accent-color: #ff6600;
+    --accent-light: #ff8533;
+    --green-accent: #00cc66;
     --neutral-50: #f8fafc;
     --neutral-100: #f1f5f9;
     --neutral-200: #e2e8f0;
@@ -56,7 +57,7 @@
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
     --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    --shadow-pink: 0 8px 20px rgba(216, 27, 96, 0.3);
+    --shadow-orange: 0 8px 20px rgba(255, 102, 0, 0.3);
     --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
@@ -89,7 +90,8 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: var(--bg-primary);
+    background-color: #000000; /* Black fallback background */
+    background-image: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
@@ -110,6 +112,12 @@ body {
     transition: filter var(--transition-slow);
 }
 
+/* Fallback when video fails to load */
+.video-background:not([src]), 
+.video-background[src=""] {
+    display: none;
+}
+
 .video-background:hover {
     filter: brightness(1) contrast(1.2) saturate(1.1);
 }
@@ -124,11 +132,11 @@ body::before {
     height: 100%;
     background: linear-gradient(
         135deg,
-        rgba(15, 23, 42, 0.7) 0%,
-        rgba(30, 41, 59, 0.65) 25%,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(26, 26, 26, 0.65) 25%,
         transparent 50%,
-        rgba(30, 41, 59, 0.65) 75%,
-        rgba(15, 23, 42, 0.7) 100%
+        rgba(26, 26, 26, 0.65) 75%,
+        rgba(0, 0, 0, 0.7) 100%
     );
     z-index: -1;
     pointer-events: none;
@@ -296,7 +304,7 @@ body::before {
 
 .nav-link:hover {
     color: var(--accent-color);
-    background: rgba(216, 27, 96, 0.1);
+    background: rgba(255, 102, 0, 0.1);
 }
 
 .nav-link:hover::after {
@@ -311,14 +319,14 @@ body::before {
     text-decoration: none;
     font-weight: 600;
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-pink);
+    box-shadow: var(--shadow-orange);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .nav-cta:hover {
     background: var(--accent-light);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(216, 27, 96, 0.4);
+    box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
 }
 
 /* Hero Section */
@@ -345,10 +353,10 @@ body::before {
     align-items: center;
     gap: 0.5rem;
     padding: 0.5rem 1rem;
-    background: rgba(216, 27, 96, 0.2);
-    border: 1px solid rgba(216, 27, 96, 0.3);
+    background: rgba(0, 204, 102, 0.2);
+    border: 1px solid rgba(0, 204, 102, 0.3);
     border-radius: var(--radius-full);
-    color: var(--accent-light);
+    color: var(--green-accent);
     font-size: 0.875rem;
     font-weight: 500;
     margin-bottom: 2rem;
@@ -398,7 +406,7 @@ body::before {
     text-decoration: none;
     font-weight: 600;
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-pink);
+    box-shadow: var(--shadow-orange);
     border: none;
     cursor: pointer;
     display: inline-flex;
@@ -410,7 +418,7 @@ body::before {
 .btn-primary:hover {
     background: var(--accent-light);
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(216, 27, 96, 0.4);
+    box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
 }
 
 .btn-secondary {
@@ -478,7 +486,7 @@ body::before {
 .content-card:hover {
     transform: translateY(-5px);
     box-shadow: var(--shadow-2xl);
-    border-color: rgba(216, 27, 96, 0.3);
+    border-color: rgba(0, 204, 102, 0.3);
 }
 
 .content-card:hover::before {
@@ -503,6 +511,10 @@ body::before {
     color: var(--text-light);
     font-size: 1.5rem;
     transition: all var(--transition-base);
+}
+
+.card-icon.green {
+    background: linear-gradient(135deg, var(--green-accent) 0%, #00ff7f 100%);
 }
 
 .content-card:hover .card-icon {
@@ -611,26 +623,19 @@ body::before {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.feature-list li::before {
+    content: '✓';
+    color: var(--green-accent);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
 .feature-list li:hover {
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 204, 102, 0.05);
     border-radius: var(--radius-md);
     padding-left: 1rem;
     padding-right: 1rem;
-}
-
-.feature-list li::before {
-    content: '✓';
-    width: 1.5rem;
-    height: 1.5rem;
-    background: var(--accent-color);
-    color: var(--text-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.75rem;
-    font-weight: bold;
-    flex-shrink: 0;
 }
 
 /* Gallery */
@@ -672,7 +677,7 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(15, 23, 42, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.6) 100%);
     opacity: 0;
     transition: opacity var(--transition-base);
     display: flex;
@@ -853,7 +858,7 @@ body::before {
     justify-content: center;
     font-size: 1.25rem;
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-pink);
+    box-shadow: var(--shadow-orange);
     z-index: 1000;
     opacity: 0;
     visibility: hidden;
@@ -869,7 +874,7 @@ body::before {
 .scroll-to-top:hover {
     background: var(--accent-light);
     transform: scale(1.1);
-    box-shadow: 0 12px 30px rgba(216, 27, 96, 0.4);
+    box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
 }
 
 /* Animations */
@@ -1042,6 +1047,9 @@ body::before {
   animation: spinHue 10s linear infinite;
   -webkit-mask:  
     linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask:  
+    linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0); 
   -webkit-mask-composite: xor;
           mask-composite: exclude;
@@ -1099,8 +1107,9 @@ body::before {
 </head>
 <body>
     <!-- Video Background -->
-    <video class="video-background" autoplay muted loop>
+    <video class="video-background" autoplay muted loop playsinline preload="auto">
         <source src="video/2711127-uhd_3840_2160_24fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
     </video>
 
     <!-- Sticker Animation -->
@@ -1482,7 +1491,7 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                         font-family: var(--font-primary);
                         font-size: 1.2rem;
                         text-align: center;
-                        background: rgba(216, 27, 96, 0.7);
+                        background: rgba(255, 102, 0, 0.7);
                         padding: 10px 20px;
                         border-radius: 20px;
                     `;
@@ -1502,6 +1511,26 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     });
                 });
             });
+        });
+
+        // Video handling for better compatibility
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-background');
+            if (video) {
+                video.addEventListener('loadeddata', function() {
+                    console.log('Video loaded successfully');
+                });
+                
+                video.addEventListener('error', function() {
+                    console.log('Video failed to load, showing fallback background');
+                    video.style.display = 'none';
+                });
+                
+                // Force play on mobile devices
+                video.play().catch(function(error) {
+                    console.log('Autoplay prevented:', error);
+                });
+            }
         });
     </script>
 </body>
