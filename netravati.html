@@ -845,6 +845,33 @@ body::before {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    color: #ffffff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-3px);
+    color: white;
+}
+
 /* Scroll to Top */
 .scroll-to-top {
     position: fixed;
@@ -1498,6 +1525,12 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     <h3>Contact Us</h3>
                     <p><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks.">WhatsApp: +91 80731 78851</a></p>
                     <p>Email: info@henjodistores.com</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a>
+                        <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">

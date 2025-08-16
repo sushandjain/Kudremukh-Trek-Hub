@@ -188,6 +188,31 @@
       border-radius:20px; padding:18px; background:linear-gradient(180deg,#111a34,#0e1529)
     }
     .foot small{color:var(--muted)}
+    
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .social-links a:hover {
+      background: var(--brand);
+      transform: translateY(-2px);
+      color: white;
+    }
 
     /* ====== Utilities ====== */
     .grid-3{display:grid; grid-template-columns:repeat(12,1fr); gap:18px}
@@ -512,6 +537,12 @@
       <div>
         <div class="brand"><img src="image/logo-malenadu.png" alt="Logo" /><span>Malenadu Treks</span></div>
         <small>© 2025 Malenadu Treks. All rights reserved. Netravati • Kudremukh • Kurinjal</small>
+        <div class="social-links">
+          <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+          <a href="#" target="_blank" rel="noopener noreferrer"><i class="bi bi-twitter"></i></a>
+          <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+        </div>
       </div>
       <div style="text-align:right">
         <a class="btn primary" href="https://wa.me/918073178851?text=Hi! I want to book Netravati Peak Trek" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Book Netravati Now</a>
