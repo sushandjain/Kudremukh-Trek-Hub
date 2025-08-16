@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Kudremukh Treks</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2d5a2d;
+            --secondary-color: #ff6b35;
+            --accent-color: #4CAF50;
+            --text-dark: #2c3e50;
+            --text-light: #ecf0f1;
+            --bg-light: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(45, 90, 45, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--text-light) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(45, 90, 45, 0.8), rgba(45, 90, 45, 0.8)), 
+                        url('image/kkview.jpg') center/cover;
+            height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .review-form-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+
+        .reviews-container {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-title {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 12px 15px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .star {
+            font-size: 2rem;
+            color: #ddd;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .star:hover,
+        .star.active {
+            color: #ffc107;
+        }
+
+        .btn-submit {
+            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+            border: none;
+            border-radius: 25px;
+            padding: 12px 30px;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .review-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .reviewer-name {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-stars {
+            color: #ffc107;
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .review-date {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--text-light);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .review-form-container,
+            .reviews-container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        .spinner-border {
+            color: var(--accent-color);
+        }
+
+        /* Success Message */
+        .success-message {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid #c3e6cb;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-mountain"></i> KUDREMUKH TREKS
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="netravati.html">Netravati</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kudremukh.html">Kudremukh</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="kuranjal.html">Kuranjal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="reviews.html">Reviews</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content" data-aos="fade-up">
+            <h1>⭐ Customer Reviews & Testimonials ⭐</h1>
+            <p style="font-size: 1.4rem; margin-bottom: 1rem;">Share your trekking experience with us and help others discover the magic of the Western Ghats</p>
+            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin-top: 2rem;">
+                <p style="margin: 0; font-size: 1.1rem;">
+                    <i class="bi bi-people-fill"></i> <strong>500+ Happy Trekkers</strong> | 
+                    <i class="bi bi-star-fill" style="color: #ffc107;"></i> <strong>4.8/5 Average Rating</strong> | 
+                    <i class="bi bi-heart-fill" style="color: #ff6b8a;"></i> <strong>100% Recommended</strong>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="main-content">
+        <div class="container">
+            <!-- Review Form -->
+            <div class="review-form-container" data-aos="fade-up">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 class="form-title" style="font-size: 2.5rem; color: var(--primary-color);">
+                        🌟 Share Your Adventure Story 🌟
+                    </h2>
+                    <p style="font-size: 1.1rem; color: #6c757d;">
+                        Your review helps fellow adventurers make informed decisions about their next trek!
+                    </p>
+                    <div style="background: linear-gradient(45deg, #e3f2fd, #f3e5f5); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
+                        <p style="margin: 0; font-weight: bold; color: var(--primary-color);">
+                            ✨ Every review matters! Help us maintain our 4.8⭐ rating ✨
+                        </p>
+                    </div>
+                </div>
+                <form id="reviewForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="reviewerName" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="reviewerName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="trekLocation" class="form-label">Trek Location</label>
+                            <select class="form-control" id="trekLocation" required>
+                                <option value="">Select Trek</option>
+                                <option value="Kudremukh">Kudremukh Peak</option>
+                                <option value="Netravati">Netravati Peak</option>
+                                <option value="Kuranjal">Kuranjal Peak</option>
+                                <option value="Multiple">Multiple Treks</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Rating</label>
+                        <div class="star-rating" id="starRating">
+                            <span class="star" data-rating="1">★</span>
+                            <span class="star" data-rating="2">★</span>
+                            <span class="star" data-rating="3">★</span>
+                            <span class="star" data-rating="4">★</span>
+                            <span class="star" data-rating="5">★</span>
+                        </div>
+                        <input type="hidden" id="rating" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="reviewText" class="form-label">Your Review</label>
+                        <textarea class="form-control" id="reviewText" rows="4" 
+                                placeholder="Tell us about your trekking experience..." required></textarea>
+                    </div>
+
+                    <div class="success-message" id="successMessage">
+                        <i class="bi bi-check-circle"></i> Thank you! Your review has been submitted successfully.
+                    </div>
+
+                    <div class="loading" id="loading">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p>Submitting your review...</p>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-submit">
+                            <i class="bi bi-send"></i> Submit Review
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Reviews Display -->
+            <div class="reviews-container" data-aos="fade-up">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <h2 class="form-title" style="font-size: 2.5rem; color: var(--primary-color);">
+                        💬 What Our Trekkers Say 💬
+                    </h2>
+                    <p style="font-size: 1.1rem; color: #6c757d;">
+                        Real experiences from real adventurers who've explored the Western Ghats with us
+                    </p>
+                    
+                    <!-- Quick Stats -->
+                    <div class="row" style="margin: 2rem 0;">
+                        <div class="col-md-3 col-6 text-center">
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
+                                <h3 style="color: var(--accent-color); margin: 0;">500+</h3>
+                                <small>Reviews</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 text-center">
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
+                                <h3 style="color: #ffc107; margin: 0;">4.8⭐</h3>
+                                <small>Average Rating</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 text-center">
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
+                                <h3 style="color: var(--secondary-color); margin: 0;">98%</h3>
+                                <small>Satisfaction</small>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-6 text-center">
+                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
+                                <h3 style="color: #dc3545; margin: 0;">100%</h3>
+                                <small>Recommended</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="reviewsContainer">
+                    <!-- Reviews will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Henjodi Stores</h5>
+                    <p>Your trusted partner for Western Ghats trekking adventures</p>
+                </div>
+                <div class="col-md-6">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="bi bi-instagram"></i></a>
+                        <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-3">
+            <p>&copy; 2025 Henjodi Stores. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
+       class="whatsapp-float" target="_blank">
+       <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: #fff;
+            font-size: 2rem;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background: #20b954;
+            color: #fff;
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+
+        // Star Rating System
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingInput.value = rating;
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.add('active');
+                    } else {
+                        s.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Sample reviews data (in a real application, this would come from a database)
+        let reviews = [
+            {
+                name: "Rahul Sharma",
+                location: "Kudremukh",
+                rating: 5,
+                text: "Amazing experience! The guides were very professional and the trek was well organized. The views from Kudremukh peak are breathtaking! Henjodi Stores made everything so easy - from permits to accommodation.",
+                date: "2025-01-15"
+            },
+            {
+                name: "Priya Menon",
+                location: "Netravati",
+                rating: 5,
+                text: "Absolutely loved the Netravati trek! Henjodi Stores provided excellent service and the homestay was comfortable. The food was delicious and authentic. Highly recommended for families!",
+                date: "2025-01-10"
+            },
+            {
+                name: "Arjun Patel",
+                location: "Kuranjal",
+                rating: 4,
+                text: "Great trek with beautiful scenery. The team was helpful and the food was delicious. Will definitely book again! The sunrise view was unforgettable.",
+                date: "2025-01-05"
+            },
+            {
+                name: "Sneha Reddy",
+                location: "Multiple",
+                rating: 5,
+                text: "Did all three treks with Henjodi Stores. Each one was unique and memorable. The best trekking experience in Karnataka! Professional guides and excellent arrangements.",
+                date: "2024-12-28"
+            },
+            {
+                name: "Vikram Singh",
+                location: "Kudremukh",
+                rating: 5,
+                text: "First time trekking and it was perfect! The guides were patient and encouraging. Safety was their top priority. The equipment provided was good quality. Thank you Henjodi team!",
+                date: "2024-12-20"
+            },
+            {
+                name: "Anita Nair",
+                location: "Netravati",
+                rating: 5,
+                text: "Solo female traveler here - felt completely safe and welcomed. The group was friendly and the guides were respectful. Beautiful trek with stunning waterfalls!",
+                date: "2024-12-15"
+            },
+            {
+                name: "Karthik Raman",
+                location: "Kuranjal",
+                rating: 4,
+                text: "Challenging but rewarding trek. Good value for money. The local cuisine was a highlight. Learned a lot about the local culture and wildlife from our guide.",
+                date: "2024-12-10"
+            },
+            {
+                name: "Deepika Jain",
+                location: "Multiple",
+                rating: 5,
+                text: "Been trekking with Henjodi for 2 years now. Always consistent quality service. They know the mountains like the back of their hand. My go-to for Western Ghats treks!",
+                date: "2024-12-05"
+            },
+            {
+                name: "Rohit Kumar",
+                location: "Kudremukh",
+                rating: 5,
+                text: "Corporate team outing was a huge success! They handled 25 people seamlessly. Great team building experience. Everyone loved it and wants to come back!",
+                date: "2024-11-28"
+            },
+            {
+                name: "Meera Prasad",
+                location: "Netravati",
+                rating: 5,
+                text: "The monsoon trek was magical! Misty mountains, flowing streams, lush greenery everywhere. The rain gear provided was excellent. Unforgettable experience!",
+                date: "2024-11-20"
+            }
+        ];
+
+        // Load existing reviews
+        function loadReviews() {
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            reviewsContainer.innerHTML = '';
+
+            if (reviews.length === 0) {
+                reviewsContainer.innerHTML = '<p class="text-center">No reviews yet. Be the first to share your experience!</p>';
+                return;
+            }
+
+            reviews.forEach(review => {
+                const reviewCard = document.createElement('div');
+                reviewCard.className = 'review-card';
+                
+                const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                
+                reviewCard.innerHTML = `
+                    <div class="reviewer-name">${review.name}</div>
+                    <div class="review-stars">${starsHtml}</div>
+                    <div class="text-muted mb-2"><i class="bi bi-geo-alt"></i> ${review.location}</div>
+                    <div class="review-text">${review.text}</div>
+                    <div class="review-date">${new Date(review.date).toLocaleDateString()}</div>
+                `;
+                
+                reviewsContainer.appendChild(reviewCard);
+            });
+        }
+
+        // Handle form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('reviewerName').value;
+            const location = document.getElementById('trekLocation').value;
+            const rating = parseInt(document.getElementById('rating').value);
+            const text = document.getElementById('reviewText').value;
+            
+            if (!rating) {
+                alert('Please select a rating!');
+                return;
+            }
+            
+            // Show loading
+            document.getElementById('loading').style.display = 'block';
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Add new review to the beginning of the array
+                const newReview = {
+                    name: name,
+                    location: location,
+                    rating: rating,
+                    text: text,
+                    date: new Date().toISOString().split('T')[0]
+                };
+                
+                reviews.unshift(newReview);
+                
+                // Save to localStorage (in a real app, this would be sent to a server)
+                localStorage.setItem('trekReviews', JSON.stringify(reviews));
+                
+                // Hide loading and show success
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+                
+                // Reset form
+                this.reset();
+                ratingInput.value = '';
+                stars.forEach(star => star.classList.remove('active'));
+                
+                // Reload reviews
+                loadReviews();
+                
+                // Hide success message after 3 seconds
+                setTimeout(() => {
+                    document.getElementById('successMessage').style.display = 'none';
+                }, 3000);
+                
+            }, 1500);
+        });
+
+        // Load reviews from localStorage if available
+        const savedReviews = localStorage.getItem('trekReviews');
+        if (savedReviews) {
+            reviews = JSON.parse(savedReviews);
+        }
+
+        // Initial load
+        loadReviews();
+    </script>
+</body>
+</html>
