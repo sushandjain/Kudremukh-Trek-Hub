@@ -90,39 +90,24 @@ body {
     font-family: var(--font-primary);
     line-height: 1.6;
     color: var(--text-primary);
-    background-color: #000000; /* Black fallback background */
-    background-image: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+    background: linear-gradient(135deg, 
+        #0f0f23 0%, 
+        #1a1a2e 25%, 
+        #16213e 50%, 
+        #0f3460 75%, 
+        #533483 100%);
+    background-attachment: fixed;
     overflow-x: hidden;
     position: relative;
     min-height: 100vh;
     scroll-behavior: smooth;
 }
 
-/* Video Background */
-.video-background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -2;
-    opacity: 0.8;
-    filter: brightness(0.9) contrast(1.1) saturate(1);
-    transition: filter var(--transition-slow);
-}
+    .sticker {
+        width: 80px !important;
+    }
 
-/* Fallback when video fails to load */
-.video-background:not([src]), 
-.video-background[src=""] {
-    display: none;
-}
-
-.video-background:hover {
-    filter: brightness(1) contrast(1.2) saturate(1.1);
-}
-
-/* Video Overlay */
+/* ADD ANIMATED GEOMETRIC BACKGROUND */
 body::before {
     content: '';
     position: fixed;
@@ -130,20 +115,32 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(
-        135deg,
-        rgba(0, 0, 0, 0.7) 0%,
-        rgba(26, 26, 26, 0.65) 25%,
-        transparent 50%,
-        rgba(26, 26, 26, 0.65) 75%,
-        rgba(0, 0, 0, 0.7) 100%
-    );
+    background: 
+        radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 80%, rgba(255, 206, 84, 0.2) 0%, transparent 50%);
     z-index: -1;
     pointer-events: none;
+    animation: gradientShift 15s ease-in-out infinite;
 }
 
-/* Sticker Animation */
-.stickers-container {
+@keyframes gradientShift {
+    0%, 100% { 
+        background: 
+            radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 80% 20%, rgba(255, 119, 48, 0.3) 0%, transparent 50%),
+            radial-gradient(circle at 40% 80%, rgba(255, 206, 84, 0.2) 0%, transparent 50%);
+    }
+    50% { 
+        background: 
+            radial-gradient(circle at 80% 30%, rgba(120, 119, 198, 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 20% 70%, rgba(255, 119, 48, 0.4) 0%, transparent 50%),
+            radial-gradient(circle at 60% 20%, rgba(255, 206, 84, 0.3) 0%, transparent 50%);
+    }
+}
+
+/* FLOATING PARTICLES */
+.particles-container {
     position: fixed;
     top: 0;
     left: 0;
@@ -154,98 +151,66 @@ body::before {
     overflow: hidden;
 }
 
-.sticker {
+.particle {
     position: absolute;
-    opacity: 0.7;
-    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
-    animation: fall linear infinite;
-    will-change: transform;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: float linear infinite;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
-.sticker:nth-child(1) {
-    width: 150px;
-    left: 10%;
-    animation-duration: 12s;
-    animation-delay: 0s;
-    background: url('https://images.unsplash.com/photo-1547637908-9931b626496b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+.particle:nth-child(odd) {
+    background: rgba(255, 102, 0, 0.4);
+    box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
 }
 
-.sticker:nth-child(2) {
-    width: 180px;
-    left: 25%;
-    animation-duration: 15s;
-    animation-delay: 2s;
-    background: url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
-    transform: rotate(10deg);
-}
+.particle:nth-child(1) { left: 10%; animation-duration: 20s; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-duration: 18s; animation-delay: 2s; }
+.particle:nth-child(3) { left: 30%; animation-duration: 22s; animation-delay: 4s; }
+.particle:nth-child(4) { left: 40%; animation-duration: 19s; animation-delay: 1s; }
+.particle:nth-child(5) { left: 50%; animation-duration: 21s; animation-delay: 3s; }
+.particle:nth-child(6) { left: 60%; animation-duration: 17s; animation-delay: 5s; }
+.particle:nth-child(7) { left: 70%; animation-duration: 23s; animation-delay: 1.5s; }
+.particle:nth-child(8) { left: 80%; animation-duration: 20s; animation-delay: 3.5s; }
 
-.sticker:nth-child(3) {
-    width: 160px;
-    left: 40%;
-    animation-duration: 14s;
-    animation-delay: 4s;
-    background: url('https://images.unsplash.com/photo-1507041957456-9c397ce39c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
-}
-
-.sticker:nth-child(4) {
-    width: 140px;
-    left: 55%;
-    animation-duration: 13s;
-    animation-delay: 1s;
-    background: url('https://images.unsplash.com/photo-1547637908-9931b626496b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
-    transform: rotate(-15deg);
-}
-
-.sticker:nth-child(5) {
-    width: 170px;
-    left: 70%;
-    animation-duration: 16s;
-    animation-delay: 3s;
-    background: url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
-}
-
-.sticker:nth-child(6) {
-    width: 150px;
-    left: 85%;
-    animation-duration: 14s;
-    animation-delay: 5s;
-    background: url('https://images.unsplash.com/photo-1507041957456-9c397ce39c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
-    transform: rotate(5deg);
-}
-
-@keyframes fall {
+@keyframes float {
     0% {
-        transform: translateY(-150%) rotate(0deg);
+        transform: translateY(100vh) scale(0);
         opacity: 0;
     }
     10% {
-        opacity: 0.7;
+        opacity: 1;
+        transform: scale(1);
     }
     90% {
-        opacity: 0.7;
+        opacity: 1;
     }
     100% {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(-100vh) scale(0);
         opacity: 0;
     }
 }
 
-/* Navigation */
+/* MODERN NAVBAR WITH GLASSMORPHISM 2.0 */
 .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
-    background: var(--bg-glass);
-    backdrop-filter: blur(var(--blur-xl)) saturate(180%);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    transition: all var(--transition-base);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-image: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) 1;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding: 1rem 0;
 }
 
 .navbar.scrolled {
-    background: var(--bg-glass-hover);
-    box-shadow: var(--shadow-lg);
+    background: rgba(15, 15, 35, 0.9);
+    backdrop-filter: blur(25px) saturate(200%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -329,7 +294,7 @@ body::before {
     box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
 }
 
-/* Hero Section */
+/* MODERN HERO SECTION */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -339,6 +304,35 @@ body::before {
     color: var(--text-light);
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, 
+        rgba(15, 15, 35, 0.8) 0%, 
+        rgba(26, 26, 46, 0.6) 50%, 
+        rgba(83, 52, 131, 0.4) 100%);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        conic-gradient(from 45deg at 30% 70%, 
+            transparent, 
+            rgba(255, 102, 0, 0.1), 
+            transparent),
+        conic-gradient(from 225deg at 70% 30%, 
+            transparent, 
+            rgba(120, 119, 198, 0.1), 
+            transparent);
+    animation: heroRotate 30s linear infinite;
+    z-index: -1;
+}
+
+@keyframes heroRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .hero-container {
@@ -398,27 +392,55 @@ body::before {
     animation: fadeInUp 1.2s ease-out 0.6s both;
 }
 
+/* MODERN BUTTON STYLES */
 .btn-primary {
-    background: var(--accent-color);
+    background: linear-gradient(135deg, 
+        var(--accent-color) 0%, 
+        var(--accent-light) 100%);
     color: var(--text-light);
-    padding: 0.875rem 2rem;
-    border-radius: var(--radius-full);
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: all var(--transition-base);
-    box-shadow: var(--shadow-orange);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 4px 16px rgba(255, 102, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
     border: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    gap: 0.75rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.2), 
+        transparent);
+    transition: left 0.5s ease;
 }
 
 .btn-primary:hover {
-    background: var(--accent-light);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(255, 102, 0, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 12px 32px rgba(255, 102, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, 
+        var(--accent-light) 0%, 
+        #ff9933 100%);
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-secondary {
@@ -457,16 +479,18 @@ body::before {
     padding: 0 2rem;
 }
 
-/* Glass Cards */
+/* MODERN GLASS CARDS */
 .content-card {
-    background: var(--bg-glass);
-    backdrop-filter: blur(var(--blur-xl)) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-2xl);
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
     padding: 2.5rem;
     margin-bottom: 2rem;
-    transition: all var(--transition-base);
-    box-shadow: var(--shadow-lg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
 }
@@ -477,16 +501,22 @@ body::before {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 102, 0, 0.5), 
+        transparent);
     opacity: 0;
-    transition: opacity var(--transition-base);
+    transition: opacity 0.4s ease;
 }
 
 .content-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-2xl);
-    border-color: rgba(0, 204, 102, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 102, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.12);
 }
 
 .content-card:hover::before {
@@ -571,20 +601,44 @@ body::before {
     margin: 3rem 0;
 }
 
+/* MODERN STATS CARDS */
 .stat-card {
-    background: var(--bg-glass);
-    backdrop-filter: blur(var(--blur-lg));
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: var(--radius-xl);
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
     padding: 2rem;
     text-align: center;
-    transition: all var(--transition-base);
-    box-shadow: var(--shadow-md);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.1), 
+        transparent);
+    transition: left 0.6s ease;
 }
 
 .stat-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 12px 24px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 102, 0, 0.3);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.stat-card:hover::after {
+    left: 100%;
 }
 
 .stat-value {
@@ -646,51 +700,63 @@ body::before {
     margin: 2rem 0;
 }
 
+/* MODERN GALLERY WITH BETTER HOVER EFFECTS */
 .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-lg);
+    border-radius: 16px;
     aspect-ratio: 16/10;
-    transition: all var(--transition-base);
-    box-shadow: var(--shadow-md);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
 }
 
-.gallery-item:hover {
-    transform: scale(1.03);
-    box-shadow: var(--shadow-xl);
-}
-
-.gallery-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all var(--transition-base);
-}
-
-.gallery-item:hover .gallery-image {
-    transform: scale(1.1);
-}
-
-.gallery-overlay {
+.gallery-item::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(45deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.6) 100%);
+    background: linear-gradient(45deg, 
+        transparent 0%, 
+        rgba(255, 102, 0, 0.1) 50%, 
+        transparent 100%);
     opacity: 0;
-    transition: opacity var(--transition-base);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: opacity 0.4s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.3),
+        0 0 0 2px rgba(255, 102, 0, 0.3);
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%, 
+        rgba(0, 0, 0, 0.4) 50%, 
+        transparent 100%);
     color: var(--text-light);
     font-weight: 600;
     text-align: center;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    padding: 2rem 1rem 1rem;
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover .gallery-overlay {
-    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Video Container */
@@ -947,8 +1013,9 @@ body::before {
         text-align: center;
     }
 
-    .sticker {
-        width: 100px !important;
+    .particle {
+        width: 3px !important;
+        height: 3px !important;
     }
 }
 
@@ -987,15 +1054,14 @@ body::before {
     }
     
     .scroll-to-top,
-    .sticker {
+    .particle {
         transition: none;
     }
 }
 
 /* Print Styles */
 @media print {
-    .video-background,
-    .stickers-container,
+    .particles-container,
     .navbar,
     .scroll-to-top {
         display: none !important;
@@ -1106,20 +1172,16 @@ body::before {
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <video class="video-background" autoplay muted loop playsinline preload="auto">
-        <source src="video/2711127-uhd_3840_2160_24fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Sticker Animation -->
-    <div class="stickers-container">
-        <div class="sticker"></div>
-        <div class="sticker"></div>
-        <div class="sticker"></div>
-        <div class="sticker"></div>
-        <div class="sticker"></div>
-        <div class="sticker"></div>
+    <!-- Floating Particles -->
+    <div class="particles-container">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
     </div>
 
     <!-- Navigation -->
@@ -1418,6 +1480,19 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                 }
             });
 
+            // Enhanced scroll effects
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.5;
+                
+                // Parallax effect for particles
+                const particles = document.querySelectorAll('.particle');
+                particles.forEach((particle, index) => {
+                    const speed = (index + 1) * 0.2;
+                    particle.style.transform = `translateY(${rate * speed}px)`;
+                });
+            });
+
             // Scroll to Top
             const scrollToTop = document.querySelector('.scroll-to-top');
             window.addEventListener('scroll', function() {
@@ -1432,21 +1507,40 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
 
-            // Intersection Observer for Cards
+            // Modern intersection observer with stagger effect
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
             const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        entry.target.style.opacity = '1';
-                        entry.target.style.transform = 'translateY(0)';
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0) scale(1)';
+                        }, index * 100);
                     }
                 });
-            }, { threshold: 0.1 });
+            }, observerOptions);
 
-            document.querySelectorAll('.content-card, .stat-card, .testimonial-card').forEach(card => {
+            // Enhanced card animations
+            document.querySelectorAll('.content-card, .stat-card').forEach((card, index) => {
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                card.style.transform = 'translateY(50px) scale(0.95)';
+                card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
                 observer.observe(card);
+            });
+
+            // Modern button interaction
+            document.querySelectorAll('.btn-primary').forEach(button => {
+                button.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-3px) scale(1.02)';
+                });
+                
+                button.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
             });
 
             // Gallery Lightbox
@@ -1511,26 +1605,6 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     });
                 });
             });
-        });
-
-        // Video handling for better compatibility
-        document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.video-background');
-            if (video) {
-                video.addEventListener('loadeddata', function() {
-                    console.log('Video loaded successfully');
-                });
-                
-                video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing fallback background');
-                    video.style.display = 'none';
-                });
-                
-                // Force play on mobile devices
-                video.play().catch(function(error) {
-                    console.log('Autoplay prevented:', error);
-                });
-            }
         });
     </script>
 </body>
