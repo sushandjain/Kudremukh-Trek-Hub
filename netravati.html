@@ -27,6 +27,117 @@
     <link rel="icon" type="image/x-icon" href="image/nplogo.jpg">
     
     <style>
+        /* Loading Screen Styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: #ffffff;
+            max-width: 400px;
+            padding: 2rem;
+        }
+        
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6600 0%, #00cc66 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .loading-text {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid #ff6600;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        .loading-progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #00cc66);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+            animation: shimmer 2s infinite;
+        }
+        
+        .loading-percentage {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Main page content - initially hidden */
+        .main-page-content {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        
+        .main-page-content.visible {
+            opacity: 1;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
         :root {
     /* Updated Theme - Black, Orange, and Green (matching Kudremukh) */
     --primary-color: #000000;
@@ -1198,11 +1309,27 @@ body::before {
     </style>
 </head>
 <body>
-    <!-- Video Background -->
-    <video class="video-background" autoplay muted loop playsinline preload="auto">
-        <source src="video/2711112-uhd_3840_2160_24fps.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img src="image/nplogo.jpg" alt="Netravati Peak Logo" class="loading-logo">
+            <h1 class="loading-title">⛰️ Netravati Peak Trek</h1>
+            <p class="loading-text">Preparing your adventure experience...</p>
+            <div class="loading-spinner"></div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Main Page Content (initially hidden) -->
+    <div class="main-page-content" id="mainContent">
+        <!-- Video Background -->
+        <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
+            <source src="video/2711112-uhd_3840_2160_24fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
     <!-- Sticker Animation -->
     <div class="stickers-container">
@@ -1549,6 +1676,14 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
     <button class="scroll-to-top" aria-label="Scroll to top">
         <i class="bi bi-arrow-up"></i>
     </button>
+    </div> <!-- End of main-page-content -->
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -1657,23 +1792,109 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
             });
         });
 
-        // Video handling for better compatibility
+        // Loading Screen and Video handling
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.video-background');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+            const progressBar = document.getElementById('progressBar');
+            const loadingPercentage = document.getElementById('loadingPercentage');
+            const video = document.getElementById('backgroundVideo');
+            
+            let progress = 0;
+            let loadingComplete = false;
+            let videoLoaded = false;
+            
+            // Simulate loading progress
+            const loadingInterval = setInterval(() => {
+                if (progress < 90) {
+                    progress += Math.random() * 3;
+                    if (progress > 90) progress = 90;
+                    
+                    progressBar.style.width = progress + '%';
+                    loadingPercentage.textContent = Math.floor(progress) + '%';
+                }
+            }, 150);
+            
+            // Function to complete loading
+            function completeLoading() {
+                if (loadingComplete) return;
+                loadingComplete = true;
+                
+                clearInterval(loadingInterval);
+                
+                // Complete the progress bar
+                progressBar.style.width = '100%';
+                loadingPercentage.textContent = '100%';
+                
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    mainContent.classList.add('visible');
+                    
+                    // Start video playback after loading is complete
+                    if (video) {
+                        video.play().catch(error => {
+                            console.log('Autoplay prevented:', error);
+                        });
+                    }
+                }, 500);
+            }
+            
+            // Video event handlers
             if (video) {
+                // Video loaded successfully
                 video.addEventListener('loadeddata', function() {
                     console.log('Video loaded successfully');
+                    videoLoaded = true;
+                    progress = Math.max(progress, 85);
+                    progressBar.style.width = progress + '%';
+                    loadingPercentage.textContent = Math.floor(progress) + '%';
+                    
+                    // Complete loading after a short delay
+                    setTimeout(completeLoading, 1000);
                 });
                 
+                // Video can play through
+                video.addEventListener('canplaythrough', function() {
+                    console.log('Video can play through');
+                    videoLoaded = true;
+                    if (!loadingComplete) {
+                        completeLoading();
+                    }
+                });
+                
+                // Video error handling
                 video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing fallback background');
+                    console.log('Video failed to load, showing page without video');
                     video.style.display = 'none';
+                    // Complete loading even if video fails
+                    completeLoading();
                 });
                 
-                // Force play on mobile devices
-                video.play().catch(function(error) {
-                    console.log('Autoplay prevented:', error);
+                // Video loading progress
+                video.addEventListener('progress', function() {
+                    if (video.buffered.length > 0) {
+                        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+                        const duration = video.duration;
+                        if (duration > 0) {
+                            const bufferedProgress = (bufferedEnd / duration) * 80; // Use 80% for video loading
+                            progress = Math.max(progress, bufferedProgress);
+                            progressBar.style.width = progress + '%';
+                            loadingPercentage.textContent = Math.floor(progress) + '%';
+                        }
+                    }
                 });
+                
+                // Fallback: Complete loading after 5 seconds regardless
+                setTimeout(() => {
+                    if (!loadingComplete) {
+                        console.log('Loading timeout reached, completing loading');
+                        completeLoading();
+                    }
+                }, 5000);
+                
+            } else {
+                // No video element found, complete loading
+                completeLoading();
             }
         });
     </script>
