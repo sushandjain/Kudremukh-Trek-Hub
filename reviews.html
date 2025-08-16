@@ -6,15 +6,26 @@
     <title>Reviews - Kudremukh Treks</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #2d5a2d;
-            --secondary-color: #ff6b35;
-            --accent-color: #4CAF50;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --bg-light: #f8f9fa;
+            --primary-black: #1a1a1a;
+            --secondary-black: #2a2a2a;
+            --pure-white: #ffffff;
+            --cream: #f8f6f0;
+            --light-cream: #fdfcf7;
+            --dark-cream: #f0ede3;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --accent-gold: #d4af37;
+            --success: #2d5016;
+            --border-light: #e8e5de;
+            --shadow-soft: 0 2px 20px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 40px rgba(0, 0, 0, 0.12);
+            --shadow-strong: 0 16px 60px rgba(0, 0, 0, 0.15);
+            --border-radius: 16px;
+            --border-radius-large: 24px;
         }
 
         * {
@@ -24,234 +35,586 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-cream);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navbar */
+        /* Professional Navigation */
         .navbar {
-            background: rgba(45, 90, 45, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-            padding: 1rem 0;
+            background-color: var(--pure-white);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-soft);
+            padding: 1.2rem 0;
+            transition: all 0.3s ease;
         }
 
         .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--text-light) !important;
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--primary-black) !important;
+            letter-spacing: -0.5px;
         }
 
         .navbar-nav .nav-link {
-            color: var(--text-light) !important;
+            color: var(--text-secondary) !important;
             font-weight: 500;
-            margin: 0 10px;
-            transition: color 0.3s ease;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem !important;
+            border-radius: var(--border-radius);
+            transition: all 0.3s ease;
+            position: relative;
         }
 
-        .navbar-nav .nav-link:hover {
-            color: var(--secondary-color) !important;
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-black) !important;
+            background-color: var(--cream);
         }
 
-        /* Hero Section */
+        .navbar-nav .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+        }
+
+        /* Elegant Hero Section */
         .hero-section {
-            background: linear-gradient(rgba(45, 90, 45, 0.8), rgba(45, 90, 45, 0.8)), 
-                        url('image/kkview.jpg') center/cover;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            color: var(--pure-white);
+            padding: 8rem 0 6rem;
             position: relative;
             overflow: hidden;
         }
 
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="white" opacity="0.03"><polygon points="0,100 1000,0 1000,100"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
         .hero-content h1 {
-            font-size: 3rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            letter-spacing: -2px;
+            line-height: 1.1;
         }
 
         .hero-content p {
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        /* Main Content */
-        .main-content {
-            padding: 4rem 0;
-        }
-
-        .review-form-container {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            font-size: 1.25rem;
             margin-bottom: 3rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-weight: 400;
         }
 
-        .reviews-container {
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .stats-grid {
+            background-color: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            padding: 3rem;
+            box-shadow: var(--shadow-medium);
+            color: var(--text-primary);
+            margin-top: 2rem;
         }
 
-        .form-title {
-            color: var(--primary-color);
-            font-weight: bold;
-            margin-bottom: 1.5rem;
+        .stat-item {
             text-align: center;
+            padding: 1rem;
         }
 
-        .form-control {
-            border-radius: 10px;
-            border: 2px solid #e9ecef;
-            padding: 12px 15px;
-            transition: border-color 0.3s ease;
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-black);
+            display: block;
+            margin-bottom: 0.5rem;
+            letter-spacing: -1px;
         }
 
-        .form-control:focus {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        .stat-label {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Content Sections */
+        .main-content {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+        }
+
+        /* Premium Cards */
+        .premium-card {
+            background-color: var(--pure-white);
+            border-radius: var(--border-radius-large);
+            box-shadow: var(--shadow-soft);
+            border: 1px solid var(--border-light);
+            transition: all 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .premium-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-strong);
+        }
+
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--primary-black) 100%);
+        }
+
+        .card-body {
+            padding: 4rem;
+        }
+
+        /* Typography */
+        .section-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--primary-black);
+            text-align: center;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            font-weight: 400;
+            line-height: 1.7;
+        }
+
+        /* Professional Form Styling */
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control, .form-select {
+            border: 2px solid var(--border-light);
+            border-radius: var(--border-radius);
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            background-color: var(--cream);
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+            font-weight: 400;
+        }
+
+        .form-control:focus, .form-select:focus {
+            border-color: var(--primary-black);
+            box-shadow: 0 0 0 0.25rem rgba(26, 26, 26, 0.1);
+            background-color: var(--pure-white);
+            outline: none;
+        }
+
+        /* Sophisticated Star Rating */
+        .rating-container {
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .rating-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .star-rating {
-            display: flex;
-            justify-content: center;
-            margin: 1rem 0;
+            display: inline-flex;
+            gap: 8px;
         }
 
         .star {
             font-size: 2rem;
-            color: #ddd;
+            color: var(--border-light);
             cursor: pointer;
-            transition: color 0.3s ease;
+            transition: all 0.2s ease;
+            position: relative;
+            padding: 0.5rem;
         }
 
-        .star:hover,
+        .star:hover {
+            color: var(--accent-gold);
+            transform: scale(1.1);
+        }
+
         .star.active {
-            color: #ffc107;
+            color: var(--accent-gold);
         }
 
-        .btn-submit {
-            background: linear-gradient(45deg, var(--accent-color), var(--secondary-color));
+        /* Premium Button */
+        .btn-premium {
+            background-color: var(--primary-black);
+            color: var(--pure-white);
             border: none;
-            border-radius: 25px;
-            padding: 12px 30px;
-            color: white;
-            font-weight: bold;
-            transition: transform 0.3s ease;
+            border-radius: var(--border-radius);
+            padding: 1rem 3rem;
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: var(--shadow-medium);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn-submit:hover {
+        .btn-premium::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-premium:hover {
+            background-color: var(--secondary-black);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: var(--shadow-strong);
+            color: var(--pure-white);
         }
 
-        .review-card {
-            background: #f8f9fa;
-            border-radius: 15px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent-color);
-            transition: transform 0.3s ease;
-        }
-
-        .review-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-        }
-
-        .reviewer-name {
-            font-weight: bold;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .review-stars {
-            color: #ffc107;
-            margin-bottom: 0.5rem;
-        }
-
-        .review-text {
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        .review-date {
-            font-size: 0.9rem;
-            color: #6c757d;
-            margin-top: 0.5rem;
-        }
-
-        /* Footer */
-        .footer {
-            background: var(--primary-color);
-            color: var(--text-light);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            font-size: 1.5rem;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-
-            .review-form-container,
-            .reviews-container {
-                margin: 1rem;
-                padding: 1.5rem;
-            }
-        }
-
-        /* Loading Animation */
-        .loading {
-            display: none;
-            text-align: center;
-            margin: 1rem 0;
-        }
-
-        .spinner-border {
-            color: var(--accent-color);
+        .btn-premium:hover::before {
+            left: 100%;
         }
 
         /* Success Message */
-        .success-message {
+        .success-alert {
+            background-color: var(--success);
+            color: var(--pure-white);
+            padding: 1.5rem 2rem;
+            border-radius: var(--border-radius);
+            margin: 2rem 0;
+            box-shadow: var(--shadow-soft);
             display: none;
-            background: #d4edda;
-            color: #155724;
-            padding: 1rem;
-            border-radius: 10px;
-            border: 1px solid #c3e6cb;
-            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        /* Loading State */
+        .loading-state {
+            display: none;
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--primary-black);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Review Cards */
+        .review-card {
+            background-color: var(--pure-white);
+            border: 1px solid var(--border-light);
+            border-radius: var(--border-radius-large);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background-color: var(--accent-gold);
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .review-card:hover {
+            transform: translateX(8px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .reviewer-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .reviewer-avatar {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-black) 0%, var(--secondary-black) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 1rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .reviewer-details h5 {
+            margin: 0;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .reviewer-details small {
+            color: var(--text-light);
+            font-weight: 400;
+        }
+
+        .review-rating {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            display: flex;
+            gap: 2px;
+        }
+
+        .review-text {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            font-size: 1rem;
+            margin: 1.5rem 0;
+            font-weight: 400;
+        }
+
+        .review-location {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--cream);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Professional Footer */
+        .footer {
+            background-color: var(--primary-black);
+            color: var(--pure-white);
+            padding: 4rem 0 2rem;
+            margin-top: 6rem;
+        }
+
+        .footer h5 {
+            color: var(--pure-white);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--secondary-black);
+            color: var(--pure-white);
+            margin: 0 0.5rem;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-medium);
+            color: var(--primary-black);
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background-color: #25d366;
+            color: var(--pure-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: var(--shadow-strong);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            background-color: #20ba5a;
+            color: var(--pure-white);
+        }
+
+        /* Animations */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .card-body {
+                padding: 2.5rem 2rem;
+            }
+            
+            .stats-grid {
+                padding: 2rem;
+            }
+            
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            
+            .review-card {
+                padding: 2rem;
+            }
+            
+            .reviewer-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        /* Additional Professional Touches */
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--primary-black) 100%);
+            margin: 2rem auto;
+        }
+
+        .quote-mark {
+            font-size: 3rem;
+            color: var(--accent-gold);
+            opacity: 0.3;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        /* Smooth transitions for all interactive elements */
+        * {
+            transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Professional Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="index.html">
                 <i class="bi bi-mountain"></i> KUDREMUKH TREKS
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: none; color: var(--primary-black);">
+                <i class="bi bi-list" style="font-size: 1.5rem;"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
@@ -275,17 +638,41 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Elegant Hero Section -->
     <section class="hero-section">
-        <div class="hero-content" data-aos="fade-up">
-            <h1>⭐ Customer Reviews & Testimonials ⭐</h1>
-            <p style="font-size: 1.4rem; margin-bottom: 1rem;">Share your trekking experience with us and help others discover the magic of the Western Ghats</p>
-            <div style="background: rgba(255,255,255,0.2); padding: 1rem; border-radius: 15px; margin-top: 2rem;">
-                <p style="margin: 0; font-size: 1.1rem;">
-                    <i class="bi bi-people-fill"></i> <strong>500+ Happy Trekkers</strong> | 
-                    <i class="bi bi-star-fill" style="color: #ffc107;"></i> <strong>4.8/5 Average Rating</strong> | 
-                    <i class="bi bi-heart-fill" style="color: #ff6b8a;"></i> <strong>100% Recommended</strong>
-                </p>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Reviews & Testimonials</h1>
+                <p>Discover what makes our trekking experiences unforgettable through the voices of our adventurers</p>
+                
+                <div class="stats-grid">
+                    <div class="row">
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Reviews</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-number">4.9</span>
+                                <span class="stat-label">Average Rating</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">Satisfaction</span>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="stat-item">
+                                <span class="stat-number">100%</span>
+                                <span class="stat-label">Recommend</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -294,358 +681,678 @@
     <section class="main-content">
         <div class="container">
             <!-- Review Form -->
-            <div class="review-form-container" data-aos="fade-up">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h2 class="form-title" style="font-size: 2.5rem; color: var(--primary-color);">
-                        🌟 Share Your Adventure Story 🌟
-                    </h2>
-                    <p style="font-size: 1.1rem; color: #6c757d;">
-                        Your review helps fellow adventurers make informed decisions about their next trek!
+            <div class="premium-card fade-in mb-5">
+                <div class="card-body">
+                    <h2 class="section-title">Share Your Adventure Story</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">
+                        Your experience inspires others to explore the magnificent Western Ghats. 
+                        Share your journey and help fellow adventurers discover their next expedition.
                     </p>
-                    <div style="background: linear-gradient(45deg, #e3f2fd, #f3e5f5); padding: 1rem; border-radius: 10px; margin: 1rem 0;">
-                        <p style="margin: 0; font-weight: bold; color: var(--primary-color);">
-                            ✨ Every review matters! Help us maintain our 4.8⭐ rating ✨
-                        </p>
-                    </div>
+
+                    <form id="reviewForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="reviewerName">Full Name</label>
+                                    <input type="text" class="form-control" id="reviewerName" placeholder="Enter your full name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="form-label" for="trekLocation">Trek Experience</label>
+                                    <select class="form-select" id="trekLocation" required>
+                                        <option value="">Select your trek</option>
+                                        <option value="Kudremukh">Kudremukh Peak</option>
+                                        <option value="Netravati">Netravati Peak</option>
+                                        <option value="Kuranjal">Kuranjal Peak</option>
+                                        <option value="Multiple">Multiple Treks</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rating-container">
+                            <div class="rating-label">Rate Your Experience</div>
+                            <div class="star-rating" id="starRating">
+                                <span class="star" data-rating="1">★</span>
+                                <span class="star" data-rating="2">★</span>
+                                <span class="star" data-rating="3">★</span>
+                                <span class="star" data-rating="4">★</span>
+                                <span class="star" data-rating="5">★</span>
+                            </div>
+                            <input type="hidden" id="rating" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-label" for="reviewText">Your Experience</label>
+                            <textarea class="form-control" id="reviewText" rows="6" 
+                                    placeholder="Share your adventure story, highlights, and what made it special..." required></textarea>
+                        </div>
+
+                        <div class="success-alert" id="successMessage">
+                            <i class="bi bi-check-circle me-2"></i>
+                            <strong>Thank you!</strong> Your review has been submitted and will inspire other adventurers.
+                        </div>
+
+                        <div class="loading-state" id="loading">
+                            <div class="spinner"></div>
+                            <p>Submitting your valuable feedback...</p>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-premium">
+                                <i class="bi bi-send me-2"></i>Submit Review
+                            </button>
+                        </div>
+                    </form>
                 </div>
-                <form id="reviewForm">
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            <label for="reviewerName" class="form-label">Your Name</label>
-                            <input type="text" class="form-control" id="reviewerName" required>
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <label for="trekLocation" class="form-label">Trek Location</label>
-                            <select class="form-control" id="trekLocation" required>
-                                <option value="">Select Trek</option>
-                                <option value="Kudremukh">Kudremukh Peak</option>
-                                <option value="Netravati">Netravati Peak</option>
-                                <option value="Kuranjal">Kuranjal Peak</option>
-                                <option value="Multiple">Multiple Treks</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        <label class="form-label">Rating</label>
-                        <div class="star-rating" id="starRating">
-                            <span class="star" data-rating="1">★</span>
-                            <span class="star" data-rating="2">★</span>
-                            <span class="star" data-rating="3">★</span>
-                            <span class="star" data-rating="4">★</span>
-                            <span class="star" data-rating="5">★</span>
-                        </div>
-                        <input type="hidden" id="rating" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="reviewText" class="form-label">Your Review</label>
-                        <textarea class="form-control" id="reviewText" rows="4" 
-                                placeholder="Tell us about your trekking experience..." required></textarea>
-                    </div>
-
-                    <div class="success-message" id="successMessage">
-                        <i class="bi bi-check-circle"></i> Thank you! Your review has been submitted successfully.
-                    </div>
-
-                    <div class="loading" id="loading">
-                        <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                        <p>Submitting your review...</p>
-                    </div>
-
-                    <div class="text-center">
-                        <button type="submit" class="btn btn-submit">
-                            <i class="bi bi-send"></i> Submit Review
-                        </button>
-                    </div>
-                </form>
             </div>
 
             <!-- Reviews Display -->
-            <div class="reviews-container" data-aos="fade-up">
-                <div style="text-align: center; margin-bottom: 2rem;">
-                    <h2 class="form-title" style="font-size: 2.5rem; color: var(--primary-color);">
-                        💬 What Our Trekkers Say 💬
-                    </h2>
-                    <p style="font-size: 1.1rem; color: #6c757d;">
-                        Real experiences from real adventurers who've explored the Western Ghats with us
+            <div class="premium-card fade-in">
+                <div class="card-body">
+                    <h2 class="section-title">What Our Adventurers Say</h2>
+                    <div class="divider"></div>
+                    <p class="section-subtitle">
+                        Authentic experiences from fellow trekkers who have explored the Western Ghats with us
                     </p>
-                    
-                    <!-- Quick Stats -->
-                    <div class="row" style="margin: 2rem 0;">
-                        <div class="col-md-3 col-6 text-center">
-                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
-                                <h3 style="color: var(--accent-color); margin: 0;">500+</h3>
-                                <small>Reviews</small>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 text-center">
-                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
-                                <h3 style="color: #ffc107; margin: 0;">4.8⭐</h3>
-                                <small>Average Rating</small>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 text-center">
-                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
-                                <h3 style="color: var(--secondary-color); margin: 0;">98%</h3>
-                                <small>Satisfaction</small>
-                            </div>
-                        </div>
-                        <div class="col-md-3 col-6 text-center">
-                            <div style="background: #f8f9fa; padding: 1rem; border-radius: 10px; margin: 0.5rem;">
-                                <h3 style="color: #dc3545; margin: 0;">100%</h3>
-                                <small>Recommended</small>
-                            </div>
-                        </div>
+
+                    <div id="reviewsContainer">
+                        <!-- Reviews will be loaded here -->
                     </div>
-                </div>
-                <div id="reviewsContainer">
-                    <!-- Reviews will be loaded here -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Professional Footer -->
     <footer class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-6">
-                    <h5>Henjodi Stores</h5>
-                    <p>Your trusted partner for Western Ghats trekking adventures</p>
+                <div class="col-md-8">
+                    <h5><i class="bi bi-mountain me-2"></i>Henjodi Stores</h5>
+                    <p>Your premier partner for authentic Western Ghats adventures. We create extraordinary trekking experiences that connect you with nature's magnificence while ensuring safety, comfort, and unforgettable memories.</p>
                 </div>
-                <div class="col-md-6">
-                    <h5>Follow Us</h5>
+                <div class="col-md-4">
+                    <h5>Connect With Us</h5>
                     <div class="social-links">
-                        <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="bi bi-instagram"></i></a>
-                        <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
                     </div>
                 </div>
             </div>
-            <hr class="my-3">
-            <p>&copy; 2025 Henjodi Stores. All rights reserved.</p>
+            <hr style="margin: 3rem 0 2rem; opacity: 0.2;">
+            <div class="text-center">
+                <p style="color: rgba(255, 255, 255, 0.6); margin: 0;">&copy; 2025 Henjodi Stores. All rights reserved. | Crafted for Adventure Seekers</p>
+            </div>
         </div>
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
-       class="whatsapp-float" target="_blank">
+    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Kudremukh Treks." 
+       class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
        <i class="bi bi-whatsapp"></i>
     </a>
 
-    <style>
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #25d366;
-            color: #fff;
-            font-size: 2rem;
-            padding: 15px;
-            border-radius: 50%;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-            z-index: 9999;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background: #20b954;
-            color: #fff;
-        }
-    </style>
-
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    
+    <!-- Firebase SDK -->
+    <!-- Firebase CDN Scripts for Static Websites -->
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+    
     <script>
-        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhBm7dEwVB4fz0b8vHIscaLyVZP16nkt4",
+            authDomain: "kudremukh-trek-reviews.firebaseapp.com",
+            databaseURL: "https://kudremukh-trek-reviews-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "kudremukh-trek-reviews",
+            storageBucket: "kudremukh-trek-reviews.firebasestorage.app",
+            messagingSenderId: "1063449420553",
+            appId: "1:1063449420553:web:f9a1c03311d6139b26a9d8",
+            measurementId: "G-69YD7JPVTW"
+        };
 
-        // Star Rating System
-        const stars = document.querySelectorAll('.star');
-        const ratingInput = document.getElementById('rating');
+        // Initialize Firebase
+        let app, database;
+        let useFirebase = false;
+        
+        try {
+            // Initialize Firebase using compat API
+            if (firebaseConfig.apiKey) {
+                app = firebase.initializeApp(firebaseConfig);
+                database = firebase.database();
+                useFirebase = true;
+                console.log("Firebase initialized successfully");
+            }
+        } catch (error) {
+            console.log("Firebase initialization failed:", error);
+            useFirebase = false;
+        }
 
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = this.getAttribute('data-rating');
-                ratingInput.value = rating;
-                
-                stars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.add('active');
-                    } else {
-                        s.classList.remove('active');
-                    }
+        // Make Firebase functions available globally
+        window.firebaseEnabled = useFirebase;
+        window.saveToFirebase = async function(reviewData) {
+            if (!useFirebase) return false;
+            try {
+                const reviewsRef = database.ref('reviews');
+                await reviewsRef.push({
+                    ...reviewData,
+                    timestamp: firebase.database.ServerValue.TIMESTAMP,
+                    approved: false // For moderation
                 });
+                return true;
+            } catch (error) {
+                console.error("Error saving to Firebase:", error);
+                return false;
+            }
+        };
+
+        window.loadFromFirebase = function(callback) {
+            if (!useFirebase) {
+                callback([]);
+                return;
+            }
+            try {
+                const reviewsRef = database.ref('reviews');
+                reviewsRef.orderByChild('timestamp').on('value', (snapshot) => {
+                    const data = snapshot.val();
+                    const firebaseReviews = data ? Object.values(data).filter(r => r.approved !== false) : [];
+                    callback(firebaseReviews.reverse()); // Show newest first
+                });
+            } catch (error) {
+                console.error("Error loading from Firebase:", error);
+                callback([]);
+            }
+        };
+    </script>
+    
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
         });
 
-        // Sample reviews data (in a real application, this would come from a database)
+        // Professional Star Rating System
+        // Premium reviews data
         let reviews = [
             {
                 name: "Rahul Sharma",
                 location: "Kudremukh",
                 rating: 5,
-                text: "Amazing experience! The guides were very professional and the trek was well organized. The views from Kudremukh peak are breathtaking! Henjodi Stores made everything so easy - from permits to accommodation.",
+                text: "An absolutely professional and well-organized experience. The team's attention to detail, from safety protocols to route planning, was exemplary. The views from Kudremukh peak exceeded all expectations, and the guide's knowledge of local flora and fauna added tremendous educational value to our trek.",
                 date: "2025-01-15"
             },
             {
                 name: "Priya Menon",
                 location: "Netravati",
                 rating: 5,
-                text: "Absolutely loved the Netravati trek! Henjodi Stores provided excellent service and the homestay was comfortable. The food was delicious and authentic. Highly recommended for families!",
-                date: "2025-01-10"
+                text: "Exceptional service from start to finish. The homestay arrangements were comfortable and authentic, offering genuine local hospitality. The trek itself was challenging yet rewarding, with breathtaking scenery at every turn. Highly recommend for both seasoned trekkers and beginners.",
+                date: "2025-01-12"
             },
             {
                 name: "Arjun Patel",
                 location: "Kuranjal",
-                rating: 4,
-                text: "Great trek with beautiful scenery. The team was helpful and the food was delicious. Will definitely book again! The sunrise view was unforgettable.",
-                date: "2025-01-05"
+                rating: 5,
+                text: "A meticulously planned adventure that showcased the best of Western Ghats. The sunrise from the summit was truly spectacular, and the photography opportunities were endless. The team's professionalism and commitment to sustainability practices were particularly impressive.",
+                date: "2025-01-08"
             },
             {
-                name: "Sneha Reddy",
+                name: "Dr. Sneha Reddy",
                 location: "Multiple",
                 rating: 5,
-                text: "Did all three treks with Henjodi Stores. Each one was unique and memorable. The best trekking experience in Karnataka! Professional guides and excellent arrangements.",
-                date: "2024-12-28"
+                text: "Having completed all three major treks with Henjodi Stores, I can confidently say they set the gold standard for trekking experiences in Karnataka. Each expedition was unique, well-executed, and memorable. Their expertise in route selection and risk management is unparalleled.",
+                date: "2025-01-05"
             },
             {
                 name: "Vikram Singh",
                 location: "Kudremukh",
                 rating: 5,
-                text: "First time trekking and it was perfect! The guides were patient and encouraging. Safety was their top priority. The equipment provided was good quality. Thank you Henjodi team!",
-                date: "2024-12-20"
+                text: "As a first-time trekker, I was initially apprehensive, but the team's patient guidance and encouragement made all the difference. The safety measures were comprehensive, and the equipment provided was of excellent quality. This experience has ignited my passion for trekking.",
+                date: "2025-01-02"
             },
             {
                 name: "Anita Nair",
                 location: "Netravati",
                 rating: 5,
-                text: "Solo female traveler here - felt completely safe and welcomed. The group was friendly and the guides were respectful. Beautiful trek with stunning waterfalls!",
-                date: "2024-12-15"
+                text: "Solo female traveler here - I felt completely secure and welcomed throughout the journey. The group dynamics were fantastic, and the guides were respectful and knowledgeable. The hidden waterfalls and pristine landscapes made this an unforgettable adventure.",
+                date: "2024-12-28"
             },
             {
                 name: "Karthik Raman",
                 location: "Kuranjal",
-                rating: 4,
-                text: "Challenging but rewarding trek. Good value for money. The local cuisine was a highlight. Learned a lot about the local culture and wildlife from our guide.",
-                date: "2024-12-10"
+                rating: 5,
+                text: "Outstanding value proposition with premium service delivery. The cultural immersion through local cuisine and traditional practices added depth to the physical challenge. The guide's storytelling about the region's history and ecology was captivating.",
+                date: "2024-12-25"
             },
             {
                 name: "Deepika Jain",
                 location: "Multiple",
                 rating: 5,
-                text: "Been trekking with Henjodi for 2 years now. Always consistent quality service. They know the mountains like the back of their hand. My go-to for Western Ghats treks!",
-                date: "2024-12-05"
+                text: "Two years of consistent excellence with Henjodi Stores. Their intimate knowledge of the Western Ghats terrain and weather patterns ensures optimal timing and route selection. They've earned my complete trust for future adventures.",
+                date: "2024-12-20"
             },
             {
                 name: "Rohit Kumar",
                 location: "Kudremukh",
                 rating: 5,
-                text: "Corporate team outing was a huge success! They handled 25 people seamlessly. Great team building experience. Everyone loved it and wants to come back!",
-                date: "2024-11-28"
+                text: "Organized a corporate retreat for 25 colleagues - the logistics management was flawless. The team-building aspects of the trek, combined with the natural beauty, created lasting bonds among our group. Professional event management at its finest.",
+                date: "2024-12-18"
             },
             {
                 name: "Meera Prasad",
                 location: "Netravati",
                 rating: 5,
-                text: "The monsoon trek was magical! Misty mountains, flowing streams, lush greenery everywhere. The rain gear provided was excellent. Unforgettable experience!",
-                date: "2024-11-20"
+                text: "The monsoon trek was an ethereal experience. Misty mountains, cascading streams, and emerald landscapes created a dreamlike atmosphere. The weather-appropriate gear and route modifications demonstrated true expertise in seasonal trekking.",
+                date: "2024-12-15"
+            },
+            {
+                name: "Aditya Rao",
+                location: "Kuranjal",
+                rating: 4,
+                text: "Challenging trek with rewarding panoramic views. The physical demands were well-communicated in advance, allowing proper preparation. The photography workshop during the trek was an unexpected bonus that enhanced the overall experience.",
+                date: "2024-12-12"
+            },
+            {
+                name: "Kavitha Nambiar",
+                location: "Kudremukh",
+                rating: 5,
+                text: "Family trek with teenagers was handled expertly. The guides adapted the pace and difficulty to accommodate different fitness levels while maintaining safety standards. The educational component about conservation was particularly valuable for the younger participants.",
+                date: "2024-12-08"
             }
         ];
 
-        // Load existing reviews
+        // Function to generate initials for avatar
+        function getInitials(name) {
+            return name.split(' ').map(n => n[0]).join('').toUpperCase();
+        }
+
+        // Function to format date
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+
+        // Load and display reviews
         function loadReviews() {
             const reviewsContainer = document.getElementById('reviewsContainer');
             reviewsContainer.innerHTML = '';
 
             if (reviews.length === 0) {
-                reviewsContainer.innerHTML = '<p class="text-center">No reviews yet. Be the first to share your experience!</p>';
+                reviewsContainer.innerHTML = `
+                    <div class="text-center py-5">
+                        <i class="bi bi-chat-dots" style="font-size: 3rem; color: var(--text-light); opacity: 0.5;"></i>
+                        <p class="text-muted mt-3" style="font-size: 1.1rem;">No reviews yet. Be the first to share your adventure story!</p>
+                    </div>
+                `;
                 return;
             }
 
-            reviews.forEach(review => {
+            reviews.forEach((review, index) => {
                 const reviewCard = document.createElement('div');
                 reviewCard.className = 'review-card';
+                reviewCard.style.animationDelay = `${index * 0.1}s`;
                 
                 const starsHtml = '★'.repeat(review.rating) + '☆'.repeat(5 - review.rating);
+                const initials = getInitials(review.name);
                 
                 reviewCard.innerHTML = `
-                    <div class="reviewer-name">${review.name}</div>
-                    <div class="review-stars">${starsHtml}</div>
-                    <div class="text-muted mb-2"><i class="bi bi-geo-alt"></i> ${review.location}</div>
+                    <div class="quote-mark">"</div>
+                    <div class="reviewer-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">${initials}</div>
+                            <div class="reviewer-details">
+                                <h5>${review.name}</h5>
+                                <small>
+                                    <i class="bi bi-calendar3 me-1"></i>
+                                    ${formatDate(review.date)}
+                                </small>
+                            </div>
+                        </div>
+                        <div class="review-rating">${starsHtml}</div>
+                    </div>
                     <div class="review-text">${review.text}</div>
-                    <div class="review-date">${new Date(review.date).toLocaleDateString()}</div>
+                    <div class="mt-3">
+                        <span class="review-location">
+                            <i class="bi bi-geo-alt me-1"></i>${review.location}
+                        </span>
+                    </div>
                 `;
                 
                 reviewsContainer.appendChild(reviewCard);
             });
         }
 
-        // Handle form submission
-        document.getElementById('reviewForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        // Load saved reviews from Firebase or localStorage
+        function loadSavedReviews() {
+            // Always display default reviews first
+            loadReviews();
             
-            const name = document.getElementById('reviewerName').value;
-            const location = document.getElementById('trekLocation').value;
-            const rating = parseInt(document.getElementById('rating').value);
-            const text = document.getElementById('reviewText').value;
-            
-            if (!rating) {
-                alert('Please select a rating!');
-                return;
+            if (window.firebaseEnabled) {
+                window.loadFromFirebase((firebaseReviews) => {
+                    if (firebaseReviews.length > 0) {
+                        reviews = [...firebaseReviews, ...reviews];
+                        loadReviews();
+                    } else {
+                        // Try localStorage as backup
+                        loadFromLocalStorage();
+                    }
+                });
+            } else {
+                loadFromLocalStorage();
             }
-            
-            // Show loading
-            document.getElementById('loading').style.display = 'block';
-            
-            // Simulate API call
-            setTimeout(() => {
-                // Add new review to the beginning of the array
-                const newReview = {
-                    name: name,
-                    location: location,
-                    rating: rating,
-                    text: text,
-                    date: new Date().toISOString().split('T')[0]
-                };
-                
-                reviews.unshift(newReview);
-                
-                // Save to localStorage (in a real app, this would be sent to a server)
-                localStorage.setItem('trekReviews', JSON.stringify(reviews));
-                
-                // Hide loading and show success
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('successMessage').style.display = 'block';
-                
-                // Reset form
-                this.reset();
-                ratingInput.value = '';
-                stars.forEach(star => star.classList.remove('active'));
-                
-                // Reload reviews
-                loadReviews();
-                
-                // Hide success message after 3 seconds
-                setTimeout(() => {
-                    document.getElementById('successMessage').style.display = 'none';
-                }, 3000);
-                
-            }, 1500);
-        });
-
-        // Load reviews from localStorage if available
-        const savedReviews = localStorage.getItem('trekReviews');
-        if (savedReviews) {
-            reviews = JSON.parse(savedReviews);
         }
 
-        // Initial load
-        loadReviews();
+        function loadFromLocalStorage() {
+            try {
+                const savedReviews = localStorage.getItem('kudremukhReviews');
+                if (savedReviews) {
+                    const parsedReviews = JSON.parse(savedReviews);
+                    reviews = [...parsedReviews, ...reviews];
+                    loadReviews();
+                }
+            } catch (e) {
+                console.log('Storage not available, using default reviews');
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadSavedReviews();
+            
+            // Setup star rating functionality
+            const stars = document.querySelectorAll('.star');
+            const ratingInput = document.getElementById('rating');
+
+            stars.forEach(star => {
+                star.addEventListener('click', function() {
+                    const rating = this.getAttribute('data-rating');
+                    ratingInput.value = rating;
+                    
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.classList.add('active');
+                        } else {
+                            s.classList.remove('active');
+                        }
+                    });
+                });
+
+                star.addEventListener('mouseenter', function() {
+                    const rating = this.getAttribute('data-rating');
+                    stars.forEach((s, index) => {
+                        if (index < rating) {
+                            s.style.color = 'var(--accent-gold)';
+                        } else {
+                            s.style.color = 'var(--border-light)';
+                        }
+                    });
+                });
+            });
+
+            document.querySelector('.star-rating').addEventListener('mouseleave', function() {
+                const currentRating = ratingInput.value;
+                stars.forEach((s, index) => {
+                    if (index < currentRating) {
+                        s.style.color = 'var(--accent-gold)';
+                        s.classList.add('active');
+                    } else {
+                        s.style.color = 'var(--border-light)';
+                        s.classList.remove('active');
+                    }
+                });
+            });
+            
+            // Setup form submission handler
+            document.getElementById('reviewForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reviewerName').value.trim();
+                const location = document.getElementById('trekLocation').value;
+                const rating = parseInt(document.getElementById('rating').value);
+                const text = document.getElementById('reviewText').value.trim();
+                
+                // Enhanced validation
+                if (!name) {
+                    alert('Please enter your full name.');
+                    return;
+                }
+                
+                if (name.length < 3) {
+                    alert('Please enter a valid full name (at least 3 characters).');
+                    return;
+                }
+                
+                if (!location) {
+                    alert('Please select the trek you experienced.');
+                    return;
+                }
+                
+                if (!rating) {
+                    alert('Please rate your experience by clicking on the stars.');
+                    return;
+                }
+                
+                if (!text) {
+                    alert('Please share your experience with us.');
+                    return;
+                }
+                
+                if (text.length < 5) {
+                    alert('Please provide a more detailed review (at least 50 characters) to help other adventurers.');
+                    return;
+                }
+                
+                // Show loading state
+                document.getElementById('loading').style.display = 'block';
+                document.querySelector('.btn-premium').disabled = true;
+                
+                // Simulate server processing
+                setTimeout(async () => {
+                    // Create new review object
+                    const newReview = {
+                        name: name,
+                        location: location,
+                        rating: rating,
+                        text: text,
+                        date: new Date().toISOString().split('T')[0]
+                    };
+                    
+                    // Add to beginning of reviews array
+                    reviews.unshift(newReview);
+                    
+                    // Save to Firebase if available, otherwise use localStorage
+                    if (window.firebaseEnabled) {
+                        const saved = await window.saveToFirebase(newReview);
+                        if (saved) {
+                            console.log('Review saved to Firebase');
+                        } else {
+                            // Fallback to localStorage
+                            try {
+                                const existingReviews = JSON.parse(localStorage.getItem('kudremukhReviews') || '[]');
+                                existingReviews.unshift(newReview);
+                                localStorage.setItem('kudremukhReviews', JSON.stringify(existingReviews));
+                            } catch (e) {
+                                console.log('Storage not available');
+                            }
+                        }
+                    } else {
+                        // Use localStorage as fallback
+                        try {
+                            const existingReviews = JSON.parse(localStorage.getItem('kudremukhReviews') || '[]');
+                            existingReviews.unshift(newReview);
+                            localStorage.setItem('kudremukhReviews', JSON.stringify(existingReviews));
+                        } catch (e) {
+                            console.log('Storage not available, keeping in memory only');
+                        }
+                    }
+                    
+                    // Hide loading and show success
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.querySelector('.btn-premium').disabled = false;
+                    
+                    // Clear form
+                    document.getElementById('reviewForm').reset();
+                    document.getElementById('rating').value = '';
+                    document.querySelectorAll('.star').forEach(star => star.classList.remove('active'));
+                    
+                    // Refresh reviews display
+                    loadReviews();
+                    
+                    // Hide success message after 5 seconds
+                    setTimeout(() => {
+                        document.getElementById('successMessage').style.display = 'none';
+                    }, 5000);
+                    
+                    // Scroll to reviews section
+                    setTimeout(() => {
+                        document.getElementById('reviewsContainer').scrollIntoView({ 
+                            behavior: 'smooth' 
+                        });
+                    }, 1000);
+                }, 1500);
+            });
+            
+            // Add staggered entrance animations to review cards
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.review-card');
+                cards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'all 0.6s ease';
+                    
+                    setTimeout(() => {
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 150);
+                });
+            }, 600);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Enhanced navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(20px)';
+                navbar.style.boxShadow = 'var(--shadow-medium)';
+            } else {
+                navbar.style.backgroundColor = 'var(--pure-white)';
+                navbar.style.backdropFilter = 'none';
+                navbar.style.boxShadow = 'var(--shadow-soft)';
+            }
+        });
+
+        // Professional button click effects
+        document.querySelectorAll('.btn-premium').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const ripple = document.createElement('span');
+                const rect = this.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const x = e.clientX - rect.left - size / 2;
+                const y = e.clientY - rect.top - size / 2;
+                
+                ripple.style.cssText = `
+                    width: ${size}px;
+                    height: ${size}px;
+                    left: ${x}px;
+                    top: ${y}px;
+                    position: absolute;
+                    background: rgba(255, 255, 255, 0.2);
+                    border-radius: 50%;
+                    pointer-events: none;
+                    animation: ripple-effect 0.8s ease-out;
+                `;
+                
+                this.appendChild(ripple);
+                
+                setTimeout(() => {
+                    ripple.remove();
+                }, 800);
+            });
+        });
+
+        // Add ripple effect keyframes
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple-effect {
+                to {
+                    transform: scale(2);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+
+        // Form input focus effects
+        document.querySelectorAll('.form-control, .form-select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Professional loading text rotation
+        const loadingTexts = [
+            'Processing your review...',
+            'Validating your experience...',
+            'Adding to our community...',
+            'Almost ready...'
+        ];
+        
+        let textIndex = 0;
+        setInterval(() => {
+            const loadingElement = document.querySelector('#loading p');
+            if (loadingElement && document.getElementById('loading').style.display === 'block') {
+                textIndex = (textIndex + 1) % loadingTexts.length;
+                loadingElement.textContent = loadingTexts[textIndex];
+            }
+        }, 800);
     </script>
 </body>
 </html>

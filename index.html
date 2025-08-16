@@ -80,6 +80,185 @@
             .reviews-cta h2 { font-size: 2rem !important; }
             .reviews-cta p { font-size: 1.1rem !important; }
             .reviews-cta .btn { display: block !important; margin: 10px auto !important; }
+            
+            /* Mobile Hero Section Improvements */
+            .hero-title { font-size: 2.2rem !important; line-height: 1.2 !important; }
+            .hero-subtitle { font-size: 1.1rem !important; margin-bottom: 2rem !important; }
+            .hero-buttons { flex-direction: column !important; gap: 15px !important; }
+            .btn-whatsapp, .btn-reviews { 
+                width: 100% !important; 
+                text-align: center !important; 
+                padding: 15px 20px !important;
+                font-size: 1rem !important;
+            }
+            
+            /* Mobile Navigation */
+            .navbar-brand { font-size: 1.3rem !important; }
+            .nav-link { font-size: 1rem !important; padding: 0.8rem 1rem !important; }
+            
+            /* Mobile Cards */
+            .feature-item, .trek-card { 
+                margin-bottom: 2rem !important; 
+                padding: 1.5rem !important;
+            }
+            
+            /* Mobile Gallery */
+            .gallery-item { height: 250px !important; }
+            
+            /* Mobile Section Spacing */
+            .section { padding: 3rem 0 !important; }
+            .section-title { font-size: 2.2rem !important; margin-bottom: 2rem !important; }
+        }
+
+        /* Extra small devices (phones) */
+        @media (max-width: 480px) {
+            .hero-title { font-size: 1.8rem !important; }
+            .hero-subtitle { font-size: 1rem !important; }
+            .hero-buttons { padding: 0 1rem !important; }
+            
+            .section-title { font-size: 1.8rem !important; }
+            .feature-title { font-size: 1.2rem !important; }
+            .feature-description { font-size: 0.9rem !important; }
+            
+            .container { padding: 0 15px !important; }
+            .section { padding: 2rem 0 !important; }
+            
+            .gallery-item { height: 200px !important; }
+            .trek-card { padding: 1rem !important; }
+            
+            .btn-whatsapp, .btn-reviews { 
+                font-size: 0.9rem !important;
+                padding: 12px 15px !important;
+            }
+        }
+
+        /* Reviews Section Styles */
+        .reviews-section {
+            background: var(--gradient-primary);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+            margin: 3rem 0;
+            border-radius: var(--border-radius);
+        }
+
+        .reviews-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="%23ffffff15"><animate attributeName="r" values="2;4;2" dur="4s" repeatCount="indefinite"/></circle><circle cx="75" cy="75" r="3" fill="%23ffffff10"><animate attributeName="r" values="3;6;3" dur="5s" repeatCount="indefinite"/></circle><circle cx="50" cy="20" r="1.5" fill="%23ffffff20"><animate attributeName="r" values="1.5;3;1.5" dur="3s" repeatCount="indefinite"/></circle></svg>');
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .reviews-section .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .reviews-section h2 {
+            color: var(--text-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .reviews-section p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+        }
+
+        .review-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .review-buttons .btn {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 18px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .review-buttons .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .review-buttons .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: var(--shadow-strong);
+            color: white;
+        }
+
+        .review-buttons .btn:hover::before {
+            left: 100%;
+        }
+
+        .review-buttons .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .review-buttons .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .reviews-section h2 {
+                font-size: 2.5rem;
+            }
+            
+            .reviews-section p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+            
+            .review-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .review-buttons .btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
 
         body {
@@ -244,6 +423,62 @@
             transform: translateY(-3px);
             box-shadow: var(--shadow-strong);
             color: white;
+        }
+
+        /* Hero Buttons Container */
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* Reviews Button */
+        .btn-reviews {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .btn-reviews:hover {
+            background: rgba(255, 255, 255, 0.25);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-strong);
+            color: white;
+        }
+
+        .btn-reviews i {
+            color: #ffd700;
+            animation: twinkle 2s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn-whatsapp,
+            .btn-reviews {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
         }
 
         .pulse {
@@ -906,7 +1141,6 @@
                         <a class="nav-link" href="reviews.html" style="background: linear-gradient(45deg, #ff6b35, #ffc107); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-weight: bold;">
                             Reviews ⭐
                         </a>
-                        <span style="position: absolute; top: -5px; right: -5px; background: #ff6b35; color: white; border-radius: 50%; width: 20px; height: 20px; font-size: 12px; display: flex; align-items: center; justify-content: center; animation: pulse 2s infinite;">NEW</span>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -920,14 +1154,20 @@
     <section id="home" class="hero-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
+                <div class="col-lg-8 col-md-10 col-sm-12">
                     <div class="hero-content" data-aos="fade-up">
                         <h1 class="hero-title">Welcome to Henjodi Stores  Your Malenadu Trek Partner</h1>
                         <p class="hero-subtitle">Experience the pristine beauty of Karnataka's mountains with expert local guides</p>
-                        <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-whatsapp pulse">
-                            <i class="bi bi-whatsapp"></i>
-                            Book Your Adventure
-                        </a>
+                        <div class="hero-buttons">
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-whatsapp pulse">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Your Adventure
+                            </a>
+                            <a href="reviews.html" class="btn-reviews" data-aos="fade-up" data-aos-delay="200">
+                                <i class="bi bi-star-fill"></i>
+                                Read Reviews
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -970,7 +1210,7 @@
         <h2 class="section-title" data-aos="fade-up">Popular Treks</h2>
         <div class="row">
             <!-- Kudremukh Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
                 <div class="trek-card">
                     <div class="trek-img" style="background-image: url('image/kmlogo.avif')"></div>
                     <div class="trek-info">
@@ -994,7 +1234,7 @@
             </div>
 
             <!-- Netravati Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="400">
                 <div class="trek-card">
                     <div class="trek-img" style="background-image: url('image/nplogo.jpg')"></div>
                     <div class="trek-info">
@@ -1018,7 +1258,7 @@
             </div>
 
             <!-- Kuranjal Peak Trek -->
-            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="600">
                 <div class="trek-card">
                     <div class="trek-img" style="background-image: url('image/kklogo.jpeg')"></div>
                     <div class="trek-info">
@@ -1050,14 +1290,14 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Why Choose Malenadu Treks?</h2>
             <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-item">
                         <i class="bi bi-people feature-icon"></i>
                         <h3 class="feature-title">Expert Local Guides</h3>
                         <p class="feature-description">Our guides are born and raised in the Western Ghats, with deep knowledge of local trails, wildlife, and culture.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
                     <div class="feature-item">
                         <i class="bi bi-shield-check feature-icon"></i>
                         <h3 class="feature-title"> All-Inclusive Package</h3>
@@ -1066,7 +1306,7 @@
 </p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="600">
                     <div class="feature-item">
                         <i class="bi bi-heart feature-icon"></i>
                         <h3 class="feature-title"> Safety & Comfort Essentials</h3>
@@ -1116,7 +1356,7 @@
                 <div class="col-lg-12">
                     <h3 class="store-gallery-title" data-aos="fade-up">Our Store Gallery</h3>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="store-image-container">
                         <img src="image/Screenshot 2025-07-11 040805.png" alt="Store Front" class="store-image">
                         <div class="store-image-overlay">
@@ -1125,14 +1365,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
                     <div class="store-image-container">
                         <img src="image/storeimg.jpg" alt="Equipment Display" class="store-image">
                         <div class="store-image-overlay">
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="600">
                     <div class="store-image-container">
                         <img src="image/Screenshot 2025-07-11 040927.png" alt="Local Products" class="store-image">
                         <div class="store-image-overlay">
@@ -1150,32 +1390,32 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Trek Gallery</h2>
             <div class="row">
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item" style="background-image: url('image/kmview.webp')">
                         <div class="gallery-overlay">Kudremukh Peak</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
                     <div class="gallery-item" style="background-image: url('image/Nethravathi-Peak_Plan-The-Unplanned_2.jpg')">
                         <div class="gallery-overlay">Netravati Views</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="600">
                     <div class="gallery-item" style="background-image: url('image/kk1.avif')">
                         <div class="gallery-overlay">kuranjal </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="800">
                     <div class="gallery-item" style="background-image: url('image/kmtravelview.jpg')">
                         <div class="gallery-overlay">Kudremukh Peak</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1000">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1000">
                     <div class="gallery-item" style="background-image: url('image/kkview44.jpg')">
                         <div class="gallery-overlay">kuranjal Forest</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="1200">
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1200">
                     <div class="gallery-item" style="background-image: url('image/kmview2.jpeg')">
                         <div class="gallery-overlay">kudremukh Top View</div>
                     </div>
@@ -1236,7 +1476,30 @@
        class="whatsapp-float" target="_blank">
        <i class="bi bi-whatsapp"></i>
     </a>
-    <!-- CTA Section -->
+<br>
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews-section" data-aos="fade-up">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2>💬 Share Your Adventure Story</h2>
+                    <p>Your experience matters! Help fellow trekkers discover their next adventure by sharing your thoughts about your trekking and store experience with us.</p>
+                    
+                    <div class="review-buttons">
+                        <a href="reviews.html" class="btn" data-aos="zoom-in" data-aos-delay="100">
+                            <i class="bi bi-pencil-square"></i>
+                            Write Your Review
+                        </a>
+                        <a href="reviews.html" class="btn btn-secondary" data-aos="zoom-in" data-aos-delay="200">
+                            <i class="bi bi-chat-dots"></i>
+                            Read All Reviews
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+ <!-- CTA Section -->
     <section class="section cta-section">
         <div class="container">
             <div class="row justify-content-center">
@@ -1251,71 +1514,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Reviews Call to Action -->
-    <section class="reviews-cta" style="background: linear-gradient(135deg, #1a4d1a 0%, #2d5a2d 50%, #4CAF50 100%); padding: 4rem 0; margin: 2rem 0; border-radius: 20px; position: relative; overflow: hidden;">
-        <!-- Background Animation -->
-        <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"2\" fill=\"%23ffffff20\"><animate attributeName=\"r\" values=\"2;4;2\" dur=\"3s\" repeatCount=\"indefinite\"/></circle><circle cx=\"80\" cy=\"80\" r=\"3\" fill=\"%23ffffff15\"><animate attributeName=\"r\" values=\"3;6;3\" dur=\"4s\" repeatCount=\"indefinite\"/></circle><circle cx=\"60\" cy=\"30\" r=\"2\" fill=\"%23ffffff25\"><animate attributeName=\"r\" values=\"2;5;2\" dur=\"2.5s\" repeatCount=\"indefinite\"/></circle></svg>'); opacity: 0.3;"></div>
-        
-        <div class="container" style="position: relative; z-index: 2;">
-            <div class="row">
-                <div class="col-lg-10 mx-auto text-center" data-aos="zoom-in">
-                    <!-- Star decoration -->
-                    <div style="margin-bottom: 1.5rem;">
-                        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 2rem; margin: 0 5px; animation: twinkle 2s ease-in-out infinite;"></i>
-                        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 2.5rem; margin: 0 5px; animation: twinkle 2s ease-in-out infinite 0.3s;"></i>
-                        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 3rem; margin: 0 5px; animation: twinkle 2s ease-in-out infinite 0.6s;"></i>
-                        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 2.5rem; margin: 0 5px; animation: twinkle 2s ease-in-out infinite 0.9s;"></i>
-                        <i class="bi bi-star-fill" style="color: #ffc107; font-size: 2rem; margin: 0 5px; animation: twinkle 2s ease-in-out infinite 1.2s;"></i>
-                    </div>
-                    
-                    <h2 style="color: white; font-weight: bold; margin-bottom: 1rem; font-size: 2.5rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
-                        🌟 Share Your Adventure Story 🌟
-                    </h2>
-                    <p style="color: #e8f5e8; font-size: 1.3rem; margin-bottom: 2rem; line-height: 1.6;">
-                        Join hundreds of happy trekkers who have shared their unforgettable experiences!<br>
-                        <strong style="color: #ffc107;">Your review helps fellow adventurers discover the magic of the Western Ghats</strong>
-                    </p>
-                    
-                    <!-- Review highlights -->
-                    <div class="row mb-4">
-                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
-                            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin: 0.5rem;">
-                                <i class="bi bi-people-fill" style="color: #ffc107; font-size: 2rem;"></i>
-                                <h4 style="color: white; margin: 0.5rem 0;">500+ Reviews</h4>
-                                <p style="color: #e8f5e8; margin: 0;">Happy Trekkers</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin: 0.5rem;">
-                                <i class="bi bi-star-fill" style="color: #ffc107; font-size: 2rem;"></i>
-                                <h4 style="color: white; margin: 0.5rem 0;">4.8/5 Rating</h4>
-                                <p style="color: #e8f5e8; margin: 0;">Average Score</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                            <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 15px; margin: 0.5rem;">
-                                <i class="bi bi-heart-fill" style="color: #ffc107; font-size: 2rem;"></i>
-                                <h4 style="color: white; margin: 0.5rem 0;">98% Satisfaction</h4>
-                                <p style="color: #e8f5e8; margin: 0;">Would Recommend</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Action Buttons -->
-                    <div style="margin-top: 2.5rem;">
-                        <a href="reviews.html" class="btn btn-light" style="background: linear-gradient(45deg, #ff6b35, #f7931e); color: white; border: none; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; margin: 0 10px; text-decoration: none; display: inline-block; transition: all 0.3s ease; box-shadow: 0 8px 25px rgba(255,107,53,0.4); animation: pulse 3s ease-in-out infinite;">
-                            📝 Write a Review
-                        </a>
-                        <a href="reviews.html" class="btn btn-outline-light" style="border: 2px solid white; color: white; padding: 15px 30px; font-size: 1.2rem; font-weight: bold; border-radius: 50px; margin: 0 10px; text-decoration: none; display: inline-block; transition: all 0.3s ease;">
-                            📖 Read Reviews
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Footer -->
     <footer id="contact" class="footer">
         <div class="container">
