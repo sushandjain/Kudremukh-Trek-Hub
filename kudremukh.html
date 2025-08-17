@@ -52,7 +52,10 @@
             color: #ffffff;
             max-width: 400px;
             padding: 2rem;
+            position: relative;
         }
+
+
         
         .loading-logo {
             width: 80px;
@@ -1376,6 +1379,9 @@ body::before {
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
+
+                <span class="tree-emoji">�</span>
+
             <img src="image/kmlogo.avif" alt="Kudremukh Peak Logo" class="loading-logo">
             <h1 class="loading-title">🏔️ Kudremukh Peak Trek</h1>
             <p class="loading-text">Preparing your mountain adventure...</p>
@@ -1840,23 +1846,6 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                         const speed = 0.2 + (index % 3) * 0.1;
                         const sway = Math.sin(scrolled * 0.005 + index) * 5;
                         leaf.style.transform = `translateY(${scrolled * speed}px) translateX(${sway}px)`;
-                    }
-                });
-                
-                organicTicking = false;
-            }
-            
-            function requestOrganicUpdate() {
-                if (!organicTicking) {
-                    requestAnimationFrame(updateOrganicElements);
-                    organicTicking = true;
-                }
-            }
-            
-            // Only enable organic scroll on desktop for better performance
-            if (window.innerWidth > 768) {
-                window.addEventListener('scroll', requestOrganicUpdate, { passive: true });
-            }
                     }
                 });
                 
