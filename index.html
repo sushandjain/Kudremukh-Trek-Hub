@@ -277,10 +277,28 @@
             height: 100%;
             background: var(--gradient-dark);
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 9999;
             transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .loading-logo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--accent-color);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.5);
+            animation: logoFloat 3s ease-in-out infinite;
         }
 
         .loading-spinner {
@@ -290,6 +308,23 @@
             border-top: 3px solid var(--accent-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
+        }
+
+        .loading-text {
+            color: var(--text-light);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { 
+                transform: translateY(0px) scale(1);
+            }
+            50% { 
+                transform: translateY(-10px) scale(1.05);
+            }
         }
 
         @keyframes spin {
@@ -883,6 +918,43 @@
             transform: scale(1.02);
         }
 
+        /* Improved image sizing for gallery */
+        .gallery-item {
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+        }
+
+        /* Trek card image sizing fix */
+        .trek-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mobile responsive adjustments */
+        @media (max-width: 768px) {
+            .gallery-item {
+                height: 250px !important;
+            }
+            
+            .trek-img {
+                height: 200px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
+                height: 200px !important;
+            }
+            
+            .trek-img {
+                height: 180px !important;
+            }
+        }
+
         .gallery-overlay {
             position: absolute;
             bottom: 0;
@@ -1016,8 +1088,49 @@
         }
 
         /* Smooth Scrolling */
+        /* Performance optimizations */
         html {
             scroll-behavior: smooth;
+        }
+        
+        * {
+            will-change: auto;
+        }
+        
+        .navbar {
+            will-change: transform, background-color;
+        }
+        
+        .hero-section {
+            will-change: transform;
+        }
+        
+        /* Image optimization */
+        img {
+            max-width: 100%;
+            height: auto;
+            image-rendering: auto;
+            image-rendering: crisp-edges;
+            image-rendering: -webkit-optimize-contrast;
+        }
+        
+        /* Reduce animation complexity on lower-end devices */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Hardware acceleration for animated elements */
+        .trek-card,
+        .gallery-item,
+        .btn,
+        .navbar {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            perspective: 1000px;
         }
 
         /* Custom Scrollbar */
@@ -1147,7 +1260,11 @@
 <body>
     <!-- Loading Screen -->
     <div id="loading" class="loading-overlay">
-        <div class="loading-spinner"></div>
+        <div class="loading-content">
+            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Welcome to Kudremukh Treks</div>
+        </div>
     </div>
 
     <!-- Navigation -->
@@ -1326,7 +1443,7 @@
                     <div class="maintenance-badge">
                         <i class="bi bi-gear"></i>Under Maintenance
                     </div>
-                    <div class="trek-img" style="background-image: url('image/kmview3.webp')"></div>
+                    <div class="trek-img" style="background-image: url('image/Valikunja/Aane1.webp')"></div>
                     <div class="trek-info">
                         <h3 class="trek-title">Aane Salaba Trek</h3>
                         <ul class="trek-details">
@@ -1353,7 +1470,7 @@
                     <div class="maintenance-badge">
                         <i class="bi bi-gear"></i>Under Maintenance
                     </div>
-                    <div class="trek-img" style="background-image: url('image/howtoreach.webp')"></div>
+                    <div class="trek-img" style="background-image: url('image/Bandaje-trek/logoBandaje.jpg')"></div>
                     <div class="trek-info">
                         <h3 class="trek-title">Bandaje Trek</h3>
                         <ul class="trek-details">
@@ -1380,7 +1497,7 @@
                     <div class="maintenance-badge">
                         <i class="bi bi-gear"></i>Under Maintenance
                     </div>
-                    <div class="trek-img" style="background-image: url('image/kmview22.webp')"></div>
+                    <div class="trek-img" style="background-image: url('image/Bavinkonda/Bavinkonda-logo.jpg')"></div>
                     <div class="trek-info">
                         <h3 class="trek-title">Bavikonda Trek</h3>
                         <ul class="trek-details">
@@ -1407,7 +1524,7 @@
                     <div class="maintenance-badge">
                         <i class="bi bi-gear"></i>Under Maintenance
                     </div>
-                    <div class="trek-img" style="background-image: url('image/kudremukh-trekview.jpg')"></div>
+                    <div class="trek-img" style="background-image: url('image/Valikunja/Valikunja-logo.jpg')"></div>
                     <div class="trek-info">
                         <h3 class="trek-title">Valikunja Trek</h3>
                         <ul class="trek-details">
@@ -1537,49 +1654,132 @@
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">Trek Gallery</h2>
             <div class="row">
+                <!-- Kudremukh Peak Gallery -->
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="200">
                     <div class="gallery-item" style="background-image: url('image/kmview.webp')">
                         <div class="gallery-overlay">Kudremukh Peak</div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="300">
+                    <div class="gallery-item" style="background-image: url('image/kmtravelview.jpg')">
+                        <div class="gallery-overlay">Kudremukh Trek Trail</div>
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="400">
+                    <div class="gallery-item" style="background-image: url('image/kmview2.jpeg')">
+                        <div class="gallery-overlay">Kudremukh Top View</div>
+                    </div>
+                </div>
+                
+                <!-- Netravati Peak Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="500">
                     <div class="gallery-item" style="background-image: url('image/Nethravathi-Peak_Plan-The-Unplanned_2.jpg')">
-                        <div class="gallery-overlay">Netravati Views</div>
+                        <div class="gallery-overlay">Netravati Peak Views</div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="600">
+                    <div class="gallery-item" style="background-image: url('image/npview.webp')">
+                        <div class="gallery-overlay">Netravati Trail</div>
+                    </div>
+                </div>
+                
+                <!-- Kuranjal Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="700">
                     <div class="gallery-item" style="background-image: url('image/kk1.avif')">
-                        <div class="gallery-overlay">kuranjal </div>
+                        <div class="gallery-overlay">Kuranjal Peak</div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="800">
-                    <div class="gallery-item" style="background-image: url('image/kmtravelview.jpg')">
-                        <div class="gallery-overlay">Kudremukh Peak</div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1000">
                     <div class="gallery-item" style="background-image: url('image/kkview44.jpg')">
-                        <div class="gallery-overlay">kuranjal Forest</div>
+                        <div class="gallery-overlay">Kuranjal Forest</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1200">
-                    <div class="gallery-item" style="background-image: url('image/kmview2.jpeg')">
-                        <div class="gallery-overlay">kudremukh Top View</div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="900">
+                    <div class="gallery-item" style="background-image: url('image/kurinjal-1-.jpg')">
+                        <div class="gallery-overlay">Kuranjal Adventure</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1400">
-                    <div class="gallery-item" style="background-image: url('image/kmview3.webp')">
+                
+                <!-- Aane Salaba Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1000">
+                    <div class="gallery-item" style="background-image: url('image/Valikunja/Aane1.webp')">
                         <div class="gallery-overlay">Aane Salaba Vista</div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1600">
-                    <div class="gallery-item" style="background-image: url('image/howtoreach.webp')">
+                
+                <!-- Bandaje Trek Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1100">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje1.avif')">
                         <div class="gallery-overlay">Bandaje Trek Path</div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1200">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje2.jpg')">
+                        <div class="gallery-overlay">Bandaje Waterfall</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1300">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje3.jpg')">
+                        <div class="gallery-overlay">Bandaje Forest Trail</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje4.jpeg')">
+                        <div class="gallery-overlay">Bandaje Rock Formations</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1500">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje5.webp')">
+                        <div class="gallery-overlay">Bandaje Valley Views</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1600">
+                    <div class="gallery-item" style="background-image: url('image/Bandaje-trek/Bandaje6.jpg')">
+                        <div class="gallery-overlay">Bandaje Adventure</div>
+                    </div>
+                </div>
+                
+                <!-- Bavinkonda Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1700">
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda1.jpg')">
+                        <div class="gallery-overlay">Bavinkonda Peak</div>
+                    </div>
+                </div>
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1800">
-                    <div class="gallery-item" style="background-image: url('image/kmview11.jpeg')">
-                        <div class="gallery-overlay">Western Ghats Panorama</div>
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda2.jpg')">
+                        <div class="gallery-overlay">Bavinkonda Forest</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1900">
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda2.webp')">
+                        <div class="gallery-overlay">Bavinkonda Trail</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="2000">
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda3.webp')">
+                        <div class="gallery-overlay">Bavinkonda Grasslands</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="2100">
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda4.jpeg')">
+                        <div class="gallery-overlay">Bavinkonda Landscape</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="2200">
+                    <div class="gallery-item" style="background-image: url('image/Bavinkonda/Bavinkonda5.webp')">
+                        <div class="gallery-overlay">Bavinkonda Views</div>
+                    </div>
+                </div>
+                
+                <!-- Valikunja Gallery -->
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="2300">
+                    <div class="gallery-item" style="background-image: url('image/Valikunja/Valikunja1.jpg')">
+                        <div class="gallery-overlay">Valikunja Peak</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="2400">
+                    <div class="gallery-item" style="background-image: url('image/Valikunja/Valikunja2.jpg')">
+                        <div class="gallery-overlay">Valikunja Summit</div>
                     </div>
                 </div>
             </div>
@@ -1720,12 +1920,14 @@
     <script>
         // Advanced JavaScript for Enhanced Functionality
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize AOS (Animate On Scroll)
+            // Initialize AOS (Animate On Scroll) - Optimized for performance
             AOS.init({
-                duration: 1000,
-                easing: 'ease-in-out',
+                duration: 600,
+                easing: 'ease-out-cubic',
                 once: true,
-                offset: 100
+                offset: 50,
+                delay: 0,
+                disable: window.innerWidth < 768 // Disable on mobile for better performance
             });
 
             // Loading Screen
@@ -1737,11 +1939,12 @@
                 }, 1000);
             });
 
-            // Navbar Scroll Effect
+            // Navbar Scroll Effect - Optimized with requestAnimationFrame
             const navbar = document.querySelector('.navbar');
             let lastScrollTop = 0;
+            let ticking = false;
             
-            window.addEventListener('scroll', function() {
+            function updateNavbar() {
                 const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
                 
                 if (scrollTop > 100) {
@@ -1758,11 +1961,22 @@
                 }
                 
                 lastScrollTop = scrollTop;
-            });
+                ticking = false;
+            }
+            
+            function requestNavbarUpdate() {
+                if (!ticking) {
+                    requestAnimationFrame(updateNavbar);
+                    ticking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestNavbarUpdate, { passive: true });
 
-            // Active Navigation Links
+            // Active Navigation Links - Optimized with throttling
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section');
+            let navTicking = false;
             
             function updateActiveLink() {
                 const scrollPosition = window.scrollY + 100;
@@ -1781,9 +1995,17 @@
                         });
                     }
                 });
+                navTicking = false;
             }
             
-            window.addEventListener('scroll', updateActiveLink);
+            function requestNavUpdate() {
+                if (!navTicking) {
+                    requestAnimationFrame(updateActiveLink);
+                    navTicking = true;
+                }
+            }
+
+            window.addEventListener('scroll', requestNavUpdate, { passive: true });
 
             // Smooth Scrolling for Navigation Links
             navLinks.forEach(link => {
@@ -1809,14 +2031,28 @@
                 });
             });
 
-            // Parallax Effect for Hero Section
+            // Optimized Parallax Effect for Hero Section
             const heroSection = document.querySelector('.hero-section');
-            if (heroSection) {
-                window.addEventListener('scroll', function() {
-                    const scrolled = window.pageYOffset;
-                    const rate = scrolled * -0.5;
-                    heroSection.style.transform = `translateY(${rate}px)`;
-                });
+            let parallaxTicking = false;
+            
+            function updateParallax() {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.3; // Reduced rate for better performance
+                if (heroSection) {
+                    heroSection.style.transform = `translate3d(0, ${rate}px, 0)`;
+                }
+                parallaxTicking = false;
+            }
+            
+            function requestParallaxUpdate() {
+                if (!parallaxTicking && heroSection) {
+                    requestAnimationFrame(updateParallax);
+                    parallaxTicking = true;
+                }
+            }
+            
+            if (heroSection && window.innerWidth > 768) { // Only enable on desktop
+                window.addEventListener('scroll', requestParallaxUpdate, { passive: true });
             }
 
             // Counter Animation for Stats (if any)
@@ -1836,46 +2072,38 @@
                 });
             }
 
-            // Intersection Observer for animations
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
-
+            // Intersection Observer for animations and lazy loading - Combined for better performance
             const observer = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('animate');
+                        const target = entry.target;
+                        
+                        // Handle animations
+                        target.classList.add('animate');
+                        
+                        // Handle lazy loading
+                        if (target.dataset.bg) {
+                            target.style.backgroundImage = `url('${target.dataset.bg}')`;
+                            target.removeAttribute('data-bg');
+                        }
                         
                         // Trigger counter animation if element has data-count attribute
-                        if (entry.target.hasAttribute('data-count')) {
+                        if (target.hasAttribute('data-count')) {
                             animateCounters();
                         }
+                        
+                        observer.unobserve(target);
                     }
                 });
-            }, observerOptions);
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
 
-            // Observe elements for animation
-            const animateElements = document.querySelectorAll('.trek-card, .feature-item, .offer-card, .gallery-item');
-            animateElements.forEach(element => {
+            // Observe elements for animation and lazy loading
+            const observeElements = document.querySelectorAll('.trek-card, .feature-item, .offer-card, .gallery-item, img[data-src]');
+            observeElements.forEach(element => {
                 observer.observe(element);
-            });
-
-            // Image Lazy Loading
-            const images = document.querySelectorAll('img[data-src]');
-            const imageObserver = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.add('loaded');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            images.forEach(image => {
-                imageObserver.observe(image);
             });
 
             // Mobile Menu Close on Link Click

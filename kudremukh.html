@@ -1803,39 +1803,100 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                 completeLoading();
             }
             
-            // Original Kudremukh functionality
-            // Navbar Scroll Effect
+            // Optimized Kudremukh functionality with better performance
+            // Navbar Scroll Effect with requestAnimationFrame
             const navbar = document.querySelector('.navbar');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 50) {
+            let navTicking = false;
+            
+            function updateNavbar() {
+                const scrollY = window.pageYOffset;
+                if (scrollY > 50) {
                     navbar.classList.add('scrolled');
                 } else {
                     navbar.classList.remove('scrolled');
                 }
-            });
+                navTicking = false;
+            }
+            
+            function requestNavUpdate() {
+                if (!navTicking) {
+                    requestAnimationFrame(updateNavbar);
+                    navTicking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestNavUpdate, { passive: true });
 
-            // Enhanced scroll with organic movement
-            window.addEventListener('scroll', function() {
+            // Enhanced scroll with organic movement - Throttled for performance
+            let organicTicking = false;
+            
+            function updateOrganicElements() {
                 const scrolled = window.pageYOffset;
                 
-                // Organic parallax for leaves
+                // Organic parallax for leaves - Reduced complexity
                 const leaves = document.querySelectorAll('.leaf');
                 leaves.forEach((leaf, index) => {
-                    const speed = Math.sin(index * 0.5) * 0.3 + 0.2;
-                    const sway = Math.sin(scrolled * 0.01 + index) * 10;
-                    leaf.style.transform = `translateY(${scrolled * speed}px) translateX(${sway}px) rotate(${scrolled * 0.1 + index * 30}deg)`;
+                    if (index % 2 === 0) { // Only animate every 2nd leaf for performance
+                        const speed = 0.2 + (index % 3) * 0.1;
+                        const sway = Math.sin(scrolled * 0.005 + index) * 5;
+                        leaf.style.transform = `translateY(${scrolled * speed}px) translateX(${sway}px)`;
+                    }
                 });
-            });
+                
+                organicTicking = false;
+            }
+            
+            function requestOrganicUpdate() {
+                if (!organicTicking) {
+                    requestAnimationFrame(updateOrganicElements);
+                    organicTicking = true;
+                }
+            }
+            
+            // Only enable organic scroll on desktop for better performance
+            if (window.innerWidth > 768) {
+                window.addEventListener('scroll', requestOrganicUpdate, { passive: true });
+            }
+                    }
+                });
+                
+                organicTicking = false;
+            }
+            
+            function requestOrganicUpdate() {
+                if (!organicTicking) {
+                    requestAnimationFrame(updateOrganicElements);
+                    organicTicking = true;
+                }
+            }
+            
+            // Only enable organic scroll on desktop for better performance
+            if (window.innerWidth > 768) {
+                window.addEventListener('scroll', requestOrganicUpdate, { passive: true });
+            }
 
-            // Scroll to Top
+            // Optimized Scroll to Top
             const scrollToTop = document.querySelector('.scroll-to-top');
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
+            let scrollTicking = false;
+            
+            function updateScrollButton() {
+                const scrollY = window.pageYOffset;
+                if (scrollY > 300) {
                     scrollToTop.classList.add('show');
                 } else {
                     scrollToTop.classList.remove('show');
                 }
-            });
+                scrollTicking = false;
+            }
+            
+            function requestScrollUpdate() {
+                if (!scrollTicking) {
+                    requestAnimationFrame(updateScrollButton);
+                    scrollTicking = true;
+                }
+            }
+            
+            window.addEventListener('scroll', requestScrollUpdate, { passive: true });
 
             scrollToTop.addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });

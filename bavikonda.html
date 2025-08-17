@@ -1199,9 +1199,9 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <img src="image/bavikonda_logo.jpg" alt="Bavikonda Trek Logo" class="loading-logo">
+            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
             <h1 class="loading-title">⛰️ Bavikonda Trek</h1>
-            <p class="loading-text">Preparing your adventure experience...</p>
+            <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
                 <div class="loading-progress-bar" id="progressBar"></div>
@@ -1213,7 +1213,7 @@
     <!-- Main Page Content -->
     <div class="main-page-content" id="mainContent">
         <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
-            <source src="video/bavikonda_trek.mp4" type="video/mp4">
+            <source src="video/855345-hd_1920_1080_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -1368,20 +1368,28 @@
                     </div>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <img src="image/bavikonda_view.webp" alt="Bavikonda View" class="gallery-image">
-                            <div class="gallery-overlay">Panoramic View of Bavikonda Peak</div>
+                            <img src="image/Bavinkonda/Bavinkonda1.jpg" alt="Bavikonda Peak" class="gallery-image">
+                            <div class="gallery-overlay">Majestic Bavikonda Peak</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/bavikonda_trail.jpg" alt="Bavikonda Trek Trail" class="gallery-image">
-                            <div class="gallery-overlay">Serene Trek Path to Bavikonda</div>
+                            <img src="image/Bavinkonda/Bavinkonda2.jpg" alt="Bavikonda Forest" class="gallery-image">
+                            <div class="gallery-overlay">Dense Bavikonda Forest</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/somavati_waterfall.jpg" alt="Somavati Waterfall" class="gallery-image">
-                            <div class="gallery-overlay">Scenic Somavati Waterfall</div>
+                            <img src="image/Bavinkonda/Bavinkonda2.webp" alt="Bavikonda Trail" class="gallery-image">
+                            <div class="gallery-overlay">Serene Trek Trail</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/bavikonda_logo.jpg" alt="Bavikonda Trek Logo" class="gallery-image">
-                            <div class="gallery-overlay">Official Bavikonda Trek Logo</div>
+                            <img src="image/Bavinkonda/Bavinkonda3.webp" alt="Bavikonda Grasslands" class="gallery-image">
+                            <div class="gallery-overlay">Beautiful Bavikonda Grasslands</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bavinkonda/Bavinkonda4.jpeg" alt="Bavikonda Landscape" class="gallery-image">
+                            <div class="gallery-overlay">Stunning Bavikonda Landscape</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bavinkonda/Bavinkonda5.webp" alt="Bavikonda Views" class="gallery-image">
+                            <div class="gallery-overlay">Panoramic Bavikonda Views</div>
                         </div>
                     </div>
                 </div>
@@ -1657,6 +1665,7 @@
             let loadingComplete = false;
             let videoLoaded = false;
             
+            // Simulate loading progress
             const loadingInterval = setInterval(() => {
                 if (progress < 90) {
                     progress += Math.random() * 3;
@@ -1673,6 +1682,7 @@
                 
                 clearInterval(loadingInterval);
                 
+                // Complete the progress bar
                 progressBar.style.width = '100%';
                 loadingPercentage.textContent = '100%';
                 
@@ -1695,7 +1705,6 @@
                     progress = Math.max(progress, 85);
                     progressBar.style.width = progress + '%';
                     loadingPercentage.textContent = Math.floor(progress) + '%';
-                    
                     setTimeout(completeLoading, 1000);
                 });
                 
@@ -1708,11 +1717,12 @@
                 });
                 
                 video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing page without video');
+                    console.log('Video failed to load, completing anyway');
                     video.style.display = 'none';
                     completeLoading();
                 });
                 
+                // Video loading progress
                 video.addEventListener('progress', function() {
                     if (video.buffered.length > 0) {
                         const bufferedEnd = video.buffered.end(video.buffered.length - 1);
@@ -1726,15 +1736,15 @@
                     }
                 });
                 
+                // Fallback timeout
                 setTimeout(() => {
                     if (!loadingComplete) {
                         console.log('Loading timeout reached, completing loading');
                         completeLoading();
                     }
                 }, 5000);
-                
             } else {
-                completeLoading();
+                setTimeout(completeLoading, 2000);
             }
         });
     </script>

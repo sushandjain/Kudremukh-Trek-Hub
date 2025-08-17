@@ -1199,9 +1199,9 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <img src="image/valikunja_logo.jpg" alt="Valikunja Trek Logo" class="loading-logo">
+            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
             <h1 class="loading-title">⛰️ Valikunja Trek</h1>
-            <p class="loading-text">Preparing your adventure experience...</p>
+            <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
                 <div class="loading-progress-bar" id="progressBar"></div>
@@ -1213,7 +1213,7 @@
     <!-- Main Page Content -->
     <div class="main-page-content" id="mainContent">
         <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
-            <source src="video/valikunja_trek.mp4" type="video/mp4">
+            <source src="video/2711127-uhd_3840_2160_24fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -1368,20 +1368,16 @@
                     </div>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <img src="image/valikunja_view.webp" alt="Valikunja View" class="gallery-image">
-                            <div class="gallery-overlay">Panoramic View of Valikunja Peak</div>
+                            <img src="image/Valikunja/Valikunja1.jpg" alt="Valikunja Peak" class="gallery-image">
+                            <div class="gallery-overlay">Magnificent Valikunja Peak</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/valikunja_trail.jpg" alt="Valikunja Trek Trail" class="gallery-image">
-                            <div class="gallery-overlay">Serene Trek Path to Valikunja</div>
+                            <img src="image/Valikunja/Valikunja2.jpg" alt="Valikunja Summit" class="gallery-image">
+                            <div class="gallery-overlay">Summit Views from Valikunja</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/valikunja_rock_formations.jpg" alt="Rock Formations" class="gallery-image">
-                            <div class="gallery-overlay">Unique Rock Footprints at Summit</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="image/valikunja_logo.jpg" alt="Valikunja Trek Logo" class="gallery-image">
-                            <div class="gallery-overlay">Official Valikunja Trek Logo</div>
+                            <img src="image/Valikunja/Aane1.webp" alt="Aane Salaba" class="gallery-image">
+                            <div class="gallery-overlay">Aane Salaba Trek Views</div>
                         </div>
                     </div>
                 </div>
@@ -1657,6 +1653,7 @@
             let loadingComplete = false;
             let videoLoaded = false;
             
+            // Simulate loading progress
             const loadingInterval = setInterval(() => {
                 if (progress < 90) {
                     progress += Math.random() * 3;
@@ -1673,6 +1670,7 @@
                 
                 clearInterval(loadingInterval);
                 
+                // Complete the progress bar
                 progressBar.style.width = '100%';
                 loadingPercentage.textContent = '100%';
                 
@@ -1695,7 +1693,6 @@
                     progress = Math.max(progress, 85);
                     progressBar.style.width = progress + '%';
                     loadingPercentage.textContent = Math.floor(progress) + '%';
-                    
                     setTimeout(completeLoading, 1000);
                 });
                 
@@ -1708,11 +1705,12 @@
                 });
                 
                 video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing page without video');
+                    console.log('Video failed to load, completing anyway');
                     video.style.display = 'none';
                     completeLoading();
                 });
                 
+                // Video loading progress
                 video.addEventListener('progress', function() {
                     if (video.buffered.length > 0) {
                         const bufferedEnd = video.buffered.end(video.buffered.length - 1);
@@ -1726,15 +1724,15 @@
                     }
                 });
                 
+                // Fallback timeout
                 setTimeout(() => {
                     if (!loadingComplete) {
                         console.log('Loading timeout reached, completing loading');
                         completeLoading();
                     }
                 }, 5000);
-                
             } else {
-                completeLoading();
+                setTimeout(completeLoading, 2000);
             }
         });
     </script>

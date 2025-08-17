@@ -1199,9 +1199,9 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <img src="image/aane_salaba_logo.jpg" alt="Aane Salaba Trek Logo" class="loading-logo">
+            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
             <h1 class="loading-title">⛰️ Aane Salaba Trek</h1>
-            <p class="loading-text">Preparing your adventure experience...</p>
+            <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
                 <div class="loading-progress-bar" id="progressBar"></div>
@@ -1213,7 +1213,7 @@
     <!-- Main Page Content -->
     <div class="main-page-content" id="mainContent">
         <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
-            <source src="video/aane_salaba_trek.mp4" type="video/mp4">
+            <source src="video/2655829-hd_1920_1080_24fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -1360,20 +1360,8 @@
                     </div>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <img src="image/aane_salaba_view.webp" alt="Aane Salaba View" class="gallery-image">
-                            <div class="gallery-overlay">Panoramic View of Aane Salaba Summit</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="image/aane_salaba_waterfall.jpg" alt="Waterfall" class="gallery-image">
-                            <div class="gallery-overlay">Scenic Waterfall on the Trail</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="image/aane_salaba_forest.jpg" alt="Shola Forest" class="gallery-image">
-                            <div class="gallery-overlay">Lush Shola Forests and Meadows</div>
-                        </div>
-                        <div class="gallery-item">
-                            <img src="image/aane_salaba_logo.jpg" alt="Aane Salaba Trek Logo" class="gallery-image">
-                            <div class="gallery-overlay">Official Aane Salaba Trek Logo</div>
+                            <img src="image/Valikunja/Aane1.webp" alt="Aane Salaba View" class="gallery-image">
+                            <div class="gallery-overlay">Stunning Aane Salaba Vista</div>
                         </div>
                     </div>
                 </div>
@@ -1649,6 +1637,7 @@
             let loadingComplete = false;
             let videoLoaded = false;
             
+            // Simulate loading progress
             const loadingInterval = setInterval(() => {
                 if (progress < 90) {
                     progress += Math.random() * 3;
@@ -1665,6 +1654,7 @@
                 
                 clearInterval(loadingInterval);
                 
+                // Complete the progress bar
                 progressBar.style.width = '100%';
                 loadingPercentage.textContent = '100%';
                 
@@ -1687,7 +1677,6 @@
                     progress = Math.max(progress, 85);
                     progressBar.style.width = progress + '%';
                     loadingPercentage.textContent = Math.floor(progress) + '%';
-                    
                     setTimeout(completeLoading, 1000);
                 });
                 
@@ -1700,11 +1689,12 @@
                 });
                 
                 video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing page without video');
+                    console.log('Video failed to load, completing anyway');
                     video.style.display = 'none';
                     completeLoading();
                 });
                 
+                // Video loading progress
                 video.addEventListener('progress', function() {
                     if (video.buffered.length > 0) {
                         const bufferedEnd = video.buffered.end(video.buffered.length - 1);
@@ -1718,15 +1708,15 @@
                     }
                 });
                 
+                // Fallback timeout
                 setTimeout(() => {
                     if (!loadingComplete) {
                         console.log('Loading timeout reached, completing loading');
                         completeLoading();
                     }
                 }, 5000);
-                
             } else {
-                completeLoading();
+                setTimeout(completeLoading, 2000);
             }
         });
     </script>

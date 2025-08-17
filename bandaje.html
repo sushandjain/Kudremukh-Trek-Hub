@@ -1272,9 +1272,9 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-            <img src="image/bandaje_logo.jpg" alt="Bandaje Trek Logo" class="loading-logo">
+            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
             <h1 class="loading-title">⛰️ Bandaje Trek</h1>
-            <p class="loading-text">Preparing your adventure experience...</p>
+            <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
                 <div class="loading-progress-bar" id="progressBar"></div>
@@ -1286,7 +1286,7 @@
     <!-- Main Page Content -->
     <div class="main-page-content" id="mainContent">
         <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
-            <source src="video/bandaje_trek.mp4" type="video/mp4">
+            <source src="video/2711112-uhd_3840_2160_24fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -1441,20 +1441,36 @@
                     </div>
                     <div class="gallery">
                         <div class="gallery-item">
-                            <img src="image/bandaje_view.webp" alt="Bandaje Falls View" class="gallery-image">
-                            <div class="gallery-overlay">Panoramic View of Bandaje Falls</div>
+                            <img src="image/Bandaje-trek/Bandaje1.avif" alt="Bandaje Trek Path" class="gallery-image">
+                            <div class="gallery-overlay">Bandaje Trek Path</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/bandaje_trail.jpg" alt="Bandaje Trek Trail" class="gallery-image">
-                            <div class="gallery-overlay">Beautiful Trek Path to Bandaje</div>
+                            <img src="image/Bandaje-trek/Bandaje2.jpg" alt="Bandaje Waterfall" class="gallery-image">
+                            <div class="gallery-overlay">Spectacular Bandaje Waterfall</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/bandaje_fort.jpg" alt="Ballalarayana Durga Fort" class="gallery-image">
-                            <div class="gallery-overlay">Scenic Overview of Ballalarayana Durga Fort</div>
+                            <img src="image/Bandaje-trek/Bandaje3.jpg" alt="Bandaje Forest Trail" class="gallery-image">
+                            <div class="gallery-overlay">Dense Forest Trail to Bandaje</div>
                         </div>
                         <div class="gallery-item">
-                            <img src="image/bandaje_logo.jpg" alt="Bandaje Trek Logo" class="gallery-image">
-                            <div class="gallery-overlay">Official Bandaje Trek Logo</div>
+                            <img src="image/Bandaje-trek/Bandaje4.jpeg" alt="Bandaje Rock Formations" class="gallery-image">
+                            <div class="gallery-overlay">Unique Rock Formations</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bandaje-trek/Bandaje5.webp" alt="Bandaje Valley Views" class="gallery-image">
+                            <div class="gallery-overlay">Breathtaking Valley Views</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bandaje-trek/Bandaje6.jpg" alt="Bandaje Adventure" class="gallery-image">
+                            <div class="gallery-overlay">Bandaje Trekking Adventure</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bandaje-trek/Bandaje7.jpg" alt="Bandaje Peak View" class="gallery-image">
+                            <div class="gallery-overlay">Summit Views from Bandaje</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/Bandaje-trek/Bandaje8.jpg" alt="Bandaje Trek Team" class="gallery-image">
+                            <div class="gallery-overlay">Bandaje Trek Experience</div>
                         </div>
                     </div>
                 </div>
@@ -1730,6 +1746,7 @@
             let loadingComplete = false;
             let videoLoaded = false;
             
+            // Simulate loading progress
             const loadingInterval = setInterval(() => {
                 if (progress < 90) {
                     progress += Math.random() * 3;
@@ -1746,6 +1763,7 @@
                 
                 clearInterval(loadingInterval);
                 
+                // Complete the progress bar
                 progressBar.style.width = '100%';
                 loadingPercentage.textContent = '100%';
                 
@@ -1768,7 +1786,6 @@
                     progress = Math.max(progress, 85);
                     progressBar.style.width = progress + '%';
                     loadingPercentage.textContent = Math.floor(progress) + '%';
-                    
                     setTimeout(completeLoading, 1000);
                 });
                 
@@ -1781,11 +1798,12 @@
                 });
                 
                 video.addEventListener('error', function() {
-                    console.log('Video failed to load, showing page without video');
+                    console.log('Video failed to load, completing anyway');
                     video.style.display = 'none';
                     completeLoading();
                 });
                 
+                // Video loading progress
                 video.addEventListener('progress', function() {
                     if (video.buffered.length > 0) {
                         const bufferedEnd = video.buffered.end(video.buffered.length - 1);
@@ -1799,15 +1817,15 @@
                     }
                 });
                 
+                // Fallback timeout
                 setTimeout(() => {
                     if (!loadingComplete) {
                         console.log('Loading timeout reached, completing loading');
                         completeLoading();
                     }
                 }, 5000);
-                
             } else {
-                completeLoading();
+                setTimeout(completeLoading, 2000);
             }
         });
     </script>
