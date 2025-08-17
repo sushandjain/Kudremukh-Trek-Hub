@@ -612,6 +612,45 @@
             position: relative;
         }
 
+        /* Maintenance Badge */
+        .maintenance-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(45deg, #ff6b35, #ff8c42);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            animation: maintenancePulse 2s ease-in-out infinite;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        .maintenance-badge i {
+            margin-right: 5px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes maintenancePulse {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(255, 107, 53, 0.6);
+            }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .trek-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-strong);
@@ -1207,7 +1246,7 @@
     <!-- Popular Treks Section -->
 <section id="treks" class="section">
     <div class="container">
-        <h2 class="section-title" data-aos="fade-up">Popular Treks</h2>
+        <h2 class="section-title" data-aos="fade-up">Our Trek Adventures</h2>
         <div class="row">
             <!-- Kudremukh Trek -->
             <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="200">
@@ -1273,6 +1312,114 @@
                         <div class="trek-buttons">
                             <a href="kuranjal.html" class="btn-read-more">View More</a>
                             <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Kuranjal Peak Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aane Salaba Trek -->
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="800">
+                <div class="trek-card">
+                    <div class="maintenance-badge">
+                        <i class="bi bi-gear"></i>Under Maintenance
+                    </div>
+                    <div class="trek-img" style="background-image: url('image/kmview3.webp')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Aane Salaba Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i>Haluvalli, Kudremukh Region</li>
+                            <li><i class="bi bi-clock"></i>6-7 hours (round trip)</li>
+                            <li><i class="bi bi-speedometer2"></i>Beginner to Moderate</li>
+                            <li><i class="bi bi-rulers"></i>5-6 km (one way)</li>
+                            <li><i class="bi bi-mountain"></i>1,200 meters</li>
+                        </ul>
+                        <div class="trek-buttons">
+                            <a href="aane_salaba.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Aane Salaba Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bandaje Trek -->
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="1000">
+                <div class="trek-card">
+                    <div class="maintenance-badge">
+                        <i class="bi bi-gear"></i>Under Maintenance
+                    </div>
+                    <div class="trek-img" style="background-image: url('image/howtoreach.webp')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Bandaje Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i>Bandaje Falls, Ballalarayana Durga Fort</li>
+                            <li><i class="bi bi-clock"></i>8-10 hours</li>
+                            <li><i class="bi bi-speedometer2"></i>Moderate to Difficult</li>
+                            <li><i class="bi bi-rulers"></i>12-14 km (round trip)</li>
+                            <li><i class="bi bi-mountain"></i>1,500 meters</li>
+                        </ul>
+                        <div class="trek-buttons">
+                            <a href="bandaje.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Bandaje Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bavikonda Trek -->
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="1200">
+                <div class="trek-card">
+                    <div class="maintenance-badge">
+                        <i class="bi bi-gear"></i>Under Maintenance
+                    </div>
+                    <div class="trek-img" style="background-image: url('image/kmview22.webp')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Bavikonda Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i>Chikmagalur, Western Ghats</li>
+                            <li><i class="bi bi-clock"></i>7-8 hours</li>
+                            <li><i class="bi bi-speedometer2"></i>Moderate</li>
+                            <li><i class="bi bi-rulers"></i>8-10 km (round trip)</li>
+                            <li><i class="bi bi-mountain"></i>1,300 meters</li>
+                        </ul>
+                        <div class="trek-buttons">
+                            <a href="bavikonda.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Bavikonda Trek. Can you provide more details about the package and availability?" class="btn-book-now">
+                                <i class="bi bi-whatsapp"></i>
+                                Book Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Valikunja Trek -->
+            <div class="col-lg-6 col-md-12 col-sm-12" data-aos="fade-up" data-aos-delay="1400">
+                <div class="trek-card">
+                    <div class="maintenance-badge">
+                        <i class="bi bi-gear"></i>Under Maintenance
+                    </div>
+                    <div class="trek-img" style="background-image: url('image/kudremukh-trekview.jpg')"></div>
+                    <div class="trek-info">
+                        <h3 class="trek-title">Valikunja Trek</h3>
+                        <ul class="trek-details">
+                            <li><i class="bi bi-geo-alt"></i>Kudremukh National Park, Sringeri</li>
+                            <li><i class="bi bi-clock"></i>8-9 hours</li>
+                            <li><i class="bi bi-speedometer2"></i>Moderate to Difficult</li>
+                            <li><i class="bi bi-rulers"></i>10-12 km (round trip)</li>
+                            <li><i class="bi bi-mountain"></i>1,600 meters</li>
+                        </ul>
+                        <div class="trek-buttons">
+                            <a href="Valikunja.html" class="btn-read-more">View More</a>
+                            <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking the Valikunja Trek. Can you provide more details about the package and availability?" class="btn-book-now">
                                 <i class="bi bi-whatsapp"></i>
                                 Book Now
                             </a>
@@ -1418,6 +1565,21 @@
                 <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1200">
                     <div class="gallery-item" style="background-image: url('image/kmview2.jpeg')">
                         <div class="gallery-overlay">kudremukh Top View</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1400">
+                    <div class="gallery-item" style="background-image: url('image/kmview3.webp')">
+                        <div class="gallery-overlay">Aane Salaba Vista</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1600">
+                    <div class="gallery-item" style="background-image: url('image/howtoreach.webp')">
+                        <div class="gallery-overlay">Bandaje Trek Path</div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12" data-aos="fade-up" data-aos-delay="1800">
+                    <div class="gallery-item" style="background-image: url('image/kmview11.jpeg')">
+                        <div class="gallery-overlay">Western Ghats Panorama</div>
                     </div>
                 </div>
             </div>

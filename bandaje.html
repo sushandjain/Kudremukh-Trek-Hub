@@ -1,0 +1,1815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandaje Trek - Professional Trekking Guide | Henjodi Stores</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Experience the adventurous Bandaje Trek in Chikmagalur with professional guides. Explore Bandaje Falls and Ballalarayana Durga Fort with complete packages.">
+    <meta name="keywords" content="Bandaje Trek, Bandaje Falls, Ballalarayana Durga Fort, Chikmagalur Treks, Western Ghats Adventure, Henjodi Stores, Karnataka Trekking">
+    <meta name="author" content="Henjodi Stores - Professional Trekking Services">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Bandaje Trek - Professional Trekking Experience">
+    <meta property="og:description" content="Join us for an unforgettable Bandaje Trek experience featuring Bandaje Falls and Ballalarayana Durga Fort, with professional guides and all-inclusive packages.">
+    <meta property="og:image" content="image/bandaje_view.webp">
+    <meta property="og:url" content="https://henjodistores.com/bandaje.html">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Professional CSS Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="image/bandaje_logo.jpg">
+    
+    <style>
+        /* Loading Screen Styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loading-content {
+            text-align: center;
+            color: #ffffff;
+            max-width: 400px;
+            padding: 2rem;
+        }
+        
+        .loading-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .loading-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #ff6600 0%, #00cc66 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .loading-text {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            opacity: 0.8;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            border-top: 3px solid #ff6600;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        
+        .loading-progress {
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6600, #00cc66);
+            border-radius: 2px;
+            width: 0%;
+            transition: width 0.3s ease;
+            animation: shimmer 2s infinite;
+        }
+        
+        .loading-percentage {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        .main-page-content {
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        
+        .main-page-content.visible {
+            opacity: 1;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+        
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ff6600;
+            --accent-light: #ff8533;
+            --green-accent: #00cc66;
+            --accent-dark: #cc5200;
+            --water-blue: #0891b2;
+            --water-light: #22d3ee;
+            --forest-green: #00cc66;
+            --forest-light: #00ff7f;
+            --mountain-gray: #1a1a1a;
+            --mountain-light: #333333;
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --text-light: #f8fafc;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-glass: rgba(255, 255, 255, 0.95);
+            --bg-glass-hover: rgba(255, 255, 255, 0.98);
+            --bg-dark-glass: rgba(15, 23, 42, 0.95);
+            --bg-dark-glass-hover: rgba(15, 23, 42, 0.98);
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-orange: 0 8px 20px rgba(255, 102, 0, 0.3);
+            --shadow-green: 0 8px 20px rgba(0, 204, 102, 0.3);
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-secondary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            --radius-sm: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            --radius-2xl: 1.5rem;
+            --radius-3xl: 2rem;
+            --radius-full: 9999px;
+            --transition-fast: 0.15s ease-out;
+            --transition-base: 0.2s ease-out;
+            --transition-slow: 0.3s ease-out;
+            --transition-slower: 0.5s ease-out;
+            --blur-sm: 4px;
+            --blur-md: 8px;
+            --blur-lg: 16px;
+            --blur-xl: 24px;
+            --blur-2xl: 40px;
+            --blur-3xl: 64px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: #000000;
+            background-image: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            scroll-behavior: smooth;
+        }
+
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.7;
+            filter: brightness(0.8) contrast(1.1) saturate(1.2) hue-rotate(10deg);
+            transition: filter var(--transition-slow);
+        }
+
+        .video-background:hover {
+            filter: brightness(0.9) contrast(1.2) saturate(1.3) hue-rotate(10deg);
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                135deg,
+                rgba(0, 0, 0, 0.7) 0%,
+                rgba(26, 26, 26, 0.65) 25%,
+                transparent 50%,
+                rgba(26, 26, 26, 0.65) 75%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .stickers-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .sticker {
+            position: absolute;
+            opacity: 0.7;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.3));
+            animation: fall linear infinite;
+            will-change: transform;
+        }
+
+        .sticker:nth-child(1) {
+            width: 150px;
+            left: 10%;
+            animation-duration: 12s;
+            animation-delay: 0s;
+            background: url('https://images.unsplash.com/photo-1547637908-9931b626496b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+        }
+
+        .sticker:nth-child(2) {
+            width: 180px;
+            left: 25%;
+            animation-duration: 15s;
+            animation-delay: 2s;
+            background: url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+            transform: rotate(10deg);
+        }
+
+        .sticker:nth-child(3) {
+            width: 160px;
+            left: 40%;
+            animation-duration: 14s;
+            animation-delay: 4s;
+            background: url('https://images.unsplash.com/photo-1507041957456-9c397ce39c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+        }
+
+        .sticker:nth-child(4) {
+            width: 140px;
+            left: 55%;
+            animation-duration: 13s;
+            animation-delay: 1s;
+            background: url('https://images.unsplash.com/photo-1547637908-9931b626496b?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+            transform: rotate(-15deg);
+        }
+
+        .sticker:nth-child(5) {
+            width: 170px;
+            left: 70%;
+            animation-duration: 16s;
+            animation-delay: 3s;
+            background: url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+        }
+
+        .sticker:nth-child(6) {
+            width: 150px;
+            left: 85%;
+            animation-duration: 14s;
+            animation-delay: 5s;
+            background: url('https://images.unsplash.com/photo-1507041957456-9c397ce39c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=200&q=80') center/cover no-repeat;
+            transform: rotate(5deg);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-150%) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: var(--bg-glass);
+            backdrop-filter: blur(var(--blur-xl)) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all var(--transition-base);
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: var(--bg-glass-hover);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--font-secondary);
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            text-decoration: none;
+            transition: all var(--transition-base);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-brand:hover {
+            color: var(--accent-color);
+            transform: scale(1.05);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all var(--transition-base);
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-md);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--accent-color);
+            transition: all var(--transition-base);
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-color);
+            background: rgba(216, 27, 96, 0.1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-orange);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .hero-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: var(--radius-full);
+            color: var(--accent-light);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(var(--blur-md));
+            animation: fadeInUp 0.6s ease-out;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--accent-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.125rem, 2vw, 1.375rem);
+            color: var(--neutral-300);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.2s ease-out 0.6s both;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-light);
+            padding: 0.875rem 2rem;
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-orange);
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            padding: 0.875rem 2rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-full);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            backdrop-filter: blur(var(--blur-md));
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 0;
+            background: transparent;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .content-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(var(--blur-xl)) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-2xl);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-2xl);
+            border-color: rgba(216, 27, 96, 0.3);
+        }
+
+        .content-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-icon {
+            width: 3rem;
+            height: 3rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-light) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: all var(--transition-base);
+        }
+
+        .card-icon.green {
+            background: linear-gradient(135deg, var(--green-accent) 0%, #00ff7f 100%);
+        }
+
+        .content-card:hover .card-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .card-title {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-subtitle {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: var(--radius-lg);
+            margin-bottom: 1.5rem;
+            transition: all var(--transition-base);
+        }
+
+        .content-card:hover .card-image {
+            transform: scale(1.02);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+
+        .stat-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(var(--blur-lg));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            text-align: center;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .stat-value {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+            display: block;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all var(--transition-base);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .feature-list li:hover {
+            background: rgba(0, 204, 102, 0.05);
+            border-radius: var(--radius-md);
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .feature-list li::before {
+            content: '✓';
+            color: var(--green-accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            aspect-ratio: 16/10;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all var(--transition-base);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(15, 23, 42, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 600;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin: 2rem 0;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: var(--radius-lg);
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .testimonial-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(var(--blur-lg));
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 1rem;
+            left: 1.5rem;
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            font-family: serif;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .testimonial-avatar {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-info h4 {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .testimonial-info p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer {
+            background: var(--bg-dark-glass);
+            backdrop-filter: blur(var(--blur-xl));
+            color: var(--text-light);
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--neutral-300);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: color var(--transition-base);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--neutral-400);
+            font-size: 0.875rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links a:hover {
+            background: var(--accent-color);
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 3rem;
+            height: 3rem;
+            background: var(--accent-color);
+            color: var(--text-light);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: all var(--transition-base);
+            box-shadow: var(--shadow-orange);
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: scale(0.8);
+        }
+
+        .scroll-to-top.show {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1);
+        }
+
+        .scroll-to-top:hover {
+            background: var(--accent-light);
+            transform: scale(1.1);
+            box-shadow: 0 12px 30px rgba(16, 185, 129, 0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .sticker {
+                width: 100px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .stat-value {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 1rem;
+            }
+            
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.875rem;
+            }
+
+            .sticker {
+                width: 80px !important;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            
+            .scroll-to-top,
+            .sticker {
+                transition: none;
+            }
+        }
+
+        @media print {
+            .video-background,
+            .stickers-container,
+            .navbar,
+            .scroll-to-top {
+                display: none !important;
+            }
+            
+            .hero-section {
+                height: auto;
+                padding: 2rem 0;
+            }
+            
+            .content-card {
+                break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
+        }
+
+        .rainbow-video {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .video-frame {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            overflow: hidden;
+        }
+
+        .video-frame::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            padding: 6px;
+            border-radius: 24px;
+            background: conic-gradient(
+                #10b981,
+                #22c55e,
+                #84cc16,
+                #eab308,
+                #0891b2,
+                #3b82f6,
+                #8b5cf6,
+                #10b981
+            );
+            animation: spinHue 10s linear infinite;
+            -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        @keyframes spinHue {
+            to { transform: rotate(1turn); }
+        }
+
+        .video-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 18px;
+        }
+
+        .animated-map-border {
+            width: 100%;
+            max-width: 100%;
+            padding: 6px;
+            border-radius: 20px;
+            background: linear-gradient(270deg, #1E88E5, #00E676, #FFC107, #D500F9, #1E88E5);
+            background-size: 800% 800%;
+            animation: borderAnimation 10s linear infinite;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            margin: 3rem auto;
+            overflow: hidden;
+        }
+
+        .animated-map-border iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 16px;
+            display: block;
+        }
+
+        @keyframes borderAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #25d366, #20b954);
+            color: #fff;
+            font-size: 1.8rem;
+            padding: 14px 18px;
+            border-radius: 50%;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            z-index: 9999;
+            transition: all 0.4s ease;
+            animation: floatPulse 2s infinite;
+        }
+
+        .whatsapp-float i {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-5px) scale(1.15);
+            box-shadow: 0 12px 35px rgba(32,185,84,0.6);
+        }
+
+        .whatsapp-float::after {
+            content: "Chat with us on WhatsApp";
+            position: absolute;
+            right: 70px;
+            bottom: 50%;
+            transform: translateY(50%);
+            background: #333;
+            color: #fff;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .whatsapp-float:hover::after {
+            opacity: 1;
+        }
+
+        @keyframes floatPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        @media(max-width:768px){
+            .whatsapp-float {
+                font-size: 1.6rem;
+                padding: 12px 15px;
+            }
+            .whatsapp-float::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <img src="image/bandaje_logo.jpg" alt="Bandaje Trek Logo" class="loading-logo">
+            <h1 class="loading-title">⛰️ Bandaje Trek</h1>
+            <p class="loading-text">Preparing your adventure experience...</p>
+            <div class="loading-spinner"></div>
+            <div class="loading-progress">
+                <div class="loading-progress-bar" id="progressBar"></div>
+            </div>
+            <div class="loading-percentage" id="loadingPercentage">0%</div>
+        </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="main-page-content" id="mainContent">
+        <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
+            <source src="video/bandaje_trek.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="stickers-container">
+            <div class="sticker"></div>
+            <div class="sticker"></div>
+            <div class="sticker"></div>
+            <div class="sticker"></div>
+            <div class="sticker"></div>
+            <div class="sticker"></div>
+        </div>
+
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.html" class="nav-brand">BANDAJE TREK</a>
+                <ul class="nav-menu">
+                    <li><a href="#overview" class="nav-link">Overview</a></li>
+                    <li><a href="#highlights" class="nav-link">Highlights</a></li>
+                    <li><a href="#permits" class="nav-link">Permits</a></li>
+                    <li><a href="#reach" class="nav-link">How to Reach</a></li>
+                    <li><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="nav-cta" target="_blank">Book Now</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <section class="hero-section">
+            <div class="hero-container">
+                <span class="hero-badge">Western Ghats Adventure</span>
+                <h1 class="hero-title">⛰️ Bandaje Trek</h1>
+                <p class="hero-subtitle">Explore the majestic Bandaje Falls and Ballalarayana Durga Fort in Chikmagalur with our comprehensive guide</p>
+                <div class="hero-actions">
+                    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." class="btn-primary"><i class="bi bi-whatsapp"></i> Book Your Trek</a>
+                    <a href="#overview" class="btn-secondary">Explore Details</a>
+                </div>
+            </div>
+        </section>
+
+        <main class="main-content">
+            <div class="container">
+                <div class="stats-grid" id="overview">
+                    <div class="stat-card">
+                        <span class="stat-value">~1,250 m</span>
+                        <span class="stat-label">Fort Elevation</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">12–18 km</span>
+                        <span class="stat-label">Distance</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">6–8 hrs</span>
+                        <span class="stat-label">Duration</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">Moderate</span>
+                        <span class="stat-label">Difficulty</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">₹500–600</span>
+                        <span class="stat-label">Permit Fee</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-value">Jul–Feb</span>
+                        <span class="stat-label">Best Season</span>
+                    </div>
+                </div>
+
+                <div class="grid">
+                    <div class="content-card">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="bi bi-geo-alt"></i></span>
+                            <div>
+                                <h2 class="card-title">Trek Overview</h2>
+                                <p class="card-subtitle">Your adventure starts here</p>
+                            </div>
+                        </div>
+                        <img src="showimg/bandaje_overview.jpg" alt="Trek Overview" class="card-image">
+                        <div class="card-content">
+                            <ul class="feature-list">
+                                <li><strong>Starting Point:</strong> Durgadahalli village or Rani Jhari Viewpoint, ~70 km from Chikmagalur</li>
+                                <li><strong>Elevation:</strong> ~1,250 m (fort), ~900 m (falls)</li>
+                                <li><strong>Trek Distance:</strong> ~12–18 km round trip</li>
+                                <li><strong>Duration:</strong> 6–7 hours to waterfall</li>
+                                <li><strong>Difficulty:</strong> Moderate to challenging</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="highlights">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="bi bi-tree"></i></span>
+                            <div>
+                                <h2 class="card-title">Highlights & Wildlife</h2>
+                                <p class="card-subtitle">Nature's finest moments</p>
+                            </div>
+                        </div>
+                        <img src="showimg/bandaje_highlights.jpg" alt="Wildlife" class="card-image">
+                        <div class="card-content">
+                            <ul class="feature-list">
+                                <li>Ballalarayana Durga Fort: Ancient 17th-century fort</li>
+                                <li>Bandaje Falls: Over 200ft vertical drop</li>
+                                <li>Shola grasslands and panoramic Western Ghats views</li>
+                                <li>Wildlife: Rich flora and fauna</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="permits">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="bi bi-ticket-detailed"></i></span>
+                            <div>
+                                <h2 class="card-title">Permits & Rules</h2>
+                                <p class="card-subtitle">Essential information</p>
+                            </div>
+                        </div>
+                        <img src="showimg/permit_rules.jpg" alt="Forest Permits" class="card-image">
+                        <div class="card-content">
+                            <ul class="feature-list">
+                                <li><strong>Forest Entry Permit:</strong> ₹500–600 per person</li>
+                                <li><strong>Guide Mandatory:</strong> 1 guide per 10 trekkers (~₹1,000)</li>
+                                <li><strong>Trek Timings:</strong> Entry from 6 AM; finish by 6 PM</li>
+                                <li><strong>🚫 No plastics, alcohol, or campfires allowed</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-card" id="reach">
+                        <div class="card-header">
+                            <span class="card-icon"><i class="bi bi-car-front"></i></span>
+                            <div>
+                                <h2 class="card-title">How to Reach</h2>
+                                <p class="card-subtitle">Getting to the trailhead</p>
+                            </div>
+                        </div>
+                        <img src="showimg/bandaje_reach.jpg" alt="Mountain Road" class="card-image">
+                        <div class="card-content">
+                            <ul class="feature-list">
+                                <li><strong>By Road:</strong> Bangalore → Chikmagalur → Durgadahalli (~280–290 km)</li>
+                                <li><strong>From Chikmagalur:</strong> Hire jeep (~₹250–600 per person)</li>
+                                <li><strong>Accommodation:</strong> Homestays or camping (~₹1,000–1,500)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <span class="card-icon"><i class="bi bi-camera"></i></span>
+                        <div>
+                            <h2 class="card-title">Photo Gallery</h2>
+                            <p class="card-subtitle">Capture the journey</p>
+                        </div>
+                    </div>
+                    <div class="gallery">
+                        <div class="gallery-item">
+                            <img src="image/bandaje_view.webp" alt="Bandaje Falls View" class="gallery-image">
+                            <div class="gallery-overlay">Panoramic View of Bandaje Falls</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/bandaje_trail.jpg" alt="Bandaje Trek Trail" class="gallery-image">
+                            <div class="gallery-overlay">Beautiful Trek Path to Bandaje</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/bandaje_fort.jpg" alt="Ballalarayana Durga Fort" class="gallery-image">
+                            <div class="gallery-overlay">Scenic Overview of Ballalarayana Durga Fort</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="image/bandaje_logo.jpg" alt="Bandaje Trek Logo" class="gallery-image">
+                            <div class="gallery-overlay">Official Bandaje Trek Logo</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="animated-map-border">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.622075199402!2d75.29149751482137!3d13.127627990759304!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb4a2f6f6b4f6b%3A0x6e8b5c0b4b5656d!2sBandaje%20Falls!5e0!3m2!1sen!2sin!4v1752253080452!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <span class="card-icon"><i class="bi bi-star-fill"></i></span>
+                        <div>
+                            <h2 class="card-title">Why Choose Henjodi Stores?</h2>
+                            <p class="card-subtitle">We simplify your trek</p>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <ul class="feature-list">
+                            <li>✅ Local expertise with years of trekking support experience</li>
+                            <li>✅ One-stop for permits, food, jeep rides, and guides</li>
+                            <li>✅ Affordable pricing and flexible package options</li>
+                            <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
+                            <li>✅ Friendly, local support team available via WhatsApp</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <span class="card-icon"><i class="bi bi-quote"></i></span>
+                        <div>
+                            <h2 class="card-title">Trekker Insights</h2>
+                            <p class="card-subtitle">What others say</p>
+                        </div>
+                    </div>
+                    <div class="testimonials">
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">"Took 7 hours to reach the falls, stunning views at the fort. The guide was super helpful!"</div>
+                            <div class="testimonial-author">
+                                <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <h4>Experienced Trekker</h4>
+                                    <p>4/5 Stars</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-card">
+                            <div class="testimonial-text">"Challenging but rewarding! The waterfall and fort views were unforgettable."</div>
+                            <div class="testimonial-author">
+                                <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
+                                <div class="testimonial-info">
+                                    <h4>Beginner Trekker</h4>
+                                    <p>5/5 Stars</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <section id="faq" class="section" style="background:#f8f9fa;">
+            <div class="container">
+                <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                                Do I need prior trekking experience?
+                            </button>
+                        </h2>
+                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">No, our treks are designed for beginners as well as experienced trekkers.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                                What should I carry for the trek?
+                            </button>
+                        </h2>
+                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Carry trekking shoes, raincoat, water bottle, and basic personal items.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                                Is food included in the package?
+                            </button>
+                        </h2>
+                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">Yes, our Standard and Premium packages include authentic Malenadu food.</div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                                Is plastic carry allowed?
+                            </button>
+                        </h2>
+                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">No, plastic carry is strictly not allowed to protect the environment.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
+           class="whatsapp-float" target="_blank">
+           <i class="bi bi-whatsapp"></i>
+        </a>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>About Henjodi Stores</h3>
+                        <p>
+                            Henjodi Stores is a local business in Malenadu offering complete support for trekkers visiting peaks like Kudremukh, Netravati, and Bandaje. We assist with trekking ticket bookings, arranging certified guides, jeep rides, food, and homestays. We also offer authentic Malenadu coffee, tea powders, snacks, and essentials like raincoats and first-aid kits. Whether you're a solo adventurer or a group, we ensure your journey is safe, comfortable, and budget-friendly.
+                        </p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#overview">Trek Overview</a></li>
+                            <li><a href="#highlights">Highlights</a></li>
+                            <li><a href="#permits">Permits & Rules</a></li>
+                            <li><a href="#reach">How to Reach</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Contact Us</h3>
+                        <p><a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks.">WhatsApp: +91 80731 78851</a></p>
+                        <p>Email: Hjprasadjain@gmail.com</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
+                            <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                            <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Henjodi Stores. All rights reserved.</p>
+                </div>
+            </div>
+            <div style="text-align:center; margin-top: 2rem;">
+                <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." target="_blank" class="btn-primary">
+                    <i class="bi bi-whatsapp"></i> Book Bandaje Trek Now
+                </a>
+            </div>
+        </footer>
+
+        <button class="scroll-to-top" aria-label="Scroll to top">
+            <i class="bi bi-arrow-up"></i>
+        </button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init({ duration: 1000, easing: 'ease-in-out', once: true });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            const scrollToTop = document.querySelector('.scroll-to-top');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    scrollToTop.classList.add('show');
+                } else {
+                    scrollToTop.classList.remove('show');
+                }
+            });
+
+            scrollToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.content-card, .stat-card, .testimonial-card').forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('.gallery-image');
+                    const caption = this.querySelector('.gallery-overlay').textContent;
+                    
+                    const lightbox = document.createElement('div');
+                    lightbox.style.cssText = `
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.9);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1000;
+                        cursor: pointer;
+                    `;
+                    
+                    const lightboxImg = document.createElement('img');
+                    lightboxImg.src = img.src;
+                    lightboxImg.style.cssText = `
+                        max-width: 90%;
+                        max-height: 90%;
+                        object-fit: contain;
+                        border-radius: 10px;
+                        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                    `;
+                    
+                    const lightboxCaption = document.createElement('div');
+                    lightboxCaption.textContent = caption;
+                    lightboxCaption.style.cssText = `
+                        position: absolute;
+                        bottom: 50px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        color: white;
+                        font-family: var(--font-primary);
+                        font-size: 1.2rem;
+                        text-align: center;
+                        background: rgba(216, 27, 96, 0.7);
+                        padding: 10px 20px;
+                        border-radius: 20px;
+                    `;
+                    
+                    lightbox.appendChild(lightboxImg);
+                    lightbox.appendChild(lightboxCaption);
+                    document.body.appendChild(lightbox);
+                    
+                    lightbox.addEventListener('click', function() {
+                        document.body.removeChild(lightbox);
+                    });
+                    
+                    document.addEventListener('keydown', function(e) {
+                        if (e.key === 'Escape' && document.body.contains(lightbox)) {
+                            document.body.removeChild(lightbox);
+                        }
+                    });
+                });
+            });
+
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+            const progressBar = document.getElementById('progressBar');
+            const loadingPercentage = document.getElementById('loadingPercentage');
+            const video = document.getElementById('backgroundVideo');
+            
+            let progress = 0;
+            let loadingComplete = false;
+            let videoLoaded = false;
+            
+            const loadingInterval = setInterval(() => {
+                if (progress < 90) {
+                    progress += Math.random() * 3;
+                    if (progress > 90) progress = 90;
+                    
+                    progressBar.style.width = progress + '%';
+                    loadingPercentage.textContent = Math.floor(progress) + '%';
+                }
+            }, 150);
+            
+            function completeLoading() {
+                if (loadingComplete) return;
+                loadingComplete = true;
+                
+                clearInterval(loadingInterval);
+                
+                progressBar.style.width = '100%';
+                loadingPercentage.textContent = '100%';
+                
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    mainContent.classList.add('visible');
+                    
+                    if (video) {
+                        video.play().catch(error => {
+                            console.log('Autoplay prevented:', error);
+                        });
+                    }
+                }, 500);
+            }
+            
+            if (video) {
+                video.addEventListener('loadeddata', function() {
+                    console.log('Video loaded successfully');
+                    videoLoaded = true;
+                    progress = Math.max(progress, 85);
+                    progressBar.style.width = progress + '%';
+                    loadingPercentage.textContent = Math.floor(progress) + '%';
+                    
+                    setTimeout(completeLoading, 1000);
+                });
+                
+                video.addEventListener('canplaythrough', function() {
+                    console.log('Video can play through');
+                    videoLoaded = true;
+                    if (!loadingComplete) {
+                        completeLoading();
+                    }
+                });
+                
+                video.addEventListener('error', function() {
+                    console.log('Video failed to load, showing page without video');
+                    video.style.display = 'none';
+                    completeLoading();
+                });
+                
+                video.addEventListener('progress', function() {
+                    if (video.buffered.length > 0) {
+                        const bufferedEnd = video.buffered.end(video.buffered.length - 1);
+                        const duration = video.duration;
+                        if (duration > 0) {
+                            const bufferedProgress = (bufferedEnd / duration) * 80;
+                            progress = Math.max(progress, bufferedProgress);
+                            progressBar.style.width = progress + '%';
+                            loadingPercentage.textContent = Math.floor(progress) + '%';
+                        }
+                    }
+                });
+                
+                setTimeout(() => {
+                    if (!loadingComplete) {
+                        console.log('Loading timeout reached, completing loading');
+                        completeLoading();
+                    }
+                }, 5000);
+                
+            } else {
+                completeLoading();
+            }
+        });
+    </script>
+</body>
+</html>
