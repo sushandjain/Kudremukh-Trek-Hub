@@ -381,17 +381,18 @@
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: all 0.3s ease;
+            max-width: 200px;
           }
 
           .weather-compact {
-            padding: 15px 20px;
+            padding: 12px 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
           }
 
           .weather-icon {
-            font-size: 32px;
+            font-size: 28px;
             animation: float 3s ease-in-out infinite;
           }
 
@@ -401,13 +402,13 @@
           }
 
           .weather-temp {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: #2c3e50;
           }
 
           .weather-expanded {
-            padding: 20px;
+            padding: 15px;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
@@ -415,23 +416,23 @@
           }
 
           .weather-location {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
           }
 
           .weather-details {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 12px;
           }
 
           .weather-detail-item {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 12px;
-            border-radius: 12px;
+            padding: 10px;
+            border-radius: 10px;
             color: white;
             text-align: center;
           }
@@ -439,21 +440,52 @@
           .best-time-badge {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
-            padding: 10px 15px;
-            border-radius: 12px;
-            margin-top: 15px;
+            padding: 8px 12px;
+            border-radius: 10px;
+            margin-top: 12px;
             text-align: center;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
           }
 
           @media (max-width: 768px) {
             #weather-widget {
-              top: 80px;
+              top: auto;
+              bottom: 100px;
               right: 10px;
+              left: auto;
+              max-width: 160px;
+              font-size: 14px;
+            }
+            .weather-compact {
+              padding: 10px 12px;
+              gap: 6px;
+            }
+            .weather-icon {
+              font-size: 24px;
+            }
+            .weather-temp {
+              font-size: 18px;
+            }
+            .weather-expanded {
+              padding: 12px;
+            }
+            .weather-location {
+              font-size: 13px;
+              margin-bottom: 10px;
             }
             .weather-details {
               grid-template-columns: 1fr;
+              gap: 8px;
+            }
+            .weather-detail-item {
+              padding: 8px;
+              font-size: 13px;
+            }
+            .best-time-badge {
+              font-size: 11px;
+              padding: 6px 10px;
+              margin-top: 10px;
             }
           }
         </style>
@@ -467,14 +499,14 @@
             <div class="weather-location">📍 ${this.location}</div>
             <div class="weather-details">
               <div class="weather-detail-item">
-                <div style="font-size: 24px; margin-bottom: 5px;">💧</div>
-                <div style="font-size: 18px; font-weight: 700;">${humidity}%</div>
-                <div style="font-size: 12px; opacity: 0.9;">Humidity</div>
+                <div style="font-size: 20px; margin-bottom: 4px;">💧</div>
+                <div style="font-size: 16px; font-weight: 700;">${humidity}%</div>
+                <div style="font-size: 11px; opacity: 0.9;">Humidity</div>
               </div>
               <div class="weather-detail-item">
-                <div style="font-size: 24px; margin-bottom: 5px;">💨</div>
-                <div style="font-size: 18px; font-weight: 700;">${windSpeed} km/h</div>
-                <div style="font-size: 12px; opacity: 0.9;">Wind Speed</div>
+                <div style="font-size: 20px; margin-bottom: 4px;">💨</div>
+                <div style="font-size: 16px; font-weight: 700;">${windSpeed} km/h</div>
+                <div style="font-size: 11px; opacity: 0.9;">Wind Speed</div>
               </div>
             </div>
             <div class="best-time-badge">✨ Best time: Oct - Feb</div>
@@ -615,6 +647,7 @@
     // Detect current page and set weather location
     const path = window.location.pathname;
     let weatherLocation = 'Kudremukh'; // Default
+    let showWeather = true;
     
     if (path.includes('bandaje')) {
       weatherLocation = 'Bandaje';
@@ -630,11 +663,16 @@
       weatherLocation = 'Valikunja';
     } else if (path.includes('aane_salaba')) {
       weatherLocation = 'Aane Salaba';
+    } else if (path.includes('index')) {
+      // Don't show weather widget on index page
+      showWeather = false;
     }
 
     // Initialize other components
     new FloatingBookingButton();
-    new WeatherWidget(weatherLocation);
+    if (showWeather) {
+      new WeatherWidget(weatherLocation);
+    }
     addGlobalEnhancements();
     
     console.log('🏔️ Kudremukh Trek Hub - React Enhancements Loaded!');
