@@ -210,6 +210,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
@@ -217,9 +222,17 @@ body {
     background-color: #000000; /* Black fallback background */
     background-image: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
     overflow-x: hidden;
+    width: 100%;
     position: relative;
     min-height: 100vh;
-    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Video Background */
@@ -978,6 +991,10 @@ body::before {
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
 }
 
 .social-links a:hover {
@@ -1057,6 +1074,19 @@ body::before {
 }
 
 /* Responsive Design */
+/* Tablet & Small Desktop */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    
+    .content-card {
+        padding: 2rem;
+    }
+}
+
+/* Mobile & Tablet Portrait */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1064,11 +1094,22 @@ body::before {
     
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
     
     .hero-actions {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        min-height: 44px; /* Touch target */
+        padding: 0.875rem 2rem;
     }
     
     .container {
@@ -1077,29 +1118,59 @@ body::before {
     
     .content-card {
         padding: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
     }
     
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
     }
 
     .sticker {
         width: 100px !important;
     }
+    
+    /* Touch-friendly spacing */
+    section {
+        padding: 3rem 0;
+    }
 }
 
+/* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 2rem 0;
+    }
+}
+
+/* Mobile Portrait */
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
     
     .stat-value {
@@ -1114,10 +1185,25 @@ body::before {
     .btn-secondary {
         padding: 0.75rem 1.5rem;
         font-size: 0.875rem;
+        min-height: 44px;
     }
 
     .sticker {
         width: 80px !important;
+    }
+    
+    /* Better readability on small screens */
+    body {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
     }
 }
 
@@ -1249,50 +1335,13 @@ body::before {
   }
 }
 
-.whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #25d366, #20b954);
-            color: #fff;
-            font-size: 1.8rem;
-            padding: 14px 18px;
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            z-index: 9999;
-            transition: all 0.4s ease;
-            animation: floatPulse 2s infinite;
-        }
-        .whatsapp-float i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.15);
-            box-shadow: 0 12px 35px rgba(32,185,84,0.6);
-        }
+
+        
+        
 
         /* Tooltip for WhatsApp */
-        .whatsapp-float::after {
-            content: "Chat with us on WhatsApp";
-            position: absolute;
-            right: 70px;
-            bottom: 50%;
-            transform: translateY(50%);
-            background: #333;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        .whatsapp-float:hover::after {
-            opacity: 1;
-        }
+        
+        
 
         @keyframes floatPulse {
             0% { transform: scale(1); }
@@ -1301,13 +1350,8 @@ body::before {
         }
 
         @media(max-width:768px){
-            .whatsapp-float{
-                font-size: 1.6rem;
-                padding: 12px 15px;
-            }
-            .whatsapp-float::after {
-                display: none;
-            }
+            
+            
         }
     </style>
 </head>
@@ -1315,11 +1359,8 @@ body::before {
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-
-                <span class="tree-emoji">�</span>
-
             <img src="image/nplogo.jpg" alt="Netravati Peak Logo" class="loading-logo">
-            <h1 class="loading-title">⛰️ Netravati Peak Trek</h1>
+            <h1 class="loading-title">Netravati Peak Trek</h1>
             <p class="loading-text">Preparing your adventure experience...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
@@ -1460,8 +1501,8 @@ body::before {
                     <img src="showimg/permit and rules.webp" alt="Forest Permits" class="card-image">
                     <div class="card-content">
                         <ul class="feature-list">
-                            <li><strong>Forest Entry Permit:</strong> ₹500–600 per person</li>
-                            <li><strong>Guide Mandatory:</strong> 1 guide per 10 trekkers (~₹1,000)</li>
+                            <li><strong>Forest Entry Permit:</strong> Contact us for current rates</li>
+                            <li><strong>Guide Mandatory:</strong> Included in package</li>
                             <li><strong>Trek Timings:</strong> Entry from 6 AM; finish by 6 PM</li>
                             <li><strong>🚫 Night trekking is strictly prohibited</strong></li>
                         </ul>
@@ -1481,7 +1522,7 @@ body::before {
                     <div class="card-content">
                         <ul class="feature-list">
                             <li><strong>By Road:</strong> Bangalore → Hassan → Kalasa → Samse (~330 km)</li>
-                            <li><strong>From Samse:</strong> Hire jeep (~₹250–600 per person)</li>
+                            <li><strong>Transportation:</strong> Available - Contact for details</li>
                             <li><strong>Homestays:</strong> Available in Samse/Kalasa (~₹1,000–1,500)</li>
                         </ul>
                     </div>
@@ -1534,7 +1575,7 @@ body::before {
         <ul class="feature-list">
             <li>✅ Local expertise with years of trekking support experience</li>
             <li>✅ One-stop for permits, food, jeep rides, and guides</li>
-            <li>✅ Affordable pricing and flexible package options</li>
+            <li>✅ Flexible packages - Contact us for current pricing</li>
             <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
             <li>✅ Friendly, local support team available via WhatsApp</li>
         </ul>
@@ -1552,7 +1593,7 @@ body::before {
                 </div>
                 <div class="testimonials">
                     <div class="testimonial-card">
-                        <div class="testimonial-text">"6 + 6 km trek from Samse to peak. ₹2,000 jeep, ₹1,000 guide, ₹500 entry fee… takes about 5 hrs with leisure."</div>
+                        <div class="testimonial-text">"6 + 6 km trek from Samse to peak. Complete package with jeep, guide, and entry permit arranged. Takes about 5 hrs with leisure. Beautiful experience!"</div>
                         <div class="testimonial-author">
                             <img src="https://img.freepik.com/premium-vector/default-avatar-profile-icon-social-media-user-image-gray-avatar-icon-blank-profile-silhouette-vector-illustration_561158-3485.jpg" alt="Trekker" class="testimonial-avatar">
                             <div class="testimonial-info">
@@ -1624,10 +1665,7 @@ body::before {
         </div>
       </div>
     </section>
-    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
-       class="whatsapp-float" target="_blank">
-       <i class="bi bi-whatsapp"></i>
-    </a>
+    
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -1660,7 +1698,7 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     <p>Email: Hjprasadjain@gmail.com</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
                         <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
@@ -1903,5 +1941,8 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
             }
         });
     </script>
+
+    <!-- React Enhancements - Enhanced Video Background, Particles, Floating Booking, Weather Widget -->
+    <script src="dist/react-enhancements.js"></script>
 </body>
 </html>

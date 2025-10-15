@@ -208,16 +208,30 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: var(--font-primary);
             line-height: 1.6;
             color: var(--text-primary);
             background-color: #000000;
+            overflow-x: hidden;
+            width: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             background-image: linear-gradient(135deg, #000000 0%, #1a1a1a 50%, #000000 100%);
             overflow-x: hidden;
             position: relative;
             min-height: 100vh;
             scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
         }
 
         .video-background {
@@ -956,6 +970,10 @@
             text-decoration: none;
             transition: all 0.3s ease;
             backdrop-filter: blur(10px);
+            pointer-events: auto;
+            cursor: pointer;
+            z-index: 10;
+            position: relative;
         }
 
         .social-links a:hover {
@@ -1039,11 +1057,17 @@
             
             .hero-title {
                 font-size: 2.5rem;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
             }
             
             .hero-actions {
                 flex-direction: column;
                 align-items: center;
+                gap: 1rem;
             }
             
             .container {
@@ -1060,25 +1084,59 @@
             
             .stats-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
             }
             
             .footer-content {
                 grid-template-columns: 1fr;
                 text-align: center;
+                gap: 2rem;
             }
 
             .sticker {
                 width: 100px !important;
             }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .package-card {
+                margin-bottom: 1.5rem;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
         }
 
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 2rem;
+                font-size: 1.75rem;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 0.875rem;
             }
             
             .stat-value {
-                font-size: 2rem;
+                font-size: 1.75rem;
+            }
+
+            .stat-label {
+                font-size: 0.875rem;
             }
             
             .content-card {
@@ -1089,10 +1147,71 @@
             .btn-secondary {
                 padding: 0.75rem 1.5rem;
                 font-size: 0.875rem;
+                width: 100%;
             }
 
             .sticker {
                 width: 80px !important;
+            }
+
+            .section {
+                padding: 2rem 0;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .package-card h3 {
+                font-size: 1.25rem;
+            }
+
+            .price {
+                font-size: 1.5rem;
+            }
+
+            .container {
+                padding: 0 0.75rem;
+            }
+
+            
+        }
+
+        /* Tablet optimization */
+        @media (min-width: 481px) and (max-width: 768px) {
+            .hero-title {
+                font-size: 2.25rem;
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .package-card {
+                min-height: auto;
+            }
+        }
+
+        /* Improve touch targets for mobile */
+        @media (max-width: 768px) {
+            button, a, .btn {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            .nav-link {
+                padding: 1rem;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media (max-width: 896px) and (orientation: landscape) {
+            .hero {
+                min-height: 80vh;
+            }
+
+            .section {
+                padding: 2rem 0;
             }
         }
 
@@ -1207,52 +1326,15 @@
             100% { background-position: 0% 50%; }
         }
 
-        .whatsapp-float {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: linear-gradient(135deg, #25d366, #20b954);
-            color: #fff;
-            font-size: 1.8rem;
-            padding: 14px 18px;
-            border-radius: 50%;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            z-index: 9999;
-            transition: all 0.4s ease;
-            animation: floatPulse 2s infinite;
-        }
+        
 
-        .whatsapp-float i {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+        
 
-        .whatsapp-float:hover {
-            transform: translateY(-5px) scale(1.15);
-            box-shadow: 0 12px 35px rgba(32,185,84,0.6);
-        }
+        
 
-        .whatsapp-float::after {
-            content: "Chat with us on WhatsApp";
-            position: absolute;
-            right: 70px;
-            bottom: 50%;
-            transform: translateY(50%);
-            background: #333;
-            color: #fff;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
+        
 
-        .whatsapp-float:hover::after {
-            opacity: 1;
-        }
+        
 
         @keyframes floatPulse {
             0% { transform: scale(1); }
@@ -1261,13 +1343,8 @@
         }
 
         @media(max-width:768px){
-            .whatsapp-float {
-                font-size: 1.6rem;
-                padding: 12px 15px;
-            }
-            .whatsapp-float::after {
-                display: none;
-            }
+            
+            
         }
     </style>
 </head>
@@ -1275,11 +1352,8 @@
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-
-                <span class="tree-emoji">�</span>
-
-            <img src="image/kmlogo.avif" alt="Kudremukh Treks Logo" class="loading-logo">
-            <h1 class="loading-title">⛰️ Bandaje Trek</h1>
+            <img src="image/Bandaje-trek/logoBandaje.jpg" alt="Bandaje Trek Logo" class="loading-logo">
+            <h1 class="loading-title">Bandaje Trek</h1>
             <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
@@ -1292,7 +1366,7 @@
     <!-- Main Page Content -->
     <div class="main-page-content" id="mainContent">
         <video class="video-background" id="backgroundVideo" autoplay muted loop playsinline preload="auto">
-            <source src="video/2711112-uhd_3840_2160_24fps.mp4" type="video/mp4">
+            <source src="image/Bandaje-trek/videoplayback (1).mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -1368,7 +1442,7 @@
                                 <p class="card-subtitle">Your adventure starts here</p>
                             </div>
                         </div>
-                        <img src="showimg/bandaje_overview.jpg" alt="Trek Overview" class="card-image">
+                        <img src="image/Bandaje-trek/Bandaje1.avif" alt="Trek Overview" class="card-image">
                         <div class="card-content">
                             <ul class="feature-list">
                                 <li><strong>Starting Point:</strong> Durgadahalli village or Rani Jhari Viewpoint, ~70 km from Chikmagalur</li>
@@ -1388,7 +1462,7 @@
                                 <p class="card-subtitle">Nature's finest moments</p>
                             </div>
                         </div>
-                        <img src="showimg/bandaje_highlights.jpg" alt="Wildlife" class="card-image">
+                        <img src="image/Bandaje-trek/Bandaje2.jpg" alt="Wildlife" class="card-image">
                         <div class="card-content">
                             <ul class="feature-list">
                                 <li>Ballalarayana Durga Fort: Ancient 17th-century fort</li>
@@ -1407,11 +1481,11 @@
                                 <p class="card-subtitle">Essential information</p>
                             </div>
                         </div>
-                        <img src="showimg/permit_rules.jpg" alt="Forest Permits" class="card-image">
+                        <img src="image/Bandaje-trek/Bandaje3.jpg" alt="Forest Permits" class="card-image">
                         <div class="card-content">
                             <ul class="feature-list">
-                                <li><strong>Forest Entry Permit:</strong> ₹500–600 per person</li>
-                                <li><strong>Guide Mandatory:</strong> 1 guide per 10 trekkers (~₹1,000)</li>
+                                <li><strong>Forest Entry Permit:</strong> Contact us for current rates</li>
+                                <li><strong>Guide Mandatory:</strong> Included in package</li>
                                 <li><strong>Trek Timings:</strong> Entry from 6 AM; finish by 6 PM</li>
                                 <li><strong>🚫 No plastics, alcohol, or campfires allowed</strong></li>
                             </ul>
@@ -1426,12 +1500,12 @@
                                 <p class="card-subtitle">Getting to the trailhead</p>
                             </div>
                         </div>
-                        <img src="showimg/bandaje_reach.jpg" alt="Mountain Road" class="card-image">
+                        <img src="image/Bandaje-trek/Bandaje4.jpeg" alt="Mountain Road" class="card-image">
                         <div class="card-content">
                             <ul class="feature-list">
                                 <li><strong>By Road:</strong> Bangalore → Chikmagalur → Durgadahalli (~280–290 km)</li>
-                                <li><strong>From Chikmagalur:</strong> Hire jeep (~₹250–600 per person)</li>
-                                <li><strong>Accommodation:</strong> Homestays or camping (~₹1,000–1,500)</li>
+                                <li><strong>Transportation:</strong> Available - Contact for details</li>
+                                <li><strong>Accommodation:</strong> Homestays available - Contact for pricing</li>
                             </ul>
                         </div>
                     </div>
@@ -1497,7 +1571,7 @@
                         <ul class="feature-list">
                             <li>✅ Local expertise with years of trekking support experience</li>
                             <li>✅ One-stop for permits, food, jeep rides, and guides</li>
-                            <li>✅ Affordable pricing and flexible package options</li>
+                            <li>✅ Flexible packages - Contact us for current pricing</li>
                             <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
                             <li>✅ Friendly, local support team available via WhatsApp</li>
                         </ul>
@@ -1538,58 +1612,7 @@
             </div>
         </main>
 
-        <section id="faq" class="section" style="background:#f8f9fa;">
-            <div class="container">
-                <h2 class="section-title" data-aos="fade-up">Frequently Asked Questions</h2>
-                <div class="accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
-                                Do I need prior trekking experience?
-                            </button>
-                        </h2>
-                        <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">No, our treks are designed for beginners as well as experienced trekkers.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
-                                What should I carry for the trek?
-                            </button>
-                        </h2>
-                        <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Carry trekking shoes, raincoat, water bottle, and basic personal items.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
-                                Is food included in the package?
-                            </button>
-                        </h2>
-                        <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">Yes, our Standard and Premium packages include authentic Malenadu food.</div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header">
-                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
-                                Is plastic carry allowed?
-                            </button>
-                        </h2>
-                        <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">No, plastic carry is strictly not allowed to protect the environment.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks." 
-           class="whatsapp-float" target="_blank">
-           <i class="bi bi-whatsapp"></i>
-        </a>
+        
 
         <footer class="footer">
             <div class="container">
@@ -1615,7 +1638,7 @@
                         <p>Email: Hjprasadjain@gmail.com</p>
                         <div class="social-links">
                             <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-                            <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                            <a href="https://www.instagram.com/kudremukha_tourism_trek_stay/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
                             <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
                         </div>
                     </div>
@@ -1835,5 +1858,8 @@
             }
         });
     </script>
+
+    <!-- React Enhancements - Enhanced Video Background, Particles, Floating Booking, Weather Widget -->
+    <script src="dist/react-enhancements.js"></script>
 </body>
 </html>

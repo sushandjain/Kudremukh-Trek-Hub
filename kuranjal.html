@@ -205,6 +205,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
         /* Modern Aesthetic Trekking Background Design */
         body {
             font-family: var(--font-primary);
@@ -2410,6 +2415,10 @@
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
 }
 
 .social-links a:hover {
@@ -2668,7 +2677,7 @@
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
             <img src="image/kurinjal-1-.jpg" alt="Kuranjal Peak Logo" class="loading-logo">
-            <h1 class="loading-title">⛰️ Kuranjal Peak Trek</h1>
+            <h1 class="loading-title">Kuranjal Peak Trek</h1>
             <p class="loading-text">Preparing your peak adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
@@ -2802,8 +2811,8 @@
                     <img src="showimg/permit and rules.webp" alt="Forest Permits" class="card-image">
                     <div class="card-content">
                         <ul class="feature-list">
-                            <li><strong>Forest Entry Permit:</strong> ₹600–800 per person</li>
-                            <li><strong>Guide Mandatory:</strong> 1 guide per group (~₹1,000)</li>
+                            <li><strong>Forest Entry Permit:</strong> Contact us for current rates</li>
+                            <li><strong>Guide Mandatory:</strong> Included in package</li>
                             <li><strong>Trek Timings:</strong> Entry from 6 AM; finish by 6 PM</li>
                             <li><strong>🚫 No overnight camping allowed</strong></li>
                             <li><strong>🚫 Plastic items, liquor, and smoking prohibited</strong></li>
@@ -2826,7 +2835,7 @@
                             <li><strong>By Road:</strong> Bangalore → Kalasa → Balgal/Mullodi (~330 km)</li>
                             <li><strong>By Train:</strong> Nearest station: Mangalore (~110 km)</li>
                             <li><strong>By Bus:</strong> From Bangalore/Mangalore to Kalasa or Kottigehara</li>
-                            <li><strong>Jeep:</strong> From Balgal to Mullodi (~₹500–700 for 6–7 people)</li>
+                            <li><strong>Jeep Transportation:</strong> Available - Contact for pricing</li>
                         </ul>
                     </div>
                 </div>
@@ -2959,22 +2968,29 @@
                         <div class="card-content">
                             <ul class="feature-list">
                                 <li>Homestays in Mullodi, Samse, or Balgal with meals</li>
-                                <li><strong>Price Range:</strong> ₹1,000–1,500 per night</li>
+                                <li><strong>Pricing:</strong> Contact us for rates</li>
                             </ul>
                         </div>
                     </div>
                     <div class="content-card">
                         <div class="card-header">
-                            <span class="card-icon"><i class="bi bi-currency-rupee"></i></span>
-                            <h2 class="card-title">Total Cost Estimate</h2>
+                            <span class="card-icon"><i class="bi bi-phone"></i></span>
+                            <h2 class="card-title">Package Pricing</h2>
                         </div>
                         <div class="card-content">
+                            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                                <strong>Pricing varies based on:</strong>
+                            </p>
                             <ul class="feature-list">
-                                <li><strong>Jeep (shared):</strong> ₹500–700 for 6–7 people</li>
-                                <li><strong>Guide (shared):</strong> ~₹100–150 per person</li>
-                                <li><strong>Entry Fee:</strong> ₹600–800 per person</li>
-                                <li><strong>Total per person:</strong> ₹800–1,650</li>
+                                <li><strong>Group Size:</strong> Better rates for larger groups</li>
+                                <li><strong>Season:</strong> Peak and off-peak pricing</li>
+                                <li><strong>Package Type:</strong> Day trek vs overnight stay</li>
+                                <li><strong>Services Required:</strong> Guide, transport, permits, food</li>
                             </ul>
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 20px; border-radius: 15px; margin-top: 20px; text-align: center;">
+                                <h3 style="margin-bottom: 10px;">📞 Contact Us for Current Pricing</h3>
+                                <p style="margin: 0;">Call/WhatsApp: <strong>+91 807 317 8851</strong></p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -3018,7 +3034,7 @@
                     <ul class="feature-list">
                         <li>✅ Local expertise with years of trekking support experience</li>
                         <li>✅ One-stop for permits, food, jeep rides, and guides</li>
-                        <li>✅ Affordable pricing and flexible package options</li>
+                        <li>✅ Flexible packages - Contact us for current pricing</li>
                         <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
                         <li>✅ Friendly, local support team available via WhatsApp</li>
                     </ul>
@@ -3070,7 +3086,7 @@
                     <p>Email: Hjprasadjain@gmail.com</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
                         <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
@@ -3416,5 +3432,8 @@
             window.open(`https://wa.me/?text=${text}%20${url}`, '_blank');
         }
     </script>
+
+    <!-- React Enhancements - Enhanced Video Background, Particles, Floating Booking, Weather Widget -->
+    <script src="dist/react-enhancements.js"></script>
 </body>
 </html>

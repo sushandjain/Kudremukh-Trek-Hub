@@ -200,6 +200,11 @@
     box-sizing: border-box;
 }
 
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: var(--font-primary);
     line-height: 1.6;
@@ -212,9 +217,17 @@ body {
         #0f1f16 100%);  /* Deep nature */
     background-attachment: fixed;
     overflow-x: hidden;
+    width: 100%;
     position: relative;
     min-height: 100vh;
-    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
 }
 
 /* Video Background */
@@ -1100,6 +1113,10 @@ body::before {
     text-decoration: none;
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
 }
 
 .social-links a:hover {
@@ -1182,6 +1199,19 @@ body::before {
 }
 
 /* Responsive Design */
+/* Tablet & Small Desktop */
+@media (max-width: 1024px) {
+    .container {
+        max-width: 100%;
+        padding: 0 1.5rem;
+    }
+    
+    .content-card {
+        padding: 2rem;
+    }
+}
+
+/* Mobile & Tablet Portrait */
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -1189,11 +1219,22 @@ body::before {
     
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
     
     .hero-actions {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
+        width: 100%;
+    }
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+        min-height: 44px; /* Touch target */
+        padding: 0.875rem 2rem;
     }
     
     .container {
@@ -1202,30 +1243,60 @@ body::before {
     
     .content-card {
         padding: 1.5rem;
+        margin-bottom: 1.5rem;
     }
     
     .grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
     
     .stats-grid {
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
     }
     
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+        gap: 2rem;
     }
 
     .leaf {
         width: 8px !important;
         height: 8px !important;
     }
+    
+    /* Touch-friendly spacing */
+    section {
+        padding: 3rem 0;
+    }
 }
 
+/* Mobile Landscape */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero-section {
+        min-height: 100vh;
+        padding: 2rem 0;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 2rem 0;
+    }
+}
+
+/* Mobile Portrait */
 @media (max-width: 480px) {
     .hero-title {
         font-size: 2rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
     }
     
     .stat-value {
@@ -1240,10 +1311,25 @@ body::before {
     .btn-secondary {
         padding: 0.75rem 1.5rem;
         font-size: 0.875rem;
+        min-height: 44px;
     }
 
     .sticker {
         width: 80px !important;
+    }
+    
+    /* Better readability on small screens */
+    body {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
     }
 }
 
@@ -1379,11 +1465,8 @@ body::before {
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
         <div class="loading-content">
-
-                <span class="tree-emoji">�</span>
-
             <img src="image/kmlogo.avif" alt="Kudremukh Peak Logo" class="loading-logo">
-            <h1 class="loading-title">🏔️ Kudremukh Peak Trek</h1>
+            <h1 class="loading-title">Kudremukh Peak Trek</h1>
             <p class="loading-text">Preparing your mountain adventure...</p>
             <div class="loading-spinner"></div>
             <div class="loading-progress">
@@ -1524,8 +1607,8 @@ body::before {
                     <img src="showimg/permit and rules.webp" alt="Forest Permits" class="card-image">
                     <div class="card-content">
                         <ul class="feature-list">
-                            <li><strong>Forest Entry Permit:</strong> ₹600 per person</li>
-                            <li><strong>Guide Mandatory:</strong> ~₹500–800 per group</li>
+                            <li><strong>Forest Entry Permit:</strong> Contact us for current rates</li>
+                            <li><strong>Guide Mandatory:</strong> Included in package</li>
                             <li><strong>Trek Timings:</strong> 6 AM to 6 PM only</li>
                             <li><strong>🚫 No overnight camping allowed</strong></li>
                             <li><strong>🚫 Plastic items strictly prohibited</strong></li>
@@ -1546,7 +1629,7 @@ body::before {
                     <div class="card-content">
                         <ul class="feature-list">
                             <li><strong>By Road:</strong> Bangalore → Hassan → Kalasa → Mullodi (~330 km)</li>
-                            <li><strong>From Mullodi:</strong> Jeep ride to trailhead (~₹600–800, shared)</li>
+                            <li><strong>Transportation:</strong> Available - Contact for details</li>
                             <li><strong>Homestays:</strong> Available in Kalasa/Mullodi (~₹800–1,500)</li>
                         </ul>
                     </div>
@@ -1614,7 +1697,7 @@ body::before {
                     <ul class="feature-list">
                         <li>✅ Local expertise with years of trekking support experience</li>
                         <li>✅ One-stop for permits, food, jeep rides, and guides</li>
-                        <li>✅ Affordable pricing and flexible package options</li>
+                        <li>✅ Flexible packages - Contact us for current pricing</li>
                         <li>✅ Genuine Malenadu coffee, tea, and local snacks</li>
                         <li>✅ Friendly, local support team available via WhatsApp</li>
                     </ul>
@@ -1681,7 +1764,7 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
                     <p>Email: Hjprasadjain@gmail.com</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" rel="noopener noreferrer"><i class="bi bi-facebook"></i></a>
-                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay/" target="_blank" rel="noopener noreferrer"><i class="bi bi-instagram"></i></a>
                         <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" rel="noopener noreferrer"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
@@ -2035,5 +2118,8 @@ Henjodi Stores is a local business in Malenadu offering complete support for tre
             });
         });
     </script>
+
+    <!-- React Enhancements - Enhanced Video Background, Particles, Floating Booking, Weather Widget -->
+    <script src="dist/react-enhancements.js"></script>
 </body>
 </html>

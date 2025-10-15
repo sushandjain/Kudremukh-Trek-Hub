@@ -34,6 +34,11 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light-cream);
@@ -498,30 +503,9 @@
         }
 
         /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            background-color: #25d366;
-            color: var(--pure-white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            box-shadow: var(--shadow-strong);
-            z-index: 1000;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
+        
 
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            background-color: #20ba5a;
-            color: var(--pure-white);
-        }
+        
 
         /* Animations */
         @keyframes spin {
@@ -780,7 +764,7 @@
                         <a href="https://www.facebook.com/p/Henjodi-Kudremukha-Adventures-100069389264709/" target="_blank" title="Facebook">
                             <i class="bi bi-facebook"></i>
                         </a>
-                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" title="Instagram">
+                        <a href="https://www.instagram.com/kudremukha_tourism_trek_stay/" target="_blank" title="Instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
                         <a href="https://youtu.be/HmIMSWWnWCA?si=ChXuFFQpo8I0wBGZ" target="_blank" title="YouTube">
@@ -797,10 +781,7 @@
     </footer>
 
     <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Kudremukh Treks." 
-       class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
-       <i class="bi bi-whatsapp"></i>
-    </a>
+    
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
@@ -1359,5 +1340,8 @@
             }
         }, 800);
     </script>
+
+    <!-- React Enhancements - Enhanced Video Background, Particles, Floating Booking, Weather Widget -->
+    <script src="dist/react-enhancements.js"></script>
 </body>
 </html>
