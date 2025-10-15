@@ -358,7 +358,7 @@
       this.isExpanded = !this.isExpanded;
       const expanded = document.querySelector('.weather-expanded');
       if (expanded) {
-        expanded.style.maxHeight = this.isExpanded ? '300px' : '0';
+        expanded.style.maxHeight = this.isExpanded ? '200px' : '0';
         expanded.style.opacity = this.isExpanded ? '1' : '0';
       }
     }
@@ -372,43 +372,45 @@
         <style>
           #weather-widget {
             position: fixed;
-            top: 100px;
-            right: 20px;
+            top: 90px;
+            right: 15px;
             z-index: 999;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(10px);
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             cursor: pointer;
             transition: all 0.3s ease;
-            max-width: 200px;
+            max-width: 120px;
+            font-size: 13px;
           }
 
           .weather-compact {
-            padding: 12px 16px;
+            padding: 8px 12px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
+            justify-content: center;
           }
 
           .weather-icon {
-            font-size: 28px;
+            font-size: 20px;
             animation: float 3s ease-in-out infinite;
           }
 
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-3px); }
           }
 
           .weather-temp {
-            font-size: 20px;
+            font-size: 16px;
             font-weight: 700;
             color: #2c3e50;
           }
 
           .weather-expanded {
-            padding: 15px;
+            padding: 10px;
             max-height: 0;
             opacity: 0;
             overflow: hidden;
@@ -416,76 +418,76 @@
           }
 
           .weather-location {
-            font-size: 14px;
+            font-size: 11px;
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
+            text-align: center;
           }
 
           .weather-details {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 12px;
+            grid-template-columns: 1fr;
+            gap: 6px;
+            margin-top: 8px;
           }
 
           .weather-detail-item {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 10px;
-            border-radius: 10px;
+            padding: 6px;
+            border-radius: 8px;
             color: white;
             text-align: center;
+            font-size: 11px;
           }
 
           .best-time-badge {
             background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
             color: white;
-            padding: 8px 12px;
-            border-radius: 10px;
-            margin-top: 12px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            margin-top: 8px;
             text-align: center;
-            font-size: 12px;
+            font-size: 10px;
             font-weight: 600;
           }
 
           @media (max-width: 768px) {
             #weather-widget {
               top: auto;
-              bottom: 100px;
+              bottom: 90px;
               right: 10px;
-              left: auto;
-              max-width: 160px;
-              font-size: 14px;
+              max-width: 100px;
+              font-size: 12px;
             }
             .weather-compact {
-              padding: 10px 12px;
-              gap: 6px;
+              padding: 6px 10px;
+              gap: 4px;
             }
             .weather-icon {
-              font-size: 24px;
-            }
-            .weather-temp {
               font-size: 18px;
             }
+            .weather-temp {
+              font-size: 14px;
+            }
             .weather-expanded {
-              padding: 12px;
+              padding: 8px;
             }
             .weather-location {
-              font-size: 13px;
-              margin-bottom: 10px;
+              font-size: 10px;
+              margin-bottom: 6px;
             }
             .weather-details {
-              grid-template-columns: 1fr;
-              gap: 8px;
+              gap: 5px;
             }
             .weather-detail-item {
-              padding: 8px;
-              font-size: 13px;
+              padding: 5px;
+              font-size: 10px;
             }
             .best-time-badge {
-              font-size: 11px;
-              padding: 6px 10px;
-              margin-top: 10px;
+              font-size: 9px;
+              padding: 4px 6px;
+              margin-top: 6px;
             }
           }
         </style>
@@ -499,17 +501,17 @@
             <div class="weather-location">📍 ${this.location}</div>
             <div class="weather-details">
               <div class="weather-detail-item">
-                <div style="font-size: 20px; margin-bottom: 4px;">💧</div>
-                <div style="font-size: 16px; font-weight: 700;">${humidity}%</div>
-                <div style="font-size: 11px; opacity: 0.9;">Humidity</div>
+                <div style="font-size: 16px; margin-bottom: 2px;">💧</div>
+                <div style="font-size: 13px; font-weight: 700;">${humidity}%</div>
+                <div style="font-size: 9px; opacity: 0.9;">Humidity</div>
               </div>
               <div class="weather-detail-item">
-                <div style="font-size: 20px; margin-bottom: 4px;">💨</div>
-                <div style="font-size: 16px; font-weight: 700;">${windSpeed} km/h</div>
-                <div style="font-size: 11px; opacity: 0.9;">Wind Speed</div>
+                <div style="font-size: 16px; margin-bottom: 2px;">💨</div>
+                <div style="font-size: 13px; font-weight: 700;">${windSpeed} km/h</div>
+                <div style="font-size: 9px; opacity: 0.9;">Wind</div>
               </div>
             </div>
-            <div class="best-time-badge">✨ Best time: Oct - Feb</div>
+            <div class="best-time-badge">✨ Oct - Feb</div>
           </div>
         </div>
       `;
@@ -663,8 +665,10 @@
       weatherLocation = 'Valikunja';
     } else if (path.includes('aane_salaba')) {
       weatherLocation = 'Aane Salaba';
-    } else if (path.includes('index')) {
-      // Don't show weather widget on index page
+    }
+    
+    // Don't show weather on index page
+    if (path.includes('index') || path === '/' || !path || path.endsWith('/')) {
       showWeather = false;
     }
 
