@@ -58,16 +58,16 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <About />
-      <TrekCards />
-      <WhyChooseUs />
-      <Store />
-      <Gallery />
-      <FAQ />
-      <ReviewsCTA />
-      <CTASection />
-      <Footer />
+      <section id="home"><Hero /></section>
+      <section id="about"><About /></section>
+      <section id="treks"><TrekCards /></section>
+      <section id="why"><WhyChooseUs /></section>
+      <section id="store"><Store /></section>
+      <section id="gallery"><Gallery /></section>
+      <section id="faq"><FAQ /></section>
+      <section id="reviews"><ReviewsCTA /></section>
+      <section id="cta"><CTASection /></section>
+      <section id="contact"><Footer /></section>
     </div>
   )
 }
