@@ -35,7 +35,9 @@ export default function About() {
             <div className="absolute -inset-1 bg-gradient-secondary rounded-full blur opacity-25 group-hover:opacity-50 transition-opacity duration-300" />
             <img 
               src="/image/Screenshot 2025-07-11 012754.png" 
-              alt="Prasad - Owner"
+              alt="Prasad - Owner of Henjodi Stores Balagal - Western Ghats Trekking Expert"
+              loading="lazy"
+              decoding="async"
               className="relative w-44 h-44 md:w-52 md:h-52 rounded-full object-cover border-4 border-accent shadow-strong transition-transform duration-300 group-hover:scale-105"
             />
           </div>

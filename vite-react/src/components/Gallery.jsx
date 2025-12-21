@@ -45,9 +45,10 @@ function GalleryItem({ item, index, onClick }) {
     >
       <img 
         src={item.image} 
-        alt={item.title}
+        alt={`${item.title} - Western Ghats Trek Karnataka - Henjodi Stores`}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         loading="lazy"
+        decoding="async"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end p-5">
         <span className="font-display text-lg font-semibold text-white transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">

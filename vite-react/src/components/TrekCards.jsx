@@ -113,7 +113,9 @@ function TrekCard({ trek, index }) {
       <div className="relative h-56 md:h-64 overflow-hidden">
         <img 
           src={trek.image} 
-          alt={trek.title}
+          alt={`${trek.title} - ${trek.location} - Western Ghats Trekking Karnataka`}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

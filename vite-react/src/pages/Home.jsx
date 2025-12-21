@@ -14,21 +14,21 @@ import Footer from '../components/Footer'
 export default function Home() {
   useEffect(() => {
     // Restore main SEO meta tags when returning to home
-    document.title = 'Kudremukh Trek | Henjodi Stores Balagal | Western Ghats Trekking Karnataka'
+    document.title = 'Kudremukh Trek | Western Ghats Trekking Karnataka | Ballalarayana Durga – Henjodi Stores'
     
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Book Kudremukh Peak trek, Netravati Peak, Kurinjal, Bandaje Falls & more Western Ghats treks from Henjodi Stores Balagal, Kalasa. Expert guides, homestay booking & trekking equipment in Karnataka.')
+      metaDescription.setAttribute('content', 'Experience authentic Western Ghats trekking with Henjodi Stores Balagal. Kudremukh treks, Ballalarayana Durga, Karnataka weekend treks, Chikmagalur trekking & monsoon treks. Book your guided adventure today!')
     }
     
     const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Kudremukh Trek | Henjodi Stores Balagal | Western Ghats Trekking Karnataka')
+      ogTitle.setAttribute('content', 'Kudremukh Trek & Western Ghats Trekking | Henjodi Stores Balagal')
     }
     
     const ogDescription = document.querySelector('meta[property="og:description"]')
     if (ogDescription) {
-      ogDescription.setAttribute('content', 'Book Kudremukh Peak trek, Netravati Peak, Kurinjal, Bandaje Falls & more Western Ghats treks from Henjodi Stores Balagal, Kalasa. Expert guides, homestay booking & trekking equipment.')
+      ogDescription.setAttribute('content', 'Experience authentic Western Ghats trekking adventures. Kudremukh Peak, Ballalarayana Durga, Netravati Peak & monsoon treks Karnataka. Expert local guides & homestay.')
     }
     
     const ogUrl = document.querySelector('meta[property="og:url"]')
@@ -39,6 +39,17 @@ export default function Home() {
     const canonical = document.querySelector('link[rel="canonical"]')
     if (canonical) {
       canonical.setAttribute('href', 'https://henjodistores.netlify.app/')
+    }
+    
+    // Update Twitter meta tags
+    const twitterTitle = document.querySelector('meta[name="twitter:title"]')
+    if (twitterTitle) {
+      twitterTitle.setAttribute('content', 'Kudremukh Trek | Western Ghats Trekking Karnataka | Henjodi Stores')
+    }
+    
+    const twitterDesc = document.querySelector('meta[name="twitter:description"]')
+    if (twitterDesc) {
+      twitterDesc.setAttribute('content', 'Book Kudremukh treks, Ballalarayana Durga, Karnataka weekend treks. Expert guides, homestay & monsoon treks. WhatsApp: +91 8073178851')
     }
     
     window.scrollTo(0, 0)

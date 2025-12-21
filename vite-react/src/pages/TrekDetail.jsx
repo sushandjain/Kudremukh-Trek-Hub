@@ -137,7 +137,7 @@ const treksData = {
       '/image/npview.webp'
     ]
   },
-  kuranjal: {
+  kurinjal: {
     title: 'Kurinjal Peak Trek',
     subtitle: 'The Hidden Peak of Kudremukh Range',
     heroImage: '/image/kurinjal-1-.jpg',
