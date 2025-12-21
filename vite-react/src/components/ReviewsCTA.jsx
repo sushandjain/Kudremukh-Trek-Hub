@@ -9,10 +9,11 @@ export default function ReviewsCTA() {
   })
 
   return (
-    <section id="reviews" className="py-20 relative overflow-hidden">
+    <section id="reviews" className="py-20 relative overflow-hidden bg-emerald-800">
       <div 
-        className="absolute inset-0 bg-gradient-primary"
+        className="absolute inset-0"
         style={{
+          background: 'linear-gradient(135deg, #1a5d3a 0%, #0d3d2b 50%, #1e4d3d 100%)',
           backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='25' cy='25' r='2' fill='%23ffffff15'%3E%3Canimate attributeName='r' values='2;4;2' dur='4s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='75' cy='75' r='3' fill='%23ffffff10'%3E%3Canimate attributeName='r' values='3;6;3' dur='5s' repeatCount='indefinite'/%3E%3C/circle%3E%3Ccircle cx='50' cy='20' r='1.5' fill='%23ffffff20'%3E%3Canimate attributeName='r' values='1.5;3;1.5' dur='3s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E")`
         }}
       />
