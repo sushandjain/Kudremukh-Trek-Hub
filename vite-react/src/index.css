@@ -157,8 +157,8 @@
 
   /* Section Title - Modern */
   .section-title {
-    @apply font-display text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-16 
-           relative inline-block w-full;
+    @apply font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-10 md:mb-16 
+           relative inline-block w-full px-2;
   }
 
   .section-title::after {
