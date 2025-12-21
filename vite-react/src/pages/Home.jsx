@@ -64,7 +64,6 @@ export default function Home() {
       <section id="about"><About /></section>
       <section id="store"><Store /></section>
       <section id="gallery"><Gallery /></section>
-     
       <section id="faq"><FAQ /></section>
       <section id="reviews"><ReviewsCTA /></section>
       <section id="cta"><CTASection /></section>

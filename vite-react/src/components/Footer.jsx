@@ -39,9 +39,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="flex items-center gap-2 text-2xl font-display font-bold mb-4">
-              <svg className="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>
-              </svg>
+              <img src="/image/logo.png" alt="Henjodii Treks" className="w-10 h-10 object-contain" />
               <span className="text-accent">Henjodi Stores</span>
             </Link>
             <p className="text-white/70 leading-relaxed mb-6 max-w-md">

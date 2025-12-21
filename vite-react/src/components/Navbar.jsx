@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import logo from '/image/logo.png'
 
 const navLinks = [
   { name: 'Home', href: '#home', isRoute: false },
@@ -52,11 +53,9 @@ export default function Navbar() {
             to="/" 
             className="flex items-center gap-2 text-white font-display text-xl md:text-2xl font-bold hover:text-accent transition-colors"
           >
-            <svg className="w-8 h-8 text-accent" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.92 6-4.72 7.28L13 17v5l6-6-1.28-1.28c1.41-1.63 2.28-3.76 2.28-6.07 0-5.18-4.16-9.4-9.28-9.6zM11 4.07C7.05 4.56 4 7.92 4 12c0 3.21 1.92 6 4.72 7.28L11 17v5l-6-6 1.28-1.28C4.87 13.09 4 10.96 4 8.65c0-5.18 4.16-9.4 9.28-9.6v2.02c-3.95.49-7 3.85-7 7.93h4v-5z"/>
-            </svg>
-            <span className="hidden sm:inline">KUDREMUKH TREKS</span>
-            <span className="sm:hidden">KT</span>
+            <img src={logo} alt="Henjodii Treks" className="w-16 h-16 md:w-18 md:h-18 object-contain" />
+            <span className="hidden sm:inline">HENJODII TREKS</span>
+            <span className="sm:hidden">HT</span>
           </Link>
 
           {/* Desktop Navigation */}
