@@ -6,6 +6,17 @@
 [build.environment]
   NODE_VERSION = "18"
 
+# Serve static files directly (before SPA fallback)
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
 # SPA fallback - important for React Router
 [[redirects]]
   from = "/*"
