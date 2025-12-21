@@ -1,0 +1,27 @@
+# Robots.txt for Henjodi Stores - Kudremukh Trekking
+# https://henjodistores.netlify.app
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://henjodistores.netlify.app/sitemap.xml
+
+# Allow all crawlers to index trek pages
+User-agent: Googlebot
+Allow: /trek/
+Allow: /reviews
+Allow: /terms
+
+User-agent: Bingbot
+Allow: /trek/
+Allow: /reviews
+
+# Block development files
+Disallow: /src/
+Disallow: /*.jsx$
+Disallow: /*.js$
+
+# Allow images and videos for better SEO
+Allow: /image/
+Allow: /video/
