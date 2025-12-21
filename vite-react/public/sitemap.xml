@@ -9,14 +9,7 @@
     <priority>1.0</priority>
   </url>
 
-  <!-- Trek Detail Pages -->
-  <url>
-    <loc>https://henjodistores.netlify.app/trek/kudremukh</loc>
-    <lastmod>2025-12-21</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
+  <!-- Netravati Peak Trek -->
   <url>
     <loc>https://henjodistores.netlify.app/trek/netravati</loc>
     <lastmod>2025-12-21</lastmod>
@@ -24,13 +17,23 @@
     <priority>0.9</priority>
   </url>
 
+  <!-- Kurinjal Peak Trek -->
   <url>
-    <loc>https://henjodistores.netlify.app/trek/kuranjal</loc>
+    <loc>https://henjodistores.netlify.app/trek/kurinjal</loc>
     <lastmod>2025-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
+  <!-- Kudremukh Trek -->
+  <url>
+    <loc>https://henjodistores.netlify.app/trek/kudremukh</loc>
+    <lastmod>2025-12-21</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Bandaje Falls Trek -->
   <url>
     <loc>https://henjodistores.netlify.app/trek/bandaje</loc>
     <lastmod>2025-12-21</lastmod>
@@ -38,6 +41,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Ettina Bhuja Trek -->
   <url>
     <loc>https://henjodistores.netlify.app/trek/bavikonda</loc>
     <lastmod>2025-12-21</lastmod>
@@ -45,6 +49,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Valikunja Trek -->
   <url>
     <loc>https://henjodistores.netlify.app/trek/valikunja</loc>
     <lastmod>2025-12-21</lastmod>
@@ -52,6 +57,7 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Ombattu Gudda Trek -->
   <url>
     <loc>https://henjodistores.netlify.app/trek/aane-salaba</loc>
     <lastmod>2025-12-21</lastmod>
@@ -59,7 +65,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Other Pages -->
+  <!-- Reviews Page -->
   <url>
     <loc>https://henjodistores.netlify.app/reviews</loc>
     <lastmod>2025-12-21</lastmod>
@@ -67,6 +73,7 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Terms Page -->
   <url>
     <loc>https://henjodistores.netlify.app/terms</loc>
     <lastmod>2025-12-21</lastmod>

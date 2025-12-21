@@ -46,13 +46,13 @@
               transition={{ duration: 0.8 }}
             >
               <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-2">
-                Welcome to{' '}
+                Kudremukh Trek Booking –{' '}
                 <span className="text-gradient bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent">
-                  Henjodi Stores
+                  Netravati, Kurinjal & Malenadu Peaks
                 </span>
                 <br />
                 <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  Your Malenadu Trek Partner
+                  Henjodi Stores – Your Trek Partner
                 </span>
               </h1>
             </motion.div>

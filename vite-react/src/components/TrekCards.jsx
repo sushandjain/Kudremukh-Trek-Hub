@@ -36,7 +36,7 @@ const treks = [
     difficulty: 'Easy to Moderate',
     distance: '12-14 km (round trip)',
     altitude: '1,712 meters (5,617 ft)',
-    link: '/trek/kuranjal',
+    link: '/trek/kurinjal',
     whatsappMsg: "Hello! I'm interested in booking the Kurinjal Peak Trek. Can you provide more details about the package and availability?"
   },
   {
@@ -202,8 +202,17 @@ export default function TrekCards() {
           transition={{ duration: 0.6 }}
           className="section-title text-dark"
         >
-          Our Trek Adventures
+          Popular Treks in Kudremukh Region
         </motion.h2>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-center text-gray-600 max-w-2xl mx-auto mt-4 mb-8"
+        >
+          Explore Netravati Peak, Kurinjal Peak, and other stunning Malenadu trekking destinations. 
+          Henjodi Stores helps tourists with trek tickets, guides, food, and local support.
+        </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           {treks.map((trek, index) => (
