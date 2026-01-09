@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netravati Peak Trek - Book Your Adventure | Henjodi Stores</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book your Netravati Peak Trek adventure with Henjodi Stores. Professional guides, permits handled, and complete trekking packages in Kudremukh National Park.">
+    <meta name="keywords" content="Netravati Peak Trek Booking, Kudremukh Trekking, Western Ghats Adventure, Trek Packages, Henjodi Stores">
+    <meta name="author" content="Henjodi Stores">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2E7D32;
+            --primary-green-light: #4CAF50;
+            --primary-green-dark: #1B5E20;
+            --accent-orange: #FF6B35;
+            --accent-orange-light: #FF8A65;
+            --accent-blue: #1976D2;
+            --accent-blue-light: #42A5F5;
+            --neutral-50: #FAFAFA;
+            --neutral-100: #F5F5F5;
+            --neutral-200: #EEEEEE;
+            --neutral-300: #E0E0E0;
+            --neutral-400: #BDBDBD;
+            --neutral-500: #9E9E9E;
+            --neutral-600: #757575;
+            --neutral-700: #616161;
+            --neutral-800: #424242;
+            --neutral-900: #212121;
+            --white: #FFFFFF;
+            --black: #000000;
+            --success: #4CAF50;
+            --warning: #FF9800;
+            --error: #F44336;
+            --info: #2196F3;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
+            --shadow-xl: 0 12px 24px rgba(0,0,0,0.18);
+            --shadow-2xl: 0 16px 32px rgba(0,0,0,0.2);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --radius-2xl: 24px;
+            --radius-3xl: 32px;
+            --font-primary: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-secondary: 'Poppins', system-ui, -apple-system, sans-serif;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            line-height: 1.6;
+            color: var(--neutral-800);
+            background: var(--neutral-50);
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--neutral-200);
+            transition: var(--transition);
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--font-secondary);
+            font-size: 1.75rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-brand:hover {
+            color: var(--primary-green-light);
+            transform: scale(1.02);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: var(--neutral-700);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius-lg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-orange-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary-green-dark) 0%, var(--primary-green) 50%, var(--primary-green-light) 100%);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1464822759844-d150baec4ba5?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover no-repeat;
+            opacity: 0.3;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: var(--radius-lg);
+            color: var(--white);
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-title {
+            font-family: var(--font-secondary);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-stat {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: var(--radius-md);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            display: block;
+        }
+
+        .hero-stat-label {
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-top: 0.25rem;
+        }
+
+        /* Booking Card */
+        .booking-card {
+            background: var(--white);
+            border-radius: var(--radius-2xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-2xl);
+            border: 1px solid var(--neutral-200);
+        }
+
+        .booking-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .booking-title {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .booking-subtitle {
+            color: var(--neutral-600);
+            font-size: 0.875rem;
+        }
+
+        .price-display {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: var(--neutral-50);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--primary-green-light);
+        }
+
+        .price-amount {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-green);
+            display: block;
+        }
+
+        .price-label {
+            color: var(--neutral-600);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .booking-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .booking-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--neutral-700);
+        }
+
+        .booking-features li::before {
+            content: '✓';
+            width: 20px;
+            height: 20px;
+            background: var(--success);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .btn-book {
+            width: 100%;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: var(--radius-lg);
+            font-size: 1.125rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            margin-bottom: 1rem;
+        }
+
+        .btn-book:hover {
+            background: var(--accent-orange-light);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-secondary {
+            width: 100%;
+            background: transparent;
+            color: var(--primary-green);
+            padding: 0.875rem 2rem;
+            border: 2px solid var(--primary-green);
+            border-radius: var(--radius-lg);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary-green);
+            color: var(--white);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 6rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 1rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--neutral-600);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Package Cards */
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .package-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-200);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-green) 0%, var(--accent-orange) 100%);
+        }
+
+        .package-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .package-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--accent-orange);
+            color: var(--white);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .package-header {
+            margin-bottom: 1.5rem;
+        }
+
+        .package-title {
+            font-family: var(--font-secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neutral-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .package-description {
+            color: var(--neutral-600);
+            font-size: 0.875rem;
+        }
+
+        .package-price {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-amount {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary-green);
+        }
+
+        .package-unit {
+            color: var(--neutral-600);
+            font-size: 0.875rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.5rem 0;
+            color: var(--neutral-700);
+        }
+
+        .package-features li::before {
+            content: '✓';
+            width: 18px;
+            height: 18px;
+            background: var(--success);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.625rem;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        /* Info Cards */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-200);
+            transition: var(--transition);
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-light) 100%);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-title {
+            font-family: var(--font-secondary);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--neutral-800);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-description {
+            color: var(--neutral-600);
+            line-height: 1.6;
+        }
+
+        /* Gallery */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--radius-lg);
+            aspect-ratio: 4/3;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-image {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: var(--white);
+            padding: 2rem 1.5rem 1.5rem;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+
+        /* Map Section */
+        .map-container {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--neutral-200);
+            margin-bottom: 4rem;
+        }
+
+        .map-frame {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .map-frame iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--primary-green-dark) 100%);
+            color: var(--white);
+            padding: 4rem 0;
+            text-align: center;
+            margin: 4rem 0;
+            border-radius: var(--radius-2xl);
+        }
+
+        .cta-title {
+            font-family: var(--font-secondary);
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta-subtitle {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--neutral-900);
+            color: var(--neutral-300);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-family: var(--font-secondary);
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: var(--neutral-400);
+            text-decoration: none;
+            line-height: 1.6;
+            transition: var(--transition);
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-green-light);
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--neutral-700);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--neutral-500);
+            font-size: 0.875rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--neutral-700);
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            
+            .hero-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .package-card,
+            .info-card,
+            .booking-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <i class="bi bi-mountains"></i>
+                HENJODI TREKS
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#packages" class="nav-link">Packages</a></li>
+                <li><a href="#about" class="nav-link">About Trek</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <a href="https://wa.me/918073178851?text=Hello! I want to book Netravati Peak Trek" class="nav-cta">
+                <i class="bi bi-whatsapp"></i>
+                Book Now
+            </a>
+            <button class="mobile-menu-btn">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="bi bi-geo-alt"></i>
+                    Western Ghats • Kudremukh National Park
+                </div>
+                <h1 class="hero-title">Netravati Peak Trek</h1>
+                <p class="hero-subtitle">Experience the breathtaking beauty of Karnataka's Western Ghats with our expertly guided trek to Netravati Peak at 1,520m elevation.</p>
+                
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">1,520m</span>
+                        <span class="hero-stat-label">Peak Height</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">14km</span>
+                        <span class="hero-stat-label">Trek Distance</span>
+                    </div>
+                    <div class="hero-stat">
+                        <span class="hero-stat-value">6-8hrs</span>
+                        <span class="hero-stat-label">Duration</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Card -->
+            <div class="booking-card">
+                <div class="booking-header">
+                    <h2 class="booking-title">Book Your Adventure</h2>
+                    <p class="booking-subtitle">All-inclusive trekking package</p>
+                </div>
+
+                <div class="price-display">
+                    <span class="price-amount">₹2,999</span>
+                    <span class="price-label">per person</span>
+                </div>
+
+                <ul class="booking-features">
+                    <li>Professional certified guide</li>
+                    <li>Forest permits & entry fees</li>
+                    <li>Jeep transportation to base</li>
+                    <li>Breakfast & packed lunch</li>
+                    <li>First aid & safety equipment</li>
+                    <li>Photography assistance</li>
+                </ul>
+
+                <a href="https://wa.me/918073178851?text=Hello! I want to book Netravati Peak Trek for ₹2,999 per person" class="btn-book">
+                    <i class="bi bi-whatsapp"></i>
+                    Book via WhatsApp
+                </a>
+                
+                <a href="tel:+918073178851" class="btn-secondary">
+                    <i class="bi bi-telephone"></i>
+                    Call to Book
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Packages Section -->
+            <section id="packages">
+                <div class="section-header">
+                    <h2 class="section-title">Choose Your Package</h2>
+                    <p class="section-subtitle">Select the perfect trekking experience that suits your adventure level and budget</p>
+                </div>
+
+                <div class="packages-grid">
+                    <div class="package-card">
+                        <div class="package-badge">Popular</div>
+                        <div class="package-header">
+                            <h3 class="package-title">Complete Trek Package</h3>
+                            <p class="package-description">Everything you need for a memorable Netravati trek experience</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="package-amount">₹2,999</span>
+                            <span class="package-unit">per person</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>Professional certified guide</li>
+                            <li>Forest permits & entry fees (₹500)</li>
+                            <li>Jeep ride to/from base (₹600)</li>
+                            <li>Breakfast & packed lunch</li>
+                            <li>First aid kit & safety gear</li>
+                            <li>Photography assistance</li>
+                            <li>Local snacks & refreshments</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=I want to book Complete Trek Package for ₹2,999" class="btn-book">
+                            <i class="bi bi-whatsapp"></i>
+                            Book This Package
+                        </a>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3 class="package-title">Budget Trek Package</h3>
+                            <p class="package-description">Essential services for budget-conscious adventurers</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="package-amount">₹1,999</span>
+                            <span class="package-unit">per person</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>Experienced local guide</li>
+                            <li>Forest permits & entry fees</li>
+                            <li>Jeep ride to base camp</li>
+                            <li>Basic first aid support</li>
+                            <li>Route guidance & safety tips</li>
+                            <li>Emergency contact support</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=I want to book Budget Trek Package for ₹1,999" class="btn-book">
+                            <i class="bi bi-whatsapp"></i>
+                            Book This Package
+                        </a>
+                    </div>
+
+                    <div class="package-card">
+                        <div class="package-header">
+                            <h3 class="package-title">Premium Trek Package</h3>
+                            <p class="package-description">Luxury trekking with additional comfort and services</p>
+                        </div>
+                        <div class="package-price">
+                            <span class="package-amount">₹4,499</span>
+                            <span class="package-unit">per person</span>
+                        </div>
+                        <ul class="package-features">
+                            <li>Expert naturalist guide</li>
+                            <li>All permits & documentation</li>
+                            <li>Private jeep transportation</li>
+                            <li>Premium meals & snacks</li>
+                            <li>Professional photography</li>
+                            <li>Homestay accommodation</li>
+                            <li>Souvenir trekking certificate</li>
+                        </ul>
+                        <a href="https://wa.me/918073178851?text=I want to book Premium Trek Package for ₹4,499" class="btn-book">
+                            <i class="bi bi-whatsapp"></i>
+                            Book This Package
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Trek Section -->
+            <section id="about">
+                <div class="section-header">
+                    <h2 class="section-title">About Netravati Peak Trek</h2>
+                    <p class="section-subtitle">Everything you need to know about this incredible Western Ghats adventure</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-geo-alt"></i>
+                        </div>
+                        <h3 class="info-title">Trek Overview</h3>
+                        <p class="info-description">
+                            Netravati Peak stands at 1,520m in Kudremukh National Park. The trek starts from Samse village, covering 7-9km one-way through dense forests, rocky ridges, and stream crossings. Perfect for beginners with moderate fitness levels.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-tree-fill"></i>
+                        </div>
+                        <h3 class="info-title">Nature & Wildlife</h3>
+                        <p class="info-description">
+                            Experience rich biodiversity with chances to spot deer, monkeys, and exotic birds. The trail features beautiful two-tier waterfalls, lush greenery, and panoramic views of Kudremukh and Rani Jhari peaks from the summit.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="info-title">Safety & Permits</h3>
+                        <p class="info-description">
+                            Forest entry permits (₹500-600) and certified guides are mandatory. Trek timings: 6 AM to 6 PM only. Night trekking is strictly prohibited. Our experienced guides ensure your safety throughout the journey.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-calendar-event"></i>
+                        </div>
+                        <h3 class="info-title">Best Time to Visit</h3>
+                        <p class="info-description">
+                            September to February offers the best weather conditions with clear skies and pleasant temperatures. Monsoon season (June-August) is avoided due to heavy rains and slippery trails.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                        <h3 class="info-title">How to Reach</h3>
+                        <p class="info-description">
+                            From Bangalore: 330km via Hassan-Kalasa-Samse route. We arrange jeep transportation from Samse village to the trek base camp. Homestay accommodations available in Samse and Kalasa.
+                        </p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="bi bi-backpack"></i>
+                        </div>
+                        <h3 class="info-title">What to Bring</h3>
+                        <p class="info-description">
+                            Comfortable trekking shoes, water bottles, light snacks, rain protection, first aid basics, and camera for memories. We provide additional safety equipment and emergency supplies.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section id="gallery">
+                <div class="section-header">
+                    <h2 class="section-title">Trek Gallery</h2>
+                    <p class="section-subtitle">Get inspired by the stunning views and experiences that await you</p>
+                </div>
+
+                <div class="gallery">
+                    <div class="gallery-item">
+                        <img src="image/npview.webp" alt="Netravati Peak Summit View" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Summit Views</h4>
+                            <p>Breathtaking 360° panoramic views from the peak</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/npviwe.jpg" alt="Trek Trail" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Trek Trail</h4>
+                            <p>Beautiful forest paths and rocky terrain</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="image/npreverview.jpeg" alt="Scenic Overview" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Scenic Beauty</h4>
+                            <p>Lush green landscapes of Western Ghats</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="showimg/trekoverview.jpg" alt="Trek Overview" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Adventure Awaits</h4>
+                            <p>Your journey to the summit begins here</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="showimg/highlight.jpg" alt="Wildlife" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>Wildlife Spotting</h4>
+                            <p>Rich biodiversity and nature encounters</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="showimg/how to  REACK.jpg" alt="Journey" class="gallery-image">
+                        <div class="gallery-overlay">
+                            <h4>The Journey</h4>
+                            <p>Scenic routes leading to the adventure</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Map Section -->
+            <section>
+                <div class="section-header">
+                    <h2 class="section-title">Trek Location</h2>
+                    <p class="section-subtitle">Find us and plan your route to the starting point</p>
+                </div>
+
+                <div class="map-container">
+                    <div class="map-frame">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4178.93891188271!2d75.32727937539394!3d13.13067088719953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbb4b130daa2a33%3A0x10a8b5c0b4b5656d!2sNetravati%20peak%20view!5e1!3m2!1sen!2sin!4v1752253080452!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <div class="container">
+                    <h2 class="cta-title">Ready for Your Adventure?</h2>
+                    <p class="cta-subtitle">Book your Netravati Peak trek today and create memories that will last a lifetime</p>
+                    <div class="cta-buttons">
+                        <a href="https://wa.me/918073178851?text=Hello! I want to book Netravati Peak Trek" class="btn-book">
+                            <i class="bi bi-whatsapp"></i>
+                            Book via WhatsApp
+                        </a>
+                        <a href="tel:+918073178851" class="btn-secondary">
+                            <i class="bi bi-telephone"></i>
+                            Call Now: +91 80731 78851
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Henjodi Stores</h3>
+                    <p>Your trusted partner for Western Ghats trekking adventures. We provide complete support for trekkers with permits, guides, transportation, and local expertise in Malenadu region.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#packages">Trek Packages</a></li>
+                        <li><a href="#about">About Trek</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="bi bi-whatsapp"></i> <a href="https://wa.me/918073178851">+91 80731 78851</a></p>
+                    <p><i class="bi bi-telephone"></i> <a href="tel:+918073178851">+91 80731 78851</a></p>
+                    <p><i class="bi bi-envelope"></i> info@henjodistores.com</p>
+                    <p><i class="bi bi-geo-alt"></i> Samse, Kalasa, Chikmagalur, Karnataka</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li>Trek Permits & Booking</li>
+                        <li>Certified Guide Services</li>
+                        <li>Transportation Arrangement</li>
+                        <li>Homestay Accommodation</li>
+                        <li>Local Food & Snacks</li>
+                        <li>Trekking Equipment</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Henjodi Stores. All rights reserved. | Designed for adventure enthusiasts</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Gallery lightbox
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const img = this.querySelector('.gallery-image');
+                const overlay = this.querySelector('.gallery-overlay');
+                
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.9);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const lightboxImg = document.createElement('img');
+                lightboxImg.src = img.src;
+                lightboxImg.style.cssText = `
+                    max-width: 90%;
+                    max-height: 90%;
+                    object-fit: contain;
+                    border-radius: 12px;
+                `;
+                
+                lightbox.appendChild(lightboxImg);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', function() {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.package-card, .info-card, .gallery-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
