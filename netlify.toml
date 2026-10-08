@@ -36,7 +36,17 @@
 
 [[redirects]]
   from = "/kuranjal.html"
-  to = "/trek/kuranjal"
+  to = "/trek/kurinjal"
+  status = 301
+
+[[redirects]]
+  from = "/kurinjal.html"
+  to = "/trek/kurinjal"
+  status = 301
+
+[[redirects]]
+  from = "/trek/kuranjal"
+  to = "/trek/kurinjal"
   status = 301
 
 # Headers for SEO and Performance
