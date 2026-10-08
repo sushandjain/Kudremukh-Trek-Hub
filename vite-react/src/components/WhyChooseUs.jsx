@@ -25,7 +25,7 @@ const reasons = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why" className="py-20 md:py-28 bg-[#fbfcfb]">
+    <section id="why" className="py-20 md:py-28 bg-[#f8faf7] dark:bg-[#060d08] transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
@@ -33,10 +33,10 @@ export default function WhyChooseUs() {
           <div className="section-eyebrow">
             Our Advantage
           </div>
-          <h2 className="section-heading">
+          <h2 className="section-heading text-forest-950 dark:text-emerald-50">
             Why Trek with Henjodi Stores
           </h2>
-          <p className="section-subheading">
+          <p className="section-subheading text-slate-700 dark:text-slate-300">
             Authentic, safe, and community-rooted adventure support right at the gateway of Karnataka's highest grasslands.
           </p>
         </div>
@@ -50,23 +50,23 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-40px' }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="stitch-card p-6 sm:p-7 bg-white flex flex-col justify-between"
+              className="stitch-card p-6 sm:p-7 bg-white dark:bg-[#0c1810] border border-forest-800/10 dark:border-white/10 flex flex-col justify-between shadow-sm hover:shadow-md transition-all"
             >
               <div>
-                <div className="text-3xl p-3 rounded-2xl bg-forest-50 border border-forest-100 w-fit mb-5">
+                <div className="text-3xl p-3 rounded-2xl bg-forest-50 dark:bg-forest-900/40 border border-forest-100 dark:border-forest-700/50 w-fit mb-5">
                   {item.icon}
                 </div>
                 
-                <h3 className="font-heading text-lg sm:text-xl font-bold text-forest-900 mb-2.5">
+                <h3 className="font-serif text-lg sm:text-xl font-bold text-forest-950 dark:text-white mb-2.5">
                   {item.title}
                 </h3>
                 
-                <p className="text-slate-600 text-sm leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-forest-50 text-[11px] font-bold text-forest-700 uppercase tracking-wider">
+              <div className="mt-6 pt-4 border-t border-forest-100 dark:border-white/10 text-[11px] font-mono font-bold text-forest-700 dark:text-emerald-400 uppercase tracking-wider">
                 Henjodi Standard
               </div>
             </motion.div>

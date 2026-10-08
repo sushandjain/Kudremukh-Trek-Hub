@@ -231,6 +231,35 @@
     border-radius: 1.5rem;
     transition: all 0.3s ease-out;
   }
+
+  /* Section Header Standard Typography (High Contrast) */
+  .section-eyebrow {
+    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider uppercase
+           bg-forest-100 text-forest-900 border border-forest-300 dark:bg-emerald-950/60 dark:text-emerald-300 dark:border-emerald-500/30 mb-3 shadow-sm;
+  }
+
+  .section-heading {
+    @apply font-serif text-3xl sm:text-4xl md:text-5xl font-bold text-forest-950 dark:text-emerald-50 tracking-tight leading-tight;
+  }
+
+  .section-subheading {
+    @apply text-base sm:text-lg text-slate-700 dark:text-slate-300 max-w-2xl mx-auto mt-3 leading-relaxed font-normal;
+  }
+
+  /* Modern Chip Tag */
+  .chip-tag {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
+           bg-forest-50 text-forest-900 border border-forest-200 dark:bg-emerald-950/50 dark:text-emerald-300 dark:border-emerald-500/30;
+  }
+
+  /* Form Inputs (Light & Campfire Dark) */
+  .input-stitch {
+    @apply w-full px-4 py-3 rounded-2xl bg-white dark:bg-[#0c1810] border border-forest-800/20 dark:border-white/20 
+           text-forest-950 dark:text-white font-medium text-sm
+           placeholder:text-slate-400 dark:placeholder:text-slate-500 
+           focus:border-forest-700 dark:focus:border-emerald-400 focus:ring-2 focus:ring-forest-700/20 dark:focus:ring-emerald-400/20
+           transition-all duration-150 shadow-sm;
+  }
 }
 
 /* Lightbox Modal */

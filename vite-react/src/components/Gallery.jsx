@@ -47,7 +47,7 @@ export default function Gallery() {
   }, [lightboxIndex, filteredImages.length])
 
   return (
-    <section id="gallery" className="py-20 md:py-28 bg-white border-t border-forest-100">
+    <section id="gallery" className="py-20 md:py-28 bg-white dark:bg-[#060d08] border-t border-forest-900/10 dark:border-white/10 transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
@@ -55,10 +55,10 @@ export default function Gallery() {
           <div className="section-eyebrow">
             Authentic Landscapes
           </div>
-          <h2 className="section-heading">
+          <h2 className="section-heading text-forest-950 dark:text-emerald-50">
             Trek Moments &amp; Western Ghats Trails
           </h2>
-          <p className="section-subheading">
+          <p className="section-subheading text-slate-700 dark:text-slate-300">
             Real photos captured along the routes organized from Henjodi Stores Balagal.
           </p>
 

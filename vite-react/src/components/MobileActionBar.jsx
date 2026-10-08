@@ -18,7 +18,7 @@ export default function MobileActionBar({ onOpenBooking }) {
 
       {/* Directions */}
       <a
-        href="https://maps.google.com/?q=13.184369,75.319509"
+        href="https://share.google/m1M0JukCdjBs44Fjs"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Directions to Balagal"

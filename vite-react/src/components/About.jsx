@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 export default function About() {
   return (
-    <section id="about" className="py-20 md:py-28 bg-[#f4f7f5] border-t border-forest-100">
+    <section id="about" className="py-20 md:py-28 bg-[#f4f7f5] dark:bg-[#07100a] border-t border-forest-900/10 dark:border-white/10 transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
@@ -10,10 +10,10 @@ export default function About() {
           <div className="section-eyebrow">
             Local Roots &amp; Heritage
           </div>
-          <h2 className="section-heading">
+          <h2 className="section-heading text-forest-950 dark:text-emerald-50">
             About Henjodi Stores &amp; Guide Prasad
           </h2>
-          <p className="section-subheading">
+          <p className="section-subheading text-slate-700 dark:text-slate-300">
             Born and rooted in Balagal, at the foothills of Kudremukh Peak. We help adventurers explore the Western Ghats safely and respectfully.
           </p>
         </div>

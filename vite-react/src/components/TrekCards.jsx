@@ -256,13 +256,13 @@ export default function TrekCards({ onOpenBooking }) {
             <div className="chapter-number mb-3">
               <span>CHAPTER 01</span>
               <span className="w-10 h-px bg-dawn-amber inline-block" />
-              <span>THE SUMMITS</span>
+              <span>TREKKING CHIKKAMAGALURU &amp; KUDREMUKH</span>
             </div>
             <h2 className="text-editorial-title text-forest-950 dark:text-emerald-50 mb-3">
-              The Peaks We Guide from Balagal.
+              The Chikkamagaluru Peaks We Guide.
             </h2>
             <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
-              Every route is coordinated by native mountain guides who live in Balagal. Real forest department permits, 4x4 Jeep transfers, and base homestay lodging handled on-site.
+              Every route across Chikkamagaluru &amp; Kudremukh (Khudremukh) National Park is coordinated by native mountain guides who live in Balagal. Real forest department permits, 4x4 Jeep transfers, and base homestay lodging handled on-site at Henjodi Stores.
             </p>
           </div>
 

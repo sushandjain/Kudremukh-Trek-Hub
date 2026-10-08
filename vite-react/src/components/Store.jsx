@@ -23,7 +23,7 @@ export default function Store() {
   const [lightboxImage, setLightboxImage] = useState(null)
 
   return (
-    <section id="store" className="py-20 md:py-28 bg-[#fbfcfb] border-t border-forest-100">
+    <section id="store" className="py-20 md:py-28 bg-[#f8faf7] dark:bg-[#060d08] border-t border-forest-900/10 dark:border-white/10 transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
@@ -31,10 +31,10 @@ export default function Store() {
           <div className="section-eyebrow">
             In-Store Supplies
           </div>
-          <h2 className="section-heading">
+          <h2 className="section-heading text-forest-950 dark:text-emerald-50">
             Trek Gear &amp; Malenadu Produce
           </h2>
-          <p className="section-subheading">
+          <p className="section-subheading text-slate-700 dark:text-slate-300">
             Drop by our store at Balagal before heading up the mountain. Pick up trail protection, essentials, and take home the aroma of Malenadu.
           </p>
         </div>

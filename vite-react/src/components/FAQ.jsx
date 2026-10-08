@@ -40,7 +40,7 @@ export default function FAQ() {
   }
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-[#f4f7f5] border-t border-forest-100">
+    <section id="faq" className="py-20 md:py-28 bg-[#f4f7f5] dark:bg-[#07100a] border-t border-forest-900/10 dark:border-white/10 transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         {/* Section Header */}
@@ -48,10 +48,10 @@ export default function FAQ() {
           <div className="section-eyebrow">
             Practical Questions
           </div>
-          <h2 className="section-heading">
+          <h2 className="section-heading text-forest-950 dark:text-emerald-50">
             Frequently Asked Questions
           </h2>
-          <p className="section-subheading">
+          <p className="section-subheading text-slate-700 dark:text-slate-300">
             Accurate, real-world information regarding Western Ghats permits, trail guidelines, and logistics.
           </p>
         </div>

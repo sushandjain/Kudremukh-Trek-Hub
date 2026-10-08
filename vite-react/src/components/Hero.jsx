@@ -60,7 +60,7 @@ export default function Hero({ onOpenBooking }) {
         <div className="flex flex-wrap items-center justify-center gap-3 mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 dark:bg-black/40 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] tracking-widest uppercase">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>13.1843° N, 75.3195° E • Balagal, Kalasa</span>
+            <span>Kudremukh · Chikkamagaluru Trekking · Balagal Base</span>
           </div>
           <LiveWeather />
         </div>
@@ -87,7 +87,7 @@ export default function Hero({ onOpenBooking }) {
           transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           className="text-slate-200 text-base sm:text-lg md:text-xl font-normal max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
         >
-          Your authentic mountain base at the Kudremukh trailhead. Forest permits assistance, native guides, hot Malenadu meals, and honest homestay hospitality.
+          Your authentic mountain base at Henjodi Stores, Balagal for Kudremukh (Khudremukh) &amp; Chikkamagaluru trekking. Official forest permits assistance, native guides, 4x4 jeep transfers, hot Malnad meals, and honest homestay hospitality.
         </motion.p>
 
         {/* Primary Action Buttons */}

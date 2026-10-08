@@ -71,7 +71,7 @@ export default function BookingEnquiry() {
   }
 
   return (
-    <section id="booking-enquiry" className="py-20 md:py-28 bg-[#f4f7f5]">
+    <section id="booking-enquiry" className="py-20 md:py-28 bg-[#f4f7f5] dark:bg-[#07100a] transition-colors">
       <div className="container mx-auto px-4 sm:px-6">
         
         <div className="max-w-3xl mx-auto">
@@ -80,16 +80,16 @@ export default function BookingEnquiry() {
             <div className="section-eyebrow">
               Direct Enquiry
             </div>
-            <h2 className="section-heading">
+            <h2 className="section-heading text-forest-950 dark:text-emerald-50">
               Check Trek Availability &amp; Reserve
             </h2>
-            <p className="section-subheading">
+            <p className="section-subheading text-slate-700 dark:text-slate-300">
               Fill out your details to generate a formatted WhatsApp enquiry directly to Prasad Henjodi. We respond with permit rules, slots, and base camp directions.
             </p>
           </div>
 
           {/* Form Card */}
-          <div className="stitch-card p-6 sm:p-10 bg-white">
+          <div className="stitch-card p-6 sm:p-10 bg-white dark:bg-[#0c1810] border border-forest-800/10 dark:border-white/10 shadow-lg">
             <form 
               name="trek-booking-enquiry"
               method="POST"
@@ -100,13 +100,13 @@ export default function BookingEnquiry() {
               <input type="hidden" name="form-name" value="trek-booking-enquiry" />
 
               {error && (
-                <div className="p-4 rounded-xl bg-red-50 border border-red-200 text-red-700 text-sm font-medium">
+                <div className="p-4 rounded-xl bg-red-50 dark:bg-red-950/40 border border-red-200 dark:border-red-800/50 text-red-700 dark:text-red-300 text-sm font-medium">
                   ⚠️ {error}
                 </div>
               )}
 
               {submitted && (
-                <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-medium">
+                <div className="p-4 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/50 text-emerald-800 dark:text-emerald-300 text-sm font-medium">
                   ✓ Opening WhatsApp! If it didn't open automatically, <a href="https://wa.me/918073178851" target="_blank" rel="noopener noreferrer" className="underline font-bold">click here to chat</a>.
                 </div>
               )}
@@ -114,7 +114,7 @@ export default function BookingEnquiry() {
               {/* Grid 1: Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                  <label htmlFor="name" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                     Your Name *
                   </label>
                   <input
@@ -130,7 +130,7 @@ export default function BookingEnquiry() {
                 </div>
 
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                  <label htmlFor="phone" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                     WhatsApp / Phone Number *
                   </label>
                   <input
@@ -149,7 +149,7 @@ export default function BookingEnquiry() {
               {/* Grid 2: Trek Selection & Date */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label htmlFor="trek" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                  <label htmlFor="trek" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                     Select Destination / Trek *
                   </label>
                   <select
@@ -157,7 +157,7 @@ export default function BookingEnquiry() {
                     name="trek"
                     value={formData.trek}
                     onChange={handleChange}
-                    className="input-stitch bg-white"
+                    className="input-stitch bg-white dark:bg-[#0c1810]"
                   >
                     <option value="Kudremukh Peak Trek">Kudremukh Peak Trek (1,894m)</option>
                     <option value="Netravati Peak Trek">Netravati Peak Trek (1,470m)</option>
@@ -170,7 +170,7 @@ export default function BookingEnquiry() {
                 </div>
 
                 <div>
-                  <label htmlFor="date" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                  <label htmlFor="date" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                     Preferred Trek Date
                   </label>
                   <input
@@ -186,7 +186,7 @@ export default function BookingEnquiry() {
 
               {/* Group Size */}
               <div>
-                <label htmlFor="groupSize" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                <label htmlFor="groupSize" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                   Number of Trekkers / Group Size
                 </label>
                 <div className="grid grid-cols-4 sm:grid-cols-6 gap-2">
@@ -197,8 +197,8 @@ export default function BookingEnquiry() {
                       onClick={() => setFormData(prev => ({ ...prev, groupSize: size }))}
                       className={`py-2 rounded-xl text-xs sm:text-sm font-semibold border transition-all ${
                         formData.groupSize === size
-                          ? 'bg-forest-800 text-white border-forest-800'
-                          : 'bg-white text-slate-700 border-forest-200 hover:border-forest-400'
+                          ? 'bg-forest-900 dark:bg-emerald-600 text-white border-forest-900 dark:border-emerald-600'
+                          : 'bg-white dark:bg-white/5 text-slate-800 dark:text-slate-200 border-forest-200 dark:border-white/15 hover:border-forest-400'
                       }`}
                     >
                       {size}
@@ -209,7 +209,7 @@ export default function BookingEnquiry() {
 
               {/* Services Checkboxes */}
               <div>
-                <span className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                <span className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                   Services Needed
                 </span>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -219,13 +219,13 @@ export default function BookingEnquiry() {
                     { key: 'homestay', label: 'Homestay' },
                     { key: 'food', label: 'Malenadu Meals' },
                   ].map((srv) => (
-                    <label key={srv.key} className="flex items-center gap-2 text-xs sm:text-sm text-slate-700 cursor-pointer">
+                    <label key={srv.key} className="flex items-center gap-2 text-xs sm:text-sm text-slate-800 dark:text-slate-200 cursor-pointer">
                       <input
                         type="checkbox"
                         name={srv.key}
                         checked={formData.services[srv.key]}
                         onChange={handleChange}
-                        className="rounded border-forest-300 text-forest-700 focus:ring-forest-600"
+                        className="rounded border-forest-300 dark:border-white/20 text-forest-700 dark:text-emerald-500 focus:ring-forest-600"
                       />
                       <span>{srv.label}</span>
                     </label>
@@ -235,7 +235,7 @@ export default function BookingEnquiry() {
 
               {/* Special Notes */}
               <div>
-                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-forest-900 mb-2">
+                <label htmlFor="message" className="block text-xs font-bold uppercase tracking-wider text-forest-950 dark:text-emerald-200 mb-2">
                   Additional Notes (Optional)
                 </label>
                 <textarea

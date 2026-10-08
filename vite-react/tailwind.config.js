@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: ['class', '[data-theme="dark"]'],
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -140,6 +141,7 @@ export default {
         'gradient-cta': 'linear-gradient(135deg, #1a472a 0%, #0f2b19 100%)',
       },
       boxShadow: {
+        'xs': '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         'card': '0 4px 20px -2px rgba(26, 71, 42, 0.07), 0 2px 6px -1px rgba(0, 0, 0, 0.04)',
         'card-hover': '0 20px 40px -4px rgba(26, 71, 42, 0.16), 0 4px 12px -2px rgba(0, 0, 0, 0.06)',
         'soft': '0 10px 30px rgba(0, 0, 0, 0.06)',

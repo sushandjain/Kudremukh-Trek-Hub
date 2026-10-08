@@ -21,8 +21,8 @@ const socialLinks = [
     )
   },
   { 
-    name: 'Google Maps', 
-    href: 'https://www.google.com/maps/place/PRASAD+HENJODI+Malnad+store',
+    name: 'Henjodi Store Map', 
+    href: 'https://share.google/m1M0JukCdjBs44Fjs',
     icon: (
       <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
@@ -138,8 +138,19 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <a 
+                  href="https://share.google/m1M0JukCdjBs44Fjs" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
+                >
+                  <span>HENJODI STORE MAP</span>
+                  <ExternalLink className="w-3 h-3 text-dawn-amber" />
+                </a>
+              </li>
+              <li>
                 <Link to="/reviews" className="hover:text-white transition-colors">
-                  Google Map Reviews
+                  Google 4.9★ Reviews
                 </Link>
               </li>
             </ul>
@@ -154,7 +165,7 @@ export default function Footer() {
               <p className="leading-relaxed">
                 <strong className="text-white block font-serif">PRASAD HENJODI Malnad Store</strong>
                 Balagal Bus Stop, State Highway 66,<br />
-                Kalasa, Chikmagalur, Karnataka 577124
+                Kalasa, Chikkamagaluru, Karnataka 577124
               </p>
               <p className="pt-1">
                 <a href="tel:+918073178851" className="text-emerald-300 font-bold hover:underline block font-mono">
@@ -165,7 +176,7 @@ export default function Footer() {
                 </a>
               </p>
               <p className="text-xs text-slate-500 font-mono">
-                Daily: 06:00 AM – 09:00 PM
+                Daily: 06:00 AM – 09:00 PM (24/7 Support)
               </p>
             </address>
           </div>
@@ -183,7 +194,7 @@ export default function Footer() {
         {/* Copyright & Legal */}
         <div className="border-t border-forest-900/60 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-600">
           <p>
-            © {new Date().getFullYear()} Henjodi Stores • Balagal, Kalasa, Chikmagalur. All rights reserved.
+            © {new Date().getFullYear()} Henjodi Stores • Trekking Chikkamagaluru • Kudremukh (Khudremukh) Hub. All rights reserved.
           </p>
           <div className="flex items-center gap-4">
             <Link to="/terms" className="hover:text-slate-400">Terms &amp; Policies</Link>
