@@ -417,18 +417,31 @@ function TrekDetail() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [trek, trekId])
 
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedImage(null)
+    }
+    if (selectedImage) {
+      window.addEventListener('keydown', handleKeyDown)
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [selectedImage])
+
   // If trek not found, show error
   if (!trek) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Trek Not Found</h1>
-          <p className="text-gray-600 mb-8">The trek you're looking for doesn't exist.</p>
+      <div className="min-h-screen bg-[#fbfcfb] flex items-center justify-center p-4">
+        <div className="text-center max-w-md">
+          <div className="w-16 h-16 rounded-full bg-forest-50 border border-forest-200 text-forest-800 flex items-center justify-center text-3xl mx-auto mb-4">
+            🏔️
+          </div>
+          <h1 className="font-heading text-3xl font-bold text-forest-950 mb-2">Trek Not Found</h1>
+          <p className="text-slate-600 mb-6">The trek route you are looking for is not listed or has moved.</p>
           <button 
             onClick={() => navigate('/')}
-            className="bg-emerald-500 text-white px-8 py-3 rounded-full hover:bg-emerald-600 transition-colors"
+            className="btn-primary"
           >
-            Back to Home
+            ← Back to All Treks
           </button>
         </div>
       </div>
@@ -437,10 +450,10 @@ function TrekDetail() {
 
   const getDifficultyConfig = (difficulty) => {
     if (difficulty.includes('Easy') || difficulty.includes('Beginner')) 
-      return { color: 'from-emerald-500 to-teal-500', icon: '🌱', label: 'Beginner Friendly' }
+      return { bg: 'bg-emerald-600/90 text-white border-emerald-400/40', icon: '🌱', label: 'Beginner Friendly' }
     if (difficulty.includes('Moderate') && !difficulty.includes('Difficult')) 
-      return { color: 'from-amber-500 to-orange-500', icon: '⚡', label: 'Moderate' }
-    return { color: 'from-red-500 to-orange-600', icon: '🔥', label: 'Challenging' }
+      return { bg: 'bg-amber-600/90 text-white border-amber-400/40', icon: '⚡', label: 'Moderate' }
+    return { bg: 'bg-red-700/90 text-white border-red-400/40', icon: '🔥', label: 'Challenging' }
   }
 
   const difficultyConfig = getDifficultyConfig(trek.difficulty)
@@ -476,7 +489,7 @@ function TrekDetail() {
       </header>
 
       {/* Modern Hero Section with Parallax */}
-      <section className="relative h-[80vh] min-h-[500px] overflow-hidden">
+      <section className="relative h-[80vh] min-h-[520px] overflow-hidden">
         {/* Parallax Background */}
         <div 
           className="absolute inset-0 transition-transform duration-100"
@@ -489,16 +502,16 @@ function TrekDetail() {
         />
         
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/55 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/60 to-black/85" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a10] via-transparent to-transparent" />
 
         {/* Content */}
         <div className="absolute inset-0 flex items-end">
           <div className="container mx-auto px-4 pb-16 max-w-6xl">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 40 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
+              transition={{ duration: 0.7, delay: 0.1 }}
               className="max-w-4xl"
             >
               {/* Breadcrumbs */}
@@ -514,21 +527,21 @@ function TrekDetail() {
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: isVisible ? 1 : 0 }}
-                transition={{ delay: 0.4, type: "spring" }}
-                className="inline-flex items-center gap-2 mb-6"
+                transition={{ delay: 0.3, type: "spring" }}
+                className="inline-flex items-center gap-2 mb-4"
               >
-                <span className={`bg-gradient-to-r ${difficultyConfig.color} text-white text-sm font-bold px-6 py-2.5 rounded-full shadow-xl flex items-center gap-2`}>
-                  <span className="text-lg">{difficultyConfig.icon}</span>
+                <span className={`${difficultyConfig.bg} text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full border shadow-lg inline-flex items-center gap-2 backdrop-blur-md`}>
+                  <span className="text-base">{difficultyConfig.icon}</span>
                   {difficultyConfig.label}
                 </span>
               </motion.div>
               
               {/* Title */}
               <motion.h1 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 30 }}
-                transition={{ delay: 0.5 }}
-                className="font-display text-5xl md:text-7xl font-bold text-white mb-4 leading-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ delay: 0.4 }}
+                className="font-heading text-4xl sm:text-6xl md:text-7xl font-extrabold text-white mb-3 leading-tight tracking-tight"
               >
                 {trek.title}
               </motion.h1>
@@ -536,8 +549,8 @@ function TrekDetail() {
               <motion.p 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isVisible ? 1 : 0 }}
-                transition={{ delay: 0.6 }}
-                className="text-2xl md:text-3xl text-emerald-300 mb-8 font-light"
+                transition={{ delay: 0.5 }}
+                className="text-lg sm:text-2xl text-emerald-200/90 mb-8 font-light"
               >
                 {trek.subtitle}
               </motion.p>
@@ -546,26 +559,25 @@ function TrekDetail() {
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-                transition={{ delay: 0.7 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-4"
+                transition={{ delay: 0.6 }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4"
               >
                 {[
-                  { icon: '🏔️', label: 'Altitude', value: trek.altitude.split('(')[0] },
+                  { icon: '🏔️', label: 'Altitude', value: trek.altitude.split('(')[0].trim() },
                   { icon: '📏', label: 'Distance', value: trek.distance },
                   { icon: '⏱️', label: 'Duration', value: trek.duration },
-                  { icon: '📍', label: 'Location', value: trek.location.split(',')[0] }
+                  { icon: '📍', label: 'Location', value: trek.location.split(',')[0].trim() }
                 ].map((stat, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.8 }}
-                    transition={{ delay: 0.8 + i * 0.1 }}
-                    className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 rounded-2xl 
-                             hover:bg-white/20 hover:scale-105 transition-all group"
+                    transition={{ delay: 0.7 + i * 0.08 }}
+                    className="bg-black/40 backdrop-blur-md border border-white/20 p-3.5 sm:p-4 rounded-2xl hover:bg-black/50 transition-all"
                   >
-                    <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{stat.icon}</div>
-                    <div className="text-white/60 text-xs mb-1">{stat.label}</div>
-                    <div className="text-white text-sm font-semibold">{stat.value}</div>
+                    <div className="text-2xl sm:text-3xl mb-1.5">{stat.icon}</div>
+                    <div className="text-emerald-200/80 text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-0.5">{stat.label}</div>
+                    <div className="text-white text-xs sm:text-sm md:text-base font-bold font-heading truncate">{stat.value}</div>
                   </motion.div>
                 ))}
               </motion.div>
@@ -577,16 +589,16 @@ function TrekDetail() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: isVisible ? 1 : 0 }}
-          transition={{ delay: 1.2 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+          transition={{ delay: 1 }}
+          className="hidden sm:block absolute bottom-6 left-1/2 -translate-x-1/2"
         >
           <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2"
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 1.6, repeat: Infinity }}
+            className="flex flex-col items-center gap-1.5 text-white/60 hover:text-white transition-colors"
           >
-            <span className="text-white/60 text-sm">Scroll to explore</span>
-            <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className="text-xs uppercase tracking-wider font-semibold">Explore Route</span>
+            <svg className="w-5 h-5 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
             </svg>
           </motion.div>
@@ -594,68 +606,63 @@ function TrekDetail() {
       </section>
 
       {/* Main Content - Modern Layout */}
-      <section className="py-20 relative">
-        {/* Background Decorations */}
-        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/5 to-transparent" />
-        
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <section className="py-16 sm:py-20 relative bg-[#fbfcfb]">
+        <div className="container mx-auto px-4 sm:px-6 max-w-6xl">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 sm:gap-10">
             {/* Main Content Column */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* About Section - Modern Glass Card */}
+            <div className="lg:col-span-2 space-y-8 sm:space-y-10">
+              {/* About Section */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="group relative"
+                transition={{ duration: 0.5 }}
+                className="stitch-card bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-sm"
               >
-                <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-3xl opacity-0 group-hover:opacity-20 blur transition-opacity" />
-                <div className="relative bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
-                      📖
-                    </div>
-                    <h2 className="font-display text-3xl font-bold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
-                      About This Trek
-                    </h2>
+                <div className="flex items-center gap-3.5 mb-5 sm:mb-6">
+                  <div className="w-11 h-11 bg-forest-50 border border-forest-200/70 rounded-2xl flex items-center justify-center text-xl shadow-xs">
+                    📖
                   </div>
-                  <p className="text-gray-700 leading-relaxed text-lg">{trek.description}</p>
-                </div>
-              </motion.div>
-
-              {/* Highlights - Modern Grid */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="bg-gradient-to-br from-white/90 to-white/70 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl"
-              >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
-                    ⭐
-                  </div>
-                  <h2 className="font-display text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                    Trek Highlights
+                  <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest-950">
+                    About This Trek
                   </h2>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <p className="text-slate-700 leading-relaxed text-base sm:text-lg">{trek.description}</p>
+              </motion.div>
+
+              {/* Highlights */}
+              <motion.div
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+                className="stitch-card bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-sm"
+              >
+                <div className="flex items-center gap-3.5 mb-6">
+                  <div className="w-11 h-11 bg-amber-50 border border-amber-200/70 rounded-2xl flex items-center justify-center text-xl shadow-xs">
+                    ⭐
+                  </div>
+                  <div>
+                    <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest-950">
+                      Trek Highlights
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Key scenic points &amp; natural wonders on the trail</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                   {trek.highlights.map((highlight, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -15 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.1 + i * 0.05 }}
-                      className="flex items-start gap-3 group"
+                      className="flex items-start gap-3 p-3.5 rounded-2xl bg-forest-50/40 border border-forest-100/70 hover:bg-forest-50 transition-colors"
                     >
-                      <div className="w-10 h-10 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <svg className="w-5 h-5 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
+                      <div className="w-5 h-5 rounded-full bg-forest-800 text-white flex items-center justify-center flex-shrink-0 mt-0.5 text-xs font-bold">
+                        ✓
                       </div>
-                      <span className="text-gray-700 pt-2 group-hover:text-emerald-600 transition-colors">{highlight}</span>
+                      <span className="text-slate-800 text-sm font-medium leading-snug">{highlight}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -663,80 +670,91 @@ function TrekDetail() {
 
               {/* Itinerary - Timeline Design */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl"
+                transition={{ duration: 0.5, delay: 0.15 }}
+                className="stitch-card bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-sm"
               >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
+                <div className="flex items-center gap-3.5 mb-8">
+                  <div className="w-11 h-11 bg-forest-50 border border-forest-200/70 rounded-2xl flex items-center justify-center text-xl shadow-xs">
                     🗓️
                   </div>
-                  <h2 className="font-display text-3xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                    Trek Itinerary
-                  </h2>
+                  <div>
+                    <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest-950">
+                      Trek Itinerary
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Typical schedule coordinated by Henjodi Stores team</p>
+                  </div>
                 </div>
-                <div className="space-y-6 relative">
+                <div className="space-y-6 relative pl-2 sm:pl-3">
                   {/* Timeline Line */}
-                  <div className="absolute left-6 top-8 bottom-8 w-0.5 bg-gradient-to-b from-emerald-500 to-teal-500" />
+                  <div className="absolute left-6 sm:left-7 top-4 bottom-4 w-0.5 bg-forest-200" />
                   
                   {trek.itinerary.map((item, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, x: -30 }}
+                      initial={{ opacity: 0, x: -20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.3 + i * 0.1 }}
-                      className="flex gap-6 relative"
+                      transition={{ delay: 0.2 + i * 0.1 }}
+                      className="flex gap-4 sm:gap-6 relative"
                     >
-                      <div className="relative z-10">
-                        <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold shadow-lg">
+                      <div className="relative z-10 flex-shrink-0">
+                        <div className="w-9 h-9 sm:w-10 sm:h-10 bg-forest-800 border-2 border-white rounded-full flex items-center justify-center text-white font-bold text-sm shadow-sm">
                           {i + 1}
                         </div>
                       </div>
-                      <div className="flex-1 bg-gradient-to-br from-slate-50 to-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-shadow">
-                        <div className="inline-block bg-gradient-to-r from-emerald-500 to-teal-500 text-white text-sm font-bold px-4 py-1.5 rounded-full mb-3">
+                      <div className="flex-1 bg-slate-50/70 border border-slate-200/70 rounded-2xl p-4 sm:p-6 hover:border-forest-200 transition-colors">
+                        <div className="inline-block bg-forest-100 text-forest-900 border border-forest-200 text-xs font-bold px-3 py-1 rounded-full mb-2">
                           {item.day}
                         </div>
-                        <h3 className="font-bold text-xl text-gray-900 mb-2">{item.title}</h3>
-                        <p className="text-gray-600 leading-relaxed">{item.description}</p>
+                        <h3 className="font-heading font-bold text-base sm:text-lg text-slate-900 mb-1.5">{item.title}</h3>
+                        <p className="text-slate-600 text-sm leading-relaxed">{item.description}</p>
                       </div>
                     </motion.div>
                   ))}
                 </div>
               </motion.div>
 
-              {/* Gallery - Modern Masonry */}
+              {/* Gallery */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl p-8 shadow-xl"
+                transition={{ duration: 0.5, delay: 0.2 }}
+                className="stitch-card bg-white rounded-3xl p-6 sm:p-8 border border-forest-100 shadow-sm"
               >
-                <div className="flex items-center gap-3 mb-8">
-                  <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center text-2xl shadow-lg">
+                <div className="flex items-center gap-3.5 mb-6">
+                  <div className="w-11 h-11 bg-forest-50 border border-forest-200/70 rounded-2xl flex items-center justify-center text-xl shadow-xs">
                     📸
                   </div>
-                  <h2 className="font-display text-3xl font-bold bg-gradient-to-r from-amber-600 to-orange-600 bg-clip-text text-transparent">
-                    Photo Gallery
-                  </h2>
+                  <div>
+                    <h2 className="font-heading text-2xl sm:text-3xl font-bold text-forest-950">
+                      Photo Gallery
+                    </h2>
+                    <p className="text-xs sm:text-sm text-slate-500 mt-0.5">Click any photo to view full resolution</p>
+                  </div>
                 </div>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-4">
                   {trek.gallery.map((img, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, scale: 0.8 }}
+                      initial={{ opacity: 0, scale: 0.95 }}
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
-                      transition={{ delay: 0.4 + i * 0.1 }}
+                      transition={{ delay: 0.2 + i * 0.05 }}
                       onClick={() => setSelectedImage(img)}
-                      className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer shadow-lg hover:shadow-2xl transition-all"
+                      className="group relative aspect-square rounded-2xl overflow-hidden cursor-pointer border border-slate-200/70 shadow-xs hover:shadow-md transition-all"
                     >
-                      <img src={img} alt={`${trek.title} ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
-                        <span className="text-white font-semibold">View Full Size</span>
+                      <img 
+                        src={img} 
+                        alt={`${trek.title} scenery ${i + 1}`} 
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-3">
+                        <span className="text-white text-xs font-semibold">View Full Size ↗</span>
                       </div>
                     </motion.div>
                   ))}
@@ -744,110 +762,138 @@ function TrekDetail() {
               </motion.div>
             </div>
 
-            {/* Sidebar - Sticky Modern Cards */}
+            {/* Sidebar Column */}
             <div className="space-y-6">
-              {/* Booking Card - Premium Glass */}
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="sticky top-24 space-y-6"
-              >
-                <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-green-500 to-emerald-600 rounded-3xl opacity-20 group-hover:opacity-30 blur transition-opacity" />
-                  <div className="relative bg-white/90 backdrop-blur-2xl border border-white/50 rounded-3xl p-8 shadow-2xl">
-                    <div className="text-center mb-6">
-                      <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-2xl mb-4 shadow-xl">
-                        <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                        </svg>
+              <div className="sticky top-20 space-y-6">
+                {/* Booking Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                  className="stitch-card bg-white rounded-3xl p-6 sm:p-7 border border-forest-100 shadow-md"
+                >
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-forest-50 border border-forest-200 text-forest-900 text-xs font-bold mb-4">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span>Direct Balagal Operations</span>
+                  </div>
+                  <h3 className="font-heading text-2xl font-bold text-forest-950 mb-2">
+                    Book {trek.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                    Connect directly with Prasad &amp; team at Balagal for forest permits, native guides, homestay &amp; local transfers.
+                  </p>
+                  
+                  <a 
+                    href={`https://wa.me/918073178851?text=Hello%20Henjodi%20Stores!%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(trek.title)}.%0A%E2%80%A2%20Trek%3A%20${encodeURIComponent(trek.title)}%0A%E2%80%A2%20Tentative%20Date%3A%20%0A%E2%80%A2%20Group%20Size%3A%20%0A%E2%80%A2%20Need%20Homestay%2FFood%3F%20`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full flex items-center justify-center gap-2.5 bg-[#25D366] hover:bg-[#20ba5a] text-white px-6 py-4 rounded-2xl font-bold text-base shadow-md hover:shadow-lg transition-all mb-3 text-center"
+                  >
+                    <svg className="w-6 h-6 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    <span>Book on WhatsApp</span>
+                  </a>
+
+                  <a 
+                    href="tel:+918073178851"
+                    className="w-full flex items-center justify-center gap-2 bg-forest-50 hover:bg-forest-100 text-forest-900 border border-forest-200/80 px-6 py-3 rounded-2xl font-bold text-sm transition-all"
+                  >
+                    <svg className="w-5 h-5 text-forest-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    <span>Call +91 8073178851</span>
+                  </a>
+
+                  <div className="mt-6 pt-5 border-t border-forest-100 space-y-3">
+                    <div>
+                      <div className="flex items-center gap-1.5 text-xs font-bold text-forest-900 uppercase tracking-wider mb-1">
+                        <span>🌤️</span>
+                        <span>Best Season</span>
                       </div>
-                      <h3 className="font-display text-2xl font-bold text-gray-900 mb-2">Book This Trek</h3>
-                      <p className="text-gray-600">Get personalized packages & group discounts</p>
+                      <p className="text-forest-950 bg-forest-50 border border-forest-200/60 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold">{trek.bestTime}</p>
                     </div>
-                    
-                    <a 
-                      href={`https://wa.me/918073178851?text=Hello! I'm interested in booking the ${trek.title}. Can you provide more details?`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-green-500 to-emerald-600 text-white px-8 py-5 rounded-2xl font-bold text-lg hover:shadow-2xl hover:shadow-green-500/50 hover:scale-105 transition-all mb-4 group"
-                    >
-                      <svg className="w-7 h-7 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                      </svg>
-                      <span className="relative">Book via WhatsApp</span>
-                    </a>
-
-                    <a 
-                      href="tel:+918073178851"
-                      className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-slate-100 to-slate-200 text-gray-800 px-8 py-5 rounded-2xl font-bold text-lg hover:from-slate-200 hover:to-slate-300 hover:shadow-xl transition-all border-2 border-slate-300"
-                    >
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                      </svg>
-                      Call Now
-                    </a>
-
-                    <div className="mt-8 pt-6 border-t border-gray-200">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-2xl">🌤️</span>
-                        <h4 className="font-bold text-gray-900">Best Time to Visit</h4>
-                      </div>
-                      <p className="text-gray-600 bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-3 rounded-xl">{trek.bestTime}</p>
+                    <div className="flex items-center justify-between text-xs text-slate-500 pt-2 border-t border-slate-100">
+                      <span>Base Location:</span>
+                      <span className="font-semibold text-slate-800">Balagal, Kalasa</span>
                     </div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Inclusions Card */}
-                <div className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl p-6 shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-xl flex items-center justify-center text-xl shadow-lg">
-                      ✅
+                <div className="stitch-card bg-white rounded-3xl p-6 border border-forest-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 bg-forest-50 border border-forest-200/70 rounded-xl flex items-center justify-center text-forest-800 font-bold text-base">
+                      ✓
                     </div>
-                    <h3 className="font-display text-xl font-bold text-gray-900">Package Includes</h3>
+                    <h3 className="font-heading text-lg font-bold text-forest-950">Package Includes</h3>
                   </div>
-                  <ul className="space-y-3">
+                  <ul className="space-y-2.5 text-sm">
                     {trek.inclusions.map((item, i) => (
-                      <motion.li 
-                        key={i}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.5 + i * 0.05 }}
-                        className="flex items-start gap-3 text-gray-700 group"
-                      >
-                        <svg className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
+                      <li key={i} className="flex items-start gap-2.5 text-slate-700">
+                        <svg className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                           <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        <span>{item}</span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Essentials Card */}
-                <div className="bg-white/80 backdrop-blur-xl border border-white/40 rounded-3xl p-6 shadow-xl">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center text-xl shadow-lg">
-                      🎒
-                    </div>
-                    <h3 className="font-display text-xl font-bold text-gray-900">What to Bring</h3>
-                  </div>
-                  <ul className="space-y-3">
-                    {trek.essentials.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-gray-700">
-                        <span className="text-orange-500 mt-1">•</span>
                         <span>{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-              </motion.div>
+
+                {/* Essentials Card */}
+                <div className="stitch-card bg-white rounded-3xl p-6 border border-forest-100 shadow-sm">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-9 h-9 bg-amber-50 border border-amber-200/70 rounded-xl flex items-center justify-center text-amber-800 font-bold text-base">
+                      🎒
+                    </div>
+                    <h3 className="font-heading text-lg font-bold text-forest-950">What to Bring</h3>
+                  </div>
+                  <ul className="space-y-2 text-sm">
+                    {trek.essentials.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-slate-700">
+                        <span className="text-amber-600 font-bold">•</span>
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Homestay Cross-Promotion */}
+                <div className="rounded-3xl p-6 bg-forest-900 text-white border border-forest-800 shadow-sm">
+                  <div className="text-xs uppercase tracking-wider text-emerald-300 font-bold mb-1">Stay &amp; Dining</div>
+                  <h4 className="font-heading font-bold text-lg mb-2">Balagal Homestay &amp; Cafe</h4>
+                  <p className="text-slate-300 text-xs leading-relaxed mb-4">
+                    Stay overnight right at the Kudremukh base. Enjoy home-cooked Malenadu food, clean washrooms, and safe parking.
+                  </p>
+                  <Link 
+                    to="/#stay-food"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-300 hover:text-white transition-colors"
+                  >
+                    <span>View Homestay &amp; Food details →</span>
+                  </Link>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Sticky Mobile CTA Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-forest-100 p-3 px-4 shadow-lg flex items-center justify-between gap-3">
+        <div className="min-w-0">
+          <div className="text-[11px] text-slate-500 font-medium truncate">{trek.duration} • {trek.difficulty}</div>
+          <div className="font-heading font-bold text-forest-950 text-sm truncate">{trek.title}</div>
+        </div>
+        <a
+          href={`https://wa.me/918073178851?text=Hello%20Henjodi%20Stores!%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(trek.title)}.%0A%E2%80%A2%20Date%3A%20%0A%E2%80%A2%20Group%20Size%3A%20`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex-shrink-0 inline-flex items-center gap-1.5 bg-[#25D366] text-white hover:bg-[#20ba5a] px-4 py-2.5 rounded-full text-xs font-bold shadow-sm transition-all"
+        >
+          <span>Book on WhatsApp</span>
+        </a>
+      </div>
 
       {/* Modern Lightbox */}
       <AnimatePresence>
@@ -863,25 +909,26 @@ function TrekDetail() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               exit={{ scale: 0 }}
-              className="absolute top-6 right-6 w-14 h-14 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-full flex items-center justify-center text-3xl hover:rotate-90 transition-all border border-white/20"
+              aria-label="Close image"
+              className="absolute top-6 right-6 w-12 h-12 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white rounded-full flex items-center justify-center text-2xl hover:rotate-90 transition-all border border-white/20"
               onClick={() => setSelectedImage(null)}
             >
               ×
             </motion.button>
             <motion.img 
-              initial={{ scale: 0.8, opacity: 0 }}
+              initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              exit={{ scale: 0.9, opacity: 0 }}
               src={selectedImage} 
-              alt="Gallery" 
-              className="max-w-[95vw] max-h-[95vh] object-contain rounded-2xl shadow-2xl"
+              alt="Gallery photo full size" 
+              className="max-w-[95vw] max-h-[90vh] object-contain rounded-2xl shadow-2xl"
             />
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* Footer */}
-      <footer className="bg-[#0b1a10] text-slate-400 py-10 text-center text-xs border-t border-forest-900 mt-16">
+      <footer className="bg-[#0b1a10] text-slate-400 py-10 text-center text-xs border-t border-forest-900 pb-20 lg:pb-10">
         <div className="container mx-auto px-4 max-w-4xl">
           <p className="text-white font-heading text-base font-bold mb-2">Henjodi Stores • Balagal, Kalasa, Chikmagalur</p>
           <p className="text-slate-400 mb-4">Forest Permits Assistance, Native Guides, Homestay &amp; Malenadu Cafe</p>
