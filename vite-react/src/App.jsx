@@ -3,6 +3,7 @@ import Home from './pages/Home'
 import Reviews from './pages/Reviews'
 import TrekDetail from './pages/TrekDetail'
 import Terms from './pages/Terms'
+import PhotoContactSheet from './pages/PhotoContactSheet'
 import FloatingWhatsApp from './components/FloatingWhatsApp'
 import ScrollToTop from './components/ScrollToTop'
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/trek/:trekId" element={<TrekDetail />} />
         <Route path="/terms" element={<Terms />} />
+        <Route path="/photos" element={<PhotoContactSheet />} />
       </Routes>
       <FloatingWhatsApp />
     </>

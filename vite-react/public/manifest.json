@@ -1,0 +1,22 @@
+{
+  "name": "Henjodi Stores - Kudremukh Trekking Hub",
+  "short_name": "Henjodi Treks",
+  "description": "Guided trekking, permits, homestay and local support for Kudremukh, Netravati, Kurinjal & Western Ghats.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a472a",
+  "theme_color": "#1a472a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/image/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/image/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

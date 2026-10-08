@@ -1,214 +1,256 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { Link } from 'react-router-dom'
+import { ArrowUpRight, Mountain, Compass, Clock, MapPin, Check } from 'lucide-react'
 
 const treks = [
   {
-    id: 1,
-    title: 'Kudremukh Peak Trek',
-    image: '/image/kmlogo.avif',
-    location: 'Kudremukh National Park, Chikmagalur',
-    duration: '1-2 Days',
-    difficulty: 'Moderate to Difficult',
+    id: 'kudremukh',
+    title: 'Kudremukh Peak',
+    kannadaTitle: 'ಕುದುರೆಮುಖ ಶಿಖರ',
+    subtitle: 'Horse Face Mountain • 3rd Highest in Karnataka',
+    image: '/image/kmview22.webp',
+    location: 'Kudremukh National Park',
+    duration: '1–2 Days',
+    difficulty: 'Moderate to Challenging',
     distance: '18–20 km (round trip)',
-    altitude: '1,894 meters (6,214 ft)',
+    altitude: '1,894 m (6,214 ft)',
+    elevationValue: 1894,
     link: '/trek/kudremukh',
-    whatsappMsg: "Hello! I'm interested in booking the Kudremukh Peak Trek. Can you provide more details about the package and availability?"
+    highlight: 'UNESCO Shola Ridge',
+    description: 'Rolling shola grasslands, sweeping mountain crests, and wild streams. Strict forest entry caps ensure uncrowded, pristine wilderness.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Kudremukh Peak Trek.%0A• Date:%20%0A• Group Size:%20'
   },
   {
-    id: 2,
-    title: 'Netravati Peak Trek',
+    id: 'netravati',
+    title: 'Netravati Peak',
+    kannadaTitle: 'ನೇತ್ರಾವತಿ ಶಿಖರ',
+    subtitle: 'Source of the Sacred River',
     image: '/image/nplogo.jpg',
-    location: 'Dakshina Kannada / Chikmagalur',
-    duration: '1 Day (8-10 hours)',
+    location: 'Kalasa / Belthangady Border',
+    duration: '1 Day (8–10 hours)',
     difficulty: 'Moderate',
-    distance: '14-16 km (round trip)',
-    altitude: '1,470 meters (4,823 ft)',
+    distance: '14–16 km (round trip)',
+    altitude: '1,470 m (4,823 ft)',
+    elevationValue: 1470,
     link: '/trek/netravati',
-    whatsappMsg: "Hello! I'm interested in booking the Netravati Peak Trek. Can you provide more details about the package and availability?"
+    highlight: 'Panoramic Grasslands',
+    description: 'A breathtaking ridge-walk along the birthplace of the Netravati River, framed by sweeping green meadows and rolling cloud valleys.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Netravati Peak Trek.%0A• Date:%20%0A• Group Size:%20'
   },
   {
-    id: 3,
-    title: 'Kurinjal Peak Trek',
-    image: '/image/kklogo.jpeg',
-    location: 'Samse Village, Kudremukh Range',
-    duration: '1 Day (7-8 hours)',
+    id: 'kurinjal',
+    title: 'Kurinjal Peak',
+    kannadaTitle: 'ಕುರಿಂಜಲ್ ಶಿಖರ',
+    subtitle: 'Quiet Shola Sanctuary & Granite Tower',
+    image: '/image/kurinjal-1-.jpg',
+    location: 'Samse, Kudremukh Range',
+    duration: '1 Day (7–8 hours)',
     difficulty: 'Easy to Moderate',
-    distance: '12-14 km (round trip)',
-    altitude: '1,712 meters (5,617 ft)',
+    distance: '12–14 km (round trip)',
+    altitude: '1,712 m (5,617 ft)',
+    elevationValue: 1712,
     link: '/trek/kurinjal',
-    whatsappMsg: "Hello! I'm interested in booking the Kurinjal Peak Trek. Can you provide more details about the package and availability?"
+    highlight: 'Dense Canopy Trail',
+    description: 'An ancient repeater station route surrounded by untouched wet evergreen forests and mist-covered granite boulders.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Kurinjal Peak Trek.%0A• Date:%20%0A• Group Size:%20'
   },
   {
-    id: 4,
-    title: 'Bandaje Arbi Falls Trek',
-    image: '/image/Bandaje-trek/logoBandaje.jpg',
-    location: 'Ballalarayana Durga, Chikmagalur',
-    duration: '1 Day (8-10 hours)',
-    difficulty: 'Moderate to Difficult',
-    distance: '14-16 km (round trip)',
-    altitude: '1,509 meters (4,951 ft)',
+    id: 'bandaje',
+    title: 'Ballalarayana Durga & Bandaje',
+    kannadaTitle: 'ಬಲ್ಲಾಳರಾಯನ ದುರ್ಗ ಮತ್ತು ಬಂಡಾಜೆ',
+    subtitle: '12th Century Hoysala Fort & 200ft Plunge Waterfall',
+    image: '/image/Bandaje-trek/Bandaje4.jpeg',
+    location: 'Sunkasale, Chikmagalur',
+    duration: '1 Day (8–10 hours)',
+    difficulty: 'Moderate to Challenging',
+    distance: '14–16 km (round trip)',
+    altitude: '1,509 m (4,951 ft)',
+    elevationValue: 1509,
     link: '/trek/bandaje',
-    whatsappMsg: "Hello! I'm interested in booking the Bandaje Falls Trek. Can you provide more details about the package and availability?"
+    highlight: 'Historic Ruins & Waterfall',
+    description: 'Trek through historic Hoysala stone ramparts overlooking the edge of the Ghats, followed by the roaring roar of Bandaje Arbi Falls.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Ballalarayana Durga & Bandaje Falls Trek.%0A• Date:%20%0A• Group Size:%20'
   },
   {
-    id: 5,
-    title: 'Ettina Bhuja Trek',
-    image: '/image/Bavinkonda/Bavinkonda-logo.jpg',
-    location: 'Byrapura, Mudigere, Chikmagalur',
-    duration: '1 Day (5-6 hours)',
+    id: 'bavikonda',
+    title: 'Ettina Bhuja Peak',
+    kannadaTitle: 'ಎತ್ತಿನ ಭುಜ',
+    subtitle: 'The Ox-Shoulder Sunrise Summit',
+    image: '/image/Bavinkonda/Bavinkonda1.jpg',
+    location: 'Byrapura, Mudigere',
+    duration: '1 Day (5–6 hours)',
     difficulty: 'Moderate',
-    distance: '6-8 km (round trip)',
-    altitude: '1,236 meters (4,055 ft)',
+    distance: '6–8 km (round trip)',
+    altitude: '1,236 m (4,055 ft)',
+    elevationValue: 1236,
     link: '/trek/bavikonda',
-    whatsappMsg: "Hello! I'm interested in booking the Ettina Bhuja Trek. Can you provide more details about the package and availability?"
+    highlight: 'Accessible Sunrise',
+    description: 'A distinctive rocky hump offering dramatic 360° views across the Chikmagalur coffee valleys and Western Ghats escarpment.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Ettina Bhuja Trek.%0A• Date:%20%0A• Group Size:%20'
   },
   {
-    id: 6,
-    title: 'Valikunja Trek',
-    image: '/image/Valikunja/Valikunja-logo.jpg',
+    id: 'valikunja',
+    title: 'Valikunja Peak',
+    kannadaTitle: 'ವಾಲಿಕುಂಜ',
+    subtitle: 'Mythological Sugriva’s Citadel',
+    image: '/image/Valikunja/Valikunja1.jpg',
     location: 'Near Sringeri, Kudremukh Range',
-    duration: '1 Day (7-8 hours)',
-    difficulty: 'Moderate to Difficult',
-    distance: '10-12 km (round trip)',
-    altitude: '~1,500 meters (4,921 ft)',
+    duration: '1 Day (7–8 hours)',
+    difficulty: 'Moderate to Challenging',
+    distance: '10–12 km (round trip)',
+    altitude: '~1,500 m (4,921 ft)',
+    elevationValue: 1500,
     link: '/trek/valikunja',
-    whatsappMsg: "Hello! I'm interested in booking the Valikunja Trek. Can you provide more details about the package and availability?"
-  },
-  {
-    id: 7,
-    title: 'Ombattu Gudda Trek',
-    image: '/image/Valikunja/Aane1.webp',
-    location: 'Near Mudigere, Chikmagalur',
-    duration: '1 Day (5-6 hours)',
-    difficulty: 'Easy to Moderate',
-    distance: '8-10 km (round trip)',
-    altitude: '~1,300 meters (4,265 ft)',
-    link: '/trek/aane-salaba',
-    whatsappMsg: "Hello! I'm interested in booking the Ombattu Gudda Trek. Can you provide more details about the package and availability?"
+    highlight: 'Untamed Trail',
+    description: 'A quieter, wilder ridge line legendary for panoramic vistas of the Tunga River basin and the southern Western Ghats.',
+    whatsappMsg: 'Hello Henjodi Stores! I would like to book the Valikunja Peak Trek.%0A• Date:%20%0A• Group Size:%20'
   }
 ]
 
-function TrekCard({ trek, index }) {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
-  const getDifficultyColor = (difficulty) => {
-    if (difficulty.includes('Easy') || difficulty.includes('Beginner')) return 'bg-green-500'
-    if (difficulty.includes('Moderate') && !difficulty.includes('Difficult')) return 'bg-yellow-500'
-    return 'bg-orange-500'
-  }
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-strong transition-all duration-500 hover:-translate-y-2"
-    >
-      {/* Image */}
-      <div className="relative h-56 md:h-64 overflow-hidden">
-        <img 
-          src={trek.image} 
-          alt={`${trek.title} - ${trek.location} - Western Ghats Trekking Karnataka`}
-          loading="lazy"
-          decoding="async"
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        {/* Difficulty Badge */}
-        <div className="absolute top-4 right-4">
-          <span className={`${getDifficultyColor(trek.difficulty)} text-white text-xs font-bold px-3 py-1 rounded-full`}>
-            {trek.difficulty}
-          </span>
-        </div>
-      </div>
-
-      {/* Content */}
-      <div className="p-6">
-        <h3 className="font-display text-xl md:text-2xl font-bold text-dark mb-4 group-hover:text-primary transition-colors">
-          {trek.title}
-        </h3>
-
-        <ul className="space-y-2 mb-6">
-          <li className="flex items-center gap-3 text-gray-600">
-            <svg className="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-            </svg>
-            <span className="text-sm">{trek.location}</span>
-          </li>
-          <li className="flex items-center gap-3 text-gray-600">
-            <svg className="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
-            </svg>
-            <span className="text-sm">{trek.duration}</span>
-          </li>
-          <li className="flex items-center gap-3 text-gray-600">
-            <svg className="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 15.5h-1.5V14h-4v4.5H5V5h1.5v5.5h4V5H12v13.5zm2.5-6.5h4.5v1.5h-4.5V15h4.5v1.5h-4.5V18H20V5h-5.5v7z"/>
-            </svg>
-            <span className="text-sm">{trek.distance}</span>
-          </li>
-          <li className="flex items-center gap-3 text-gray-600">
-            <svg className="w-5 h-5 text-accent flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M14 6l-3.75 5 2.85 3.8-1.6 1.2C9.81 13.75 7 10 7 10l-6 8h22L14 6z"/>
-            </svg>
-            <span className="text-sm">{trek.altitude}</span>
-          </li>
-        </ul>
-
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-3">
-          <Link 
-            to={trek.link}
-            className="flex-1 flex items-center justify-center gap-2 bg-gradient-primary text-white px-4 py-3 rounded-full font-semibold hover:scale-105 hover:shadow-lg transition-all duration-300"
-          >
-            View More
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </Link>
-        </div>
-      </div>
-    </motion.div>
-  )
-}
-
 export default function TrekCards() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
   return (
-    <section id="treks" className="py-20 md:py-28 bg-gray-50">
-      <div className="container mx-auto px-4" ref={ref}>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="section-title text-dark"
-        >
-          Popular Treks in Kudremukh Region
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-center text-gray-600 max-w-2xl mx-auto mt-4 mb-8"
-        >
-          Explore Netravati Peak, Kurinjal Peak, and other stunning Malenadu trekking destinations. 
-          Henjodi Stores helps tourists with trek tickets, guides, food, and local support.
-        </motion.p>
+    <section id="treks" className="py-24 sm:py-32 relative bg-[#f8faf7] dark:bg-[#060d08] transition-colors">
+      <div className="container mx-auto px-4 sm:px-6 max-w-7xl">
+        
+        {/* Chapter Header */}
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <div className="chapter-number mb-3">
+            <span>01 / THE ASCENT</span>
+            <span className="w-12 h-px bg-dawn-amber inline-block" />
+            <span>WESTERN GHATS</span>
+          </div>
+          <h2 className="text-editorial-title text-forest-950 dark:text-emerald-50 mb-4">
+            The Peaks We Guide from Balagal.
+          </h2>
+          <p className="text-slate-600 dark:text-slate-300 text-base sm:text-lg leading-relaxed">
+            Every route is led by native mountain guides who know every stream, leeches season, and ridge path. We coordinate forest department permits and transfers directly from our Balagal store.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-          {treks.map((trek, index) => (
-            <TrekCard key={trek.id} trek={trek} index={index} />
+        {/* Editorial Trek Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+          {treks.map((trek, idx) => (
+            <motion.article
+              key={trek.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.6, delay: idx * 0.08 }}
+              className="editorial-card group flex flex-col justify-between overflow-hidden relative bg-white dark:bg-[#0c1810]"
+            >
+              {/* Image Frame with Elevation Badge */}
+              <div className="relative aspect-[16/11] overflow-hidden bg-forest-950">
+                <img
+                  src={trek.image}
+                  alt={trek.title}
+                  loading="lazy"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                
+                {/* Atmospheric Vignette */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                {/* Altitude Pill Overlay */}
+                <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/20 text-white font-mono text-xs font-bold">
+                  <Mountain className="w-3.5 h-3.5 text-amber-300" />
+                  <span>{trek.altitude.split('(')[0].trim()}</span>
+                </div>
+
+                {/* Highlight Chip */}
+                <div className="absolute top-4 right-4 inline-flex items-center px-2.5 py-1 rounded-full bg-forest-800/80 backdrop-blur-md text-[11px] font-semibold text-emerald-100 border border-emerald-400/30">
+                  {trek.highlight}
+                </div>
+
+                {/* Bottom Title on Image */}
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="font-kannada text-[11px] text-amber-200/80 block mb-0.5">
+                    {trek.kannadaTitle}
+                  </div>
+                  <h3 className="font-serif text-2xl font-bold text-white leading-tight">
+                    {trek.title}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Card Body */}
+              <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between">
+                <div>
+                  {/* Peak Elevation Silhouette Motif */}
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-500 dark:text-slate-400 mb-3 pb-3 border-b border-forest-800/10 dark:border-white/10">
+                    <span className="flex items-center gap-1.5">
+                      <MapPin className="w-3.5 h-3.5 text-forest-700 dark:text-emerald-300" />
+                      {trek.location.split(',')[0]}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-forest-700 dark:text-emerald-300" />
+                      {trek.duration}
+                    </span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-6">
+                    {trek.description}
+                  </p>
+
+                  {/* Verified Metrics Badges */}
+                  <div className="grid grid-cols-2 gap-2 mb-6 text-xs">
+                    <div className="p-2.5 rounded-xl bg-forest-50/60 dark:bg-white/5 border border-forest-800/10 dark:border-white/10">
+                      <span className="text-[10px] font-mono text-slate-400 uppercase block">Distance</span>
+                      <span className="font-bold text-forest-950 dark:text-emerald-100">{trek.distance}</span>
+                    </div>
+                    <div className="p-2.5 rounded-xl bg-forest-50/60 dark:bg-white/5 border border-forest-800/10 dark:border-white/10">
+                      <span className="text-[10px] font-mono text-slate-400 uppercase block">Difficulty</span>
+                      <span className="font-bold text-forest-950 dark:text-emerald-100">{trek.difficulty}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Actions: Book on WhatsApp & View Route Guide */}
+                <div className="pt-2 flex items-center gap-3">
+                  <a
+                    href={`https://wa.me/918073178851?text=${trek.whatsappMsg}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    data-cursor="WHATSAPP"
+                    className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-4 rounded-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs font-bold uppercase tracking-wider shadow-sm transition-all active:scale-95"
+                  >
+                    <span>Book WhatsApp</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
+                  </a>
+
+                  <Link
+                    to={trek.link}
+                    data-cursor="ROUTE"
+                    className="inline-flex items-center justify-center p-3 rounded-full border border-forest-800/20 dark:border-white/20 text-forest-950 dark:text-emerald-200 hover:bg-forest-100/60 dark:hover:bg-white/10 transition-colors"
+                    aria-label={`View detailed trail guide for ${trek.title}`}
+                  >
+                    <ArrowUpRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
+            </motion.article>
           ))}
+        </div>
+
+        {/* Forest Department Capacity Note */}
+        <div className="mt-14 p-6 sm:p-8 rounded-3xl bg-forest-900 text-white border border-forest-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+          <div className="max-w-2xl text-left">
+            <span className="font-mono text-xs text-amber-300 uppercase tracking-widest font-bold block mb-1">
+              Forest Department Guidelines • Kudremukh National Park
+            </span>
+            <p className="text-sm text-slate-200 leading-relaxed">
+              Kudremukh has a strict statutory limit of daily trekkers allowed through the Bhagavathi Nature Camp gate. We assist all guests with timely slot bookings and local guide allocations from Balagal.
+            </p>
+          </div>
+          <a
+            href="https://wa.me/918073178851?text=Hello%20Henjodi%20Stores!%20Can%20you%20help%20check%20forest%20permit%20availability%20for%20this%20weekend?"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-forest-950 font-bold text-xs uppercase tracking-wider hover:bg-forest-50 transition-colors"
+          >
+            <span>Check Permit Availability</span>
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
         </div>
       </div>
     </section>

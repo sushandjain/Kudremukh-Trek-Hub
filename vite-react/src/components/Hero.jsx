@@ -1,134 +1,186 @@
-  import { motion } from 'framer-motion'
-  import { Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { ArrowUpRight, Compass, MapPin, ChevronDown, Mountain, Coffee, Home } from 'lucide-react'
+import LiveWeather from './LiveWeather'
 
-  export default function Hero() {
-    return (
-      <section 
-        id="home" 
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+export default function Hero({ onOpenBooking }) {
+  const { scrollY } = useScroll()
+  const yParallax = useTransform(scrollY, [0, 800], [0, 180])
+  const opacityParallax = useTransform(scrollY, [0, 600], [1, 0.4])
+
+  const handleScrollToTreks = () => {
+    const el = document.querySelector('#treks')
+    if (el) {
+      const top = el.offsetTop - 80
+      window.scrollTo({ top, behavior: 'smooth' })
+    }
+  }
+
+  return (
+    <section 
+      id="home" 
+      className="relative min-h-[96vh] sm:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-20 film-grain"
+    >
+      {/* Background Layer with Art-Directed Parallax Photography */}
+      <motion.div 
+        style={{ y: yParallax }}
+        className="absolute inset-0 pointer-events-none select-none z-0"
       >
-        {/* Background Image with Parallax */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{
-            backgroundImage: `linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url('https://www.captureatrip.com/_next/image?url=https%3A%2F%2Fcaptureatrip-cms-storage.s3.ap-south-1.amazonaws.com%2FTrekking_Places_in_Chennai_47570b8a49.avif&w=3840&q=50')`
-          }}
-        />
-
-        {/* Animated Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/30" />
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{ y: [0, -20, 0], rotate: [0, 5, 0] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-1/4 left-10 w-20 h-20 bg-accent/20 rounded-full blur-2xl"
+        <picture>
+          <source media="(min-width: 768px)" srcSet="/image/kmview22.webp" type="image/webp" />
+          <source media="(max-width: 767px)" srcSet="/image/kmview22-mobile.jpg" type="image/jpeg" />
+          <img 
+            src="/image/kmview22.webp" 
+            alt="Kudremukh rolling grassland ridges shrouded in early morning Western Ghats mist"
+            className="w-full h-full object-cover object-center scale-105"
+            loading="eager"
+            fetchpriority="high"
           />
-          <motion.div
-            animate={{ y: [0, 20, 0], rotate: [0, -5, 0] }}
-            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            className="absolute top-1/3 right-20 w-32 h-32 bg-primary/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{ y: [0, 15, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-            className="absolute bottom-1/4 left-1/4 w-24 h-24 bg-gold/20 rounded-full blur-2xl"
-          />
-        </div>
+        </picture>
 
-        {/* Content */}
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <h1 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight px-2">
-                Kudremukh Trek Booking –{' '}
-                <span className="text-gradient bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent">
-                  Netravati, Kurinjal & Malenadu Peaks
-                </span>
-                <br />
-                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  View and Book Your Trekking
-                </span>
-              </h1>
-            </motion.div>
+        {/* Cinematic Atmospheric Gradient Wash: Deep Forest to Dawn Light */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#06130b] via-[#091f12]/60 to-[#07150c]/75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#06130b]/80 via-transparent to-[#06130b]/60" />
+      </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 mb-8 md:mb-10 font-light max-w-2xl mx-auto px-2"
-            >
-              Experience the pristine beauty of Karnataka's mountains with expert local guides
-            </motion.p>
+      {/* Drifting Morning Mist Layer (CSS-only, low-CPU) */}
+      <div 
+        aria-hidden="true" 
+        className="absolute inset-0 pointer-events-none opacity-40 mix-blend-screen overflow-hidden z-[1]"
+      >
+        <div className="absolute -inset-[100%] w-[300%] h-[300%] bg-gradient-to-r from-transparent via-white/8 to-transparent animate-[float_18s_ease-in-out_infinite]" />
+      </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
-            >
-              {/* WhatsApp Book Button */}
-              <a 
-                href="https://wa.me/918073178851?text=Hello! I'm interested in booking a trek with Malenadu Treks."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group relative inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full font-bold text-lg shadow-glow-green hover:shadow-[0_12px_35px_rgba(37,211,102,0.6)] hover:-translate-y-1 hover:scale-105 transition-all duration-300 overflow-hidden"
-              >
-                <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
-                <svg className="w-6 h-6 relative z-10" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                <span className="relative z-10">Book Your Adventure</span>
-              </a>
-
-              {/* Reviews Button */}
-              <Link 
-                to="/reviews"
-                className="group inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border-2 border-white/30 text-white px-6 py-4 rounded-full font-semibold text-lg hover:bg-white/25 hover:border-white/50 hover:-translate-y-1 transition-all duration-300"
-              >
-                <svg className="w-5 h-5 text-gold animate-twinkle" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                </svg>
-                Read Reviews
-              </Link>
-            </motion.div>
-
+      {/* Content Container */}
+      <motion.div 
+        style={{ opacity: opacityParallax }}
+        className="container mx-auto px-4 sm:px-6 relative z-10 max-w-5xl text-center"
+      >
+        {/* Top Badges Bar: Coordinates + Live Weather */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-6 sm:mb-8">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 dark:bg-black/40 backdrop-blur-md border border-white/20 text-white font-mono text-[11px] tracking-widest uppercase">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            <span>13.1843° N, 75.3195° E • Balagal, Kalasa</span>
           </div>
+          <LiveWeather />
         </div>
 
-        {/* Scroll Indicator - positioned relative to section */}
+        {/* Editorial Headline */}
+        <div className="relative mb-6 sm:mb-8">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            className="font-serif text-white tracking-[-0.03em] leading-[1.06] text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold"
+          >
+            Where Shola Ridges Rise into the{' '}
+            <span className="italic font-light text-amber-200/90 underline decoration-amber-400/40 decoration-1 underline-offset-8">
+              Morning Mist.
+            </span>
+          </motion.h1>
+        </div>
+
+        {/* Editorial Subheading */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          className="text-slate-200 text-base sm:text-lg md:text-xl font-normal max-w-2xl mx-auto mb-10 sm:mb-12 leading-relaxed"
+        >
+          Your authentic mountain base at the Kudremukh trailhead. Forest permits assistance, native guides, hot Malenadu meals, and honest homestay hospitality.
+        </motion.p>
+
+        {/* Primary Action Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.25 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-5"
+        >
+          {/* Main Plan Trek Pill CTA */}
+          <button
+            onClick={onOpenBooking}
+            data-cursor="PLAN"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full font-bold text-base bg-[#25D366] text-white hover:bg-[#20ba5a] shadow-[0_8px_30px_rgba(37,211,102,0.4)] hover:shadow-[0_12px_40px_rgba(37,211,102,0.6)] transition-all hover:-translate-y-0.5 active:translate-y-0"
+          >
+            <span>Plan Your Trek</span>
+            <ArrowUpRight className="w-5 h-5" />
+          </button>
+
+          {/* Direct WhatsApp Callout */}
+          <a
+            href="https://wa.me/918073178851?text=Hello%20Henjodi%20Stores!%20I%20would%20like%20to%20know%20about%20trek%20slots%20and%20homestay%20at%20Balagal."
+            target="_blank"
+            rel="noopener noreferrer"
+            data-cursor="WHATSAPP"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full font-semibold text-sm sm:text-base bg-white/15 backdrop-blur-md border border-white/25 text-white hover:bg-white/25 transition-all hover:-translate-y-0.5"
+          >
+            <span>WhatsApp +91 8073178851</span>
+          </a>
+
+          {/* Explore Routes Scroll */}
+          <button
+            onClick={handleScrollToTreks}
+            data-cursor="VIEW"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-full font-medium text-sm text-slate-300 hover:text-white transition-colors"
+          >
+            <span>Explore 4 Peaks</span>
+            <ChevronDown className="w-4 h-4 animate-bounce" />
+          </button>
+        </motion.div>
+
+        {/* Floating Rotating Stamp & Key Elevation Badges */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5 }}
-          className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20"
+          transition={{ duration: 1, delay: 0.4 }}
+          className="mt-14 sm:mt-16 pt-8 border-t border-white/15 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-left"
         >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-            className="flex flex-col items-center gap-2 text-white/70 hover:text-white/90 transition-colors cursor-pointer"
-            onClick={() => {
-              const aboutSection = document.querySelector('#about')
-              if (aboutSection) {
-                aboutSection.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-          >
-            <span className="text-xs md:text-sm font-medium tracking-wide">Scroll to explore</span>
-            <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center pt-2">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-1.5 h-1.5 bg-white/70 rounded-full"
-              />
-            </div>
-          </motion.div>
+          <div className="bg-black/30 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl border border-white/10">
+            <div className="font-mono text-[10px] text-amber-300 uppercase tracking-widest mb-1">Peak Elevation</div>
+            <div className="font-serif text-lg sm:text-xl font-bold text-white">1,894m</div>
+            <div className="text-xs text-slate-300 truncate">Kudremukh Summit</div>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl border border-white/10">
+            <div className="font-mono text-[10px] text-amber-300 uppercase tracking-widest mb-1">Base Hub</div>
+            <div className="font-serif text-lg sm:text-xl font-bold text-white">810m ASL</div>
+            <div className="text-xs text-slate-300 truncate">Balagal Bus Stop, SH-66</div>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl border border-white/10">
+            <div className="font-mono text-[10px] text-amber-300 uppercase tracking-widest mb-1">Native Guides</div>
+            <div className="font-serif text-lg sm:text-xl font-bold text-white">100% Local</div>
+            <div className="text-xs text-slate-300 truncate">Born &amp; raised in Mullodi</div>
+          </div>
+
+          <div className="bg-black/30 backdrop-blur-sm p-3.5 sm:p-4 rounded-2xl border border-white/10">
+            <div className="font-mono text-[10px] text-amber-300 uppercase tracking-widest mb-1">Permit Desk</div>
+            <div className="font-serif text-lg sm:text-xl font-bold text-white">Daily Limits</div>
+            <div className="text-xs text-slate-300 truncate">Forest Dept Gate Clearances</div>
+          </div>
         </motion.div>
-      </section>
-    )
-  }
+      </motion.div>
+
+      {/* Rotating Circular Text Stamp (Desktop Aesthetic Detail) */}
+      <div 
+        aria-hidden="true"
+        className="hidden xl:flex absolute bottom-8 right-8 w-28 h-28 pointer-events-none items-center justify-center select-none opacity-80"
+      >
+        <svg viewBox="0 0 100 100" className="w-full h-full rotating-stamp text-amber-300/80 fill-current">
+          <defs>
+            <path id="circlePath" d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0" />
+          </defs>
+          <text fontSize="7.8" fontWeight="bold" letterSpacing="2.2">
+            <textPath href="#circlePath">
+              · TREK · STAY · EAT · BALAGAL · HENJODI
+            </textPath>
+          </text>
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center text-emerald-300">
+          <Mountain className="w-7 h-7" />
+        </div>
+      </div>
+    </section>
+  )
+}
