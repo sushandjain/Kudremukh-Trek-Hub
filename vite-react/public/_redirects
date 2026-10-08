@@ -1,0 +1,14 @@
+# Netlify redirects file for SPA and permanent links
+/sitemap.xml /sitemap.xml 200
+/robots.txt /robots.txt 200
+/manifest.json /manifest.json 200
+
+# Canonical 301 redirects for legacy static HTML URLs
+/kudremukh.html /trek/kudremukh 301
+/netravati.html /trek/netravati 301
+/kuranjal.html /trek/kuranjal 301
+/reviews.html /reviews 301
+/terms.html /terms 301
+
+# SPA router fallback
+/* /index.html 200

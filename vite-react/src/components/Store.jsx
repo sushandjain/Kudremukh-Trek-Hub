@@ -1,180 +1,130 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 import { useState } from 'react'
 
-const offers = [
-  {
-    title: 'Guided Treks',
-    image: '/video/Guided Treks.jpg',
-    description: 'Professional guided treks to various peaks and destinations in the Western Ghats.'
-  },
-  {
-    title: 'All-Inclusive Packages',
-    image: '/image/all-inclusive2ndoption.webp',
-    description: 'Complete packages covering permits, jeep rides, and meals for a hassle-free trek. Contact us for pricing.'
-  },
-  {
-    title: 'Local Cuisine',
-    image: '/video/food-location-logo.jpg',
-    description: "Authentic Malenadu cuisine and traditional dishes prepared by local families during treks."
-  }
-]
-
-const storeGallery = [
+const storeItems = [
   { 
     image: '/image/Screenshot 2025-07-11 040805.png', 
-    title: 'Store Front', 
-    description: 'Welcome to our adventure hub' 
+    title: 'Henjodi Stores Base Camp Office', 
+    description: 'Located at Balagal Bus Stop on SH 66 — the central assembly point for Kudremukh and Netravati trekkers.' 
   },
   { 
     image: '/image/storeimg.jpg', 
-    title: 'Equipment Display', 
-    description: 'Quality trekking gear' 
+    title: 'Trekking Essentials & Gear', 
+    description: 'Leech socks, rain ponchos, hiking poles, water containers, and safety supplies available before hitting the trail.' 
   },
   { 
     image: '/image/Screenshot 2025-07-11 040927.png', 
-    title: 'Local Products', 
-    description: 'Authentic Malenadu products' 
+    title: 'Authentic Malenadu Spices & Coffee', 
+    description: 'Fresh estate-ground Chikmagalur coffee powder, aromatic cardamom, organic honey, and local Malenadu snacks.' 
   }
 ]
 
-function OfferCard({ offer, index }) {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-strong transition-all duration-500 hover:-translate-y-2"
-    >
-      <div className="relative h-52 overflow-hidden">
-        <img 
-          src={offer.image} 
-          alt={offer.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-      </div>
-      <div className="p-6">
-        <h3 className="font-display text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">
-          {offer.title}
-        </h3>
-        <p className="text-gray-600 leading-relaxed">
-          {offer.description}
-        </p>
-      </div>
-    </motion.div>
-  )
-}
-
-function StoreImage({ item, index, onClick }) {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, scale: 0.9 }}
-      animate={inView ? { opacity: 1, scale: 1 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      onClick={() => onClick(item)}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer shadow-soft hover:shadow-strong transition-all duration-300"
-    >
-      <img 
-        src={item.image} 
-        alt={item.title}
-        className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex flex-col justify-end p-6">
-        <h5 className="font-display text-xl font-semibold text-white mb-1 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-          {item.title}
-        </h5>
-        <p className="text-white/80 text-sm transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">
-          {item.description}
-        </p>
-      </div>
-    </motion.div>
-  )
-}
-
 export default function Store() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
   const [lightboxImage, setLightboxImage] = useState(null)
 
   return (
-    <section id="store" className="py-20 md:py-28 bg-cream-light">
-      <div className="container mx-auto px-4" ref={ref}>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="section-title text-dark"
-        >
-          What We Offer
-        </motion.h2>
+    <section id="store" className="py-20 md:py-28 bg-[#fbfcfb] border-t border-forest-100">
+      <div className="container mx-auto px-4 sm:px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
+          <div className="section-eyebrow">
+            In-Store Supplies
+          </div>
+          <h2 className="section-heading">
+            Trek Gear &amp; Malenadu Produce
+          </h2>
+          <p className="section-subheading">
+            Drop by our store at Balagal before heading up the mountain. Pick up trail protection, essentials, and take home the aroma of Malenadu.
+          </p>
+        </div>
 
-        {/* Offers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-          {offers.map((offer, index) => (
-            <OfferCard key={offer.title} offer={offer} index={index} />
+        {/* Gallery Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          {storeItems.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              onClick={() => setLightboxImage(item)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault()
+                  setLightboxImage(item)
+                }
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`View photo of ${item.title}`}
+              className="stitch-card overflow-hidden group cursor-pointer focus:ring-2 focus:ring-forest-600 outline-none flex flex-col"
+            >
+              <div className="relative h-60 sm:h-64 overflow-hidden bg-slate-100">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  width="500"
+                  height="340"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                  <span className="text-xs font-semibold text-white bg-dark/60 backdrop-blur-sm px-3 py-1 rounded-full">
+                    🔍 Click to Enlarge
+                  </span>
+                </div>
+              </div>
+
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="font-heading text-lg sm:text-xl font-bold text-forest-900 mb-2">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
-        {/* Store Gallery */}
-        <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="font-display text-2xl md:text-3xl font-bold text-center text-dark mt-20 mb-10"
-        >
-          Our Store Gallery
-        </motion.h3>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {storeGallery.map((item, index) => (
-            <StoreImage 
-              key={item.title} 
-              item={item} 
-              index={index}
-              onClick={setLightboxImage}
-            />
-          ))}
-        </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox Modal */}
       {lightboxImage && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
+        <div 
           className="lightbox-overlay"
           onClick={() => setLightboxImage(null)}
+          role="dialog"
+          aria-modal="true"
         >
-          <div className="lightbox-content">
+          <div 
+            className="relative max-w-4xl w-full p-2 bg-white rounded-2xl shadow-strong overflow-hidden" 
+            onClick={(e) => e.stopPropagation()}
+          >
             <img 
               src={lightboxImage.image} 
               alt={lightboxImage.title}
-              className="max-w-full max-h-full object-contain rounded-lg"
+              className="w-full max-h-[75vh] object-contain rounded-xl"
             />
-            <button 
-              onClick={() => setLightboxImage(null)}
-              className="lightbox-close"
-            >
-              &times;
-            </button>
+            <div className="p-4 flex items-center justify-between">
+              <div>
+                <h4 className="font-heading font-bold text-forest-900">{lightboxImage.title}</h4>
+                <p className="text-xs text-slate-600">{lightboxImage.description}</p>
+              </div>
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="px-4 py-2 rounded-full bg-forest-100 text-forest-900 font-bold text-xs hover:bg-forest-200"
+                aria-label="Close image modal"
+              >
+                Close ✕
+              </button>
+            </div>
           </div>
-        </motion.div>
+        </div>
       )}
     </section>
   )

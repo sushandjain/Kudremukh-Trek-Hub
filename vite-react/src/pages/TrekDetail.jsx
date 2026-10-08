@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 
 // SEO Meta Update Function
@@ -446,9 +446,37 @@ function TrekDetail() {
   const difficultyConfig = getDifficultyConfig(trek.difficulty)
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="min-h-screen bg-[#fbfcfb] text-slate-800">
+      {/* Top Header */}
+      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-forest-100 shadow-sm py-3.5">
+        <div className="container mx-auto px-4 sm:px-6 flex items-center justify-between gap-4">
+          <Link to="/" className="flex items-center gap-3">
+            <img src="/image/logo.png" alt="Henjodi Stores" width="38" height="38" className="w-9 h-9 object-contain rounded-full" />
+            <span className="font-heading text-lg sm:text-xl font-bold text-forest-900">
+              Henjodi Stores
+            </span>
+          </Link>
+          <div className="flex items-center gap-3">
+            <Link 
+              to="/#treks"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full text-xs sm:text-sm font-semibold border border-forest-800/20 text-forest-800 hover:bg-forest-50 transition-colors"
+            >
+              <span>← All Treks</span>
+            </Link>
+            <a
+              href={`https://wa.me/918073178851?text=Hello%20Henjodi%20Stores!%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(trek.title)}.%0A%E2%80%A2%20Preferred%20Date%3A%20%0A%E2%80%A2%20Group%20Size%3A%20`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-[#25D366] text-white hover:bg-[#20ba5a] px-4 py-2 rounded-full text-xs sm:text-sm font-bold shadow-sm transition-all"
+            >
+              <span>Book on WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </header>
+
       {/* Modern Hero Section with Parallax */}
-      <section className="relative h-screen overflow-hidden">
+      <section className="relative h-[80vh] min-h-[500px] overflow-hidden">
         {/* Parallax Background */}
         <div 
           className="absolute inset-0 transition-transform duration-100"
@@ -456,54 +484,31 @@ function TrekDetail() {
             backgroundImage: `url('${trek.heroImage}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            transform: `translateY(${scrollY * 0.5}px)`
+            transform: `translateY(${scrollY * 0.4}px)`
           }}
         />
         
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
-        
-        {/* Animated Decorative Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <motion.div
-            animate={{ 
-              y: [0, -30, 0],
-              opacity: [0.3, 0.6, 0.3]
-            }}
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute top-20 right-20 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl"
-          />
-          <motion.div
-            animate={{ 
-              y: [0, 30, 0],
-              opacity: [0.2, 0.5, 0.2]
-            }}
-            transition={{ duration: 6, repeat: Infinity, delay: 1 }}
-            className="absolute bottom-20 left-20 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"
-          />
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/55 to-black/85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0b1a10] via-transparent to-transparent" />
 
         {/* Content */}
         <div className="absolute inset-0 flex items-end">
-          <div className="container mx-auto px-4 pb-20">
+          <div className="container mx-auto px-4 pb-16 max-w-6xl">
             <motion.div
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 50 }}
-              transition={{ duration: 1, delay: 0.2 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 40 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
               className="max-w-4xl"
             >
-              {/* Back Button */}
-              <button 
-                onClick={() => window.history.back()}
-                className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-xl border border-white/20 
-                         text-white px-6 py-3 rounded-full hover:bg-white/20 transition-all mb-6 group"
-              >
-                <svg className="w-5 h-5 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                </svg>
-                Back to All Treks
-              </button>
+              {/* Breadcrumbs */}
+              <div className="flex items-center gap-2 text-xs font-semibold text-emerald-300 mb-4">
+                <Link to="/" className="hover:underline">Home</Link>
+                <span className="text-white/40">/</span>
+                <Link to="/#treks" className="hover:underline">Treks</Link>
+                <span className="text-white/40">/</span>
+                <span className="text-white/80">{trek.title}</span>
+              </div>
               
               {/* Difficulty Badge */}
               <motion.div
@@ -874,6 +879,24 @@ function TrekDetail() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Footer */}
+      <footer className="bg-[#0b1a10] text-slate-400 py-10 text-center text-xs border-t border-forest-900 mt-16">
+        <div className="container mx-auto px-4 max-w-4xl">
+          <p className="text-white font-heading text-base font-bold mb-2">Henjodi Stores • Balagal, Kalasa, Chikmagalur</p>
+          <p className="text-slate-400 mb-4">Forest Permits Assistance, Native Guides, Homestay &amp; Malenadu Cafe</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-emerald-400 font-semibold">
+            <Link to="/" className="hover:underline">← Home</Link>
+            <span>•</span>
+            <Link to="/#treks" className="hover:underline">All Treks</Link>
+            <span>•</span>
+            <Link to="/#stay-food" className="hover:underline">Stay &amp; Food</Link>
+            <span>•</span>
+            <Link to="/terms" className="hover:underline">Guidelines &amp; Terms</Link>
+          </div>
+          <p className="text-slate-600 mt-6">© {new Date().getFullYear()} Henjodi Stores. All rights reserved.</p>
+        </div>
+      </footer>
     </div>
   )
 }

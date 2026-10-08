@@ -1,117 +1,78 @@
 import { motion } from 'framer-motion'
-import { useInView } from 'react-intersection-observer'
 
-const features = [
+const reasons = [
   {
-    icon: (
-      <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-      </svg>
-    ),
-    title: 'Expert Local Guides',
-    description: 'Our guides are born and raised in the Western Ghats, with deep knowledge of local trails, wildlife, and culture.'
+    icon: '🧭',
+    title: 'Native Mountain Guides',
+    description: 'Our guides are born and raised in the Kalasa & Kudremukh valleys. They possess deep instinctual knowledge of local weather, terrain, and shola wildlife.'
   },
   {
-    icon: (
-      <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-      </svg>
-    ),
-    title: 'All-Inclusive Package',
-    description: 'Includes trek permits, jeep charges, local food, and homestay—everything for a smooth and worry-free experience.'
+    icon: '📋',
+    title: 'Permit & Jeep Coordination',
+    description: 'Navigating forest guidelines and rough 4x4 jeep trails to Mullodi base camp is seamless with our direct local coordination.'
   },
   {
-    icon: (
-      <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-      </svg>
-    ),
-    title: 'Safety & Comfort Essentials',
-    description: 'We provide raincoats, leech remover, first aid, and Malenadu coffee and tea to keep you safe, warm, and refreshed.'
+    icon: '🍲',
+    title: 'Homestyle Malenadu Cuisine',
+    description: 'Fresh hot meals and energy-packed trail lunches cooked with local love. Authentic regional taste that restores energy after demanding peak climbs.'
+  },
+  {
+    icon: '🤝',
+    title: 'Direct Local Connection',
+    description: 'You talk directly with Prasad and the Henjodi family in Balagal. No third-party city aggregators or inflated commissions.'
   }
 ]
 
 export default function WhyChooseUs() {
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1
-  })
-
   return (
-    <section id="why-choose" className="py-20 md:py-28 bg-gradient-dark text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
-      </div>
+    <section id="why" className="py-20 md:py-28 bg-[#fbfcfb]">
+      <div className="container mx-auto px-4 sm:px-6">
+        
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-14 md:mb-18">
+          <div className="section-eyebrow">
+            Our Advantage
+          </div>
+          <h2 className="section-heading">
+            Why Trek with Henjodi Stores
+          </h2>
+          <p className="section-subheading">
+            Authentic, safe, and community-rooted adventure support right at the gateway of Karnataka's highest grasslands.
+          </p>
+        </div>
 
-      {/* Floating Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-3xl animate-pulse" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl animate-pulse animation-delay-300" />
-
-      <div className="container mx-auto px-4 relative z-10" ref={ref}>
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="font-display text-4xl md:text-5xl font-bold text-center mb-16"
-        >
-          Why Choose{' '}
-          <span className="text-gradient bg-gradient-to-r from-accent to-gold bg-clip-text text-transparent">
-            Malenadu Treks?
-          </span>
-        </motion.h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
+        {/* 4 Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          {reasons.map((item, index) => (
             <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 50 }}
-              animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group"
+              key={item.title}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-40px' }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
+              className="stitch-card p-6 sm:p-7 bg-white flex flex-col justify-between"
             >
-              <div className="glass-card p-8 text-center h-full hover:-translate-y-2 transition-all duration-300">
-                {/* Icon */}
-                <motion.div 
-                  className="text-accent mb-6 flex justify-center"
-                  whileHover={{ scale: 1.1, rotate: 5 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                  {feature.icon}
-                </motion.div>
-
-                {/* Title */}
-                <h3 className="font-display text-xl md:text-2xl font-semibold mb-4 group-hover:text-accent transition-colors">
-                  {feature.title}
+              <div>
+                <div className="text-3xl p-3 rounded-2xl bg-forest-50 border border-forest-100 w-fit mb-5">
+                  {item.icon}
+                </div>
+                
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-forest-900 mb-2.5">
+                  {item.title}
                 </h3>
-
-                {/* Description */}
-                <p className="text-white/80 leading-relaxed">
-                  {feature.description}
+                
+                <p className="text-slate-600 text-sm leading-relaxed">
+                  {item.description}
                 </p>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-forest-50 text-[11px] font-bold text-forest-700 uppercase tracking-wider">
+                Henjodi Standard
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Trust Badges */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-wrap justify-center gap-6 mt-16"
-        >
-          {['🌿 Eco-Friendly', '🛡️ Licensed & Insured', '⭐ Top Rated', '🏔️ Local Expertise'].map((badge, index) => (
-            <span
-              key={badge}
-              className="bg-white/10 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium border border-white/20 hover:bg-white/20 transition-colors cursor-default"
-            >
-              {badge}
-            </span>
-          ))}
-        </motion.div>
       </div>
     </section>
   )
