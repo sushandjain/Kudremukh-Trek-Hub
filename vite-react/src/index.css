@@ -2,41 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design Tokens & Google Stitch Foundation */
+/* ==========================================================================
+   MALENADU MIST DESIGN SYSTEM — HENJODI STORES
+   Base Brand: #1a472a (Deep Forest Green)
+   Editorial Serif: Fraunces | Clean Sans: Plus Jakarta Sans | Mono: Space Mono
+   ========================================================================== */
+
 @layer base {
   :root {
     --brand-forest: #1a472a;
-    --brand-forest-dark: #11311d;
+    --brand-forest-dark: #0c2214;
     --brand-forest-light: #2c5837;
-    --brand-forest-subtle: #f2f8f4;
-    --brand-accent: #d97706;
-    --surface-bg: #fbfcfb;
-    --surface-card: #ffffff;
-    --text-primary: #0f1f14;
-    --text-secondary: #4a5d50;
-    --radius-sm: 8px;
-    --radius-md: 14px;
-    --radius-lg: 20px;
-    --radius-xl: 28px;
+    --brand-forest-subtle: #f2faf5;
+    --brand-dawn-amber: #d97724;
+    --brand-dawn-gold: #f59e0b;
+
+    --bg-canvas: #f8faf7;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #ffffff;
+    --bg-surface-glass: rgba(255, 255, 255, 0.85);
+
+    --text-primary: #0a1f12;
+    --text-secondary: #415547;
+    --text-muted: #6b8071;
+
+    --border-subtle: rgba(26, 71, 42, 0.1);
+    --border-strong: rgba(26, 71, 42, 0.22);
+
+    --shadow-card: 0 4px 24px -2px rgba(26, 71, 42, 0.07);
+    --shadow-hover: 0 16px 40px -4px rgba(26, 71, 42, 0.14);
+  }
+
+  [data-theme="dark"] {
+    --brand-forest: #235936;
+    --brand-forest-dark: #06130b;
+    --brand-forest-light: #38774b;
+    --brand-forest-subtle: #0d1a10;
+    --brand-dawn-amber: #f59e0b;
+    --brand-dawn-gold: #fcd34d;
+
+    --bg-canvas: #060d08;
+    --bg-surface: #0d1810;
+    --bg-surface-elevated: #132418;
+    --bg-surface-glass: rgba(13, 24, 16, 0.88);
+
+    --text-primary: #ecf4ee;
+    --text-secondary: #9cb2a2;
+    --text-muted: #6b8272;
+
+    --border-subtle: rgba(156, 178, 162, 0.12);
+    --border-strong: rgba(156, 178, 162, 0.24);
+
+    --shadow-card: 0 4px 24px -2px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 16px 44px -4px rgba(0, 0, 0, 0.6);
   }
 
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
     color: var(--text-primary);
-    background-color: var(--surface-bg);
+    background-color: var(--bg-canvas);
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
   body {
-    @apply font-body text-slate-800 antialiased;
+    @apply font-sans antialiased;
+    color: var(--text-primary);
+    background-color: var(--bg-canvas);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     min-height: 100vh;
+    transition: background-color 0.4s ease, color 0.4s ease;
   }
 
-  /* Accessibility: Prefers Reduced Motion */
+  /* Accessibility: Prefers Reduced Motion Guard */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -48,19 +88,19 @@
     }
   }
 
-  /* Smooth Focus */
+  /* Keyboard Focus Ring */
   *:focus-visible {
     @apply outline-none ring-2 ring-forest-700 ring-offset-2 ring-offset-white rounded-lg;
   }
 
-  /* Refined Scrollbar */
+  /* Refined Forest Scrollbar */
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f1f5f2;
+    background: var(--bg-canvas);
   }
 
   ::-webkit-scrollbar-thumb {
@@ -69,24 +109,84 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #11311d;
+    background: #0f2c19;
   }
 }
 
 @layer components {
-  /* Stitch-Style Button: Forest Green Primary */
+  /* Editorial Typographic Scales */
+  .text-editorial-hero {
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-size: clamp(2.65rem, 6.5vw + 0.5rem, 6.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    font-weight: 700;
+  }
+
+  .text-editorial-title {
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw + 0.5rem, 3.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    font-weight: 700;
+  }
+
+  .text-editorial-headline {
+    font-family: 'Fraunces', 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.4rem, 2.5vw + 0.5rem, 2.25rem);
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+    font-weight: 600;
+  }
+
+  /* Chapter Marker / Number */
+  .chapter-number {
+    font-family: 'Space Mono', 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--brand-dawn-amber);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Editorial Card Surface */
+  .editorial-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    border-radius: 1.75rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .editorial-card:hover {
+    box-shadow: var(--shadow-hover);
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  /* Glass Surface */
+  .glass-surface {
+    background-color: var(--bg-surface-glass);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Button: Editorial Forest Primary */
   .btn-primary {
-    @apply relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-base
-           bg-[#1a472a] text-white shadow-card
+    @apply relative inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full font-semibold text-sm sm:text-base
+           bg-[#1a472a] text-white shadow-md
            transition-all duration-200 ease-out
-           hover:bg-[#153a22] hover:shadow-card-hover hover:-translate-y-0.5
+           hover:bg-[#12361f] hover:shadow-lg hover:-translate-y-0.5
            active:translate-y-0 active:scale-[0.99]
            disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   /* WhatsApp Action Button */
   .btn-whatsapp {
-    @apply relative inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-full font-semibold text-base
+    @apply relative inline-flex items-center justify-center gap-2.5 px-7 py-4 rounded-full font-bold text-sm sm:text-base
            bg-[#25D366] text-white shadow-glow-green
            transition-all duration-200 ease-out
            hover:bg-[#20ba5a] hover:shadow-[0_10px_28px_rgba(37,211,102,0.45)] hover:-translate-y-0.5
@@ -95,59 +195,47 @@
 
   /* Glass Outline / Secondary Button */
   .btn-outline {
-    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-base
-           bg-white/80 backdrop-blur-md border border-forest-800/20 text-[#1a472a]
+    @apply relative inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full font-semibold text-sm sm:text-base
+           bg-white/80 dark:bg-white/10 backdrop-blur-md border border-forest-800/20 dark:border-white/20 text-[#1a472a] dark:text-emerald-300
            transition-all duration-200 ease-out
-           hover:bg-forest-50 hover:border-forest-800/40 hover:-translate-y-0.5
+           hover:bg-forest-50 dark:hover:bg-white/15 hover:-translate-y-0.5
            active:translate-y-0;
   }
 
-  /* Dark Hero Button */
-  .btn-hero-dark {
-    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-full font-semibold text-base
-           bg-white/15 backdrop-blur-md border border-white/30 text-white
-           transition-all duration-200 ease-out
-           hover:bg-white/25 hover:border-white/50 hover:-translate-y-0.5;
+  /* Subtle Film Grain Texture Overlay (0% CPU, inline SVG) */
+  .film-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E");
   }
 
-  /* Stitch Card Surface */
+  /* Topographic Contour Lines SVG Pattern */
+  .topo-pattern {
+    background-image: radial-gradient(circle at 50% 50%, rgba(26, 71, 42, 0.04) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Rotating Circular Text Stamp */
+  .rotating-stamp {
+    animation: spin 24s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Stitch Card Surface Legacy Alias */
   .stitch-card {
-    @apply bg-white rounded-3xl border border-forest-800/10 shadow-card
-           transition-all duration-300 ease-out
-           hover:shadow-card-hover hover:border-forest-800/20;
-  }
-
-  /* Section Title Standard */
-  .section-eyebrow {
-    @apply inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase
-           bg-forest-50 text-forest-800 border border-forest-200 mb-3;
-  }
-
-  .section-heading {
-    @apply font-heading text-3xl sm:text-4xl md:text-5xl font-bold text-dark tracking-tight leading-tight;
-  }
-
-  .section-subheading {
-    @apply text-base sm:text-lg text-slate-600 max-w-2xl mx-auto mt-4 leading-relaxed;
-  }
-
-  /* Modern Badge */
-  .chip-tag {
-    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold
-           bg-forest-50 text-forest-800 border border-forest-100;
-  }
-
-  /* Input fields */
-  .input-stitch {
-    @apply w-full px-4 py-3 rounded-2xl bg-white border border-forest-200 text-slate-900 text-sm
-           placeholder:text-slate-400 focus:border-forest-700 focus:ring-2 focus:ring-forest-700/20
-           transition-all duration-150;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    box-shadow: var(--shadow-card);
+    border-radius: 1.5rem;
+    transition: all 0.3s ease-out;
   }
 }
 
 /* Lightbox Modal */
 .lightbox-overlay {
-  @apply fixed inset-0 bg-black/90 backdrop-blur-md z-[100] 
+  @apply fixed inset-0 bg-black/95 backdrop-blur-xl z-[100] 
          flex items-center justify-center p-4;
   animation: fadeIn 0.2s ease-out;
 }
