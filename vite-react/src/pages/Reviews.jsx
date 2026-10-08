@@ -4,19 +4,19 @@ import { motion } from 'framer-motion'
 import logo from '/image/logo.png'
 
 export default function Reviews() {
-  const googleMapsUrl = "https://www.google.com/maps/place/PRASAD+HENJODI+Malnad+store+(Netravati+%26+Kudremukha+peak+%26+Homestay+pre-booking+office)/@13.1843697,75.3195096,17z/data=!4m8!3m7!1s0x3bbb4b813d32f619:0xcd6487cfe9f94211!8m2!3d13.1843697!4d75.3195096!9m1!1b1!16s%2Fg%2F11y3d3n82f"
+  const googleMapsUrl = "https://share.google/m1M0JukCdjBs44Fjs"
   
   useEffect(() => {
-    document.title = 'Customer Reviews | Henjodi Stores Balagal | Kudremukh Trek Reviews'
+    document.title = 'PRASAD HENJODI Malnad Store Reviews (4.9★) | Kudremukh & Chikkamagaluru Trekking'
     
     const metaDescription = document.querySelector('meta[name="description"]')
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Read real customer reviews for Henjodi Stores Balagal - trusted trekking guides for Kudremukh Peak, Netravati Peak & Western Ghats treks in Karnataka. See what trekkers say about us.')
+      metaDescription.setAttribute('content', 'Read 111 verified Google reviews (4.9★) for PRASAD HENJODI Malnad Store & Henjodi Stores in Balagal, Kalasa, Chikkamagaluru. Trusted trekking guides for Kudremukh & Netravati Peak.')
     }
     
     const ogTitle = document.querySelector('meta[property="og:title"]')
     if (ogTitle) {
-      ogTitle.setAttribute('content', 'Customer Reviews | Henjodi Stores Balagal')
+      ogTitle.setAttribute('content', 'Customer Reviews (4.9★) | PRASAD HENJODI Malnad Store Balagal')
     }
     
     const ogDescription = document.querySelector('meta[property="og:description"]')

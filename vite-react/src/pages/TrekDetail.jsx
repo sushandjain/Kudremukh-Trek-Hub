@@ -32,13 +32,13 @@ import BookingModal from '../components/BookingModal'
 const updatePageMeta = (trek, trekId) => {
   if (!trek) return
   
-  // Update title
-  document.title = `${trek.title} | Henjodi Stores | Balagal, Kalasa`
+  // Update title with targeted Chikkamagaluru & Kudremukh SEO keywords
+  document.title = `${trek.title} Trek Booking | Chikkamagaluru Trekking – Henjodi Stores`
   
   // Update meta description
   const metaDesc = document.querySelector('meta[name="description"]')
   if (metaDesc) {
-    metaDesc.setAttribute('content', `${trek.title} (${trek.kannadaTitle}) - ${trek.subtitle}. Altitude: ${trek.altitude}, Distance: ${trek.distance}. Real permits, local native guides, and base homestay in Balagal, Kalasa. WhatsApp +91 8073178851.`)
+    metaDesc.setAttribute('content', `Book ${trek.title} (${trek.kannadaTitle}) trek in Chikkamagaluru Western Ghats. Elevation: ${trek.altitude}, distance: ${trek.distance}. Official forest permits, native Balagal guides, 4x4 jeep transfers & homestay. Call +91 80731 78851.`)
   }
   
   // Update Open Graph
@@ -47,8 +47,8 @@ const updatePageMeta = (trek, trekId) => {
   const ogImage = document.querySelector('meta[property="og:image"]')
   const ogUrl = document.querySelector('meta[property="og:url"]')
   
-  if (ogTitle) ogTitle.setAttribute('content', `${trek.title} • Henjodi Stores Trekking Hub`)
-  if (ogDesc) ogDesc.setAttribute('content', `${trek.subtitle}. ${trek.difficulty} trek, ${trek.distance}. Best season: ${trek.bestTime}. Guided by Balagal locals.`)
+  if (ogTitle) ogTitle.setAttribute('content', `${trek.title} Trek Booking • Henjodi Stores Balagal`)
+  if (ogDesc) ogDesc.setAttribute('content', `${trek.subtitle}. Guided mountain trek in Chikkamagaluru. Best season: ${trek.bestTime}. Guided by Balagal locals.`)
   if (ogImage) ogImage.setAttribute('content', `https://henjodistores.netlify.app${trek.heroImage}`)
   if (ogUrl) ogUrl.setAttribute('content', `https://henjodistores.netlify.app/trek/${trekId}`)
   
@@ -57,6 +57,33 @@ const updatePageMeta = (trek, trekId) => {
   if (canonical) {
     canonical.setAttribute('href', `https://henjodistores.netlify.app/trek/${trekId}`)
   }
+
+  // Inject dynamic TouristTrip JSON-LD for Google Rich Results
+  let trekScript = document.getElementById('trek-jsonld')
+  if (!trekScript) {
+    trekScript = document.createElement('script')
+    trekScript.id = 'trek-jsonld'
+    trekScript.type = 'application/ld+json'
+    document.head.appendChild(trekScript)
+  }
+  trekScript.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "TouristTrip",
+    "name": `${trek.title} Peak Trek Booking`,
+    "description": `${trek.subtitle}. Guided mountain trek in Chikkamagaluru Western Ghats with Henjodi Stores Balagal.`,
+    "touristType": ["Trekkers", "Adventure Seekers", "Nature Lovers"],
+    "offers": {
+      "@type": "Offer",
+      "priceCurrency": "INR",
+      "availability": "https://schema.org/InStock"
+    },
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "PRASAD HENJODI Malnad store - Henjodi Stores",
+      "telephone": "+918073178851",
+      "url": "https://henjodistores.netlify.app"
+    }
+  })
 }
 
 // All treks data - Verified information for Karnataka Western Ghats & Balagal Base
