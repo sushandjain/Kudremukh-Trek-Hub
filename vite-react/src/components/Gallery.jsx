@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const galleryImages = [
-  { image: '/image/kmview.webp', title: 'Kudremukh Peak Grasslands', tag: 'Kudremukh' },
+  { image: '/image/kmview22.webp', title: 'Kudremukh Peak Grasslands', tag: 'Kudremukh' },
   { image: '/image/kmtravelview.jpg', title: 'Kudremukh Shola Forest Trail', tag: 'Kudremukh' },
   { image: '/image/kmview2.jpeg', title: 'Ridge Trail & Valley View', tag: 'Kudremukh' },
-  { image: '/image/Nethravathi-Peak_Plan-The-Unplanned_2.jpg', title: 'Netravati Peak Panoramic Ridge', tag: 'Netravati' },
+  { image: '/image/nplogo.jpg', title: 'Netravati Peak Panoramic Ridge', tag: 'Netravati' },
   { image: '/image/npview.webp', title: 'Netravati River Origin Meadows', tag: 'Netravati' },
   { image: '/image/kk1.avif', title: 'Kurinjal Forest Ascent', tag: 'Kurinjal' },
   { image: '/image/kkview44.jpg', title: 'Kurinjal Green Canopy', tag: 'Kurinjal' },
